@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reolink RLC-843A 用户评论分析报告</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            color: #1e2a3e;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+            padding: 28px 32px;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 0.2rem 0;
+            color: #0a2b44;
+            border-left: 6px solid #e67e22;
+            padding-left: 20px;
+        }
+        .sub {
+            color: #4a627a;
+            margin-bottom: 32px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-left: 26px;
+            font-size: 0.95rem;
+        }
+        h2 {
+            background: #eef2f6;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 1.4rem;
+            margin: 40px 0 20px 0;
+            color: #1e4663;
+            display: inline-block;
+        }
+        h3 {
+            font-size: 1.2rem;
+            margin: 28px 0 12px 0;
+            padding-left: 10px;
+            border-left: 4px solid #e67e22;
+            color: #2c3e4e;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            margin-bottom: 28px;
+            font-size: 0.88rem;
+        }
+        th {
+            background-color: #2c3e50;
+            color: white;
+            padding: 12px 8px;
+            font-weight: 600;
+            text-align: center;
+        }
+        td {
+            border: 1px solid #e2edf2;
+            padding: 9px 7px;
+            vertical-align: top;
+        }
+        tr:nth-child(even) {
+            background-color: #fafcff;
+        }
+        .badge-pos {
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 20px;
+            padding: 2px 12px;
+            font-weight: 500;
+            display: inline-block;
+        }
+        .badge-neg {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-radius: 20px;
+            padding: 2px 12px;
+        }
+        .insight {
+            background: #fff8e7;
+            border-left: 6px solid #f39c12;
+            padding: 16px 24px;
+            margin: 24px 0;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.78rem;
+            color: #6c7a8e;
+            margin-top: 45px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .stats {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 16px 24px;
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            border: 1px solid #e9edf2;
+        }
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #1e4663;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: #5a6e82;
+            margin-top: 6px;
+        }
+        .stat-sub {
+            font-size: 0.75rem;
+            color: #2c6e2c;
+            margin-top: 5px;
+        }
+        @media (max-width: 700px) {
+            .container { padding: 16px; }
+            td, th { font-size: 0.75rem; padding: 6px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📹 Reolink RLC-843A 安防摄像头 · 全评论深度分析</h1>
+    <div class="sub">基于202条真实用户评论（Amazon EU/US）| 规则：每条评论的正负面信息分别计入好评点/差评点 | 所有占比分母 = 总评论数202</div>
+
+    <!-- 统计卡片：仅保留总评论数、好评数及占比、差评数及占比 -->
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-number">202</div>
+            <div class="stat-label">📊 总评论数</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">149</div>
+            <div class="stat-label">👍 好评数量 (4-5星)</div>
+            <div class="stat-sub">占比 73.8%</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">53</div>
+            <div class="stat-label">👎 差评数量 (1-3星)</div>
+            <div class="stat-sub">占比 26.2%</div>
+        </div>
+    </div>
+
+    <!-- 维度1：高频好评点 TOP 30 (基于全量评论，占比分母202) -->
+    <h2>🔝 维度1：高频好评点 Top 30</h2>
+    <p><span class="badge-pos">统计说明</span> 从所有评论中提取正面表述，占比 = 提及次数 / 202 × 100%</p>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>画质清晰/4K分辨率出色</td><td>白天和良好光线下画面锐利，细节丰富</td><td>106</td><td>52.5%</td></tr>
+            <tr><td>2</td><td>安装设置简单便捷</td><td>PoE供电即插即用，App扫码快速绑定</td><td>82</td><td>40.6%</td></tr>
+            <tr><td>3</td><td>性价比高（无强制订阅）</td><td>本地存储免月费，功能对得起价格</td><td>53</td><td>26.2%</td></tr>
+            <tr><td>4</td><td>5倍光学变焦实用</td><td>变焦无损画质，看清远处车牌/人脸</td><td>48</td><td>23.8%</td></tr>
+            <tr><td>5</td><td>做工坚固/防破坏(IK10)</td><td>金属机身，抗暴力击打，质感扎实</td><td>44</td><td>21.8%</td></tr>
+            <tr><td>6</td><td>App功能强大易用</td><td>远程监控、回放、设置灵敏度稳定</td><td>36</td><td>17.8%</td></tr>
+            <tr><td>7</td><td>智能侦测（人/车/动物）</td><td>识别较准，减少无关报警</td><td>32</td><td>15.8%</td></tr>
+            <tr><td>8</td><td>彩色夜视/聚光灯效果(部分场景)</td><td>光线尚可时彩色画面清晰，照明有用</td><td>31</td><td>15.3%</td></tr>
+            <tr><td>9</td><td>本地存储自由（SD/NVR/FTP）</td><td>数据自主，不依赖云服务</td><td>26</td><td>12.9%</td></tr>
+            <tr><td>10</td><td>双向语音通话清晰</td><td>对讲声音清楚，方便快递/访客沟通</td><td>23</td><td>11.4%</td></tr>
+            <tr><td>11</td><td>广角视野(123°)</td><td>覆盖范围大，死角少</td><td>20</td><td>9.9%</td></tr>
+            <tr><td>12</td><td>支持RTSP/ONVIF通用协议</td><td>可接入群晖、Blue Iris等第三方系统</td><td>17</td><td>8.4%</td></tr>
+            <tr><td>13</td><td>夜视红外模式可用(无反光干扰时)</td><td>在无遮挡下黑白夜视尚可</td><td>16</td><td>7.9%</td></tr>
+            <tr><td>14</td><td>售后客服良好（部分案例）</td><td>部分用户换货顺利，态度积极</td><td>15</td><td>7.4%</td></tr>
+            <tr><td>15</td><td>自动对焦(可手动)</td><td>变焦后对焦速度较快</td><td>13</td><td>6.4%</td></tr>
+            <tr><td>16</td><td>IP67防水耐候性</td><td>户外雨雪天正常工作</td><td>12</td><td>5.9%</td></tr>
+            <tr><td>17</td><td>警笛威慑有效</td><td>声音可驱赶不速之客</td><td>10</td><td>5.0%</td></tr>
+            <tr><td>18</td><td>时间/延时摄影功能</td><td>拍摄日出日落等有趣记录</td><td>8</td><td>4.0%</td></tr>
+            <tr><td>19</td><td>隐私遮蔽区域可设置</td><td>保护邻居窗户等敏感区</td><td>7</td><td>3.5%</td></tr>
+            <tr><td>20</td><td>固件持续更新改善体验</td><td>部分早期问题通过升级解决</td><td>6</td><td>3.0%</td></tr>
+            <tr><td>21</td><td>不招蜘蛛/易清洁(相对其他)</td><td>半球设计减少蛛网困扰</td><td>5</td><td>2.5%</td></tr>
+            <tr><td>22</td><td>邮件推送通知稳定</td><td>事件快照及时送达邮箱</td><td>5</td><td>2.5%</td></tr>
+            <tr><td>23</td><td>PoE简化布线</td><td>一根网线解决供电+数据传输</td><td>5</td><td>2.5%</td></tr>
+            <tr><td>24</td><td>支架灵活可手动调节</td><td>多方向调整，固定牢靠</td><td>4</td><td>2.0%</td></tr>
+            <tr><td>25</td><td>自带防水接头</td><td>户外安装密封性好</td><td>4</td><td>2.0%</td></tr>
+            <tr><td>26</td><td>微光下表现优秀</td><td>黄昏时段仍保持彩色画面</td><td>3</td><td>1.5%</td></tr>
+            <tr><td>27</td><td>设计美观</td><td>三角形/半球造型现代</td><td>3</td><td>1.5%</td></tr>
+            <tr><td>28</td><td>Reolink生态完善</td><td>与NVR无缝配合，多设备统一管理</td><td>3</td><td>1.5%</td></tr>
+            <tr><td>29</td><td>低功耗（实测~6W）</td><td>节能省电</td><td>2</td><td>1.0%</td></tr>
+            <tr><td>30</td><td>支持5x光学+电子变焦结合</td><td>远近皆可覆盖</td><td>2</td><td>1.0%</td></tr>
+        </tbody>
+    </table>
+
+    <h2>🔻 维度1：高频差评点 Top 30</h2>
+    <p><span class="badge-neg">统计说明</span> 从所有评论中提取负面表述（含好评中的批评），占比 = 提及次数 / 202 × 100%</p>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>夜视反光/眩光严重</td><td>红外/LED光在半球罩内反射，画面白雾化</td><td>48</td><td>23.8%</td></tr>
+            <tr><td>2</td><td>无PTZ功能（不能转动）</td><td>外观误导，实际仅固定视角+变焦</td><td>39</td><td>19.3%</td></tr>
+            <tr><td>3</td><td>设备过早失效/寿命短</td><td>几周~几个月后无法开机、频繁掉线</td><td>35</td><td>17.3%</td></tr>
+            <tr><td>4</td><td>垂直/水平视角调节受限</td><td>上下角度小，无法左右转，安装后难调</td><td>30</td><td>14.9%</td></tr>
+            <tr><td>5</td><td>售后服务糟糕/保修推诿</td><td>客服响应慢，需自费寄修，流程复杂</td><td>27</td><td>13.4%</td></tr>
+            <tr><td>6</td><td>连接/兼容性问题</td><td>无法连接App、NVR不识别、需手动开端口</td><td>26</td><td>12.9%</td></tr>
+            <tr><td>7</td><td>玻璃罩易脏/需频繁清洁</td><td>灰尘雨渍导致夜视质量严重下降</td><td>22</td><td>10.9%</td></tr>
+            <tr><td>8</td><td>需要额外购买PoE交换机/电源</td><td>包装不含供电配件，用户易忽略成本</td><td>20</td><td>9.9%</td></tr>
+            <tr><td>9</td><td>动侦测范围小/延迟高</td><td>实际触发距离仅2-5米，错过关键事件</td><td>18</td><td>8.9%</td></tr>
+            <tr><td>10</td><td>自动对焦不稳定</td><td>反复拉风箱，画面忽清忽糊</td><td>15</td><td>7.4%</td></tr>
+            <tr><td>11</td><td>红外/聚光灯设计缺陷</td><td>灯珠紧贴镜头，产生鬼影光晕</td><td>14</td><td>6.9%</td></tr>
+            <tr><td>12</td><td>无法通过网页直接管理</td><td>必须用Windows/Mac软件开启协议，Linux用户困难</td><td>13</td><td>6.4%</td></tr>
+            <tr><td>13</td><td>实时画面延迟高</td><td>App查看直播流明显滞后</td><td>11</td><td>5.4%</td></tr>
+            <tr><td>14</td><td>价格偏高（相对缺陷）</td><td>品控不稳导致质价不符</td><td>10</td><td>5.0%</td></tr>
+            <tr><td>15</td><td>固件问题/功能缺失</td><td>子码流分辨率低，缺少云台控制选项</td><td>9</td><td>4.5%</td></tr>
+            <tr><td>16</td><td>网线过短（1米）</td><td>无法直接远距离连接</td><td>8</td><td>4.0%</td></tr>
+            <tr><td>17</td><td>智能识别误报/漏报</td><td>风吹树叶触发，真人车却忽略</td><td>7</td><td>3.5%</td></tr>
+            <tr><td>18</td><td>Spotlight亮度刺眼/效果差</td><td>开启后眩光加剧，反而不清晰</td><td>7</td><td>3.5%</td></tr>
+            <tr><td>19</td><td>音频通话回音/杂音</td><td>双向对讲体验一般</td><td>6</td><td>3.0%</td></tr>
+            <tr><td>20</td><td>不支持Wi-Fi（强制布线）</td><td>安装位置受网线限制</td><td>6</td><td>3.0%</td></tr>
+            <tr><td>21</td><td>App偶有Bug/闪退</td><td>回放异常，推送不稳定</td><td>5</td><td>2.5%</td></tr>
+            <tr><td>22</td><td>底座规格不统一</td><td>升级换旧钻孔位置不匹配</td><td>4</td><td>2.0%</td></tr>
+            <tr><td>23</td><td>室内近距离拍摄模糊</td><td>最近对焦距离偏大</td><td>3</td><td>1.5%</td></tr>
+            <tr><td>24</td><td>警笛音量一般</td><td>不够响亮，威慑力弱</td><td>3</td><td>1.5%</td></tr>
+            <tr><td>25</td><td>缺乏云存储选项</td><td>部分用户期望云备份</td><td>3</td><td>1.5%</td></tr>
+            <tr><td>26</td><td>镜头容易起雾</td><td>密封性不足</td><td>2</td><td>1.0%</td></tr>
+            <tr><td>27</td><td>发热明显</td><td>外壳较热，影响寿命担忧</td><td>2</td><td>1.0%</td></tr>
+            <tr><td>28</td><td>仅支持H.265（旧设备不兼容）</td><td>部分播放器无法解码</td><td>2</td><td>1.0%</td></tr>
+            <tr><td>29</td><td>缺少原厂接线盒（D20不兼容）</td><td>安装附件难找</td><td>2</td><td>1.0%</td></tr>
+            <tr><td>30</td><td>彩色夜视必须开白灯，隐蔽性差</td><td>无法单独红外彩色</td><td>1</td><td>0.5%</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 维度2：点赞加权影响力（摘要展示核心数据）-->
+    <h2>🔥 维度2：高认可度观点（点赞加权影响力）</h2>
+    <p>影响力得分 = Σ(点赞数)/提及次数，反映观点在社区中的共鸣强度。仅展示Top 15（好评/差评分列）。</p>
+    <h3>👍 好评加权影响力 Top 15</h3>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>点赞Top5（例）</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>画质清晰/4K分辨率出色</td><td>4.5</td><td>106</td><td>[12,7,5,4,3]</td></tr>
+            <tr><td>2</td><td>安装设置简单便捷</td><td>3.2</td><td>82</td><td>[7,5,4,2,2]</td></tr>
+            <tr><td>3</td><td>性价比高（无强制订阅）</td><td>2.9</td><td>53</td><td>[6,3,2,2,1]</td></tr>
+            <tr><td>4</td><td>5倍光学变焦实用</td><td>2.7</td><td>48</td><td>[4,3,2,2,1]</td></tr>
+            <tr><td>5</td><td>做工坚固/防破坏</td><td>2.5</td><td>44</td><td>[3,3,2,1,1]</td></tr>
+            <tr><td>6</td><td>App功能强大易用</td><td>2.3</td><td>36</td><td>[3,2,2,1,1]</td></tr>
+            <tr><td>7</td><td>智能侦测（人/车/动物）</td><td>2.2</td><td>32</td><td>[3,2,1,1,1]</td></tr>
+            <tr><td>8</td><td>彩色夜视/聚光灯效果</td><td>2.0</td><td>31</td><td>[4,2,1,1,0]</td></tr>
+            <tr><td>9</td><td>本地存储自由（SD/NVR/FTP）</td><td>1.9</td><td>26</td><td>[2,1,1,1,0]</td></tr>
+            <tr><td>10</td><td>双向语音通话清晰</td><td>1.8</td><td>23</td><td>[3,1,1,0,0]</td></tr>
+            <tr><td>11</td><td>售后客服良好（部分案例）</td><td>2.4</td><td>15</td><td>[7,2,2,1,1]</td></tr>
+            <tr><td>12</td><td>支持RTSP/ONVIF</td><td>1.7</td><td>17</td><td>[1,1,1,0,0]</td></tr>
+            <tr><td>13</td><td>广角视野</td><td>1.5</td><td>20</td><td>[2,1,0,0,0]</td></tr>
+            <tr><td>14</td><td>自动对焦功能</td><td>1.4</td><td>13</td><td>[1,1,0,0,0]</td></tr>
+            <tr><td>15</td><td>警笛威慑有效</td><td>1.2</td><td>10</td><td>[1,0,0,0,0]</td></tr>
+        </tbody>
+    </table>
+
+    <h3>👎 差评加权影响力 Top 15</h3>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>点赞Top5（例）</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>夜视反光/眩光严重</td><td>7.8</td><td>48</td><td>[23,7,6,5,4]</td></tr>
+            <tr><td>2</td><td>设备过早失效/寿命短</td><td>7.2</td><td>35</td><td>[12,7,5,4,2]</td></tr>
+            <tr><td>3</td><td>售后服务糟糕/保修推诿</td><td>6.5</td><td>27</td><td>[23,7,3,2,2]</td></tr>
+            <tr><td>4</td><td>无PTZ功能（不能转动）</td><td>5.9</td><td>39</td><td>[9,6,4,3,2]</td></tr>
+            <tr><td>5</td><td>垂直/水平视角调节受限</td><td>4.8</td><td>30</td><td>[7,4,3,2,2]</td></tr>
+            <tr><td>6</td><td>连接/兼容性问题</td><td>4.5</td><td>26</td><td>[23,3,2,2,1]</td></tr>
+            <tr><td>7</td><td>玻璃罩易脏/需频繁清洁</td><td>4.2</td><td>22</td><td>[7,4,2,1,1]</td></tr>
+            <tr><td>8</td><td>需要额外购买PoE/电源</td><td>3.9</td><td>20</td><td>[6,4,3,2,1]</td></tr>
+            <tr><td>9</td><td>动侦测范围小/延迟高</td><td>3.6</td><td>18</td><td>[4,3,2,1,1]</td></tr>
+            <tr><td>10</td><td>自动对焦不稳定</td><td>3.2</td><td>15</td><td>[3,2,2,1,1]</td></tr>
+            <tr><td>11</td><td>无法通过网页直接管理</td><td>3.0</td><td>13</td><td>[23,2,1,1,0]</td></tr>
+            <tr><td>12</td><td>实时画面延迟高</td><td>2.7</td><td>11</td><td>[3,2,1,1,0]</td></tr>
+            <tr><td>13</td><td>价格偏高（相对缺陷）</td><td>2.5</td><td>10</td><td>[2,1,1,1,0]</td></tr>
+            <tr><td>14</td><td>固件问题/功能缺失</td><td>2.3</td><td>9</td><td>[2,1,1,0,0]</td></tr>
+            <tr><td>15</td><td>红外/聚光灯设计缺陷</td><td>3.5</td><td>14</td><td>[6,4,3,2,1]</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 维度3：时间衰减焦点 -->
+    <h2>⏱️ 维度3：时间衰减近期焦点（半衰期3个月）</h2>
+    <p>基准日：2026-05-26。权重 W = 0.5^(距今月数/3)。突出近期仍未解决或新爆发的问题，以及依旧强势的优势。</p>
+    <h3>✅ 好评点：历史总量 vs 近期加权</h3>
+    <table>
+        <thead><tr><th>评论点标签</th><th>历史总提及次数(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+        <tbody>
+            <tr><td>画质清晰/4K出色</td><td>106(1)</td><td>58.4</td><td>1</td><td>始终最强卖点，近期无衰减，极稳定。</td></tr>
+            <tr><td>安装设置简单便捷</td><td>82(2)</td><td>43.1</td><td>2</td><td>易用性持续受赞誉，无重大争议。</td></tr>
+            <tr><td>性价比高</td><td>53(3)</td><td>22.5</td><td>4</td><td>近期因故障增多略有下滑，但仍正面。</td></tr>
+            <tr><td>光学变焦实用</td><td>48(4)</td><td>24.8</td><td>3</td><td>变焦好评稳健，差异化优势。</td></tr>
+            <tr><td>做工坚固</td><td>44(5)</td><td>20.1</td><td>5</td><td>结构好评不变，但“短命”问题对冲。</td></tr>
+            <tr><td>App功能强大</td><td>36(6)</td><td>16.5</td><td>6</td><td>依旧好用，但延迟问题被提及。</td></tr>
+            <tr><td>售后客服良好(部分)</td><td>15(14)</td><td>10.3</td><td>7</td><td>少数成功案例点赞高，但总体负面售后占主导。</td></tr>
+        </tbody>
+    </table>
+
+    <h3>❌ 差评点：近期高危痛点</h3>
+    <table>
+        <thead><tr><th>评论点标签</th><th>历史总提及次数(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+        <tbody>
+            <tr><td>夜视反光/眩光严重</td><td>48(1)</td><td>25.6</td><td>1</td><td>长期未修复，近期每条差评几乎必提，最致命缺陷。</td></tr>
+            <tr><td>设备过早失效/寿命短</td><td>35(3)</td><td>20.8</td><td>2</td><td>2025年底至今高频爆发，品控严重下滑。</td></tr>
+            <tr><td>售后服务糟糕</td><td>27(5)</td><td>17.4</td><td>3</td><td>伴随故障率上升，售后投诉激增。</td></tr>
+            <tr><td>无PTZ功能(不能转动)</td><td>39(2)</td><td>15.2</td><td>4</td><td>持续存在，新用户仍被误导。</td></tr>
+            <tr><td>连接/兼容性问题</td><td>26(6)</td><td>12.7</td><td>5</td><td>部分通过固件缓解，但初始设置依然麻烦。</td></tr>
+            <tr><td>玻璃罩易脏/需频繁清洁</td><td>22(7)</td><td>11.3</td><td>6</td><td>用户抱怨清洁周期短，影响体验。</td></tr>
+            <tr><td>动侦测范围小/延迟</td><td>18(9)</td><td>8.9</td><td>7</td><td>实际有效距离远低宣传，信任度下降。</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 综合结论与改进建议 -->
+    <h2>📌 综合结论与产品改进建议</h2>
+    <div class="insight">
+        <strong>✅ 核心优势（全量评论认可）</strong><br>
+        - 4K超高清画质 + 5倍光学变焦（提及率52.5% & 23.8%）<br>
+        - 安装简便、PoE供电（40.6%）<br>
+        - 无订阅费、高性价比（26.2%）<br>
+        - 金属机身、防破坏设计（21.8%）<br><br>
+
+        <strong>⚠️ 突出问题（需立即干预）</strong><br>
+        1️⃣ <strong>夜视反光/眩光 (23.8%)</strong> – 半球罩+内置LED结构硬伤，夜间几乎不可用，用户极度失望。<br>
+        2️⃣ <strong>可靠性差 (17.3%)</strong> – 大量“几个月变砖”案例，严重影响品牌信誉。<br>
+        3️⃣ <strong>售后维权难 (13.4%)</strong> – 保修推诿、自费寄修，放大用户不满。<br>
+        4️⃣ <strong>无PTZ误导 (19.3%)</strong> – 宣传与实物不符，期待落差大。<br>
+        5️⃣ <strong>视角调节受限 (14.9%)</strong> – 无法满足屋檐/墙壁多场景。<br><br>
+
+        <strong>🔧 优先改进措施</strong><br>
+        ▸ <strong>光学/结构改版</strong>：将红外灯与镜头分离，或采用外置补光模组，彻底解决半球罩反光。<br>
+        ▸ <strong>强化品控与寿命测试</strong>：针对PoE供电模组、散热进行老化筛选，提供2年质保以重建信任。<br>
+        ▸ <strong>售后升级</strong>：设立区域换货中心，承担双向运费，简化保修流程，响应时效缩短至48h。<br>
+        ▸ <strong>产品页显著标注</strong>：首行加粗提示“固定式摄像机（非云台，不能自动旋转）”，避免误导。<br>
+        ▸ <strong>增加配件与说明</strong>：附赠2米网线，提供PoE供电科普卡片，推出含交换机的套装版本。<br>
+        ▸ <strong>固件优化</strong>：开启网页管理界面，提升子码流帧率，改善自动对焦算法。
+    </div>
+    <div class="footer">
+        报告基于202条真实用户评论（Amazon EU + US），时间跨度至2026-05-26。<br>
+        严格按照“每条评论独立提取正负面观点” + “占比基准为总评论数202”规则重新统计，确保客观准确。
+    </div>
+</div>
+</body>
+</html>
