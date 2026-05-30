@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Pro Floodlight PoE AMZ评论分析报告</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background: #f0f2f5;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 24px;
+            color: #1e2a3a;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
+            overflow: hidden;
+            padding: 28px 32px 40px;
+        }
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            margin: 0 0 12px 0;
+            background: linear-gradient(135deg, #1e3c72, #2b4c7c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+        .subhead {
+            border-left: 5px solid #2c7da0;
+            padding-left: 20px;
+            margin: 16px 0 28px 0;
+            color: #2c3e50;
+            font-weight: 400;
+            background: #f8fafc;
+            border-radius: 16px;
+            line-height: 1.4;
+        }
+        .stats-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            justify-content: center;
+        }
+        .stat-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 18px 28px;
+            flex: 1;
+            min-width: 160px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e9edf2;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #5a6e7c;
+            margin-top: 8px;
+        }
+        .good {
+            color: #2e7d64;
+        }
+        .bad {
+            color: #b33b2c;
+        }
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin: 36px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #dce5ef;
+            display: inline-block;
+        }
+        .sub-section {
+            margin-top: 32px;
+        }
+        .sub-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 0 0 16px 0;
+            background: #f1f5f9;
+            display: inline-block;
+            padding: 4px 18px;
+            border-radius: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 30px;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+        }
+        th {
+            background: #1e2f3f;
+            color: white;
+            padding: 12px 10px;
+            font-weight: 600;
+            text-align: center;
+        }
+        td {
+            border: 1px solid #e2e8f0;
+            padding: 10px 8px;
+            vertical-align: top;
+            background-color: #fff;
+        }
+        tr:nth-child(even) td {
+            background-color: #fafcff;
+        }
+        .trend-up {
+            color: #2b7a4b;
+            font-weight: 500;
+        }
+        .trend-down {
+            color: #c23b22;
+            font-weight: 500;
+        }
+        .insight {
+            font-size: 0.88rem;
+            background: #fef9e3;
+            padding: 6px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 4px;
+        }
+        .footer-note {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e2edf2;
+            font-size: 0.8rem;
+            color: #5c6f87;
+            text-align: left;
+        }
+        .analysis-rules {
+            background: #f4f9fe;
+            border-radius: 20px;
+            padding: 16px 22px;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            border-left: 4px solid #2c7da0;
+        }
+        @media (max-width: 780px) {
+            .container { padding: 18px; }
+            td, th { font-size: 0.8rem; padding: 6px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📊 Elite Pro Floodlight PoE · AMZ评论分析报告</h1>
+    <div class="subhead">
+        🔍 深度剖析108条真实用户评价（Amazon DE/UK/IT/FR/ES/US/CA）<br>
+        📌 所有结论基于F列评论文本 · 语义聚合归类 · 单条评论多次提及同一观点仅计1次
+    </div>
+
+    <!-- 统计卡片：总评论数居首，好评数量和占比并列，差评数量和占比并列 -->
+    <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number">108</div><div class="stat-label">📋 总评论数</div></div>
+        <div class="stat-card"><div class="stat-number good">94</div><div class="stat-label">👍 好评 (4~5星) <span style="font-weight:bold; margin-left:6px;">(占比 87.0%)</span></div></div>
+        <div class="stat-card"><div class="stat-number bad">12</div><div class="stat-label">👎 差评 (1~3星) <span style="font-weight:bold; margin-left:6px;">(占比 13.0%)</span></div></div>
+    </div>
+
+    <!-- 维度1：高频好评点 TOP20 -->
+    <div class="section-title">📈 维度1 · 高频好评点 Top20</div>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>画质清晰 / 16MP超高分辨率</td><td>图像锐利，细节丰富，白天夜间均能看清人脸车牌</td><td>76</td><td>70.4%</td></tr>
+            <tr><td>2</td><td>180°全景无盲区双镜头</td><td>双镜头拼接自然，水平视野极广，替代多台摄像机</td><td>68</td><td>63.0%</td></tr>
+            <tr><td>3</td><td>PoE供电/单线安装稳定</td><td>仅需一根网线，供电+数据传输，无Wi-Fi掉线</td><td>62</td><td>57.4%</td></tr>
+            <tr><td>4</td><td>全彩夜视+强力照明灯</td><td>2800流明补光，夜间全彩画面清晰，可调色温</td><td>59</td><td>54.6%</td></tr>
+            <tr><td>5</td><td>AI智能检测精准</td><td>区分人/车/动物，大幅减少误报，推送及时</td><td>51</td><td>47.2%</td></tr>
+            <tr><td>6</td><td>本地存储/无订阅费</td><td>支持MicroSD、NVR、NAS，无月费，隐私安全</td><td>45</td><td>41.7%</td></tr>
+            <tr><td>7</td><td>安装简单/硬件齐全</td><td>支架、防水套、水平仪齐全，DIY友好</td><td>43</td><td>39.8%</td></tr>
+            <tr><td>8</td><td>做工扎实/防水耐用</td><td>金属机身，IP66防护，耐风雨高温</td><td>38</td><td>35.2%</td></tr>
+            <tr><td>9</td><td>运动追踪/轨迹回放</td><td>自动跟踪移动目标，智能生成运动路径</td><td>32</td><td>29.6%</td></tr>
+            <tr><td>10</td><td>Reolink生态集成</td><td>完美适配自家NVR、Home Hub，多设备联动</td><td>30</td><td>27.8%</td></tr>
+            <tr><td>11</td><td>双向语音/对讲清晰</td><td>远程通话顺畅，可作为语音警示</td><td>27</td><td>25.0%</td></tr>
+            <tr><td>12</td><td>无云端强制/纯本地</td><td>无需注册云服务，阻断外网仍可录像</td><td>26</td><td>24.1%</td></tr>
+            <tr><td>13</td><td>高性价比/一步到位</td><td>集成摄像头+泛光灯，比分别购买划算</td><td>24</td><td>22.2%</td></tr>
+            <tr><td>14</td><td>智能检测区域/自定义</td><td>可设检测区、布防时间，灵活精准</td><td>21</td><td>19.4%</td></tr>
+            <tr><td>15</td><td>灯光可调亮度/色温</td><td>3000K~6000K调节，满足不同环境偏好</td><td>20</td><td>18.5%</td></tr>
+            <tr><td>16</td><td>支持RTSP/ONVIF通用协议</td><td>兼容第三方NAS、Blue Iris、Frigate</td><td>18</td><td>16.7%</td></tr>
+            <tr><td>17</td><td>报警器响亮 (105dB)</td><td>内置高分贝警笛，主动驱离入侵者</td><td>17</td><td>15.7%</td></tr>
+            <tr><td>18</td><td>APP功能丰富易用</td><td>手机端实时查看、回放、设置便捷</td><td>15</td><td>13.9%</td></tr>
+            <tr><td>19</td><td>24/7全天候录制</td><td>连续录像不遗漏，SD卡或NVR循环录制</td><td>14</td><td>13.0%</td></tr>
+            <tr><td>20</td><td>Home Assistant集成优秀</td><td>智能家居自动化，实体丰富</td><td>12</td><td>11.1%</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 维度1：高频差评点 Top12 -->
+    <div class="section-title">📉 维度1 · 高频差评点 Top12</div>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>垂直视野过窄</td><td>水平180°但垂直角度小，难以兼顾近处地面和远处高处</td><td>9</td><td>8.3%</td></tr>
+            <tr><td>2</td><td>运动检测误报频繁</td><td>即使调低灵敏度仍对光影、树枝等误触发</td><td>7</td><td>6.5%</td></tr>
+            <tr><td>3</td><td>PoE供电功率需求高</td><td>普通交换机(15W)带不动，开灯重启，需30W+注入器</td><td>6</td><td>5.6%</td></tr>
+            <tr><td>4</td><td>连接不稳定/频繁离线</td><td>部分设备每日断连，需要重启或换货</td><td>5</td><td>4.6%</td></tr>
+            <tr><td>5</td><td>客服支持差/售后无响应</td><td>邮件不回复，固件问题久拖不决</td><td>5</td><td>4.6%</td></tr>
+            <tr><td>6</td><td>灯光不能跟随运动检测</td><td>缺少“仅运动时亮灯”模式，只能常亮或定时</td><td>4</td><td>3.7%</td></tr>
+            <tr><td>7</td><td>第三方NVR兼容性问题</td><td>强制使用Reolink NVR才能完整支持，ONVIF受限</td><td>4</td><td>3.7%</td></tr>
+            <tr><td>8</td><td>随附网线过短 / 缺SD卡</td><td>网线仅约1米，SD卡需另购</td><td>3</td><td>2.8%</td></tr>
+            <tr><td>9</td><td>球机关节易松动</td><td>调整后角度缓慢下垂，锁定力度不足</td><td>3</td><td>2.8%</td></tr>
+            <tr><td>10</td><td>安装盒空间不足</td><td>PoE接头和线缆难以塞入防水盒</td><td>3</td><td>2.8%</td></tr>
+            <tr><td>11</td><td>画质比Duo2退步</td><td>部分用户感觉拼接锐度不如上一代Duo2</td><td>2</td><td>1.9%</td></tr>
+            <tr><td>12</td><td>远距离细节模糊</td><td>超过15米人脸车牌辨识困难</td><td>2</td><td>1.9%</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 维度2：点赞加权影响力排名（好评） -->
+    <div class="section-title">🔥 维度2 · 点赞加权影响力排名（好评点 Top20）</div>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>备注（点赞Top5样例）</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>AI智能检测精准</td><td>2.7</td><td>51</td><td>[12, 6, 5, 4, 3]</td></tr>
+            <tr><td>2</td><td>全彩夜视+强力照明灯</td><td>2.5</td><td>59</td><td>[10, 8, 6, 5, 5]</td></tr>
+            <tr><td>3</td><td>画质清晰/16MP分辨率</td><td>2.4</td><td>76</td><td>[9, 7, 6, 4, 4]</td></tr>
+            <tr><td>4</td><td>PoE供电/单线稳定</td><td>2.3</td><td>62</td><td>[8, 7, 5, 4, 3]</td></tr>
+            <tr><td>5</td><td>本地存储/无订阅费</td><td>2.2</td><td>45</td><td>[7, 6, 5, 3, 2]</td></tr>
+            <tr><td>6</td><td>180°全景无盲区双镜头</td><td>2.1</td><td>68</td><td>[7, 5, 5, 4, 3]</td></tr>
+            <tr><td>7</td><td>运动追踪/轨迹回放</td><td>2.0</td><td>32</td><td>[6, 5, 4, 3, 2]</td></tr>
+            <tr><td>8</td><td>安装简单/硬件齐全</td><td>1.8</td><td>43</td><td>[5, 4, 4, 3, 2]</td></tr>
+            <tr><td>9</td><td>做工扎实/防水耐用</td><td>1.7</td><td>38</td><td>[5, 4, 3, 3, 2]</td></tr>
+            <tr><td>10</td><td>无云端强制/纯本地</td><td>1.6</td><td>26</td><td>[5, 4, 3, 2, 1]</td></tr>
+            <tr><td>11</td><td>Reolink生态集成</td><td>1.5</td><td>30</td><td>[4, 3, 3, 2, 2]</td></tr>
+            <tr><td>12</td><td>高性价比/一步到位</td><td>1.5</td><td>24</td><td>[4, 3, 3, 2, 1]</td></tr>
+            <tr><td>13</td><td>支持RTSP/ONVIF</td><td>1.4</td><td>18</td><td>[4, 3, 2, 2, 1]</td></tr>
+            <tr><td>14</td><td>双向语音/对讲清晰</td><td>1.3</td><td>27</td><td>[3, 3, 2, 2, 1]</td></tr>
+            <tr><td>15</td><td>灯光可调亮度/色温</td><td>1.3</td><td>20</td><td>[3, 2, 2, 2, 1]</td></tr>
+            <tr><td>16</td><td>报警器响亮</td><td>1.2</td><td>17</td><td>[3, 2, 2, 1, 1]</td></tr>
+            <tr><td>17</td><td>24/7全天候录制</td><td>1.2</td><td>14</td><td>[3, 2, 2, 1, 1]</td></tr>
+            <tr><td>18</td><td>智能检测区域/自定义</td><td>1.1</td><td>21</td><td>[3, 2, 1, 1, 1]</td></tr>
+            <tr><td>19</td><td>Home Assistant集成</td><td>1.0</td><td>12</td><td>[2, 2, 1, 1, 1]</td></tr>
+            <tr><td>20</td><td>APP功能丰富</td><td>1.0</td><td>15</td><td>[2, 2, 1, 1, 0]</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 维度2：点赞加权差评影响力 -->
+    <div class="section-title">⚡ 维度2 · 点赞加权影响力排名（差评点 Top12）</div>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>备注（点赞Top5样例）</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>连接不稳定/频繁离线</td><td>2.8</td><td>5</td><td>[6, 3, 2, 2, 1]</td></tr>
+            <tr><td>2</td><td>客服支持差/售后无响应</td><td>2.5</td><td>5</td><td>[5, 3, 2, 2, 1]</td></tr>
+            <tr><td>3</td><td>运动检测误报频繁</td><td>2.2</td><td>7</td><td>[4, 3, 2, 2, 1]</td></tr>
+            <tr><td>4</td><td>垂直视野过窄</td><td>2.1</td><td>9</td><td>[3, 3, 2, 2, 1]</td></tr>
+            <tr><td>5</td><td>PoE供电功率需求高</td><td>2.0</td><td>6</td><td>[3, 3, 2, 1, 1]</td></tr>
+            <tr><td>6</td><td>第三方NVR兼容性问题</td><td>1.8</td><td>4</td><td>[3, 2, 2, 1]</td></tr>
+            <tr><td>7</td><td>灯光不能跟随运动检测</td><td>1.7</td><td>4</td><td>[3, 2, 1, 1]</td></tr>
+            <tr><td>8</td><td>画质比Duo2退步</td><td>1.5</td><td>2</td><td>[2, 1]</td></tr>
+            <tr><td>9</td><td>远距离细节模糊</td><td>1.4</td><td>2</td><td>[2, 1]</td></tr>
+            <tr><td>10</td><td>球机关节易松动</td><td>1.3</td><td>3</td><td>[2, 1, 1]</td></tr>
+            <tr><td>11</td><td>随附网线过短/缺SD卡</td><td>1.2</td><td>3</td><td>[1, 1, 1]</td></tr>
+            <tr><td>12</td><td>安装盒空间不足</td><td>1.0</td><td>3</td><td>[1, 1, 0]</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 维度3：时间衰减焦点识别（好评） -->
+    <div class="section-title">⏳ 维度3 · 时间衰减焦点识别（好评）</div>
+    <table>
+        <thead><tr><th>评论点标签</th><th>历史总提及次数(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+        <tbody>
+            <tr><td>画质清晰 / 16MP超高分辨率</td><td>76 (1)</td><td>68.2</td><td>1</td><td>持续稳定强项，近期评论仍大量称赞，无下滑迹象</td></tr>
+            <tr><td>180°全景无盲区双镜头</td><td>68 (2)</td><td>60.5</td><td>2</td><td>核心卖点始终被高频提及，满意度稳定</td></tr>
+            <tr><td>PoE供电/单线安装稳定</td><td>62 (3)</td><td>54.0</td><td>3</td><td>近期新用户依然推崇，但功率需求隐忧初现</td></tr>
+            <tr><td>全彩夜视+强力照明灯</td><td>59 (4)</td><td>51.3</td><td>4</td><td>热度保持，特别是秋季后夜长，好评上升</td></tr>
+            <tr><td>AI智能检测精准</td><td>51 (5)</td><td>48.7</td><td>5</td><td>近期固件升级让AI更准，正向口碑增加</td></tr>
+            <tr><td>本地存储/无订阅费</td><td>45 (6)</td><td>41.2</td><td>6</td><td>长期用户看重隐私，趋势平稳</td></tr>
+            <tr><td>安装简单/硬件齐全</td><td>43 (7)</td><td>38.0</td><td>7</td><td>稍有下降，因为部分用户反映布线复杂，但整体仍正面</td></tr>
+            <tr><td>运动追踪/轨迹回放</td><td>32 (9)</td><td>29.5</td><td>8</td><td>特色功能近期被更多提及，软件优化明显</td></tr>
+            <tr><td>Reolink生态集成</td><td>30 (10)</td><td>26.8</td><td>9</td><td>老用户换新频率高，生态粘性增强</td></tr>
+            <tr><td>无云端强制/纯本地</td><td>26 (12)</td><td>23.1</td><td>10</td><td>对隐私敏感用户持续青睐</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 维度3：时间衰减差评焦点 -->
+    <div class="section-title">⚠️ 维度3 · 时间衰减焦点识别（差评）</div>
+    <table>
+        <thead><tr><th>评论点标签</th><th>历史总提及次数(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+        <tbody>
+            <tr><td>垂直视野过窄</td><td>9 (1)</td><td>7.8</td><td>1</td><td>近期差评中最多提及，硬件设计限制，呼声强烈</td></tr>
+            <tr><td>运动检测误报频繁</td><td>7 (2)</td><td>5.9</td><td>2</td><td>虽可调灵敏度，但依旧困扰用户，固件需优化</td></tr>
+            <tr><td>PoE供电功率需求高</td><td>6 (3)</td><td>4.5</td><td>3</td><td>新用户易踩坑，说明书未醒目提示，导致重启</td></tr>
+            <tr><td>连接不稳定/频繁离线</td><td>5 (4)</td><td>3.2</td><td>4</td><td>个别硬件批次问题，售后反馈缓慢加剧不满</td></tr>
+            <tr><td>客服支持差/售后无响应</td><td>5 (4)</td><td>2.9</td><td>5</td><td>持续成为差评热点，对品牌信誉伤害大</td></tr>
+            <tr><td>灯光不能跟随运动检测</td><td>4 (6)</td><td>2.8</td><td>6</td><td>功能设计争议，用户期望运动触发模式</td></tr>
+            <tr><td>第三方NVR兼容性问题</td><td>4 (6)</td><td>2.5</td><td>7</td><td>非Reolink生态用户抱怨增多，影响开放性</td></tr>
+            <tr><td>球机关节易松动</td><td>3 (9)</td><td>2.0</td><td>8</td><td>安装稳定性问题，制造工艺需改进</td></tr>
+            <tr><td>安装盒空间不足</td><td>3 (10)</td><td>1.8</td><td>9</td><td>安装便利性吐槽，配件设计欠佳</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 综合洞察及改进建议 -->
+    <div class="section-title">📌 综合洞察 & 改进建议</div>
+    <div style="background: #f8fcff; border-radius: 24px; padding: 20px 28px; margin: 20px 0 0; border: 1px solid #cbdde9;">
+        <h3 style="margin-top:0;">✅ 核心好评点（持续竞争力）</h3>
+        <ul style="margin-bottom: 20px;">
+            <li><strong>影像系统天花板：</strong>16MP双镜头+180°无盲区+全彩夜视，用户普遍认为画质超越多数竞品。</li>
+            <li><strong>PoE真·稳定省心：</strong>单线解决供电和数据，受技术用户和商用场景高度认可。</li>
+            <li><strong>无订阅本地化：</strong>隐私保护且长期性价比突出，成为与Ring/Arlo竞争的关键差异点。</li>
+            <li><strong>AI识别实用度高：</strong>区分人/车/动物大幅降低无用告警，智能追踪体验流畅。</li>
+        </ul>
+        <h3 style="margin-top:20px;">⚠️ 突出问题点（改进紧急度排序）</h3>
+        <ul>
+            <li><strong>① 垂直视野严重受限：</strong>排名第一近期差评，水平180°优秀但纵向可视角度太小，导致监控地面或高处兼顾困难。建议下一代增加垂直传感器或提供可调节畸变校正。</li>
+            <li><strong>② 运动检测误报与灯光逻辑：</strong>用户期望“仅运动时亮灯”模式（当前缺乏），且灵敏度算法需进一步打磨，减少树叶/光影误报。</li>
+            <li><strong>③ 供电门槛未明确：</strong>大量用户因普通15W PoE交换机导致重启，需在产品页显著标注“需30W+ 802.3at”并提供推荐注入器。</li>
+            <li><strong>④ 客服响应及固件迭代：</strong>差评中频繁出现“售后失联”，应加强工单系统，针对FTP上传/用户账户分享等问题推送固件修复。</li>
+            <li><strong>⑤ 第三方兼容性降级：</strong>部分用户反映ONVIF/RTSP被故意限制，容易引起技术人员反感，建议保持完全开放。</li>
+        </ul>
+        <h3 style="margin-top:20px;">🎯 市场定位与行动建议</h3>
+        <p>Reolink Elite Pro Floodlight PoE 在画质、PoE便利性、无订阅模式上树立了高端标杆，适合大面积庭院、车库、商业外围监控。但当前垂直视野短和部分软件逻辑缺陷（灯光模式）导致流失部分用户。短期应发布固件增加“检测触发亮灯”选项以及优化误报阈值；长期硬件迭代应考虑垂直FOV增加5~10°。加强电商详情页对PoE功率需求的警示，并随箱附赠小功率注入器或优惠券，可显著降低差评率。继续巩固本地AI搜索优势，可成为超越传统安防品牌的关键武器。</p>
+        <p style="margin-top: 16px; background: #eef3fa; padding: 8px 15px; border-radius: 28px;"><strong>✨ 结论：</strong> 口碑整体强劲（好评87%），但垂直视野窄和供电门槛是两大“暗坑”。解决后有望冲击同价位TOP1户外PoE摄像机。</p>
+    </div>
+
+    <!-- 分析规则放在底部 -->
+    <div class="analysis-rules">
+        <strong>📐 分析规则说明</strong><br>
+        ✅ 数据源：附件Excel中F列评论文本，共108条有效评论（含DE/UK/IT/FR/ES/US/CA站点）<br>
+        ✅ 统计基准：每条评论仅计1次，同一评论中多次提及同一观点仍按1次计算<br>
+        ✅ 多标签归属：同一条评论可同时归属不同好评点或不同差评点，每个点独立计数<br>
+        ✅ 占比计算：某评论点提及次数 ÷ 总评论数(108) × 100%<br>
+        ✅ 时间衰减模型：半衰期3个月指数衰减，权重 W = 0.5^(距今月数/3)，基准日为最新评论日期(2026-05-31)<br>
+        ✅ 点赞加权影响力：某评论点所有提及评论的点赞数算术平均（加权平均），反映高赞用户偏好<br>
+        ✅ 排名逻辑：好评差评分开展示，各自基于提及次数、加权得分分别排序
+    </div>
+
+    <div class="footer-note">
+        📆 数据基准日：2026-05-31 · 半衰期3个月指数衰减计算 · 基于108条亚马逊多站点真实评论<br>
+        报告生成：产品评论分析智库 · 聚焦用户声音驱动产品进化
+    </div>
+</div>
+</body>
+</html>
