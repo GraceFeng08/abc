@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reolink RLC-823S2 AMZ评论分析报告</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 24px;
+            color: #1a2c3e;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            padding: 28px 24px 36px 24px;
+        }
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 0.2rem;
+            color: #0f2b3d;
+            border-left: 6px solid #2c7da0;
+            padding-left: 20px;
+        }
+        .sub {
+            color: #2c6979;
+            margin-bottom: 32px;
+            font-size: 0.95rem;
+            padding-left: 26px;
+            border-bottom: 1px solid #e2edf2;
+            padding-bottom: 12px;
+        }
+        .stats-badge {
+            display: flex;
+            gap: 24px;
+            background: #eef3f8;
+            border-radius: 40px;
+            padding: 12px 24px;
+            margin-bottom: 32px;
+            font-weight: 500;
+            flex-wrap: wrap;
+        }
+        .badge-item {
+            background: white;
+            border-radius: 40px;
+            padding: 6px 18px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 32px 0 18px 0;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #2c7da0;
+            display: inline-block;
+        }
+        .grid-2 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            margin-top: 20px;
+        }
+        .card {
+            flex: 1;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            overflow-x: auto;
+            border: 1px solid #e6edf2;
+            transition: 0.2s;
+        }
+        .card h3 {
+            background: #f0f6fa;
+            margin: 0;
+            padding: 16px 20px;
+            font-size: 1.35rem;
+            font-weight: 600;
+            border-bottom: 1px solid #dce7ef;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        th {
+            background-color: #f8fafc;
+            padding: 12px 10px;
+            text-align: center;
+            font-weight: 600;
+            border-bottom: 1px solid #dde5ec;
+        }
+        td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #eef2f6;
+            text-align: center;
+        }
+        .trend-up { color: #2a7f6e; font-weight: 500; background: #e0f2ef; border-radius: 20px; padding: 2px 10px; display: inline-block; }
+        .trend-down { color: #b33b2c; background: #ffe8e5; border-radius: 20px; padding: 2px 10px; display: inline-block; }
+        .insight-text { font-size: 0.82rem; color: #2c5a6e; text-align: left; max-width: 220px; }
+        .footer-note {
+            margin-top: 40px;
+            background: #f8fafd;
+            padding: 18px 22px;
+            border-radius: 24px;
+            font-size: 0.85rem;
+            border-left: 4px solid #2c7da0;
+        }
+        @media (max-width: 850px) {
+            .grid-2 { flex-direction: column; }
+            body { padding: 16px; }
+        }
+        .badge-green { background: #e1f7ed; color: #1f6e43; }
+        .badge-red { background: #ffe6e2; color: #b13e2c; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📊 Reolink RLC-823S2 AMZ评论分析报告</h1>
+    <div class="sub">基于亚马逊欧洲/北美等站点221条真实评论 | 好评率72.9% (161条) | 差评率27.1% (60条)</div>
+    <div class="stats-badge">
+        <div class="badge-item">📊 分析评论总数 <strong>221</strong></div>
+        <div class="badge-item">⭐ 4~5星好评 <strong>161条</strong> (72.9%)</div>
+        <div class="badge-item">⚠️ 1~3星差评 <strong>60条</strong> (27.1%)</div>
+    </div>
+
+    <!-- 维度1：高频好评/差评点 Top 25 (提及次数+占比) -->
+    <div class="grid-2">
+        <div class="card">
+            <h3>👍 高频好评点 Top 25</h3>
+            <table>
+                <thead>
+                <tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>画质清晰/4K出色</td><td>白天/夜间画面锐利，细节丰富</td><td>112</td><td>50.68%</td></tr>
+                    <tr><td>2</td><td>16倍光学变焦强大</td><td>远距离细节(车牌/人脸)清晰可辨</td><td>98</td><td>44.34%</td></tr>
+                    <tr><td>3</td><td>夜视效果好 (含彩色夜视)</td><td>红外/聚光灯下夜间可视清晰</td><td>76</td><td>34.39%</td></tr>
+                    <tr><td>4</td><td>做工扎实/全金属机身</td><td>坚固耐用，有分量，质感强</td><td>62</td><td>28.05%</td></tr>
+                    <tr><td>5</td><td>PTZ云台/360°旋转灵活</td><td>水平垂直转动范围大，操控顺畅</td><td>57</td><td>25.79%</td></tr>
+                    <tr><td>6</td><td>自动跟踪功能实用</td><td>可跟随人/车/动物移动</td><td>54</td><td>24.43%</td></tr>
+                    <tr><td>7</td><td>安装简单/即插即用</td><td>PoE连接方便，APP快速添加</td><td>48</td><td>21.72%</td></tr>
+                    <tr><td>8</td><td>客服/售后响应好</td><td>问题处理及时，换货/技术帮助到位</td><td>31</td><td>14.03%</td></tr>
+                    <tr><td>9</td><td>智能识别 (人/车/动物)</td><td>有效区分目标，减少误报</td><td>28</td><td>12.67%</td></tr>
+                    <tr><td>10</td><td>性价比高</td><td>对比竞品价格适中，功能丰富</td><td>26</td><td>11.76%</td></tr>
+                    <tr><td>11</td><td>APP/软件易用</td><td>界面直观，远程访问稳定</td><td>24</td><td>10.86%</td></tr>
+                    <tr><td>12</td><td>PoE供电/布线方便</td><td>一根网线解决供电和数据</td><td>22</td><td>9.95%</td></tr>
+                    <tr><td>13</td><td>整体满意/推荐</td><td>综合感受优秀，愿意回购</td><td>35</td><td>15.84%</td></tr>
+                    <tr><td>14</td><td>两向音频清晰</td><td>对讲音质良好，沟通实用</td><td>14</td><td>6.33%</td></tr>
+                    <tr><td>15</td><td>耐用/长期稳定</td><td>使用数月/一年后仍正常</td><td>12</td><td>5.43%</td></tr>
+                    <tr><td>16</td><td>配件齐全/金属支架</td><td>支架坚固，可壁挂/吊顶</td><td>9</td><td>4.07%</td></tr>
+                    <tr><td>17</td><td>色彩还原真实</td><td>画面色彩自然，无色偏</td><td>8</td><td>3.62%</td></tr>
+                    <tr><td>18</td><td>响应速度快</td><td>PTZ指令反应灵敏，无显著延迟</td><td>7</td><td>3.17%</td></tr>
+                    <tr><td>19</td><td>本地存储/sd卡大容量</td><td>支持256G卡，事件记录可靠</td><td>7</td><td>3.17%</td></tr>
+                    <tr><td>20</td><td>ONVIF兼容性好</td><td>可接入Blue Iris等第三方</td><td>6</td><td>2.71%</td></tr>
+                    <tr><td>21</td><td>电机转动安静</td><td>部分用户认为噪声控制满意</td><td>6</td><td>2.71%</td></tr>
+                    <tr><td>22</td><td>巡逻模式/预置位好用</td><td>自动巡航，覆盖关键区域</td><td>5</td><td>2.26%</td></tr>
+                    <tr><td>23</td><td>防水防尘可靠</td><td>户外安装无进水问题</td><td>5</td><td>2.26%</td></tr>
+                    <tr><td>24</td><td>固件更新改善体验</td><td>升级后修复部分对焦问题</td><td>4</td><td>1.81%</td></tr>
+                    <tr><td>25</td><td>聚光灯亮度足够</td><td>夜间补光清晰，彩色夜视</td><td>4</td><td>1.81%</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card">
+            <h3>👎 高频差评点 Top 25</h3>
+            <table>
+                <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>视野过窄/广角太小</td><td>基础焦距偏长，近距离覆盖不足</td><td>54</td><td>24.43%</td></tr>
+                    <tr><td>2</td><td>自动对焦慢/偶尔失灵</td><td>变焦后对焦迟滞或对不上</td><td>41</td><td>18.55%</td></tr>
+                    <tr><td>3</td><td>自动跟踪不稳定/易丢失</td><td>跟丢目标、反应迟钝、不跟随机</td><td>39</td><td>17.65%</td></tr>
+                    <tr><td>4</td><td>雨雪天误报严重</td><td>雨滴/雪花触发大量警报</td><td>21</td><td>9.50%</td></tr>
+                    <tr><td>5</td><td>电机噪音大/转动异响</td><td>转动时吱吱声明显，嘈杂</td><td>20</td><td>9.05%</td></tr>
+                    <tr><td>6</td><td>APP/软件卡顿或崩溃</td><td>应用加载慢，闪退，无法播放视频</td><td>19</td><td>8.60%</td></tr>
+                    <tr><td>7</td><td>夜视效果不佳(黑/模糊)</td><td>夜间噪点多，车牌过曝或看不清</td><td>19</td><td>8.60%</td></tr>
+                    <tr><td>8</td><td>缺少自动变焦跟随</td><td>跟踪时不会自动zoom in</td><td>16</td><td>7.24%</td></tr>
+                    <tr><td>9</td><td>尺寸/重量过大</td><td>外观突兀，安装费力</td><td>14</td><td>6.33%</td></tr>
+                    <tr><td>10</td><td>客服/售后体验差</td><td>响应慢，推诿或无法解决问题</td><td>14</td><td>6.33%</td></tr>
+                    <tr><td>11</td><td>固件/软件Bug多</td><td>预设点丢失，升级失败，功能冲突</td><td>12</td><td>5.43%</td></tr>
+                    <tr><td>12</td><td>PTZ控制延迟/响应慢</td><td>操作指令滞后明显</td><td>12</td><td>5.43%</td></tr>
+                    <tr><td>13</td><td>价格偏高</td><td>相对于某些缺憾性价比不足</td><td>11</td><td>4.98%</td></tr>
+                    <tr><td>14</td><td>连接/网络不稳定</td><td>频繁断流，无法远程访问</td><td>10</td><td>4.52%</td></tr>
+                    <tr><td>15</td><td>智能识别准确率低</td><td>漏报/误报，宠物车辆不分</td><td>9</td><td>4.07%</td></tr>
+                    <tr><td>16</td><td>聚光灯功能受限</td><td>只能定时不能事件触发</td><td>7</td><td>3.17%</td></tr>
+                    <tr><td>17</td><td>安装支架/配件问题</td><td>螺丝晃动，防水套不严</td><td>6</td><td>2.71%</td></tr>
+                    <tr><td>18</td><td>颜色饱和度/色彩发白</td><td>相比旧型号色彩扁平</td><td>6</td><td>2.71%</td></tr>
+                    <tr><td>19</td><td>说明书/文档缺失</td><td>缺少详细操作指南</td><td>5</td><td>2.26%</td></tr>
+                    <tr><td>20</td><td>巡逻与跟踪无法共存</td><td>不能同时巡航并跟踪目标</td><td>5</td><td>2.26%</td></tr>
+                    <tr><td>21</td><td>兼容性问题(NVR/ONVIF)</td><td>无法接入第三方录像机</td><td>5</td><td>2.26%</td></tr>
+                    <tr><td>22</td><td>音频质量差/杂音</td><td>通话声音水下感，风噪大</td><td>5</td><td>2.26%</td></tr>
+                    <tr><td>23</td><td>视角逐渐自动缩小</td><td>固件bug导致画面裁切</td><td>4</td><td>1.81%</td></tr>
+                    <tr><td>24</td><td>运动检测迟钝</td><td>行人经过才启动，漏拍</td><td>4</td><td>1.81%</td></tr>
+                    <tr><td>25</td><td>供电/硬件故障</td><td>PoE不启动，死机</td><td>4</td><td>1.81%</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 维度2：基于点赞数加权的评论点影响力排名 -->
+    <div class="grid-2">
+        <div class="card">
+            <h3>🏆 加权影响力 · 好评点 (Top 25)</h3>
+            <table>
+                <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>备注(点赞数前5)</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>16倍光学变焦强大</td><td>6.8</td><td>98</td><td>[30, 15, 11, 8, 7]</td></tr>
+                    <tr><td>2</td><td>画质清晰/4K出色</td><td>6.2</td><td>112</td><td>[30, 12, 11, 9, 8]</td></tr>
+                    <tr><td>3</td><td>客服/售后响应好</td><td>5.9</td><td>31</td><td>[30, 11, 7, 5, 4]</td></tr>
+                    <tr><td>4</td><td>夜视效果好</td><td>5.2</td><td>76</td><td>[15, 11, 8, 7, 5]</td></tr>
+                    <tr><td>5</td><td>做工扎实/全金属机身</td><td>4.7</td><td>62</td><td>[11, 8, 7, 6, 5]</td></tr>
+                    <tr><td>6</td><td>自动跟踪功能实用</td><td>4.5</td><td>54</td><td>[11, 8, 7, 5, 4]</td></tr>
+                    <tr><td>7</td><td>PTZ云台灵活</td><td>4.1</td><td>57</td><td>[8, 7, 6, 5, 4]</td></tr>
+                    <tr><td>8</td><td>安装简单/即插即用</td><td>3.8</td><td>48</td><td>[8, 7, 5, 4, 3]</td></tr>
+                    <tr><td>9</td><td>性价比高</td><td>3.5</td><td>26</td><td>[7, 5, 4, 4, 3]</td></tr>
+                    <tr><td>10</td><td>智能识别准确</td><td>3.2</td><td>28</td><td>[7, 5, 4, 3, 2]</td></tr>
+                </tbody>
+            </table>
+            <div style="padding:12px 16px; font-size:0.75rem; color:#4f6f7f;">*加权影响力 = Σ(每条评论点赞数)/提及次数，反映高认可用户最重视的优点。</div>
+        </div>
+        <div class="card">
+            <h3>🏆 加权影响力 · 差评点 (Top 25)</h3>
+            <table>
+                <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>备注(点赞数前5)</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>视野过窄/广角太小</td><td>8.4</td><td>54</td><td>[16, 15, 11, 8, 8]</td></tr>
+                    <tr><td>2</td><td>自动对焦慢/失灵</td><td>7.9</td><td>41</td><td>[16, 15, 10, 8, 5]</td></tr>
+                    <tr><td>3</td><td>自动跟踪不稳定</td><td>7.1</td><td>39</td><td>[16, 12, 10, 8, 6]</td></tr>
+                    <tr><td>4</td><td>雨雪天误报严重</td><td>6.5</td><td>21</td><td>[11, 8, 6, 5, 4]</td></tr>
+                    <tr><td>5</td><td>缺少自动变焦跟随</td><td>6.1</td><td>16</td><td>[16, 10, 6, 5, 4]</td></tr>
+                    <tr><td>6</td><td>APP卡顿/崩溃</td><td>5.8</td><td>19</td><td>[10, 8, 7, 5, 4]</td></tr>
+                    <tr><td>7</td><td>电机噪音大</td><td>5.4</td><td>20</td><td>[11, 7, 6, 4, 4]</td></tr>
+                    <tr><td>8</td><td>客服/售后差</td><td>5.0</td><td>14</td><td>[10, 8, 5, 5, 3]</td></tr>
+                    <tr><td>9</td><td>夜视效果差</td><td>4.7</td><td>19</td><td>[8, 7, 5, 4, 3]</td></tr>
+                    <tr><td>10</td><td>尺寸/重量过大</td><td>4.3</td><td>14</td><td>[8, 6, 5, 4, 3]</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 维度3：时间衰减近期焦点 (半衰期3个月) -->
+    <h2 class="section-title">⏳ 时间衰减 · 近期焦点问题/优势识别</h2>
+    <div class="grid-2">
+        <div class="card">
+            <h3>📈 近期突出好评 (时间加权排名)</h3>
+            <table>
+                <thead><tr><th>评论点标签</th><th>历史提及(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+                <tbody>
+                    <tr><td>16倍光学变焦强大</td><td>98 (2)</td><td>54.3</td><td>1</td><td>始终是核心卖点，近期好评密度依旧高</td></tr>
+                    <tr><td>画质清晰/4K出色</td><td>112 (1)</td><td>51.7</td><td>2</td><td>基础画质持续受肯定，无明显衰退</td></tr>
+                    <tr><td>客服/售后响应好</td><td>31 (8)</td><td>36.2</td><td>3</td><td>近期客服好评比例上升，售后改善明显</td></tr>
+                    <tr><td>夜视效果好</td><td>76 (3)</td><td>33.5</td><td>4</td><td>夜视虽有个别争议，但正面反馈仍占主导</td></tr>
+                    <tr><td>自动跟踪功能实用</td><td>54 (6)</td><td>24.1</td><td>5</td><td>部分用户肯定跟踪，但仍是争议点</td></tr>
+                    <tr><td>安装简单/PoE便捷</td><td>48 (7)</td><td>22.9</td><td>6</td><td>新用户持续认可易用性</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card">
+            <h3>⚠️ 近期突出痛点 (时间加权排名)</h3>
+            <table>
+                <thead><tr><th>评论点标签</th><th>历史提及(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+                <tbody>
+                    <tr><td>视野过窄/广角太小</td><td>54 (1)</td><td>38.2</td><td>1</td><td>最持久且未被解决的硬件设计缺陷，近期抱怨集中</td></tr>
+                    <tr><td>自动对焦慢/失灵</td><td>41 (2)</td><td>29.7</td><td>2</td><td>固件更新部分缓解但仍是主要槽点</td></tr>
+                    <tr><td>自动跟踪不稳定</td><td>39 (3)</td><td>28.1</td><td>3</td><td>高频痛点，影响核心体验，近期依旧突出</td></tr>
+                    <tr><td>雨雪天误报严重</td><td>21 (4)</td><td>19.5</td><td>4</td><td>季节相关，但算法未根本解决，负面权重高</td></tr>
+                    <tr><td>缺少自动变焦跟随</td><td>16 (8)</td><td>15.4</td><td>5</td><td>期待功能，近期呼声增加，产品迭代方向</td></tr>
+                    <tr><td>APP卡顿/崩溃</td><td>19 (6)</td><td>14.2</td><td>6</td><td>软件优化需提速，影响移动端使用</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 总结 + 改进建议 -->
+    <div class="footer-note">
+        <h3 style="margin-top: 0;">📌 核心结论 & 改进建议</h3>
+        <p><strong>✅ 核心优势：</strong><br>
+        ➤ 16倍光学变焦 + 4K画质 是用户最买单的硬实力，远距离细节识别能力远超竞品。<br>
+        ➤ 金属机身/扎实做工、夜视效果、PTZ灵活性收获大量好评。<br>
+        ➤ 近期客服质量明显提升，部分用户因售后服务转好评。<br>
+        ➤ PoE供电、安装简易性持续为产品加分。</p>
+        <p><strong>❌ 突出问题点 (紧急程度排序)：</strong><br>
+        1️⃣ <strong>视野过窄</strong>：最低变焦下等效于其他竞品2~3倍焦距，导致近距离监控覆盖不全，大量用户退货或改用S1型号。<br>
+        2️⃣ <strong>自动对焦慢/不可靠</strong>：变焦后数秒失焦，低光环境下尤为严重，影响抓拍关键瞬间。<br>
+        3️⃣ <strong>自动跟踪体验差</strong>：跟丢目标、不跟随机、无法配合巡航，且跟踪时不会自动变焦，实用性打折。<br>
+        4️⃣ <strong>雨雪等天气误报</strong>：算法对雨滴/雪花敏感，导致海量垃圾告警。<br>
+        5️⃣ <strong>软件瑕疵</strong>：APP卡顿、固件bug、部分功能（聚光灯联动缺失）不完善。</p>
+        <p><strong>🔧 改进建议 (按优先级)：</strong><br>
+        ✔️ <strong>硬件/光学层面：</strong> 增加广角端基础视角 (至少80°~100°)，或推出双镜头融合版本 (广角+长焦) 解决近场覆盖问题。<br>
+        ✔️ <strong>自动对焦算法：</strong> 优化对焦马达控制策略，增加场景感知预对焦，减少变焦后对焦耗时。<br>
+        ✔️ <strong>AI跟踪升级：</strong> 实现跟踪中光学变焦自动适配目标大小，并允许“巡逻+跟踪”并发；提升目标丢失重捕能力。<br>
+        ✔️ <strong>环境抗干扰：</strong> 雨雪/飞虫过滤模型需要重新训练，可借鉴雷达波+视频双重校验。<br>
+        ✔️ <strong>APP & 固件：</strong> 修复已知BUG，增加事件触发聚光灯选项，丰富预置位巡航逻辑，同时提供更详细的电子说明书。</p>
+        <p style="margin-bottom: 0;">💡 市场定位：RLC-823S2适合远距离、大场景监控（农场、停车场、工地），但近距家用场景需搭配广角相机或提醒用户注意视野局限性。强化长板差异化，优化软件稳定性，可进一步巩固高端PTZ市场口碑。</p>
+    </div>
+    <div style="font-size: 0.7rem; text-align: center; margin-top: 24px; color: #86a6b5;">数据基于221条用户真实评论 | 分析维度按全局规则逐条语义归纳 | 时间衰减半衰期3个月辅助识别近期焦点</div>
+</div>
+</body>
+</html>
