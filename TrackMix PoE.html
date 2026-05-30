@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reolink TrackMix PoE · AMZ评论分析</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            padding: 24px;
+            color: #1e2a3a;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            padding: 28px 32px;
+        }
+        h1 {
+            font-size: 1.9rem;
+            margin: 0 0 0.25rem 0;
+            font-weight: 600;
+            background: linear-gradient(135deg, #1E3C72, #2A5298);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .sub {
+            color: #5a6e7c;
+            border-left: 4px solid #2a7f6e;
+            padding-left: 16px;
+            margin: 16px 0 28px 0;
+            font-size: 0.95rem;
+        }
+        .stats-badge {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .stat-card {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 16px 24px;
+            flex: 1;
+            min-width: 160px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0f3b5c;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #4b6e8a;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 36px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #cfdfed;
+        }
+        .grid-2 {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .grid-2 > div {
+            flex: 1;
+            min-width: 320px;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        th {
+            background: #eef2f7;
+            padding: 12px 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #1e4663;
+        }
+        td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #e9edf2;
+            text-align: center;
+        }
+        .badge-positive {
+            background: #dff0e6;
+            color: #1e6f3f;
+            border-radius: 30px;
+            padding: 2px 10px;
+            font-weight: 500;
+            font-size: 0.75rem;
+            display: inline-block;
+        }
+        .badge-negative {
+            background: #ffe6e5;
+            color: #b13e3e;
+            border-radius: 30px;
+            padding: 2px 10px;
+            font-weight: 500;
+            font-size: 0.75rem;
+            display: inline-block;
+        }
+        .insight {
+            background: #fefce8;
+            border-left: 4px solid #e6b422;
+            padding: 14px 20px;
+            border-radius: 16px;
+            margin: 20px 0 10px;
+            font-size: 0.9rem;
+        }
+        .good-title {
+            background: #e0f2e9;
+            padding: 6px 12px;
+            border-radius: 40px;
+            display: inline-block;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #146b3a;
+        }
+        .bad-title {
+            background: #ffe2df;
+            padding: 6px 12px;
+            border-radius: 40px;
+            display: inline-block;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #b13e3e;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #7f8c8d;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        @media (max-width: 780px) {
+            .container { padding: 18px; }
+            td, th { font-size: 0.75rem; padding: 6px 4px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📹 Reolink TrackMix PoE · AMZ评论分析</h1>
+    <div class="sub">基于 624 条亚马逊真实评论（DE/US/CA/FR等多站点）| 分析字段：中文翻译后的评论内容 | 正负观点分别计数（同一评论中的正面信息计为好评点，负面信息计为差评点）| 占比分母 = 总评论数 624</div>
+    
+    <div class="stats-badge">
+        <div class="stat-card"><div class="stat-number">624</div><div class="stat-label">总评论数</div></div>
+        <div class="stat-card"><div class="stat-number">369</div><div class="stat-label">👍 4~5星好评</div><div style="font-size:0.7rem;">占比 59.1%</div></div>
+        <div class="stat-card"><div class="stat-number">255</div><div class="stat-label">👎 1~3星差评</div><div style="font-size:0.7rem;">占比 40.9%</div></div>
+    </div>
+
+    <div class="note" style="background:#eef2fa;padding:12px 18px;border-radius:14px;font-size:0.8rem;margin-bottom:20px;">
+        📌 说明：好评点 = 评论中表达的正面感受（无论该评论整体是好评还是差评）。差评点 = 评论中表达的负面感受（无论整体评分）。提及次数占比 = 提及该观点的评论数 / 624 × 100%。
+    </div>
+
+    <!-- 维度1：高频好评点 & 差评点 Top25（占比基于总评论数） -->
+    <div class="section-title">📊 维度1 · 高频观点提取</div>
+    
+    <!-- 好评点表格 -->
+    <div style="margin-top: 20px;">
+        <div class="good-title">👍 好评点 TOP 25</div>
+        <table style="width:100%;">
+            <thead>
+                <tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(占总数%)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>画质清晰/4K出色</td><td>白天4K画面锐利，细节丰富，色彩真实</td><td>208</td><td>33.3%</td></tr>
+                <tr><td>2</td><td>安装简单/即插即用</td><td>PoE单线供电联网，设置快速，适配NVR</td><td>162</td><td>26.0%</td></tr>
+                <tr><td>3</td><td>PTZ追踪精准/流畅</td><td>自动追踪人/车/动物，反应迅速，旋转范围大</td><td>134</td><td>21.5%</td></tr>
+                <tr><td>4</td><td>夜视效果好/彩色夜视</td><td>红外夜视清晰，LED补光下彩色夜视实用</td><td>112</td><td>17.9%</td></tr>
+                <tr><td>5</td><td>双镜头/混合变焦实用</td><td>广角+长焦同屏显示，6倍混合变焦细节丰富</td><td>99</td><td>15.9%</td></tr>
+                <tr><td>6</td><td>性价比高</td><td>价格合理，功能远超同价位竞品</td><td>91</td><td>14.6%</td></tr>
+                <tr><td>7</td><td>无云存储强制/本地存储</td><td>支持SD卡、FTP、NVR，无订阅费用</td><td>76</td><td>12.2%</td></tr>
+                <tr><td>8</td><td>App/客户端易用</td><td>手机App和PC客户端功能齐全，远程访问稳定</td><td>69</td><td>11.1%</td></tr>
+                <tr><td>9</td><td>做工扎实/防水耐候</td><td>金属机身，IP66/67，抗风雨</td><td>62</td><td>9.9%</td></tr>
+                <tr><td>10</td><td>运动检测/人车识别准</td><td>AI智能检测，过滤部分误报</td><td>56</td><td>9.0%</td></tr>
+                <tr><td>11</td><td>双向音频/警报实用</td><td>麦克风拾音清晰，扬声器音量足，警报威慑</td><td>48</td><td>7.7%</td></tr>
+                <tr><td>12</td><td>客服服务好/保修顺利</td><td>售后响应快，换新流程简单</td><td>42</td><td>6.7%</td></tr>
+                <tr><td>13</td><td>支持ONVIF/RTSP</td><td>可接入Synology、Home Assistant等第三方</td><td>37</td><td>5.9%</td></tr>
+                <tr><td>14</td><td>远程访问稳定</td><td>外网查看流畅，延迟低</td><td>33</td><td>5.3%</td></tr>
+                <tr><td>15</td><td>预设点/巡航模式</td><td>可设置多个预置位，自动巡航</td><td>28</td><td>4.5%</td></tr>
+                <tr><td>16</td><td>LED补光灯亮度足</td><td>白光LED亮度高，照明范围大</td><td>26</td><td>4.2%</td></tr>
+                <tr><td>17</td><td>360°全景覆盖</td><td>水平355°、垂直90°旋转，无死角</td><td>24</td><td>3.8%</td></tr>
+                <tr><td>18</td><td>静音电机</td><td>转动噪音小，不易察觉</td><td>19</td><td>3.0%</td></tr>
+                <tr><td>19</td><td>24/7连续录制</td><td>支持不间断录像，不丢帧</td><td>17</td><td>2.7%</td></tr>
+                <tr><td>20</td><td>兼容Home Assistant</td><td>完美集成HA，自动化丰富</td><td>15</td><td>2.4%</td></tr>
+                <tr><td>21</td><td>推送通知及时</td><td>手机推送快，带缩略图</td><td>14</td><td>2.2%</td></tr>
+                <tr><td>22</td><td>支持FTP上传</td><td>录像可存至私有FTP服务器</td><td>12</td><td>1.9%</td></tr>
+                <tr><td>23</td><td>黑色版本隐蔽性好</td><td>黑色外观不显眼，防贼注意</td><td>11</td><td>1.8%</td></tr>
+                <tr><td>24</td><td>供电灵活</td><td>支持PoE或12V DC</td><td>9</td><td>1.4%</td></tr>
+                <tr><td>25</td><td>固件持续更新</td><td>官方定期修复Bug</td><td>8</td><td>1.3%</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 差评点表格 -->
+    <div style="margin-top: 40px;">
+        <div class="bad-title">👎 差评点 TOP 25</div>
+        <table style="width:100%;">
+            <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(占总数%)</th></tr></thead>
+            <tbody>
+                <tr><td>1</td><td>运动检测误报/漏报</td><td>虫、雨、树叶触发大量假警报，真人却漏报</td><td>112</td><td>17.9%</td></tr>
+                <tr><td>2</td><td>频繁掉线/无法连接NVR</td><td>网络断开、需重启、旧NVR不兼容</td><td>101</td><td>16.2%</td></tr>
+                <tr><td>3</td><td>自动追踪不准确/迟缓</td><td>丢失目标、反应慢、晃动明显</td><td>89</td><td>14.3%</td></tr>
+                <tr><td>4</td><td>镜头起雾/进水/防水失效</td><td>雨后内部冷凝水，画面模糊，IP等级虚标</td><td>74</td><td>11.9%</td></tr>
+                <tr><td>5</td><td>夜视效果差</td><td>夜间动态模糊，车牌/人脸无法辨认</td><td>68</td><td>10.9%</td></tr>
+                <tr><td>6</td><td>音频质量差/回声</td><td>双向通话回声严重，拾音不清晰</td><td>52</td><td>8.3%</td></tr>
+                <tr><td>7</td><td>缺少电源适配器/网线过短</td><td>包装内无12V电源，短网线无法使用</td><td>48</td><td>7.7%</td></tr>
+                <tr><td>8</td><td>兼容性问题(第三方NVR/Blue Iris)</td><td>Blue Iris延迟大、Synology取流困难、ONVIF不完善</td><td>45</td><td>7.2%</td></tr>
+                <tr><td>9</td><td>双镜头无法独立控制</td><td>广角和长焦绑定，不能单独设置视角</td><td>41</td><td>6.6%</td></tr>
+                <tr><td>10</td><td>体积过大/笨重</td><td>相机尺寸大，安装后显眼</td><td>37</td><td>5.9%</td></tr>
+                <tr><td>11</td><td>缺乏巡航/巡视模式</td><td>不能自动扫描多个预置点</td><td>34</td><td>5.4%</td></tr>
+                <tr><td>12</td><td>客服响应慢/保修麻烦</td><td>需自费寄回、邮件沟通拖延</td><td>32</td><td>5.1%</td></tr>
+                <tr><td>13</td><td>发热严重</td><td>长时间运行外壳烫手</td><td>28</td><td>4.5%</td></tr>
+                <tr><td>14</td><td>设置复杂/软件难用</td><td>App菜单混乱，Web界面默认关闭</td><td>27</td><td>4.3%</td></tr>
+                <tr><td>15</td><td>不支持Reolink云存储</td><td>POE版无法使用官方云服务</td><td>24</td><td>3.8%</td></tr>
+                <tr><td>16</td><td>使用寿命短/突然损坏</td><td>几个月后彻底死机</td><td>22</td><td>3.5%</td></tr>
+                <tr><td>17</td><td>固件更新后问题</td><td>升级后功能失效或丢失</td><td>19</td><td>3.0%</td></tr>
+                <tr><td>18</td><td>安装支架设计差</td><td>塑料支架不稳固，线缆出口不便</td><td>18</td><td>2.9%</td></tr>
+                <tr><td>19</td><td>动态范围低/逆光差</td><td>强光下过曝，暗部细节丢失</td><td>16</td><td>2.6%</td></tr>
+                <tr><td>20</td><td>预览延迟大</td><td>实时画面滞后数秒</td><td>15</td><td>2.4%</td></tr>
+                <tr><td>21</td><td>不支持走廊模式</td><td>无法旋转画面适配窄长区域</td><td>13</td><td>2.1%</td></tr>
+                <tr><td>22</td><td>麦克风灵敏度低</td><td>远处声音拾取不清</td><td>12</td><td>1.9%</td></tr>
+                <tr><td>23</td><td>红外LED可见红曝</td><td>夜晚红色光点明显，暴露位置</td><td>11</td><td>1.8%</td></tr>
+                <tr><td>24</td><td>不支持WiFi（仅PoE）</td><td>用户误解为无线，实际需网线</td><td>10</td><td>1.6%</td></tr>
+                <tr><td>25</td><td>价格波动大/降价快</td><td>购买后短期降价，影响信心</td><td>7</td><td>1.1%</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ========= 维度2：基于点赞数的加权影响力 ========= -->
+    <div class="section-title">⭐ 维度2 · 用户认可度加权排名（加权平均点赞数）</div>
+    <div class="grid-2">
+        <div>
+            <div class="good-title">👍 好评点影响力 TOP 10</div>
+            <table>
+                <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>Top5点赞数样本</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>画质清晰/4K出色</td><td>3.1</td><td>208</td><td>[40,34,14,9,8]</td></tr>
+                    <tr><td>2</td><td>安装简单/即插即用</td><td>2.0</td><td>162</td><td>[14,9,8,6,5]</td></tr>
+                    <tr><td>3</td><td>PTZ追踪精准/流畅</td><td>2.8</td><td>134</td><td>[40,34,14,9,6]</td></tr>
+                    <tr><td>4</td><td>双镜头/混合变焦实用</td><td>2.4</td><td>99</td><td>[40,34,9,5,4]</td></tr>
+                    <tr><td>5</td><td>夜视效果好/彩色夜视</td><td>2.2</td><td>112</td><td>[14,9,8,5,4]</td></tr>
+                    <tr><td>6</td><td>客服服务好/保修顺利</td><td>3.5</td><td>42</td><td>[40,13,9,6,5]</td></tr>
+                    <tr><td>7</td><td>性价比高</td><td>1.9</td><td>91</td><td>[14,9,5,4,3]</td></td>
+                    <tr><td>8</td><td>无云存储强制/本地存储</td><td>1.6</td><td>76</td><td>[9,8,5,3,2]</td></tr>
+                    <tr><td>9</td><td>App/客户端易用</td><td>1.5</td><td>69</td><td>[9,6,5,4,3]</td></tr>
+                    <tr><td>10</td><td>做工扎实/防水耐候</td><td>1.4</td><td>62</td><td>[9,5,4,3,2]</td></tr>
+                </tbody>
+            </table>
+            <div class="insight">✨ 高赞好评集中体现在「画质」和「PTZ追踪」上，尤其是一条获得40个赞的详细评论大幅拉高了这些点的加权得分。</div>
+        </div>
+        <div>
+            <div class="bad-title">👎 差评点影响力 TOP 10</div>
+            <table>
+                <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>Top5点赞数样本</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>运动检测误报/漏报</td><td>4.2</td><td>112</td><td>[40,34,14,9,8]</td></tr>
+                    <tr><td>2</td><td>频繁掉线/无法连接NVR</td><td>3.6</td><td>101</td><td>[40,14,9,8,5]</td></tr>
+                    <tr><td>3</td><td>自动追踪不准确/迟缓</td><td>3.3</td><td>89</td><td>[40,34,9,5,4]</td></tr>
+                    <tr><td>4</td><td>镜头起雾/进水/防水失效</td><td>3.0</td><td>74</td><td>[40,9,8,5,4]</td></tr>
+                    <tr><td>5</td><td>夜视效果差</td><td>2.7</td><td>68</td><td>[34,9,8,5,4]</td></tr>
+                    <tr><td>6</td><td>音频质量差/回声</td><td>2.1</td><td>52</td><td>[14,9,8,5,3]</td></tr>
+                    <tr><td>7</td><td>缺少电源适配器/网线过短</td><td>1.8</td><td>48</td><td>[9,8,5,4,3]</td></tr>
+                    <tr><td>8</td><td>兼容性问题(第三方NVR)</td><td>2.4</td><td>45</td><td>[40,9,5,4,3]</td></td>
+                    <tr><td>9</td><td>双镜头无法独立控制</td><td>1.9</td><td>41</td><td>[9,8,5,4,2]</td></tr>
+                    <tr><td>10</td><td>体积过大/笨重</td><td>1.7</td><td>37</td><td>[9,5,4,3,2]</td></tr>
+                </tbody>
+            </table>
+            <div class="insight">⚠️ 运动检测误报、掉线、追踪不准确是用户最反感的三大痛点，加权得分高且负面共鸣强烈。</div>
+        </div>
+    </div>
+
+    <!-- ========= 维度3：时间衰减趋势分析 ========= -->
+    <div class="section-title">⏳ 维度3 · 近期焦点趋势（半衰期3个月，基准日2026-05-13）</div>
+    <div class="grid-2">
+        <div>
+            <div class="good-title">👍 好评点近期变化</div>
+            <table>
+                <thead><tr><th>评论点标签</th><th>原提及次数(排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+                <tbody>
+                    <tr><td>画质清晰/4K出色</td><td>208 (1)</td><td>87.6</td><td>1</td><td>长期优势，近期依然高度认可</td></tr>
+                    <tr><td>安装简单/即插即用</td><td>162 (2)</td><td>63.1</td><td>2</td><td>易安装特性持续被提及，无明显衰减</td></tr>
+                    <tr><td>PTZ追踪精准/流畅</td><td>134 (3)</td><td>54.2</td><td>3</td><td>近期追踪功能评价提升，但仍有争议</td></tr>
+                    <tr><td>双镜头/混合变焦实用</td><td>99 (5)</td><td>35.8</td><td>4</td><td>双镜头设计受青睐，近期热度稳定</td></tr>
+                    <tr><td>夜视效果尚可/彩色夜视</td><td>112 (4)</td><td>31.5</td><td>5</td><td>正面提及夜视的比例下降，受负面反馈影响</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <div class="bad-title">👎 差评点近期变化</div>
+            <table>
+                <thead><tr><th>评论点标签</th><th>原提及次数(排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+                <tbody>
+                    <tr><td>运动检测误报/漏报</td><td>112 (1)</td><td>53.4</td><td>1</td><td><span class="badge-negative">🔴 持续恶化：近半年大量新增误报投诉</span></td></tr>
+                    <tr><td>频繁掉线/无法连接NVR</td><td>101 (2)</td><td>47.1</td><td>2</td><td>掉线问题依然突出，兼容性差</td></tr>
+                    <tr><td>自动追踪不准确/迟缓</td><td>89 (3)</td><td>39.5</td><td>3</td><td>追踪算法优化不足，用户期待更新</td></tr>
+                    <tr><td>镜头起雾/进水/防水失效</td><td>74 (4)</td><td>33.2</td><td>4</td><td>防水问题批次性出现，需改进品控</td></tr>
+                    <tr><td>夜视效果差</td><td>68 (5)</td><td>26.8</td><td>5</td><td>夜视清晰度依然是主要短板</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ========= 综合结论与改进建议 ========= -->
+    <div class="section-title">📌 核心结论 & 产品改进路线图</div>
+    <div style="background: #f1f9fe; border-radius: 20px; padding: 20px 24px;">
+        <h3>✅ 核心好评点（持续保持）</h3>
+        <ul>
+            <li><strong>日间画质突出</strong>（33.3%总评论提及）—— 4K清晰度、色彩真实，是主要购买理由。</li>
+            <li><strong>PTZ追踪功能强大</strong>（21.5%）—— 自动追踪流畅，覆盖范围广，用户反馈良好。</li>
+            <li><strong>安装简单、性价比高</strong>（26.0% / 14.6%）—— PoE即插即用，无云存储费用。</li>
+            <li><strong>双镜头设计新颖</strong>（15.9%）—— 广角+长焦同屏，混合变焦实用。</li>
+            <li><strong>售后客服积极</strong>（6.7%）—— 部分用户赞赏保修换新效率。</li>
+        </ul>
+        <h3>🔻 突出问题点（高权重+近期恶化）</h3>
+        <ul>
+            <li><strong>运动检测误报/漏报</strong>（17.9%总评论提及，加权影响4.2）—— 虫、雨、树叶触发大量假警报，真人反而漏报。</li>
+            <li><strong>频繁掉线/兼容性差</strong>（16.2%）—— 网络连接不稳定，与旧NVR不兼容，掉线需重启。</li>
+            <li><strong>自动追踪不准确/迟缓</strong>（14.3%）—— 丢失目标、反应慢，追踪算法有待优化。</li>
+            <li><strong>镜头起雾/防水失效</strong>（11.9%）—— 雨后内部冷凝水，IP67形同虚设。</li>
+            <li><strong>夜视效果差</strong>（10.9%）—— 夜间动态模糊，无法辨认车牌/人脸。</li>
+            <li><strong>音频质量差/回声</strong>（8.3%）—— 双向通话回声严重，影响沟通体验。</li>
+        </ul>
+        <h3>💡 改进优先级建议（按紧急程度排序）</h3>
+        <ol>
+            <li><strong>优化运动检测与AI算法</strong> – 引入更精准的像素级过滤，允许自定义检测区域和灵敏度，减少虫、雨引起的误报；增加“仅人/车”模式。</li>
+            <li><strong>提升网络稳定性与兼容性</strong> – 优化PoE模块与固件，确保与主流NVR（包括Reolink旧型号）无缝兼容；增加断线重连机制。</li>
+            <li><strong>改进自动追踪性能</strong> – 提高追踪平滑度，增加目标再捕获速度，允许用户调节追踪灵敏度。</li>
+            <li><strong>彻底解决防水问题</strong> – 加强镜头密封和接口防水设计，增加干燥剂，确保IP67真实有效。</li>
+            <li><strong>增强夜视质量</strong> – 采用更大光圈传感器，改善低照度动态模糊，至少保证15米内人脸可辨。</li>
+            <li><strong>改善音频反馈和回声消除</strong> – 优化回声抑制算法，提升双向通话清晰度。</li>
+            <li><strong>完善第三方平台兼容性</strong> – 提供ONVIF/RTSP标准配置指南，确保与Blue Iris、Synology稳定运行。</li>
+            <li><strong>增加实用软件功能</strong> – 添加巡航模式、双镜头独立视角设置、走廊模式等。</li>
+            <li><strong>配件与说明优化</strong> – 包装内附赠1米网线和电源适配器选项，改善安装支架设计。</li>
+        </ol>
+        <p style="margin-top: 16px; font-style: italic;">📊 总体评估：Reolink TrackMix PoE 是一款功能强大的PTZ双镜头摄像机，日间画质和追踪能力广受好评，但运动检测误报、连接稳定性、防水可靠性及夜视效果是其核心短板。若能在固件和品控上优先解决“误报”和“掉线”两大痛点，并加强防水设计，产品口碑将大幅提升，有望成为家用安防PTZ领域的热门选择。</p>
+    </div>
+    <footer>数据基于624条亚马逊真实评论（DE/US/CA/FR等），时间跨度2022年-2026年。观点级独立提取：同一评论中的正面内容计入好评点，负面内容计入差评点。提及次数占比分母均为总评论数624。时间衰减采用半衰期3个月指数加权，基准日为2026-05-13。</footer>
+</div>
+</body>
+</html>
