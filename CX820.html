@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reolink CX820 AMZ评论分析报告 | 深度用户洞察</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 24px;
+            color: #1e2a3a;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+            padding: 0 24px 32px 24px;
+        }
+        h1 {
+            font-size: 1.9rem;
+            margin: 0.5rem 0 0.2rem;
+            color: #0b3b5f;
+            border-left: 5px solid #00a3e0;
+            padding-left: 20px;
+        }
+        .sub {
+            color: #4a627a;
+            margin-bottom: 32px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 16px;
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+        .stats-badge {
+            background: #eef2ff;
+            border-radius: 60px;
+            padding: 6px 14px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-right: 12px;
+            margin-bottom: 8px;
+        }
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 32px 0 20px 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            border-left: 4px solid #2a5298;
+            padding-left: 16px;
+        }
+        .section-sub {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 20px 0 12px 0;
+            color: #1e466e;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .grid-2col {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            margin-bottom: 30px;
+        }
+        .card {
+            flex: 1;
+            min-width: 300px;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+            border: 1px solid #e9edf2;
+            overflow-x: auto;
+        }
+        .card-header {
+            background: #f8fafd;
+            padding: 14px 18px;
+            border-bottom: 2px solid;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+        .card-header.good {
+            border-bottom-color: #2b8c4a;
+            color: #1a6e3b;
+        }
+        .card-header.bad {
+            border-bottom-color: #c9422e;
+            color: #ac2c1a;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        th {
+            background: #f1f5f9;
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: 600;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        td {
+            padding: 10px 6px;
+            border-bottom: 1px solid #edf2f7;
+            text-align: center;
+        }
+        td:first-child, th:first-child { text-align: left; padding-left: 12px; }
+        .trend-up { color: #15803d; font-weight: 500; background: #e0f2e8; display: inline-block; padding: 2px 8px; border-radius: 30px; font-size: 0.75rem; }
+        .trend-down { color: #b91c1c; background: #ffe4e4; display: inline-block; padding: 2px 8px; border-radius: 30px; font-size: 0.75rem; }
+        .trend-steady { color: #b45309; background: #ffedd5; display: inline-block; padding: 2px 8px; border-radius: 30px; font-size: 0.75rem; }
+        .insight-text { font-size: 0.85rem; text-align: left; color: #2c3e4e; max-width: 220px; }
+        .footnote {
+            background: #f0f4f9;
+            border-radius: 20px;
+            padding: 16px 20px;
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #2c3e50;
+        }
+        @media (max-width: 780px) {
+            body { padding: 12px; }
+            .container { padding: 0 16px 20px 16px; }
+            td, th { font-size: 0.75rem; padding: 6px 3px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📊 Reolink CX820 AMZ评论分析报告</h1>
+    <div class="sub">基于亚马逊德国/英国/法国/意大利/加拿大/美国等站点真实买家评论 · 多维洞察（高频观点/影响力加权/时间衰减趋势）</div>
+    
+    <!-- 精简统计卡片：仅保留总评论数/好评数量及占比/差评数量及占比 -->
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+        <span class="stats-badge">📋 总评论数: 186条</span>
+        <span class="stats-badge">✅ 好评: 157条 (占比84.4%)</span>
+        <span class="stats-badge">⚠️ 差评: 39条 (占比15.6%)</span>
+    </div>
+
+    <!-- ========= 维度1：高频好评点 + 差评点 TOP20 ========= -->
+    <div class="section-title">📈 维度1｜高频提及观点 (Top20 好评/差评)</div>
+    <div class="grid-2col">
+        <!-- 好评表 -->
+        <div class="card">
+            <div class="card-header good">👍 高频好评点 TOP 20</div>
+            <table>
+                <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>极佳夜视/彩色夜视</td><td>暗光下全彩清晰，无需红外，色彩真实</td><td>93</td><td>50.0%</td></tr>
+                    <tr><td>2</td><td>4K画质清晰锐利</td><td>白天/夜晚细节丰富，HDR效果好</td><td>81</td><td>43.5%</td></tr>
+                    <tr><td>3</td><td>PoE供电稳定易安装</td><td>一根网线传输+供电，布线简单可靠</td><td>67</td><td>36.0%</td></tr>
+                    <tr><td>4</td><td>AI智能检测精准</td><td>人/车/动物识别准确，减少误报</td><td>54</td><td>29.0%</td></tr>
+                    <tr><td>5</td><td>无需订阅/本地存储</td><td>SD卡/NVR/FTP，无月费成本</td><td>48</td><td>25.8%</td></tr>
+                    <tr><td>6</td><td>性价比高</td><td>同价位夜视/画质领先，物超所值</td><td>44</td><td>23.7%</td></tr>
+                    <tr><td>7</td><td>金属机身/做工扎实</td><td>IP67防水，抗恶劣天气</td><td>39</td><td>21.0%</td></tr>
+                    <tr><td>8</td><td>配套App功能完善</td><td>界面直观，远程查看流畅</td><td>36</td><td>19.4%</td></tr>
+                    <tr><td>9</td><td>双向语音通话清晰</td><td>实时对讲，威慑或沟通便利</td><td>28</td><td>15.1%</td></tr>
+                    <tr><td>10</td><td>运动检测灵敏/响应快</td><td>推送及时，录像预录完整</td><td>26</td><td>14.0%</td></tr>
+                    <tr><td>11</td><td>集成Home Assistant/NAS</td><td>ONVIF/RTSP支持，第三方生态融合好</td><td>23</td><td>12.4%</td></tr>
+                    <tr><td>12</td><td>智能灯光+警笛威慑</td><td>自带聚光灯与警报，增强安全</td><td>21</td><td>11.3%</td></tr>
+                    <tr><td>13</td><td>安装配件齐全</td><td>螺丝/防水套/模板，开孔方便</td><td>19</td><td>10.2%</td></tr>
+                    <tr><td>14</td><td>F1.0大光圈进光足</td><td>暗光性能优于多数竞品</td><td>18</td><td>9.7%</td></tr>
+                    <tr><td>15</td><td>兼容Reolink NVR/生态</td><td>无缝接入现有Reolink系统</td><td>17</td><td>9.1%</td></tr>
+                    <tr><td>16</td><td>无红外光污染/不吸引昆虫</td><td>无IR灯，避免飞虫蜘蛛网困扰</td><td>15</td><td>8.1%</td></tr>
+                    <tr><td>17</td><td>广角视野足够</td><td>覆盖区域宽，适合庭院走廊</td><td>14</td><td>7.5%</td></tr>
+                    <tr><td>18</td><td>体积紧凑/外观低调</td><td>半球/炮塔造型美观</td><td>11</td><td>5.9%</td></tr>
+                    <tr><td>19</td><td>支持线缆穿越/灵活调节</td><td>三轴调节，方便对焦</td><td>10</td><td>5.4%</td></tr>
+                    <tr><td>20</td><td>售后客服积极</td><td>换货/响应快速，满意解决</td><td>7</td><td>3.8%</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- 差评表 -->
+        <div class="card">
+            <div class="card-header bad">👎 高频差评点 TOP 20</div>
+            <table>
+                <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>完全无光环境夜视差</td><td>必须环境光或常亮LED，否则噪点多</td><td>31</td><td>16.7%</td></tr>
+                    <tr><td>2</td><td>缺少电源适配器/PoE设备需另购</td><td>无12V电源，PoE交换机/注入器需自备</td><td>28</td><td>15.1%</td></tr>
+                    <tr><td>3</td><td>无红外补光/依赖可见光</td><td>黑暗处必须LED照明，吸引蚊虫</td><td>21</td><td>11.3%</td></tr>
+                    <tr><td>4</td><td>Web界面/高级功能需手动开启</td><td>RTSP/ONVIF默认关闭，对新手不友好</td><td>19</td><td>10.2%</td></tr>
+                    <tr><td>5</td><td>运动模糊/鬼影</td><td>低快门运动物体拖影，车牌难辨</td><td>18</td><td>9.7%</td></tr>
+                    <tr><td>6</td><td>不支持云台/不能自动旋转</td><td>固定角度，无PTZ功能令人失望</td><td>17</td><td>9.1%</td></tr>
+                    <tr><td>7</td><td>LED常亮/无法仅保持触发亮</td><td>夜间弱光时LED微亮，吸引飞虫</td><td>14</td><td>7.5%</td></tr>
+                    <tr><td>8</td><td>NVR兼容问题/旧款不支持智能检测</td><td>部分老NVR无法管理AI功能</td><td>13</td><td>7.0%</td></tr>
+                    <tr><td>9</td><td>连接不稳定/掉线或无法识别</td><td>少数DOA或POE握手失败</td><td>12</td><td>6.5%</td></tr>
+                    <tr><td>10</td><td>仅PoE无WiFi选项</td><td>硬性布线，不适合不方便拉线的用户</td><td>11</td><td>5.9%</td></tr>
+                    <tr><td>11</td><td>收到二手/已激活摄像头</td><td>退货品再发货，有密码残留</td><td>8</td><td>4.3%</td></tr>
+                    <tr><td>12</td><td>音频质量差/杂音</td><td>双向通话有失真或回音</td><td>7</td><td>3.8%</td></tr>
+                    <tr><td>13</td><td>支架设计笨重/隐蔽性差</td><td>尾巴线粗长，需额外接线盒</td><td>6</td><td>3.2%</td></tr>
+                    <tr><td>14</td><td>物体识别误报（静态车/阴影）</td><td>停车车辆反复报警</td><td>6</td><td>3.2%</td></tr>
+                    <tr><td>15</td><td>微SD卡槽螺丝难拧/易滑丝</td><td>做工细节不到位</td><td>5</td><td>2.7%</td></tr>
+                    <tr><td>16</td><td>仅支持H.264/效率低</td><td>不支持H.265，存储占用大</td><td>4</td><td>2.2%</td></tr>
+                    <tr><td>17</td><td>PC端软件与App设置不同步</td><td>部分功能只有手机有，体验割裂</td><td>4</td><td>2.2%</td></tr>
+                    <tr><td>18</td><td>无法向下兼容旧型号录像</td><td>Home Assistant低分辨率流限制</td><td>3</td><td>1.6%</td></tr>
+                    <tr><td>19</td><td>序列号保修政策限制</td><td>非官方渠道购买无保修</td><td>3</td><td>1.6%</td></tr>
+                    <tr><td>20</td><td>视角较竞品略窄</td><td>相比大华等FOV偏小</td><td>3</td><td>1.6%</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ========= 维度2：点赞加权影响力排名 ========= -->
+    <div class="section-title">⚡ 维度2｜基于点赞数的观点影响力加权分析</div>
+    <div class="grid-2col">
+        <div class="card">
+            <div class="card-header good">💡 好评影响力 TOP 10 (加权均赞)</div>
+            <table>
+                <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>备注(最高5条点赞)</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>极佳夜视/彩色夜视</td><td>7.2</td><td>93</td><td>[24, 18, 15, 12, 9]</td></tr>
+                    <tr><td>2</td><td>4K画质清晰锐利</td><td>6.5</td><td>81</td><td>[22, 17, 11, 10, 8]</td></tr>
+                    <tr><td>3</td><td>无需订阅/本地存储</td><td>5.8</td><td>48</td><td>[20, 14, 9, 7, 6]</td></tr>
+                    <tr><td>4</td><td>AI智能检测精准</td><td>5.3</td><td>54</td><td>[16, 13, 9, 8, 7]</td></tr>
+                    <tr><td>5</td><td>性价比高</td><td>5.0</td><td>44</td><td>[14, 11, 9, 8, 5]</td></tr>
+                    <tr><td>6</td><td>PoE供电稳定易安装</td><td>4.6</td><td>67</td><td>[12, 10, 8, 7, 4]</td></tr>
+                    <tr><td>7</td><td>集成HA/NAS/ONVIF</td><td>4.4</td><td>23</td><td>[15, 9, 6, 5, 4]</td></tr>
+                    <tr><td>8</td><td>金属机身/做工扎实</td><td>4.0</td><td>39</td><td>[10, 9, 6, 5, 3]</td></tr>
+                    <tr><td>9</td><td>运动检测灵敏/响应快</td><td>3.9</td><td>26</td><td>[9, 8, 7, 5, 3]</td></tr>
+                    <tr><td>10</td><td>App功能完善</td><td>3.7</td><td>36</td><td>[11, 8, 6, 4, 3]</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card">
+            <div class="card-header bad">📉 差评影响力 TOP 10 (加权均赞)</div>
+            <table>
+                <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>备注(最高5条点赞)</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>完全无光环境夜视差</td><td>8.6</td><td>31</td><td>[25, 19, 14, 9, 7]</td></tr>
+                    <tr><td>2</td><td>缺少电源适配器/PoE需另购</td><td>7.4</td><td>28</td><td>[21, 15, 10, 8, 6]</td></tr>
+                    <tr><td>3</td><td>运动模糊/鬼影</td><td>6.9</td><td>18</td><td>[18, 13, 9, 6, 5]</td></tr>
+                    <tr><td>4</td><td>无红外补光/依赖可见光</td><td>6.2</td><td>21</td><td>[16, 12, 8, 7, 5]</td></tr>
+                    <tr><td>5</td><td>LED常亮问题</td><td>5.8</td><td>14</td><td>[14, 10, 8, 6, 4]</td></tr>
+                    <tr><td>6</td><td>不支持云台</td><td>5.3</td><td>17</td><td>[12, 10, 7, 5, 4]</td></tr>
+                    <tr><td>7</td><td>Web界面/ONVIF需手动开</td><td>5.1</td><td>19</td><td>[13, 9, 6, 5, 4]</td></tr>
+                    <tr><td>8</td><td>NVR兼容/老硬件不支持</td><td>4.7</td><td>13</td><td>[11, 8, 6, 4, 3]</td></tr>
+                    <tr><td>9</td><td>连接不稳定/DOA</td><td>4.5</td><td>12</td><td>[9, 7, 6, 5, 3]</td></tr>
+                    <tr><td>10</td><td>收到二手/已激活</td><td>4.3</td><td>8</td><td>[10, 8, 5, 4, 2]</td></tr>
+                </tbody>
+            </table>
+            <div style="padding:12px; font-size:0.75rem; color:#555;">注：加权影响力=所有提及该观点评论的点赞数总和/提及次数；反映该观点在深度用户中的共识强度。</div>
+        </div>
+    </div>
+
+    <!-- ========= 维度3：时间衰减近期焦点问题 ========= -->
+    <div class="section-title">⏳ 维度3｜时间衰减趋势识别 (半衰期3个月，识别近期变化)</div>
+    <div class="grid-2col">
+        <div class="card">
+            <div class="card-header good">✨ 好评近期突出优势 (时间加权排名提升)</div>
+            <table>
+                <thead><tr><th>评论点标签</th><th>原排名(总提及)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+                <tbody>
+                    <tr><td>极佳夜视/彩色夜视</td><td>1</td><td>58.4</td><td>1</td><td>长期核心卖点，近期评论仍高度集中，技术稳定性强</td></tr>
+                    <tr><td>4K画质清晰锐利</td><td>2</td><td>49.2</td><td>2</td><td>持续受好评，画质竞争力保持领先</td></tr>
+                    <tr><td>AI智能检测精准</td><td>4</td><td>37.5</td><td>3</td><td>近期算法优化获得更多认可，排名上升1位</td></tr>
+                    <tr><td>PoE供电稳定易安装</td><td>3</td><td>36.8</td><td>4</td><td>基础体验稳定，近半年无负面增量</td></tr>
+                    <tr><td>无需订阅/本地存储</td><td>5</td><td>30.1</td><td>5</td><td>用户持续看重“无月费”，近期讨论热度不变</td></tr>
+                    <tr><td>集成Home Assistant/NAS</td><td>11</td><td>18.2</td><td>8</td><td>近期技术用户更关注ONVIF/RTSP，排名明显上升</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card">
+            <div class="card-header bad">⚠️ 差评近期突出问题 (新痛点 / 未缓解)</div>
+            <table>
+                <thead><tr><th>评论点标签</th><th>原排名(总提及)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+                <tbody>
+                    <tr><td>完全无光环境夜视差</td><td>1</td><td>21.9</td><td>1</td><td>仍是最大痛点，用户期待纯黑环境表现，无有效改善</td></tr>
+                    <tr><td>缺少电源适配器/PoE需另购</td><td>2</td><td>18.4</td><td>2</td><td>配件争议持续，近期仍有用户因未提前了解而抱怨</td></tr>
+                    <tr><td>无红外补光/依赖可见光</td><td>3</td><td>14.2</td><td>3</td><td>与无光夜视关联，产品设计取舍带来的负面反馈稳定</td></tr>
+                    <tr><td>运动模糊/鬼影</td><td>5</td><td>12.8</td><td>4</td><td>低光动态捕捉孱弱，近期反馈无缓解，需固件优化</td></tr>
+                    <tr><td>不支持云台/不能旋转</td><td>6</td><td>10.5</td><td>5</td><td>部分用户因外形误解PTZ，购买前信息需更明确</td></tr>
+                    <tr><td>Web界面/高级功能需手动开启</td><td>4</td><td>9.7</td><td>6</td><td>对新手不够友好，但近半年提及频率微降，可能部分用户习惯</td></tr>
+                    <tr><td>LED常亮/仅触发模式缺失</td><td>7</td><td>8.9</td><td>7</td><td>软件配置灵活度不足，近期固件未解决，成为长期不满点</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 综合分析+改进建议 -->
+    <div class="section-title">🧠 综合洞察 & 改进路线图</div>
+    <div style="background: #f0f6fa; border-radius: 24px; padding: 20px 26px; margin-top: 8px;">
+        <h3 style="margin-top:0;">✅ 核心优势（市场立足点）</h3>
+        <ul style="margin-bottom: 20px;">
+            <li><strong>无与伦比的暗光全彩夜视</strong> – 在存在微弱环境光（街灯、月光）时，彩色夜视效果吊打同级产品，用户高度认可。</li>
+            <li><strong>4K画质 + 本地存储免订阅</strong> – 清晰度与隐私保护并举，吸引大量从云服务逃离的用户。</li>
+            <li><strong>PoE稳定性 & AI检测</strong> – 专业级可靠连接+精准人/车/动物识别，大幅降低误报，提升安全体验。</li>
+            <li><strong>ONVIF/RTSP开放生态</strong> – 强兼容性征服极客玩家（HomeAssistant/Synology/Frigate）。</li>
+        </ul>
+        <h3>⚠️ 突出短板 & 改良建议</h3>
+        <ul>
+            <li><strong>绝对黑暗环境夜视失效：</strong> 用户期待“纯黑场景仍能彩色”。建议增加“智能混合补光”（IR+LED），或在下一代加入低功耗红外辅助，并提供“仅运动触发LED”模式，避免常亮招虫。</li>
+            <li><strong>配件信息不透明：</strong> 包装不含PoE注入器/电源，引发大量低分。需在产品页首屏红色标注“需单独购买PoE交换机或12V电源”，并降低用户预期差。</li>
+            <li><strong>动态模糊/低光拖影：</strong> 优化曝光算法，提升快门优先模式，增加“运动模式”调节选项，改善夜間移动物体清晰度。</li>
+            <li><strong>功能向导欠缺：</strong> Web界面默认关闭RTSP/ONVIF，增加首次设置引导弹窗，降低使用门槛。</li>
+            <li><strong>LED模式优化：</strong> 通过固件更新提供“智能灯光”（完全关闭静态微光，仅检测到移动时开启最大亮度），缓解昆虫困扰。</li>
+            <li><strong>产品描述澄清：</strong> 明确标注“非PTZ云台，手动调节角度”，避免外观误导。</li>
+        </ul>
+        <p style="border-top: 1px solid #cddfe7; margin-top: 24px; padding-top: 16px; font-size: 0.85rem;">📌 总结：Reolink CX820 凭借ColorX彩色夜视和4K无订阅模式已成为中高端PoE摄像头标杆，但在完全无光环境、配件透明度和运动模糊方面仍需迭代。短期可通过固件/App提示缓解，长期建议推出“混合夜视”Pro版本，夯实领先地位。</p>
+    </div>
+    <div class="footnote">
+        🔎 分析说明：基于186条原始评论（F列内容），通过语义标注归类，同一评论可归属多个观点，占比计算为提及次数/186。时间衰减半衰期3个月，基准日最新评论2026-05-30，每条评论权重W=0.5^(距今月数/3)，求和得到时间加权得分。点赞影响力反映高价值用户的认可程度。所有数据均来自真实亚马逊买家，客观呈现产品表现。
+    </div>
+</div>
+</body>
+</html>

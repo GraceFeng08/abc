@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reolink Duo Floodlight PoE AMZ评论分析报告</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f3f6fc;
+            margin: 0;
+            padding: 24px;
+            color: #1e2a3e;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+            padding: 24px 28px;
+        }
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            margin: 0 0 0.25rem 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .sub {
+            color: #4a627a;
+            border-left: 4px solid #2a7faa;
+            padding-left: 16px;
+            margin: 16px 0 28px 0;
+            font-weight: 400;
+        }
+        .stats-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 36px;
+        }
+        .stat-card {
+            background: #f8fafc;
+            border-radius: 24px;
+            padding: 16px 24px;
+            flex: 1;
+            min-width: 150px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #e2edf2;
+        }
+        .stat-card .number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0f3b5f;
+        }
+        .stat-card .label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #5b7a9a;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 32px;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        th {
+            background-color: #1e3a5f;
+            color: white;
+            padding: 12px 10px;
+            font-weight: 600;
+            text-align: center;
+        }
+        td {
+            border-bottom: 1px solid #e0edf5;
+            padding: 10px 8px;
+            text-align: center;
+            background-color: #ffffff;
+        }
+        tr:hover td {
+            background-color: #f1f9fe;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 32px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #2a7faa;
+            display: inline-block;
+        }
+        .note {
+            background: #fef4e6;
+            border-left: 5px solid #f39c12;
+            padding: 12px 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+            font-size: 0.85rem;
+        }
+        .insight {
+            background: #e8f0fe;
+            padding: 16px 24px;
+            border-radius: 28px;
+            margin: 24px 0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.75rem;
+            color: #6c8db0;
+            border-top: 1px solid #d9e6f2;
+            padding-top: 20px;
+        }
+        @media (max-width: 700px) {
+            .container { padding: 16px; }
+            td, th { font-size: 0.75rem; padding: 8px 4px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🔍 Reolink Duo Floodlight PoE AMZ评论分析报告</h1>
+    <div class="sub">基于227条真实亚马逊评论 | 欧洲/美国/澳洲等多站点 | 时间范围2023年1月 - 2026年5月</div>
+
+    <div class="stats-grid">
+        <div class="stat-card"><div class="number">227</div><div class="label">总评论数</div></div>
+        <div class="stat-card"><div class="number">170</div><div class="label">好评(4-5星)</div><div class="label" style="color: #2b7e3a;">占比 74.9%</div></div>
+        <div class="stat-card"><div class="number">57</div><div class="label">差评(1-3星)</div><div class="label" style="color: #c0392b;">占比 25.1%</div></div>
+    </div>
+
+    <!-- ========================= 维度1 TOP25 好评 ========================= -->
+    <h2 class="section-title">✅ 维度1：高频好评点 Top 25</h2>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>180°超广角视野</td><td>双镜头无缝拼接，一个摄像头覆盖整个院子/车道</td><td>98</td><td>43.2%</td></tr>
+            <tr><td>2</td><td>画质清晰 / 4K高分辨率</td><td>白天色彩真实，细节锐利，人脸车牌可辨</td><td>82</td><td>36.1%</td></tr>
+            <tr><td>3</td><td>PoE供电便捷稳定</td><td>单网线传输数据+供电，无需额外电源，安装整洁</td><td>67</td><td>29.5%</td></tr>
+            <tr><td>4</td><td>照明亮度高 (1800流明)</td><td>泛光灯非常亮，夜间全彩效果出众，可调亮度</td><td>59</td><td>26.0%</td></tr>
+            <tr><td>5</td><td>AI智能检测 (人/车/宠物)</td><td>识别精准，减少误报，尤其对宠物/车辆区分好</td><td>44</td><td>19.4%</td></tr>
+            <tr><td>6</td><td>无强制订阅 / 本地存储</td><td>支持SD卡/NVR/FTP，无月费，隐私安全</td><td>38</td><td>16.7%</td></tr>
+            <tr><td>7</td><td>简单安装 & 配套App好用</td><td>支架简单，App直观，远程查看流畅</td><td>36</td><td>15.9%</td></tr>
+            <tr><td>8</td><td>双向语音清晰</td><td>对讲质量好，麦克风拾音远，声大无回音</td><td>25</td><td>11.0%</td></tr>
+            <tr><td>9</td><td>耐候性强 / 做工扎实</td><td>防水防尘，金属机身，适合户外长期使用</td><td>22</td><td>9.7%</td></tr>
+            <tr><td>10</td><td>宽动态 / 夜视彩色优秀</td><td>配合补光灯夜晚呈现彩色画面，红外也清晰</td><td>19</td><td>8.4%</td></tr>
+            <tr><td>11</td><td>低延迟实时预览</td><td>App打开画面几乎无延迟，操控响应快</td><td>17</td><td>7.5%</td></tr>
+            <tr><td>12</td><td>支持RTSP/ONVIF协议</td><td>可接入Blue Iris、Synology等第三方NVR</td><td>16</td><td>7.0%</td></tr>
+            <tr><td>13</td><td>无风扇静音设计</td><td>被动散热，户外无噪音干扰</td><td>15</td><td>6.6%</td></tr>
+            <tr><td>14</td><td>可插存储卡本地录制</td><td>插入microSD卡即可实现独立录像，无需额外设备</td><td>14</td><td>6.2%</td></tr>
+            <tr><td>15</td><td>可调灯光亮度 / 定时开关</td><td>App中调节亮度百分比，支持计划模式</td><td>13</td><td>5.7%</td></tr>
+            <tr><td>16</td><td>壁装/吸顶灵活安装</td><td>附送支架可墙面或屋檐安装，适配不同场景</td><td>12</td><td>5.3%</td></tr>
+            <tr><td>17</td><td>人形/车辆抓拍准确</td><td>关键时刻不漏录，推送有效告警</td><td>11</td><td>4.8%</td></tr>
+            <tr><td>18</td><td>多用户分享方便</td><td>支持家庭成员共同查看，权限管理清晰</td><td>10</td><td>4.4%</td></tr>
+            <tr><td>19</td><td>回放流畅快速</td><td>检索录像时间轴顺滑，拖动不卡顿</td><td>9</td><td>4.0%</td></tr>
+            <tr><td>20</td><td>支持云存储可选</td><td>不强制，但提供付费云选项，灵活性高</td><td>8</td><td>3.5%</td></tr>
+            <tr><td>21</td><td>双镜头独立微调</td><td>可分别调整左右镜头角度，优化拼接效果</td><td>8</td><td>3.5%</td></tr>
+            <tr><td>22</td><td>夜视红外距离足够</td><td>在没有补光灯时，红外也能看清20米内物体</td><td>7</td><td>3.1%</td></tr>
+            <tr><td>23</td><td>告警推送稳定</td><td>手机通知及时，几乎无漏报</td><td>7</td><td>3.1%</td></tr>
+            <tr><td>24</td><td>搭配Reolink NVR完美适配</td><td>即插即用，完整解锁智能检测和灯光联动</td><td>6</td><td>2.6%</td></tr>
+            <tr><td>25</td><td>外观科技感强</td><td>类似Wall-E造型，辨识度高且美观</td><td>5</td><td>2.2%</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ========================= 维度1 差评 TOP25 ========================= -->
+    <h2 class="section-title">⚠️ 维度1：高频差评点 Top 25</h2>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>缺少电源适配器 / 配件不全</td><td>包装不含DC电源，部分用户误以为可直插市电</td><td>31</td><td>13.7%</td></tr>
+            <tr><td>2</td><td>运动检测误报或漏报</td><td>昆虫/树叶触发过多，人或车有时不触发</td><td>28</td><td>12.3%</td></tr>
+            <tr><td>3</td><td>泛光灯延迟 & 点亮时间过短</td><td>人走过2-3秒才亮，亮几秒就灭，不可调持续时长</td><td>26</td><td>11.5%</td></tr>
+            <tr><td>4</td><td>设备故障 / 寿命短</td><td>使用几周至半年后彻底死机、不启动、图像一半变白</td><td>24</td><td>10.6%</td></tr>
+            <tr><td>5</td><td>夜视画质不佳 / 拼接问题</td><td>夜间噪点多，双镜头亮度不均，中心接缝明显</td><td>22</td><td>9.7%</td></tr>
+            <tr><td>6</td><td>与旧款NVR/第三方NVR兼容性问题</td><td>老款Reolink NVR不识别，ONVIF/RTSP不稳定</td><td>20</td><td>8.8%</td></tr>
+            <tr><td>7</td><td>安装支架设计不合理</td><td>俯仰角度受限，不易水平安装，网线接口暴露</td><td>18</td><td>7.9%</td></tr>
+            <tr><td>8</td><td>音频质量差 / 杂音严重</td><td>风噪大，声音断断续续，或有回声</td><td>14</td><td>6.2%</td></tr>
+            <tr><td>9</td><td>客服支持糟糕</td><td>响应慢，海外客服流程繁琐，退货困难</td><td>13</td><td>5.7%</td></tr>
+            <tr><td>10</td><td>PoE供电要求高（需802.3at）</td><td>普通PoE交换机导致灯光闪烁或重启，需额外购买</td><td>12</td><td>5.3%</td></tr>
+            <tr><td>11</td><td>频繁烧毁SD卡</td><td>使用一段时间后存储卡损坏，无法格式化</td><td>10</td><td>4.4%</td></tr>
+            <tr><td>12</td><td>发热明显</td><td>夏季使用时外壳温度较高，担心寿命</td><td>9</td><td>4.0%</td></tr>
+            <tr><td>13</td><td>移动侦测区域设置复杂</td><td>在App中绘制屏蔽区域不直观，易失效</td><td>9</td><td>4.0%</td></tr>
+            <tr><td>14</td><td>固件升级困难或变砖</td><td>升级过程易失败，导致设备无法恢复</td><td>8</td><td>3.5%</td></tr>
+            <tr><td>15</td><td>智能检测夜间失效</td><td>夜晚光线不足时AI时常不触发人或车辆</td><td>8</td><td>3.5%</td></tr>
+            <tr><td>16</td><td>无法持续亮灯（仅有几秒）</td><td>作为常亮照明功能缺失，需手动频繁开启</td><td>7</td><td>3.1%</td></tr>
+            <tr><td>17</td><td>RTSP流经常断连</td><td>Blue Iris等第三方软件拉流不稳定，需重启</td><td>7</td><td>3.1%</td></tr>
+            <tr><td>18</td><td>没有5GHz WiFi（仅2.4G）</td><td>无线版本信号干扰大，但PoE版无所谓，部分用户混淆</td><td>6</td><td>2.6%</td></tr>
+            <tr><td>19</td><td>双镜头色温不一致</td><td>左右画面颜色差异明显，拼接后突兀</td><td>6</td><td>2.6%</td></tr>
+            <tr><td>20</td><td>回放界面不友好</td><td>手机App滑动时间轴偶尔卡死，操作不便</td><td>5</td><td>2.2%</td></tr>
+            <tr><td>21</td><td>安装螺丝易滑丝</td><td>附赠的自攻螺丝质量一般，拧入困难</td><td>5</td><td>2.2%</td></tr>
+            <tr><td>22</td><td>防水设计缺陷（进水起雾）</td><td>雨天镜头内部起雾，影响图像</td><td>4</td><td>1.8%</td></tr>
+            <tr><td>23</td><td>网线接口无防水盖</td><td>长期暴露易腐蚀，需自行打胶</td><td>4</td><td>1.8%</td></tr>
+            <tr><td>24</td><td>推送通知无缩略图</td><td>仅文字提醒，不直观</td><td>3</td><td>1.3%</td></tr>
+            <tr><td>25</td><td>录像文件体积大</td><td>4K H265仍占用较多存储空间</td><td>3</td><td>1.3%</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ========================= 维度2 加权影响力（点赞加权）Top10 保持不变 ========================= -->
+    <h2 class="section-title">⭐ 维度2：点赞数加权 · 最受认可的好评点（影响力得分）</h2>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>备注（点赞Top5样例）</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>180°超广角视野</td><td>3.24</td><td>98</td><td>[16, 12, 9, 7, 5]</td></tr>
+            <tr><td>2</td><td>PoE供电便捷稳定</td><td>2.87</td><td>67</td><td>[12, 10, 8, 5, 4]</td></tr>
+            <tr><td>3</td><td>无强制订阅 / 本地存储</td><td>2.65</td><td>38</td><td>[14, 9, 6, 5, 3]</td></tr>
+            <tr><td>4</td><td>画质清晰 / 4K高分辨率</td><td>2.51</td><td>82</td><td>[8, 7, 7, 5, 4]</td></tr>
+            <tr><td>5</td><td>AI智能检测 (人/车/宠物)</td><td>2.23</td><td>44</td><td>[6, 5, 5, 4, 3]</td></tr>
+            <tr><td>6</td><td>照明亮度高</td><td>2.05</td><td>59</td><td>[5, 5, 4, 4, 3]</td></tr>
+            <tr><td>7</td><td>简单安装 & 配套App好用</td><td>1.89</td><td>36</td><td>[4, 4, 3, 3, 2]</td></tr>
+            <tr><td>8</td><td>双向语音清晰</td><td>1.60</td><td>25</td><td>[3, 3, 2, 2, 2]</td></tr>
+            <tr><td>9</td><td>耐候性强 / 做工扎实</td><td>1.45</td><td>22</td><td>[2, 2, 2, 1, 1]</td></tr>
+            <tr><td>10</td><td>宽动态 / 夜视彩色优秀</td><td>1.38</td><td>19</td><td>[2, 2, 1, 1, 1]</td></tr>
+        </tbody>
+    </table>
+
+    <h2 class="section-title">💔 维度2：点赞数加权 · 最具破坏力的差评点（差评影响力）</h2>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>备注（差评点赞Top5）</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>设备故障 / 寿命短</td><td>4.16</td><td>24</td><td>[22, 16, 12, 8, 6]</td></tr>
+            <tr><td>2</td><td>运动检测误报或漏报</td><td>3.27</td><td>28</td><td>[16, 9, 7, 5, 4]</td></tr>
+            <tr><td>3</td><td>与旧款NVR/第三方NVR兼容性问题</td><td>3.05</td><td>20</td><td>[10, 9, 6, 5, 4]</td></tr>
+            <tr><td>4</td><td>泛光灯延迟 & 点亮时间过短</td><td>2.78</td><td>26</td><td>[8, 7, 5, 4, 3]</td></tr>
+            <tr><td>5</td><td>夜视画质不佳 / 拼接问题</td><td>2.44</td><td>22</td><td>[5, 5, 4, 4, 3]</td></tr>
+            <tr><td>6</td><td>缺少电源适配器 / 配件不全</td><td>2.23</td><td>31</td><td>[4, 4, 3, 3, 2]</td></tr>
+            <tr><td>7</td><td>客服支持糟糕</td><td>2.10</td><td>13</td><td>[6, 5, 3, 2, 2]</td></tr>
+            <tr><td>8</td><td>安装支架设计不合理</td><td>1.86</td><td>18</td><td>[3, 3, 2, 2, 1]</td></tr>
+            <tr><td>9</td><td>音频质量差 / 杂音严重</td><td>1.55</td><td>14</td><td>[2, 2, 2, 1, 1]</td></tr>
+            <tr><td>10</td><td>PoE供电要求高（需802.3at）</td><td>1.50</td><td>12</td><td>[3, 2, 2, 1, 1]</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ========================= 维度3 时间衰减分析 ========================= -->
+    <h2 class="section-title">📉 维度3：近期焦点问题（时间衰减半衰期3个月）</h2>
+    <div class="note">⚡ 半衰期模型：近期评论权重更高，早期问题权重降低。帮助识别已改善/仍突出的痛点。<br>
+    基准日：2026-05-18（数据集中最新评论日期），3个月前权重×0.5，6个月前×0.25。</div>
+    
+    <h3 style="margin-top: 24px;">🔹 差评点 · 时间衰减排名（识别当前最紧迫的负面）</h3>
+    <table>
+        <thead><tr><th>评论点标签</th><th>历史总提及次数(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+        <tbody>
+            <tr><td>运动检测误报或漏报</td><td>28 (排名2)</td><td>16.2</td><td>1</td><td>近期依然高发，用户抱怨昆虫触发、宠物识别混乱，固件优化不足，成为当前最大痛点。</td></tr>
+            <tr><td>泛光灯延迟 & 点亮时间过短</td><td>26 (排名3)</td><td>14.7</td><td>2</td><td>近半年多起评论集中吐槽「灯光亮几秒即灭」、「不可调节持续时长」，体验未改善。</td></tr>
+            <tr><td>设备故障 / 寿命短</td><td>24 (排名4)</td><td>12.1</td><td>3</td><td>虽然早期有大量故障反馈，近期仍有新批次用户反映使用1-2月后死机，品控波动大。</td></tr>
+            <tr><td>缺少电源适配器 / 配件不全</td><td>31 (排名1)</td><td>9.8</td><td>4</td><td>历史总量第一，但近期提及率降低，可能因产品描述改进或用户逐渐了解PoE需求。</td></tr>
+            <tr><td>夜视画质不佳 / 拼接问题</td><td>22 (排名5)</td><td>8.4</td><td>5</td><td>2025年后评论有所减少，部分用户表示固件升级后拼接改善，但仍偶有亮度不均。</td></tr>
+            <tr><td>与旧款NVR兼容性问题</td><td>20 (排名6)</td><td>7.9</td><td>6</td><td>新用户多搭配新款RLN8/16，兼容抱怨下降；但仍有一些老用户被迫换NVR。</td></tr>
+            <tr><td>安装支架设计不合理</td><td>18 (排名7)</td><td>6.5</td><td>7</td><td>持续有小范围吐槽，尤其屋檐水平安装困难，设计未做重大更改。</td></tr>
+            <tr><td>客服支持糟糕</td><td>13 (排名9)</td><td>5.1</td><td>8</td><td>负面仍在累积，尤其国际用户反映售后回应慢，但相对早前略有改善。</td></tr>
+        </tbody>
+    </table>
+
+    <h3>🔸 好评点 · 时间衰减排名（近期最受称赞的优势）</h3>
+    <table>
+        <thead><tr><th>评论点标签</th><th>历史总提及次数(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+        <tbody>
+            <tr><td>180°超广角视野</td><td>98 (1)</td><td>52.3</td><td>1</td><td>长期稳定核心卖点，近期用户依然高频称赞，无可替代的覆盖能力。</td></tr>
+            <tr><td>PoE供电便捷稳定</td><td>67 (3)</td><td>40.1</td><td>2</td><td>安装便利性深受DIY用户肯定，近期好评占比持续走高。</td></tr>
+            <tr><td>画质清晰 / 4K分辨率</td><td>82 (2)</td><td>39.5</td><td>3</td><td>仍然是购买决策关键因素，虽偶有夜视争议，但日间画质一致好评。</td></tr>
+            <tr><td>无强制订阅 / 本地存储</td><td>38 (6)</td><td>24.7</td><td>4</td><td>对比Ring/Arlo优势明显，近期评论反复强调「无月费」价值。</td></tr>
+            <tr><td>照明亮度高</td><td>59 (4)</td><td>24.2</td><td>5</td><td>2025年后的用户依然惊叹PoE驱动如此高亮度，正向口碑稳定。</td></tr>
+            <tr><td>AI智能检测</td><td>44 (5)</td><td>22.0</td><td>6</td><td>宠物/车辆识别准确度持续好评，但「误报」负面也在同步增长（需区分）。</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ========================= 综合分析 & 改进建议 ========================= -->
+    <div class="insight">
+        <h3 style="margin-top: 0;">📌 综合洞察 & 产品改进建议</h3>
+        <p><strong>✅ 核心优势（需保持并放大）：</strong><br>
+        ✔ <strong>180°全景+4K画质</strong> 是绝对差异化卖点，远超普通单目摄像头，用户普遍表示「一个抵两个」。<br>
+        ✔ <strong>PoE + 本地存储无订阅</strong> 契合隐私敏感和专业用户群，建议在营销中强化“省掉月费”。<br>
+        ✔ <strong>高亮泛光灯</strong> 给夜视彩色带来极大加成，建议维持可调节亮度特性。</p>
+
+        <p><strong>⚠️ 突出问题 & 改进方向：</strong><br>
+        🔴 <strong>运动检测逻辑与灯光控制</strong> – 用户最恼火“误报/漏报”及“灯光延迟+点亮时间不可设”。<br>
+        &nbsp;&nbsp;→ 建议：固件增加“灯光持续时长”设置（15秒~5分钟），优化AI过滤飞虫/树叶；开放“灵敏度分级”和“检测后立即亮灯”模式。<br>
+        🔴 <strong>品控与寿命问题</strong> – 大量1星反馈使用数月后彻底损坏，严重损害口碑（点赞加权最高）。<br>
+        &nbsp;&nbsp;→ 建议：加强电源管理和散热设计，对故障批次主动召回或延长保修期，提供快速换新通道。<br>
+        🔴 <strong>包装/配件误导</strong> – 虽近期减少，但仍有用户抱怨“无电源线”。<br>
+        &nbsp;&nbsp;→ 建议：产品页面用醒目字体注明“PoE供电(802.3at)｜不含DC适配器”，并附赠短网线。<br>
+        🔴 <strong>兼容性与安装细节</strong> – 老款NVR不识别、支架角度受限。<br>
+        &nbsp;&nbsp;→ 建议：官网提供详细兼容性列表；重新设计支架增加俯仰调节范围，并加入防水RJ45保护盖。</p>
+        
+        <p><strong>🎯 市场定位建议：</strong><br>
+        - 主打“全景安防+照明一体”的无订阅高端性价比路线，对标Ring Stick Up Cam Elite和Arlo Pro 5。<br>
+        - 重点面向DIY用户、小型商户及已有PoE交换机群体，可推出“组合包（含PoE injector）”减少用户选购门槛。<br>
+        - 售后响应速度需提升，建议增设本地客服或在线工单系统，扭转“差评高赞”中的客服负面印象。</p>
+    </div>
+
+    <footer>
+        数据来源：Amazon DE / UK / FR / IT / ES / US / AU 实际评论（227条）<br>
+        分析逻辑：基于F列评论文本语义聚类，每条评论按观点独立计数，点赞加权及时间衰减模型以2026-05-18为基准，半衰期3个月。<br>
+        报告生成日期：2026年5月30日 &nbsp;|&nbsp; Reolink Duo Floodlight PoE 用户洞察
+    </footer>
+</div>
+</body>
+</html>

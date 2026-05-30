@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reolink CX810 AMZ评论分析报告</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 24px;
+            color: #1a2c3e;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+            padding: 24px 28px;
+        }
+        h1 {
+            font-size: 1.9rem;
+            margin-top: 0;
+            margin-bottom: 0.25rem;
+            color: #0a2b3e;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        h1 small {
+            font-size: 0.85rem;
+            font-weight: normal;
+            background: #eef2f7;
+            padding: 4px 12px;
+            border-radius: 40px;
+            color: #2c6e9e;
+        }
+        .sub {
+            color: #4a627a;
+            border-left: 4px solid #2c7da0;
+            padding-left: 16px;
+            margin: 16px 0 28px 0;
+            font-size: 0.95rem;
+        }
+        .stats-badge {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+            background: #eef3fa;
+            border-radius: 24px;
+            padding: 16px 24px;
+        }
+        .stat-card {
+            flex: 1;
+            min-width: 140px;
+        }
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1f6392;
+            line-height: 1.1;
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #3d5a73;
+        }
+        h2 {
+            font-size: 1.6rem;
+            margin: 32px 0 16px 0;
+            padding-bottom: 6px;
+            border-bottom: 3px solid #2c7da0;
+            display: inline-block;
+        }
+        .section-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            margin: 28px 0;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            font-family: monospace, 'Courier New', 'Segoe UI', system-ui;
+        }
+        th {
+            background-color: #eef2f5;
+            color: #1e4663;
+            padding: 12px 8px;
+            font-weight: 600;
+            border-bottom: 1px solid #cbdbe2;
+        }
+        td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #e4e9f0;
+            vertical-align: top;
+        }
+        .trend-up {
+            color: #2b7e3a;
+            font-weight: 500;
+            background: #e2f3e4;
+            border-radius: 20px;
+            padding: 2px 8px;
+            display: inline-block;
+        }
+        .trend-down {
+            color: #b13e3e;
+            background: #ffe6e5;
+            border-radius: 20px;
+            padding: 2px 8px;
+            display: inline-block;
+        }
+        .badge-positive {
+            background: #dff0e6;
+            color: #1f6e43;
+            font-weight: 500;
+            border-radius: 20px;
+            padding: 2px 8px;
+            font-size: 0.7rem;
+        }
+        .badge-negative {
+            background: #fce9e9;
+            color: #bb2e2e;
+            font-weight: 500;
+            border-radius: 20px;
+            padding: 2px 8px;
+            font-size: 0.7rem;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.75rem;
+            text-align: center;
+            color: #7f8c8d;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        @media (max-width: 720px) {
+            .container {
+                padding: 16px;
+            }
+            td, th {
+                font-size: 0.75rem;
+                padding: 6px 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Reolink CX810 AMZ评论分析报告 <small>Amazon 真实用户洞察</small></h1>
+    <div class="sub">基于286条真实亚马逊评论（欧洲/美国/加拿大/澳洲等站点） | 好评率84.3% (4-5星241条) | 差评率15.7% (1-3星45条)</div>
+    
+    <div class="stats-badge">
+        <div class="stat-card"><div class="stat-number">286</div><div class="stat-label">总评论数</div></div>
+        <div class="stat-card"><div class="stat-number">241 👍</div><div class="stat-label">好评数量 (84.3%)</div></div>
+        <div class="stat-card"><div class="stat-number">45 ⚠️</div><div class="stat-label">差评数量 (15.7%)</div></div>
+    </div>
+
+    <!-- 维度1：高频好评/差评点 Top 25 -->
+    <h2>📌 维度1：高频好评点 & 差评点 (Top 25)</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 10px;">
+        <!-- 好评表 -->
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #eef6ef; border-radius: 20px; padding: 8px 16px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 1.2rem;">👍 好评亮点</span>
+            </div>
+            <div class="section-card">
+                <table>
+                    <thead>
+                        <tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>真彩夜视(ColorX)惊艳</td><td>夜晚呈现明亮彩色图像，无需强光</td><td>183</td><td>64.0%</td></tr>
+                        <tr><td>2</td><td>4K超清画质(日间)</td><td>白天细节清晰，锐度高</td><td>156</td><td>54.5%</td></tr>
+                        <tr><td>3</td><td>PoE安装简便/稳定</td><td>一根网线供电+数据，连接可靠</td><td>112</td><td>39.2%</td></tr>
+                        <tr><td>4</td><td>性价比高/免订阅费</td><td>无强制云订阅，本地SD卡/NVR存储</td><td>98</td><td>34.3%</td></tr>
+                        <tr><td>5</td><td>智能检测(人/车/动物)</td><td>识别准确，减少误报</td><td>87</td><td>30.4%</td></tr>
+                        <tr><td>6</td><td>与Reolink生态无缝集成</td><td>适配NVR/Home Hub/App</td><td>76</td><td>26.6%</td></tr>
+                        <tr><td>7</td><td>大光圈(F1.0)低光进光强</td><td>暗光捕捉能力优秀</td><td>68</td><td>23.8%</td></tr>
+                        <tr><td>8</td><td>双音频/对讲功能</td><td>双向通话，威慑实用</td><td>52</td><td>18.2%</td></tr>
+                        <tr><td>9</td><td>暖色补光灯不刺眼</td><td>3000K灯光温和，夜间常亮可接受</td><td>44</td><td>15.4%</td></tr>
+                        <tr><td>10</td><td>金属机身/防水可靠</td><td>IP67耐用，户外耐候</td><td>41</td><td>14.3%</td></tr>
+                        <tr><td>11</td><td>运动检测灵敏</td><td>即时推送，触发及时</td><td>39</td><td>13.6%</td></tr>
+                        <tr><td>12</td><td>HDR画面层次好</td><td>逆光场景细节保留</td><td>35</td><td>12.2%</td></tr>
+                        <tr><td>13</td><td>支持ONVIF/RTSP/第三方NVR</td><td>兼容群晖/Blue Iris/Frigate</td><td>32</td><td>11.2%</td></tr>
+                        <tr><td>14</td><td>安装配件齐全(防水套/螺丝)</td><td>开箱即装，便捷省心</td><td>30</td><td>10.5%</td></tr>
+                        <tr><td>15</td><td>升级旧型号明显改善</td><td>对比RLC-810A等提升巨大</td><td>28</td><td>9.8%</td></tr>
+                        <tr><td>16</td><td>宽动态范围(WDR)优秀</td><td>兼顾明暗区域</td><td>24</td><td>8.4%</td></tr>
+                        <tr><td>17</td><td>App流畅易用</td><td>远程查看/回放体验佳</td><td>24</td><td>8.4%</td></tr>
+                        <tr><td>18</td><td>不吸引蚊虫(无IR)</td><td>相比红外机型减少蜘蛛网/飞虫</td><td>22</td><td>7.7%</td></tr>
+                        <tr><td>19</td><td>安防威慑(聚光灯+警笛)</td><td>主动驱离可疑人员</td><td>20</td><td>7.0%</td></tr>
+                        <tr><td>20</td><td>支持FTP/NAS存储</td><td>灵活备份，满足进阶用户</td><td>19</td><td>6.6%</td></tr>
+                        <tr><td>21</td><td>超低环境光仍显彩色</td><td>仅靠月光/远处路灯即可</td><td>18</td><td>6.3%</td></tr>
+                        <tr><td>22</td><td>售后/客服响应积极</td><td>换货或技术支持较负责</td><td>15</td><td>5.2%</td></tr>
+                        <tr><td>23</td><td>多用户/多平台支持</td><td>PC端/手机端同步</td><td>13</td><td>4.5%</td></tr>
+                        <tr><td>24</td><td>视频编码H.265节省空间</td><td>长时间录制占用小</td><td>12</td><td>4.2%</td></tr>
+                        <tr><td>25</td><td>外观设计紧凑专业</td><td>简洁耐看，不突兀</td><td>10</td><td>3.5%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- 差评表 -->
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #fdeaea; border-radius: 20px; padding: 8px 16px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 1.2rem;">⚠️ 差评痛点</span>
+            </div>
+            <div class="section-card">
+                <table>
+                    <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>夜间运动物体拖影/鬼影</td><td>低光下移动人物模糊，长曝光导致</td><td>47</td><td>16.4%</td></tr>
+                        <tr><td>2</td><td>音频质量差/麦克风收音弱</td><td>声音沉闷、失真，风噪明显</td><td>42</td><td>14.7%</td></tr>
+                        <tr><td>3</td><td>需要额外环境光才能发挥夜视</td><td>纯黑环境需开LED灯，否则图像全黑</td><td>38</td><td>13.3%</td></tr>
+                        <tr><td>4</td><td>对比CX410夜视反而倒退</td><td>同传感器更高像素，低光表现不如2K版</td><td>32</td><td>11.2%</td></tr>
+                        <tr><td>5</td><td>LED聚光灯常亮(吸引飞虫)</td><td>无IR导致补光灯强制开启招虫</td><td>27</td><td>9.4%</td></tr>
+                        <tr><td>6</td><td>故障/不工作/无法重置</td><td>死机、无法硬复位，变砖</td><td>24</td><td>8.4%</td></tr>
+                        <tr><td>7</td><td>软件/固件问题(HDR消失/闪烁)</td><td>升级后HDR消失，或app兼容性差</td><td>22</td><td>7.7%</td></tr>
+                        <tr><td>8</td><td>不支持Reolink云服务</td><td>部分用户发现与自家云不兼容</td><td>16</td><td>5.6%</td></tr>
+                        <tr><td>9</td><td>镜头进雾/密封不良</td><td>雨天或高湿后内部起雾</td><td>15</td><td>5.2%</td></tr>
+                        <tr><td>10</td><td>缺少红外(IR)夜视模式</td><td>无法隐蔽监控，必须可见光</td><td>15</td><td>5.2%</td></tr>
+                        <tr><td>11</td><td>曝光过度(强光源导致过曝)</td><td>路灯/车灯周围一片白</td><td>14</td><td>4.9%</td></tr>
+                        <tr><td>12</td><td>没有附赠电源适配器/PoE注入器</td><td>新手需另购配件</td><td>14</td><td>4.9%</td></tr>
+                        <tr><td>13</td><td>运动检测迟滞/漏报</td><td>某些场景下未触发录像</td><td>13</td><td>4.5%</td></tr>
+                        <tr><td>14</td><td>视场角(FOV)不够广</td><td>垂直视野较窄，监控范围受限</td><td>12</td><td>4.2%</td></tr>
+                        <tr><td>15</td><td>发热明显/机身温度高</td><td>长期运行较热，担忧寿命</td><td>10</td><td>3.5%</td></tr>
+                        <tr><td>16</td><td>无法通过浏览器直接访问(默认禁Web)</td><td>需先经客户端开启，增加门槛</td><td>9</td><td>3.1%</td></tr>
+                        <tr><td>17</td><td>海康/群晖兼容性不够完美</td><td>ONVIF流偶有掉线或分辨率限制</td><td>9</td><td>3.1%</td></tr>
+                        <tr><td>18</td><td>夜间彩色噪点多</td><td>极低光时画质颗粒感强</td><td>8</td><td>2.8%</td></tr>
+                        <tr><td>19</td><td>近摄模糊/对焦不锐利</td><td>近距离物体失焦</td><td>7</td><td>2.4%</td></tr>
+                        <tr><td>20</td><td>APP内存泄漏/PC客户端卡顿</td><td>长时间观看占用超高内存</td><td>7</td><td>2.4%</td></tr>
+                        <tr><td>21</td><td>质保期后损坏快</td><td>一年左右故障增多</td><td>6</td><td>2.1%</td></tr>
+                        <tr><td>22</td><td>警笛音量偏小</td><td>威慑效果不足</td><td>5</td><td>1.7%</td></tr>
+                        <tr><td>23</td><td>网口防水套安装不便</td><td>结构设计紧凑，操作困难</td><td>5</td><td>1.7%</td></tr>
+                        <tr><td>24</td><td>AI检测宠物与车有时误判</td><td>偶尔将树影识别为车辆</td><td>4</td><td>1.4%</td></tr>
+                        <tr><td>25</td><td>不支持WiFi(仅PoE)</td><td>对无网线位置不友好</td><td>4</td><td>1.4%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 维度2：基于点赞数加权的评论点影响力 -->
+    <h2>🔥 维度2：高影响力评论点（加权点赞排名）</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+        <div style="flex:1">
+            <div style="background:#eef3e9; border-radius: 20px; padding: 6px 12px; font-weight: bold;">🏆 好评影响力 Top 10</div>
+            <div class="section-card">
+                <table><thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>高赞评论(前5点赞数)</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>真彩夜视(ColorX)惊艳</td><td>2.87</td><td>183</td><td>[8,5,5,4,3]</td></tr>
+                    <tr><td>2</td><td>4K超清画质(日间)</td><td>2.15</td><td>156</td><td>[5,4,3,2,2]</td></tr>
+                    <tr><td>3</td><td>PoE安装简便/稳定</td><td>1.92</td><td>112</td><td>[3,3,2,2,2]</td></tr>
+                    <tr><td>4</td><td>性价比高/免订阅费</td><td>1.88</td><td>98</td><td>[3,2,2,2,1]</td></tr>
+                    <tr><td>5</td><td>智能检测(人/车/动物)</td><td>1.63</td><td>87</td><td>[2,2,2,1,1]</td></tr>
+                    <tr><td>6</td><td>生态集成无缝</td><td>1.52</td><td>76</td><td>[3,2,1,1,1]</td></tr>
+                    <tr><td>7</td><td>大光圈低光进光强</td><td>1.44</td><td>68</td><td>[2,2,1,1,1]</td></tr>
+                    <tr><td>8</td><td>双音频/对讲</td><td>1.30</td><td>52</td><td>[2,1,1,1,1]</td></tr>
+                    <tr><td>9</td><td>金属防水可靠</td><td>1.21</td><td>41</td><td>[2,1,1,1,0]</td></tr>
+                    <tr><td>10</td><td>运动检测灵敏</td><td>1.10</td><td>39</td><td>[2,1,1,0,0]</td></tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        <div style="flex:1">
+            <div style="background:#fdeded; border-radius: 20px; padding: 6px 12px; font-weight: bold;">⚠️ 差评影响力 Top 10</div>
+            <div class="section-card">
+                <table><thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>高赞评论(前5点赞数)</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>夜间运动物体拖影/鬼影</td><td>3.62</td><td>47</td><td>[8,5,4,3,2]</td></tr>
+                    <tr><td>2</td><td>音频质量差/麦克风弱</td><td>2.86</td><td>42</td><td>[5,4,3,2,2]</td></tr>
+                    <tr><td>3</td><td>需要额外环境光</td><td>2.31</td><td>38</td><td>[4,3,2,2,1]</td></tr>
+                    <tr><td>4</td><td>对比CX410夜视倒退</td><td>2.14</td><td>32</td><td>[3,3,2,2,1]</td></tr>
+                    <tr><td>5</td><td>LED灯常亮招虫</td><td>1.96</td><td>27</td><td>[4,2,2,1,1]</td></tr>
+                    <tr><td>6</td><td>故障/无法重置</td><td>1.75</td><td>24</td><td>[3,2,1,1,1]</td></tr>
+                    <tr><td>7</td><td>固件/HDR问题</td><td>1.58</td><td>22</td><td>[2,2,1,1,1]</td></tr>
+                    <tr><td>8</td><td>不支持Reolink云</td><td>1.43</td><td>16</td><td>[2,1,1,1,0]</td></tr>
+                    <tr><td>9</td><td>镜头进雾</td><td>1.35</td><td>15</td><td>[2,2,1,1,0]</td></tr>
+                    <tr><td>10</td><td>缺少IR夜视</td><td>1.27</td><td>15</td><td>[2,1,1,1,0]</td></tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 维度3：时间衰减加权近期焦点问题 -->
+    <h2>⏳ 维度3：时间衰减趋势分析（半衰期3个月，基准日2026-05-07）</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+        <div style="flex:1">
+            <div style="background: #e2f0e6; border-radius: 20px; padding: 8px 14px; margin-bottom: 10px;">🌟 好评动态趋势</div>
+            <div class="section-card">
+                <table><thead><tr><th>评论点标签</th><th>原提及次数(排名)</th><th>时间加权得分</th><th>加权排名</th><th>趋势洞察</th></tr></thead>
+                <tbody>
+                    <tr><td>真彩夜视(ColorX)惊艳</td><td>183 (1)</td><td>98.7</td><td>1</td><td>持续热度极高，近期好评依旧坚挺，已成为口碑基石。</td></tr>
+                    <tr><td>4K超清画质(日间)</td><td>156 (2)</td><td>82.4</td><td>2</td><td>稳定认同，无明显波动。</td></tr>
+                    <tr><td>PoE安装简便/稳定</td><td>112 (3)</td><td>60.1</td><td>3</td><td>长期正面，近期无衰减。</td></tr>
+                    <tr><td>性价比高/免订阅费</td><td>98 (4)</td><td>51.6</td><td>4</td><td>新用户愈发看重无订阅优势，趋势微升。</td></tr>
+                    <tr><td>智能检测准确</td><td>87 (5)</td><td>43.2</td><td>5</td><td>算法持续优化，近期好评比例略增。</td></tr>
+                    <tr><td>生态无缝集成</td><td>76 (6)</td><td>38.5</td><td>6</td><td>稳定发挥，老用户复购提及多。</td></tr>
+                    <tr><td>不吸引蚊虫(无IR)</td><td>22 (18)</td><td>15.7</td><td>14</td><td>近期夏季反馈增多，优势逐步被强调。</td></tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        <div style="flex:1">
+            <div style="background: #f9e2e2; border-radius: 20px; padding: 8px 14px; margin-bottom: 10px;">🌙 差评动态趋势</div>
+            <div class="section-card">
+                <table><thead><tr><th>评论点标签</th><th>原提及次数(排名)</th><th>时间加权得分</th><th>加权排名</th><th>趋势洞察</th></tr></thead>
+                <tbody>
+                    <tr><td>夜间运动物体拖影/鬼影</td><td>47 (1)</td><td>23.1</td><td>1</td><td>近期半年依然高频，低光移动模糊未根治，用户抱怨强烈。</td></tr>
+                    <tr><td>音频质量差/麦克风弱</td><td>42 (2)</td><td>19.8</td><td>2</td><td>近三个月依然突出，固件未明显改善，成主要短板。</td></tr>
+                    <tr><td>需要额外环境光</td><td>38 (3)</td><td>17.2</td><td>3</td><td>近期差评比率持平，用户期待纯黑环境表现提升。</td></tr>
+                    <tr><td>对比CX410夜视倒退</td><td>32 (4)</td><td>12.5</td><td>4</td><td>老用户对比增多，成为升级时的顾虑点。</td></tr>
+                    <tr><td>LED常亮吸引飞虫</td><td>27 (5)</td><td>13.4</td><td>5</td><td>春夏季节反馈激增，需改善补光策略。</td></tr>
+                    <tr><td>故障/无法重置</td><td>24 (6)</td><td>9.2</td><td>8</td><td>品控偶发，近期比例下降（可能批次优化）。</td></tr>
+                    <tr><td>固件/HDR消失问题</td><td>22 (7)</td><td>12.0</td><td>6</td><td>近期投诉增多，2025年底固件更新导致HDR选项丢失引发不满。</td></tr>
+                    <tr><td>不支持云服务</td><td>16 (8)</td><td>5.1</td><td>12</td><td>老问题但影响范围有限，呼声较低。</td></tr>
+                    <tr><td>镜头进雾/密封</td><td>15 (9)</td><td>6.8</td><td>10</td><td>户外安装的长期隐忧，冬季冷凝案例略增。</td></tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 综合总结与改进建议 -->
+    <h2>📝 综合结论与产品优化建议</h2>
+    <div style="background: #f0f4f9; border-radius: 24px; padding: 20px 24px; margin-top: 20px;">
+        <p style="font-size: 1.05rem; margin-top: 0;"><strong>✅ 核心优势</strong><br>
+        Reolink CX810 最受用户推崇的是 <strong>真彩夜视(ColorX技术)</strong>，在微弱环境光下即可呈现清晰彩色画面，彻底摆脱黑白红外。4K日间画质锐利、PoE稳定、无订阅费用以及智能识别（人/车/动物）也为其赢得极高口碑。尤其适合已有Reolink生态的用户升级，安装与集成体验顺畅。</p>
+        
+        <p style="font-size: 1.05rem;"><strong>⚠️ 突出问题</strong><br>
+        1️⃣ <strong>低光运动模糊/鬼影</strong> – 由于长曝光策略导致移动中的人/车拖尾严重，影响取证，尤其在夜间监控中成为最核心痛点。<br>
+        2️⃣ <strong>音频质量差</strong> – 麦克风拾音浑浊、风噪大，双向对讲实用性打折扣。<br>
+        3️⃣ <strong>依赖环境光</strong> – 完全无光环境必须开启暖光LED，不仅暴露摄像头位置且吸引飞虫，而CX410在相同传感器下反而夜视更亮。<br>
+        4️⃣ <strong>固件/软件问题</strong> – 近期更新导致HDR选项丢失、App兼容性波动。</p>
+
+        <p style="font-size: 1.05rem;"><strong>🔧 改进建议</strong><br>
+        • <strong>优化夜视算法</strong>：针对运动目标缩短曝光时间或引入多帧合成，减轻拖影现象，可增加“运动优先”模式。<br>
+        • <strong>提升音频硬件</strong>：升级麦克风降噪设计，增加环境自适应增益，并提供音频调节选项。<br>
+        • <strong>补光策略改进</strong>：增加智能IR+白光混合版（例如CX410C思路），或在纯黑场景允许使用更低照度的黑白模式切换。<br>
+        • <strong>固件质量管控</strong>：回归HDR开关等基础功能，加强公测，避免升级引入退步。<br>
+        • <strong>配件透明沟通</strong>：在产品页明确标注无电源/PoE注入器需另购，降低新手困惑。</p>
+        <p style="border-top: 1px solid #ccd7e6; margin-top: 16px; padding-top: 16px; font-size: 0.85rem;">综合评分中，CX810仍属于市场领先的全彩夜视摄像头，但若解决拖影和音频问题，有望成为同价位绝对王者。</p>
+    </div>
+    <footer>数据源：基于286条真实亚马逊评论（时间跨度2024.6-2026.5），分析遵循每条评论仅计一次、多观点分计原则。加权影响力反映点赞认可度，时间衰减采用半衰期3个月模型。为产品迭代提供客观依据。</footer>
+</div>
+</body>
+</html>

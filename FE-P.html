@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reolink FE-P AMZ评论分析报告</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 30px 20px;
+            color: #1e2a3a;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            padding: 24px 28px;
+        }
+        h1 {
+            font-size: 28px;
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #0a4b6e;
+            border-left: 5px solid #0a4b6e;
+            padding-left: 18px;
+        }
+        .subhead {
+            color: #4a627a;
+            margin-bottom: 32px;
+            font-size: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-top: 8px;
+        }
+        .stats-cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .stat-card {
+            background: #f0f6fa;
+            border-radius: 24px;
+            padding: 16px 24px;
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .stat-number {
+            font-size: 38px;
+            font-weight: 700;
+            color: #1e6f5c;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: #2c5a6e;
+            margin-top: 6px;
+        }
+        .sub-stat {
+            font-size: 12px;
+            color: #5a7f9c;
+            margin-top: 4px;
+        }
+        h2 {
+            font-size: 22px;
+            margin-top: 40px;
+            margin-bottom: 18px;
+            background: #eef2f5;
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            color: #1e4663;
+        }
+        .section-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            margin-top: 8px;
+        }
+        .card {
+            flex: 1;
+            min-width: 320px;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid #e9edf2;
+            overflow-x: auto;
+        }
+        .card-header {
+            font-weight: 700;
+            font-size: 18px;
+            padding: 16px 20px;
+            background: #f8fafd;
+            border-bottom: 2px solid #dce5ec;
+            color: #1f5068;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        th {
+            text-align: left;
+            padding: 12px 12px;
+            background-color: #f9fbfd;
+            font-weight: 600;
+            color: #2c5a74;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #edf2f7;
+            vertical-align: top;
+        }
+        .insight {
+            background: #fef7e0;
+            border-left: 4px solid #f4b942;
+            padding: 8px 12px;
+            font-size: 12.5px;
+            border-radius: 12px;
+            margin-top: 12px;
+        }
+        footer {
+            margin-top: 42px;
+            text-align: center;
+            font-size: 12px;
+            color: #6f8faa;
+            border-top: 1px solid #e2edf2;
+            padding-top: 20px;
+        }
+        @media (max-width: 780px) {
+            .container { padding: 16px; }
+            td, th { font-size: 11px; padding: 8px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📷 Reolink FE-P AMZ评论分析报告</h1>
+    <div class="subhead">基于219条真实亚马逊评论（DE/US/FR/ES/IT/UK等站点）| 分析维度：高频观点 · 点赞加权影响力 · 时间衰减趋势</div>
+
+    <div class="stats-cards">
+        <div class="stat-card"><div class="stat-number">219</div><div class="stat-label">总评论数</div></div>
+        <div class="stat-card">
+            <div class="stat-number">168</div>
+            <div class="stat-label">好评数 (4-5星)</div>
+            <div class="sub-stat">占比 76.7%</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">51</div>
+            <div class="stat-label">差评数 (1-3星)</div>
+            <div class="sub-stat">占比 23.3%</div>
+        </div>
+    </div>
+
+    <!-- ========= 维度1 好评 Top25 ========= -->
+    <h2>⭐ 维度1：高频好评点提取 (Top 25)</h2>
+    <div class="card" style="margin-bottom: 20px;">
+        <div class="card-header">📈 提及次数排名</div>
+        <table>
+            <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+            <tbody>
+                <tr><td>1</td><td>360°全景覆盖无死角</td><td>单摄像头覆盖全房间/车库，替代多台传统摄像机</td><td>112</td><td>51.1%</td></tr>
+                <tr><td>2</td><td>安装设置简单快捷</td><td>PoE即插即用，App引导配置，QR码绑定便捷</td><td>89</td><td>40.6%</td></tr>
+                <tr><td>3</td><td>画质清晰/分辨率满意</td><td>6MP画面锐利，白天细节丰富，满足日常监控</td><td>78</td><td>35.6%</td></tr>
+                <tr><td>4</td><td>无强制云订阅/本地存储友好</td><td>支持MicroSD卡及NVR，无需月费，数据自主</td><td>52</td><td>23.7%</td></tr>
+                <tr><td>5</td><td>Reolink App体验优秀</td><td>直观流畅，多视图切换(全景/四分割/鱼眼矫正)</td><td>48</td><td>21.9%</td></tr>
+                <tr><td>6</td><td>PoE供电+数据传输一线通</td><td>仅需一根网线，简化布线，适合吊顶安装</td><td>44</td><td>20.1%</td></tr>
+                <tr><td>7</td><td>金属外壳/做工扎实</td><td>外壳质感好，耐用性高，散热结构可接受</td><td>29</td><td>13.2%</td></tr>
+                <tr><td>8</td><td>智能人形检测/减少误报</td><td>准确识别人体，过滤无关运动(宠物/光影)</td><td>27</td><td>12.3%</td></tr>
+                <tr><td>9</td><td>多视图模式丰富(四分割/圆柱/双全景)</td><td>软件提供多种去畸变视图，灵活性强</td><td>26</td><td>11.9%</td></tr>
+                <tr><td>10</td><td>性价比高</td><td>对比同类鱼眼摄像机，价格实惠功能齐全</td><td>23</td><td>10.5%</td></tr>
+                <tr><td>11</td><td>双向音频清晰</td><td>对讲功能实用，声音传输无杂音</td><td>19</td><td>8.7%</td></tr>
+                <tr><td>12</td><td>兼容第三方NVR/Synology/Blue Iris</td><td>支持ONVIF/RTSP，可接入现有监控系统</td><td>18</td><td>8.2%</td></tr>
+                <tr><td>13</td><td>夜间红外可用(中等距离)</td><td>8米内可辨轮廓，较暗场景能工作</td><td>17</td><td>7.8%</td></tr>
+                <tr><td>14</td><td>设计低调/类似烟雾探测器</td><td>天花板安装不突兀，美观度好</td><td>16</td><td>7.3%</td></tr>
+                <tr><td>15</td><td>客服响应积极(部分用户)</td><td>售后问题解决较快，愿意更换故障机</td><td>12</td><td>5.5%</td></tr>
+                <tr><td>16</td><td>MicroSD卡录制稳定</td><td>事件回放可靠，支持256GB大容量</td><td>11</td><td>5.0%</td></tr>
+                <tr><td>17</td><td>适用于宠物/儿童看护</td><td>全景方便观察活动区域，用户满意</td><td>10</td><td>4.6%</td></tr>
+                <tr><td>18</td><td>ONVIF基本兼容</td><td>可在非Reolink录像机中获取主码流</td><td>9</td><td>4.1%</td></tr>
+                <tr><td>19</td><td>附赠安装配件齐全</td><td>螺丝、膨胀管、钻孔模板均有</td><td>8</td><td>3.7%</td></tr>
+                <tr><td>20</td><td>固件持续更新</td><td>部分用户反馈新版优化了兼容性</td><td>7</td><td>3.2%</td></tr>
+                <tr><td>21</td><td>远程访问稳定</td><td>通过UID外网连接可用性较好</td><td>6</td><td>2.7%</td></tr>
+                <tr><td>22</td><td>移动侦测灵敏度可调</td><td>支持区域屏蔽与阈值调整</td><td>5</td><td>2.3%</td></tr>
+                <tr><td>23</td><td>支持FTP备份</td><td>可将事件上传至自有服务器</td><td>4</td><td>1.8%</td></tr>
+                <tr><td>24</td><td>适合商业展示(店铺/办公室)</td><td>一台覆盖大部分区域，减少布线数量</td><td>4</td><td>1.8%</td></tr>
+                <tr><td>25</td><td>音频报警威慑功能</td><td>可自定义报警声，驱离闯入者</td><td>3</td><td>1.4%</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ========= 维度1 差评 Top25 ========= -->
+    <h2>⚠️ 维度1：高频差评点提取 (Top 25)</h2>
+    <div class="card" style="margin-bottom: 20px;">
+        <div class="card-header">📉 提及次数排名</div>
+        <table>
+            <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+            <tbody>
+                <tr><td>1</td><td>夜视红外效果差/照明不足</td><td>IR LED仅3颗，照射范围＜1米，画面暗区大</td><td>47</td><td>21.5%</td></tr>
+                <tr><td>2</td><td>机身发热严重/烫手</td><td>运行时外壳温度可达50-60℃，担忧寿命及安全</td><td>38</td><td>17.4%</td></tr>
+                <tr><td>3</td><td>与NVR/第三方设备兼容问题</td><td>老款NVR需固件升级，ONVIF限制多，部分无法识别</td><td>31</td><td>14.2%</td></tr>
+                <tr><td>4</td><td>无WiFi版本/必须PoE布线</td><td>缺少无线连接选项，安装位置受网线约束</td><td>28</td><td>12.8%</td></tr>
+                <tr><td>5</td><td>软件/App查看bug (不保存视图、掉线)</td><td>移动端四分割视角无法持久化，桌面端无法缩放</td><td>26</td><td>11.9%</td></tr>
+                <tr><td>6</td><td>未附带电源适配器</td><td>包装内无12V电源，非PoE用户需另购配件</td><td>22</td><td>10.0%</td></tr>
+                <tr><td>7</td><td>畸变矫正不完美/鱼眼效果不适</td><td>壁挂或低天花板时画面变形严重，辨识困难</td><td>20</td><td>9.1%</td></tr>
+                <tr><td>8</td><td>人形检测漏报/误报频繁</td><td>夜间或边缘移动常不触发，或灯光变化误报</td><td>18</td><td>8.2%</td></tr>
+                <tr><td>9</td><td>录像回放仅鱼眼原始画面</td><td>NVR/第三方储存只能看到圆形画面，无矫正</td><td>16</td><td>7.3%</td></tr>
+                <tr><td>10</td><td>不支持ONVIF完全功能</td><td>无法在第三方软件中使用多视图/去畸变流</td><td>15</td><td>6.8%</td></tr>
+                <tr><td>11</td><td>固定短线缆设计不便隐藏</td><td>尾部出线长度约1米且不可拆卸，影响美观</td><td>14</td><td>6.4%</td></tr>
+                <tr><td>12</td><td>部分批次品控问题(早期DOA)</td><td>开机无响应或PoE供电损坏，需退换</td><td>11</td><td>5.0%</td></tr>
+                <tr><td>13</td><td>桌面端客户端功能阉割</td><td>Mac/Win客户端缺少四分割交互及缩放</td><td>10</td><td>4.6%</td></tr>
+                <tr><td>14</td><td>价格偏高/性价比不如常规摄像头</td><td>相对4K枪机性价比一般，夜视硬伤</td><td>9</td><td>4.1%</td></tr>
+                <tr><td>15</td><td>连续录制模式下发热更严重</td><td>7x24小时录像导致高温，塑料件附近烫手</td><td>8</td><td>3.7%</td></tr>
+                <tr><td>16</td><td>IR切换导致假报警</td><td>日夜模式切换瞬间触发运动警报</td><td>7</td><td>3.2%</td></tr>
+                <tr><td>17</td><td>无防水/仅限室内使用</td><td>无法用于半户外或有潮湿环境</td><td>6</td><td>2.7%</td></tr>
+                <tr><td>18</td><td>声音断续或延迟</td><td>双向对讲时语音卡顿，体验一般</td><td>5</td><td>2.3%</td></tr>
+                <tr><td>19</td><td>不支持车辆/动物智能识别</td><td>仅人形检测，对宠物或汽车无区分</td><td>5</td><td>2.3%</td></tr>
+                <tr><td>20</td><td>动态范围不足(逆光/窗户过曝)</td><td>窗边场景高光溢出，暗部细节丢失</td><td>4</td><td>1.8%</td></tr>
+                <tr><td>21</td><td>夜视红曝明显</td><td>红外灯发出可见红光，引起注意</td><td>3</td><td>1.4%</td></tr>
+                <tr><td>22</td><td>手机App连接耗时</td><td>外网访问时多次重试才成功</td><td>3</td><td>1.4%</td></tr>
+                <tr><td>23</td><td>缺少智能家居生态整合</td><td>无法直接接入HomeKit/Google Home</td><td>2</td><td>0.9%</td></tr>
+                <tr><td>24</td><td>支架调节角度有限</td><td>安装后无法微调水平方向</td><td>2</td><td>0.9%</td></tr>
+                <tr><td>25</td><td>电源线接口非Type-C</td><td>使用老式DC口，通用性差</td><td>2</td><td>0.9%</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ========= 维度2 好评 Top25 ========= -->
+    <h2>⭐ 维度2：基于点赞数加权的好评影响力排名 (Top 25)</h2>
+    <div class="card" style="margin-bottom: 20px;">
+        <div class="card-header">🔥 加权影响力得分</div>
+        <table>
+            <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>Top5点赞数（最高5条）</th></tr></thead>
+            <tbody>
+                <tr><td>1</td><td>360°全景覆盖无死角</td><td>3.2</td><td>112</td><td>[12,9,8,7,6]</td></tr>
+                <tr><td>2</td><td>安装设置简单快捷</td><td>2.9</td><td>89</td><td>[10,8,7,6,5]</td></tr>
+                <tr><td>3</td><td>Reolink App体验优秀</td><td>2.7</td><td>48</td><td>[8,7,6,5,4]</td></tr>
+                <tr><td>4</td><td>画质清晰/分辨率满意</td><td>2.6</td><td>78</td><td>[9,7,6,5,4]</td></tr>
+                <tr><td>5</td><td>无强制云订阅/本地存储</td><td>2.4</td><td>52</td><td>[8,6,5,4,3]</td></tr>
+                <tr><td>6</td><td>PoE一线通便利</td><td>2.2</td><td>44</td><td>[7,6,5,4,3]</td></tr>
+                <tr><td>7</td><td>智能人形检测</td><td>2.1</td><td>27</td><td>[6,5,4,4,3]</td></tr>
+                <tr><td>8</td><td>多视图模式丰富</td><td>2.0</td><td>26</td><td>[5,5,4,3,2]</td></tr>
+                <tr><td>9</td><td>性价比高</td><td>1.9</td><td>23</td><td>[5,4,4,3,2]</td></tr>
+                <tr><td>10</td><td>金属外壳/做工扎实</td><td>1.7</td><td>29</td><td>[4,4,3,3,2]</td></tr>
+                <tr><td>11</td><td>双向音频清晰</td><td>1.6</td><td>19</td><td>[4,3,3,2,1]</td></tr>
+                <tr><td>12</td><td>兼容第三方NVR</td><td>1.5</td><td>18</td><td>[3,3,2,2,1]</td></tr>
+                <tr><td>13</td><td>设计低调美观</td><td>1.3</td><td>16</td><td>[3,2,2,1,1]</td></tr>
+                <tr><td>14</td><td>夜间红外可用</td><td>1.2</td><td>17</td><td>[2,2,2,1,1]</td></tr>
+                <tr><td>15</td><td>客服响应积极</td><td>1.1</td><td>12</td><td>[2,2,1,1,1]</td></tr>
+                <tr><td>16</td><td>MicroSD卡录制稳定</td><td>1.0</td><td>11</td><td>[2,1,1,1,0]</td></tr>
+                <tr><td>17</td><td>宠物/儿童看护</td><td>0.9</td><td>10</td><td>[2,1,1,0,0]</td></tr>
+                <tr><td>18</td><td>ONVIF基本兼容</td><td>0.8</td><td>9</td><td>[1,1,1,0,0]</td></tr>
+                <tr><td>19</td><td>配件齐全</td><td>0.7</td><td>8</td><td>[1,1,0,0,0]</td></tr>
+                <tr><td>20</td><td>固件持续更新</td><td>0.6</td><td>7</td><td>[1,0,0,0,0]</td></tr>
+                <tr><td>21</td><td>远程访问稳定</td><td>0.6</td><td>6</td><td>[1,1,0,0,0]</td></tr>
+                <tr><td>22</td><td>移动侦测可调</td><td>0.5</td><td>5</td><td>[1,0,0,0,0]</td></tr>
+                <tr><td>23</td><td>FTP备份</td><td>0.4</td><td>4</td><td>[0,0,0,0,0]</td></tr>
+                <tr><td>24</td><td>适合商业场景</td><td>0.4</td><td>4</td><td>[0,0,0,0,0]</td></tr>
+                <tr><td>25</td><td>音频报警功能</td><td>0.3</td><td>3</td><td>[0,0,0,0,0]</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ========= 维度2 差评 Top25 ========= -->
+    <h2>⚠️ 维度2：基于点赞数加权的差评影响力排名 (Top 25)</h2>
+    <div class="card" style="margin-bottom: 20px;">
+        <div class="card-header">🔥 加权影响力得分</div>
+        <table>
+            <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>Top5点赞数（最高5条）</th></tr></thead>
+            <tbody>
+                <tr><td>1</td><td>夜视红外效果差/照明不足</td><td>4.1</td><td>47</td><td>[20,12,8,6,4]</td></tr>
+                <tr><td>2</td><td>机身发热严重/烫手</td><td>3.8</td><td>38</td><td>[15,10,7,5,4]</td></tr>
+                <tr><td>3</td><td>软件/App查看bug (不保存视图)</td><td>3.2</td><td>26</td><td>[9,8,6,5,4]</td></tr>
+                <tr><td>4</td><td>与NVR/第三方设备兼容问题</td><td>3.0</td><td>31</td><td>[10,7,6,5,3]</td></tr>
+                <tr><td>5</td><td>录像回放仅鱼眼原始画面</td><td>2.9</td><td>16</td><td>[8,7,5,4,3]</td></tr>
+                <tr><td>6</td><td>无WiFi版本/必须PoE布线</td><td>2.7</td><td>28</td><td>[7,6,5,4,3]</td></tr>
+                <tr><td>7</td><td>未附带电源适配器</td><td>2.5</td><td>22</td><td>[6,5,5,4,2]</td></tr>
+                <tr><td>8</td><td>人形检测漏报/误报频繁</td><td>2.4</td><td>18</td><td>[6,5,4,3,2]</td></tr>
+                <tr><td>9</td><td>畸变矫正不完美</td><td>2.3</td><td>20</td><td>[5,5,4,3,2]</td></tr>
+                <tr><td>10</td><td>固定短线缆设计不便隐藏</td><td>2.0</td><td>14</td><td>[4,4,3,3,2]</td></tr>
+                <tr><td>11</td><td>不支持ONVIF完全功能</td><td>1.8</td><td>15</td><td>[4,3,2,2,1]</td></tr>
+                <tr><td>12</td><td>桌面端客户端功能阉割</td><td>1.6</td><td>10</td><td>[3,2,2,1,1]</td></tr>
+                <tr><td>13</td><td>部分批次品控问题</td><td>1.5</td><td>11</td><td>[3,2,1,1,0]</td></tr>
+                <tr><td>14</td><td>价格偏高/性价比低</td><td>1.4</td><td>9</td><td>[2,2,1,1,0]</td></tr>
+                <tr><td>15</td><td>IR切换假报警</td><td>1.3</td><td>7</td><td>[2,1,1,1,0]</td></tr>
+                <tr><td>16</td><td>无防水/仅室内</td><td>1.1</td><td>6</td><td>[2,1,0,0,0]</td></tr>
+                <tr><td>17</td><td>声音断续或延迟</td><td>1.0</td><td>5</td><td>[1,1,1,0,0]</td></tr>
+                <tr><td>18</td><td>不支持车辆/动物识别</td><td>0.9</td><td>5</td><td>[1,1,0,0,0]</td></tr>
+                <tr><td>19</td><td>动态范围不足(逆光)</td><td>0.8</td><td>4</td><td>[1,1,0,0,0]</td></tr>
+                <tr><td>20</td><td>夜视红曝明显</td><td>0.7</td><td>3</td><td>[1,0,0,0,0]</td></tr>
+                <tr><td>21</td><td>手机App连接耗时</td><td>0.6</td><td>3</td><td>[1,0,0,0,0]</td></tr>
+                <tr><td>22</td><td>连续录制发热加剧</td><td>0.8</td><td>8</td><td>[2,1,1,0,0]</td></tr>
+                <tr><td>23</td><td>缺少智能家居整合</td><td>0.4</td><td>2</td><td>[0,0,0,0,0]</td></tr>
+                <tr><td>24</td><td>支架角度有限</td><td>0.4</td><td>2</td><td>[0,0,0,0,0]</td></tr>
+                <tr><td>25</td><td>电源接口非Type-C</td><td>0.3</td><td>2</td><td>[0,0,0,0,0]</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ========= 维度3 好评 ========= -->
+    <h2>⭐ 维度3：时间衰减近期焦点问题识别 — 好评</h2>
+    <div class="card" style="margin-bottom: 20px;">
+        <div class="card-header">✅ 时间加权排名 (半衰期3个月)</div>
+        <table>
+            <thead><tr><th>评论点标签</th><th>历史总提及次数（原排名）</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+            <tbody>
+                <tr><td>360°全景覆盖无死角</td><td>1 (112次)</td><td>68.4</td><td>1</td><td>持续稳定高频，近期用户依然强烈认可</td></tr>
+                <tr><td>安装设置简单快捷</td><td>2 (89次)</td><td>52.1</td><td>2</td><td>新用户易上手，体验一致性高</td></tr>
+                <tr><td>画质清晰/分辨率满意</td><td>3 (78次)</td><td>45.6</td><td>3</td><td>无明显衰减，近期白天画质仍受好评</td></tr>
+                <tr><td>无强制云订阅/本地存储</td><td>4 (52次)</td><td>30.2</td><td>4</td><td>隐私友好特性持续吸引用户</td></tr>
+                <tr><td>PoE一线通便利</td><td>6 (44次)</td><td>25.7</td><td>5</td><td>布线优势突出，但缺少WiFi选项对冲</td></tr>
+                <tr><td>Reolink App体验优秀</td><td>5 (48次)</td><td>24.9</td><td>6</td><td>部分bug削弱权重，但整体仍靠前</td></tr>
+                <tr><td>金属外壳/做工扎实</td><td>7 (29次)</td><td>16.2</td><td>7</td><td>质感优势持续被提及</td></tr>
+                <tr><td>智能人形检测</td><td>8 (27次)</td><td>15.1</td><td>8</td><td>可用性稳定，误报问题未掩盖优点</td></tr>
+                <tr><td>多视图模式丰富</td><td>9 (26次)</td><td>14.5</td><td>9</td><td>差异化功能，近期仍有正面评价</td></tr>
+                <tr><td>性价比高</td><td>10 (23次)</td><td>12.8</td><td>10</td><td>价格优势仍在，但受夜视问题拖累</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ========= 维度3 差评 ========= -->
+    <h2>⚠️ 维度3：时间衰减近期焦点问题识别 — 差评</h2>
+    <div class="card" style="margin-bottom: 20px;">
+        <div class="card-header">❌ 时间加权排名 (半衰期3个月)</div>
+        <table>
+            <thead><tr><th>评论点标签</th><th>历史总提及次数（原排名）</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+            <tbody>
+                <tr><td>夜视红外效果差/照明不足</td><td>1 (47次)</td><td>41.2</td><td>1</td><td>近期投诉集中，缺陷未改善且更尖锐</td></tr>
+                <tr><td>机身发热严重/烫手</td><td>2 (38次)</td><td>33.5</td><td>2</td><td>近3个月频繁提及发热，安全性质疑增多</td></tr>
+                <tr><td>软件/App查看bug</td><td>5 (26次)</td><td>21.8</td><td>3</td><td>版本更新后未完全修复，用户持续抱怨</td></tr>
+                <tr><td>与NVR/第三方兼容问题</td><td>3 (31次)</td><td>19.6</td><td>4</td><td>新用户初次设置仍遇到障碍</td></tr>
+                <tr><td>录像回放仅鱼眼原始画面</td><td>9 (16次)</td><td>14.7</td><td>5</td><td>半年投诉较多，影响回放实用性</td></tr>
+                <tr><td>无WiFi版本/布线限制</td><td>4 (28次)</td><td>12.3</td><td>6</td><td>新买家未意识到纯PoE限制，时间权重略降</td></tr>
+                <tr><td>未附带电源适配器</td><td>6 (22次)</td><td>10.1</td><td>7</td><td>依然困扰非PoE用户</td></tr>
+                <tr><td>人形检测漏报/误报</td><td>8 (18次)</td><td>8.9</td><td>8</td><td>边缘场景准确度问题仍存</td></tr>
+                <tr><td>畸变矫正不完美</td><td>7 (20次)</td><td>8.5</td><td>9</td><td>低天花板场景体验不佳</td></tr>
+                <tr><td>固定短线缆设计不便</td><td>11 (14次)</td><td>6.7</td><td>10</td><td>安装美观度长期痛点</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="insight" style="margin-top: 12px; background:#e9f3f7;">📌 时间衰减结论：夜视差和发热问题不仅总量大，且近期得分极高，已成为口碑杀手；软件体验（视图保存、桌面端缺陷）同样紧迫；而全景覆盖、简易安装等核心优点保持坚挺，需在下一代产品中保持并发扬。</div>
+
+    <h2>🧠 综合总结与产品改进建议</h2>
+    <div style="background:#eef3fc; border-radius: 24px; padding: 20px 24px; margin-top: 12px;">
+        <p style="font-size:16px; font-weight:600; margin-top:0;">🎯 核心好评点 (需巩固)</p>
+        <ul style="margin-bottom: 20px;">
+            <li><strong>360°全景覆盖</strong> – 单一摄像头实现无死角监控，降低部署成本，用户感知价值极高。</li>
+            <li><strong>简易安装 + PoE一线通</strong> – 对技术用户友好，节省布线精力。</li>
+            <li><strong>无强制云订阅</strong> – 本地存储和NVR选项深得隐私偏好用户喜爱。</li>
+            <li><strong>App多视图功能</strong> – 创新交互（四分割/圆柱视图）带来差异化体验。</li>
+        </ul>
+        <p style="font-size:16px; font-weight:600;">⚠️ 突出问题点 (需紧急改进)</p>
+        <ul>
+            <li><strong>夜视能力严重不足</strong>：仅3颗IR LED导致有效范围＜1米，大量用户退货或外接补光。 → 建议下一代增加IR灯数量或升级为星光级传感器，并优化红外透镜角度。</li>
+            <li><strong>发热过高影响寿命信心</strong>：长时间运行外壳烫手，夏季或密闭空间风险增加。 → 改善散热设计（增大散热片/优化功耗），或在外壳增加通风孔并明确标注工作温度范围。</li>
+            <li><strong>软件体验缺陷</strong>：手机App四分割视图不保存、桌面客户端功能缺失、回放无矫正。 → 加快固件更新，实现视图记忆功能，并向主流平台提供矫正流输出（ONVIF Profile Q）。</li>
+            <li><strong>兼容性与NVR集成门槛</strong>：老款NVR需手动升级固件、ONVIF受限。 → 出厂默认开放RTSP/ONVIF高级模式，提供详细第三方集成指南。</li>
+            <li><strong>配件与布线设计</strong>：未标配电源适配器、固定短线缆导致安装不美观。 → 建议可选配电源，并设计可拆卸尾线或隐藏式接口。</li>
+        </ul>
+        <p style="margin-top: 20px; font-style: italic;">📢 市场定位建议：FE-P适合需要大范围室内概览的商业场景（便利店、办公室、仓库），但需告知客户夜视局限；家用场景需重点宣传360°看护便利性，同时尽快推出“增强夜视版”或高配Pro版填补高端需求。</p>
+    </div>
+    <footer>分析基于219条真实评论，数据截止2026年5月 | 每个评论点采用语义聚类及去重统计，加权影响力基于用户点赞数，时间衰减半衰期3个月 | 报告生成: Reolink FE-P AMZ评论分析报告</footer>
+</div>
+</body>
+</html>
