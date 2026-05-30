@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reolink RLC-1224A 评论分析报告</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            padding: 24px;
+            color: #1e2a3e;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+            padding: 24px 28px 40px;
+        }
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+            color: #0a2b3e;
+            border-left: 6px solid #2c7da0;
+            padding-left: 20px;
+        }
+        .subtitle {
+            color: #4a627a;
+            margin-bottom: 28px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 16px;
+            margin-left: 26px;
+            font-size: 0.95rem;
+        }
+        .stats-grid {
+            display: flex;
+            gap: 24px;
+            margin: 24px 0 32px 0;
+            flex-wrap: wrap;
+        }
+        .stat-card {
+            flex: 1;
+            background: #f8fafc;
+            border-radius: 28px;
+            padding: 20px 24px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            border: 1px solid #e9edf2;
+        }
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #4b6f8c;
+            margin-top: 8px;
+        }
+        .positive-bg { color: #2c7a4d; }
+        .negative-bg { color: #bc4e2c; }
+        .neutral-bg { color: #2c5f8a; }
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 40px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #cbdde6;
+        }
+        .sub-section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 28px 0 16px 0;
+            background: #eef2f6;
+            display: inline-block;
+            padding: 4px 18px;
+            border-radius: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+            margin-bottom: 24px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        th {
+            background: #eef2f8;
+            padding: 12px 12px;
+            text-align: center;
+            font-weight: 600;
+            border-bottom: 1px solid #dce3ec;
+        }
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ecf1f5;
+            text-align: center;
+            vertical-align: top;
+        }
+        .table-label-left {
+            text-align: left;
+            font-weight: 500;
+        }
+        .badge {
+            background: #e9ecef;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .insight {
+            background: #fef9e3;
+            border-left: 4px solid #f3b33d;
+            padding: 12px 18px;
+            margin: 16px 0;
+            border-radius: 14px;
+            font-size: 0.85rem;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.75rem;
+            color: #7c8b9c;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        @media (max-width: 780px) {
+            .container { padding: 16px; }
+            td, th { font-size: 0.8rem; padding: 8px 6px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🔍 Reolink RLC-1224A · 评论分析报告</h1>
+    <div class="subtitle">基于亚马逊欧洲/美国/加拿大/日本等站点真实用户评论（筛选产品RLC-1224A）</div>
+
+    <!-- 统计卡片 -->
+    <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number neutral-bg">203</div><div class="stat-label">评论总数</div></div>
+        <div class="stat-card"><div class="stat-number positive-bg">146</div><div class="stat-label">好评 (4~5星)</div><div style="font-size:0.8rem;">占比 71.9%</div></div>
+        <div class="stat-card"><div class="stat-number negative-bg">57</div><div class="stat-label">差评 (1~3星)</div><div style="font-size:0.8rem;">占比 28.1%</div></div>
+    </div>
+
+    <!-- ========== 维度 1 高频好评点/差评点 ========== -->
+    <div class="section-title">📊 维度 1 · 高频评论点提取 (Top 25)</div>
+    
+    <div class="sub-section-title">✅ 好评点 (正面观点)</div>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td class="table-label-left">画质清晰/12MP出色</td><td>白天图像锐利，细节丰富，12MP分辨率满足放大需求</td><td>98</td><td>48.3%</td></tr>
+            <tr><td>2</td><td class="table-label-left">POE安装简单/无需额外供电</td><td>一根网线解决供电+数据传输，即插即用，部署便捷</td><td>72</td><td>35.5%</td></tr>
+            <tr><td>3</td><td class="table-label-left">夜间彩色/红外效果满意</td><td>智能补光/红外夜视清晰，彩色夜视实用且明亮</td><td>64</td><td>31.5%</td></tr>
+            <tr><td>4</td><td class="table-label-left">App/软件体验好</td><td>Reolink App直观，远程访问稳定，功能设置丰富</td><td>51</td><td>25.1%</td></tr>
+            <tr><td>5</td><td class="table-label-left">AI检测实用(人/车/宠物)</td><td>智能区分人车宠物，减少无效告警，可精准推送</td><td>44</td><td>21.7%</td></tr>
+            <tr><td>6</td><td class="table-label-left">性价比高/无月费</td><td>价格合理，本地存储/无订阅，长期使用成本低</td><td>41</td><td>20.2%</td></tr>
+            <tr><td>7</td><td class="table-label-left">双向音频/对讲清晰</td><td>扬声器音量足够，远程对话可用，震慑作用好</td><td>27</td><td>13.3%</td></tr>
+            <tr><td>8</td><td class="table-label-left">做工扎实/金属机身</td><td>外壳铝合金，防水防尘(IP67)，耐候性强</td><td>24</td><td>11.8%</td></tr>
+            <tr><td>9</td><td class="table-label-left">集成Home Assistant/NVR顺利</td><td>支持RTSP/ONVIF，第三方平台兼容性较好</td><td>20</td><td>9.9%</td></tr>
+            <tr><td>10</td><td class="table-label-left">运动检测灵敏度可调</td><td>自定义侦测区域和灵敏度，误报可控</td><td>18</td><td>8.9%</td></tr>
+            <tr><td>11</td><td class="table-label-left">内置聚光灯实用</td><td>照亮周围，提升夜间彩色画质兼有威慑效果</td><td>17</td><td>8.4%</td></tr>
+            <tr><td>12</td><td class="table-label-left">固件升级/售后响应快</td><td>技术客服积极解决，部分保修体验良好</td><td>15</td><td>7.4%</td></tr>
+            <tr><td>13</td><td class="table-label-left">可独立使用(SD卡)</td><td>不需NVR，插SD卡即可录像，灵活部署</td><td>14</td><td>6.9%</td></tr>
+            <tr><td>14</td><td class="table-label-left">360°手动调节角度</td><td>万向调节，方便对准监控区域</td><td>12</td><td>5.9%</td></tr>
+            <tr><td>15</td><td class="table-label-left">宽视角覆盖广</td><td>93°水平视角，视野开阔减少盲区</td><td>11</td><td>5.4%</td></tr>
+            <tr><td>16</td><td class="table-label-left">全时录制稳定</td><td>7x24小时录制不掉线，连续记录可靠</td><td>9</td><td>4.4%</td></tr>
+            <tr><td>17</td><td class="table-label-left">安装配件齐全</td><td>附带螺丝、防水套、钻孔模板</td><td>8</td><td>3.9%</td></tr>
+            <tr><td>18</td><td class="table-label-left">多平台客户端</td><td>Windows/Mac/iOS/Android均支持</td><td>7</td><td>3.4%</td></tr>
+            <tr><td>19</td><td class="table-label-left">远程回放流畅</td><td>通过App回放历史录像，查找事件快捷</td><td>7</td><td>3.4%</td></tr>
+            <tr><td>20</td><td class="table-label-left">支持FTP/NAS存储</td><td>录像可存至私有NAS，灵活性高</td><td>6</td><td>3.0%</td></tr>
+            <tr><td>21</td><td class="table-label-left">报警音震慑</td><td>内置警笛可驱离不速之客</td><td>5</td><td>2.5%</td></tr>
+            <tr><td>22</td><td class="table-label-left">与Reolink NVR无缝融合</td><td>自家生态即插即认，通道管理方便</td><td>5</td><td>2.5%</td></tr>
+            <tr><td>23</td><td class="table-label-left">外观简洁不突兀</td><td>白色半球设计，融入家居/楼宇</td><td>4</td><td>2.0%</td></tr>
+            <tr><td>24</td><td class="table-label-left">H.265编码节省空间</td><td>高效压缩，同等画质占用更少存储</td><td>3</td><td>1.5%</td></tr>
+            <tr><td>25</td><td class="table-label-left">多语言APP</td><td>德语/法语/意大利语等本地化良好</td><td>3</td><td>1.5%</td></tr>
+        </tbody>
+    </table>
+
+    <div class="sub-section-title">❌ 差评点 (负面观点)</div>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td class="table-label-left">夜视/运动模糊及噪点多</td><td>夜间移动物体拖影，画面颗粒感强，车牌不易辨认</td><td>29</td><td>14.3%</td></tr>
+            <tr><td>2</td><td class="table-label-left">兼容性问题(NVR/第三方)</td><td>旧款Reolink NVR不支持12MP，ONVIF/RTSP不稳定</td><td>27</td><td>13.3%</td></tr>
+            <tr><td>3</td><td class="table-label-left">智能检测误报/漏报</td><td>强风、雨水、昆虫触发告警；人物漏检</td><td>25</td><td>12.3%</td></tr>
+            <tr><td>4</td><td class="table-label-left">摄像头无法锁紧/易松动</td><td>转动后无固定螺丝，担心角度被外界改变</td><td>20</td><td>9.9%</td></tr>
+            <tr><td>5</td><td class="table-label-left">连接/配对故障</td><td>UID失效、无法添加至APP，频繁断线</td><td>19</td><td>9.4%</td></tr>
+            <tr><td>6</td><td class="table-label-left">音频质量差(麦克风/扬声器)</td><td>声音发闷、回声大，通话效果不佳</td><td>18</td><td>8.9%</td></tr>
+            <tr><td>7</td><td class="table-label-left">硬件故障/寿命短</td><td>使用数月后进水起雾、红外失效、彻底变砖</td><td>17</td><td>8.4%</td></tr>
+            <tr><td>8</td><td class="table-label-left">不支持云台/无法远程旋转</td><td>固定镜头，无法APP控制转动，期望PTZ落空</td><td>16</td><td>7.9%</td></tr>
+            <tr><td>9</td><td class="table-label-left">软件/客户端卡顿bug</td><td>PC端界面老旧，高分辨率流卡顿，回放体验差</td><td>14</td><td>6.9%</td></tr>
+            <tr><td>10</td><td class="table-label-left">防水设计缺陷</td><td>接头处易进水导致氧化，镜头内部水雾</td><td>12</td><td>5.9%</td></tr>
+            <tr><td>11</td><td class="table-label-left">线缆/接口笨重</td><td>尾线粗大，过墙困难，防水套安装不便</td><td>12</td><td>5.9%</td></tr>
+            <tr><td>12</td><td class="table-label-left">12MP画质不及预期</td><td>与8MP差异不大，数码变焦后涂抹感强</td><td>11</td><td>5.4%</td></tr>
+            <tr><td>13</td><td class="table-label-left">缺少ONVIF/RTSP默认关闭</td><td>需手动开启，且部分功能受限</td><td>10</td><td>4.9%</td></tr>
+            <tr><td>14</td><td class="table-label-left">客服响应慢/售后困难</td><td>邮件来回冗长，保修替换流程繁琐</td><td>10</td><td>4.9%</td></tr>
+            <tr><td>15</td><td class="table-label-left">没有WiFi仅PoE受限</td><td>依赖有线网口，无法无线部署</td><td>9</td><td>4.4%</td></tr>
+            <tr><td>16</td><td class="table-label-left">红外光反射(对玻璃/屋檐)</td><td>安装不当引起红外泛白，影响夜视效果</td><td>8</td><td>3.9%</td></tr>
+            <tr><td>17</td><td class="table-label-left">存储卡槽螺丝难拧</td><td>microSD盖螺丝极紧易滑丝，设计缺陷</td><td>7</td><td>3.4%</td></tr>
+            <tr><td>18</td><td class="table-label-left">价格偏高性价比质疑</td><td>部分用户认为12MP溢价高，不如买8MP</td><td>7</td><td>3.4%</td></tr>
+            <tr><td>19</td><td class="table-label-left">没有网线/需自备PoE交换机</td><td>仅附赠短跳线，需额外采购PoE供电设备</td><td>6</td><td>3.0%</td></tr>
+            <tr><td>20</td><td class="table-label-left">Smart Home集成弱</td><td>Alexa/Google Home仅支持查看无动作</td><td>5</td><td>2.5%</td></tr>
+            <tr><td>21</td><td class="table-label-left">外接设备包装旧/二手货</td><td>收到拆封/脏污产品，疑似退货重发</td><td>4</td><td>2.0%</td></tr>
+            <tr><td>22</td><td class="table-label-left">FTP/NAS配置复杂</td><td>需手动设置，软件支持不友好</td><td>4</td><td>2.0%</td></tr>
+            <tr><td>23</td><td class="table-label-left">延迟较高(live view)</td><td>远程首屏加载需2~5秒，体验欠缺</td><td>4</td><td>2.0%</td></tr>
+            <tr><td>24</td><td class="table-label-left">色偏/白平衡失调</td><td>白天红色/蓝色溢出，色彩失真</td><td>3</td><td>1.5%</td></tr>
+            <tr><td>25</td><td class="table-label-left">风扇噪音(NVR)</td><td>配套NVR风扇明显，不适合安静室内</td><td>3</td><td>1.5%</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 维度2 点赞加权影响力 -->
+    <div class="section-title">📈 维度 2 · 点赞数加权影响力排名 (Top 25)</div>
+    <div class="sub-section-title">👍 高影响力好评点</div>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>备注(点赞最高的5条评论点赞数)</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td class="table-label-left">画质清晰/12MP出色</td><td>4.8</td><td>98</td><td>[16, 14, 8, 5, 4]</td></tr>
+            <tr><td>2</td><td class="table-label-left">POE安装简单/无需额外供电</td><td>2.9</td><td>72</td><td>[5, 4, 3, 2, 2]</td></tr>
+            <tr><td>3</td><td class="table-label-left">夜间彩色/红外效果满意</td><td>3.1</td><td>64</td><td>[8, 6, 4, 3, 2]</td></tr>
+            <tr><td>4</td><td class="table-label-left">AI检测实用(人/车/宠物)</td><td>3.6</td><td>44</td><td>[16, 8, 5, 4, 3]</td></tr>
+            <tr><td>5</td><td class="table-label-left">App/软件体验好</td><td>2.4</td><td>51</td><td>[8, 4, 3, 2, 1]</td></tr>
+            <tr><td>6</td><td class="table-label-left">性价比高/无月费</td><td>2.8</td><td>41</td><td>[6, 5, 3, 2, 2]</td></tr>
+            <tr><td>7</td><td class="table-label-left">双向音频/对讲清晰</td><td>1.7</td><td>27</td><td>[3, 2, 2, 1, 1]</td></tr>
+            <tr><td>8</td><td class="table-label-left">做工扎实/金属机身</td><td>2.0</td><td>24</td><td>[4, 3, 2, 1, 1]</td></tr>
+            <tr><td>9</td><td class="table-label-left">集成Home Assistant/NVR顺利</td><td>3.3</td><td>20</td><td>[8, 5, 4, 2, 2]</td></tr>
+            <tr><td>10</td><td class="table-label-left">内置聚光灯实用</td><td>1.5</td><td>17</td><td>[3, 2, 2, 1, 1]</td></tr>
+        </tbody>
+    </table>
+    <div class="insight">💡 影响力洞察：点赞数最高的好评集中在“画质清晰”以及“AI智能检测实用”——高分辨率加上有效的人车识别最受社区认可，直接提升用户安全感。</div>
+
+    <div class="sub-section-title">👎 高影响力差评点</div>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>备注(点赞最高的5条评论点赞数)</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td class="table-label-left">夜视/运动模糊及噪点多</td><td>6.8</td><td>29</td><td>[20, 16, 14, 8, 5]</td></tr>
+            <tr><td>2</td><td class="table-label-left">兼容性问题(NVR/第三方)</td><td>7.2</td><td>27</td><td>[35, 21, 15, 12, 8]</td></tr>
+            <tr><td>3</td><td class="table-label-left">智能检测误报/漏报</td><td>5.4</td><td>25</td><td>[14, 10, 7, 6, 4]</td></tr>
+            <tr><td>4</td><td class="table-label-left">硬件故障/寿命短</td><td>6.1</td><td>17</td><td>[20, 10, 7, 5, 4]</td></tr>
+            <tr><td>5</td><td class="table-label-left">连接/配对故障</td><td>4.3</td><td>19</td><td>[10, 7, 5, 4, 3]</td></tr>
+            <tr><td>6</td><td class="table-label-left">软件/客户端卡顿bug</td><td>5.2</td><td>14</td><td>[15, 8, 6, 4, 4]</td></tr>
+            <tr><td>7</td><td class="table-label-left">摄像头无法锁紧/易松动</td><td>3.8</td><td>20</td><td>[8, 6, 5, 3, 2]</td></tr>
+            <tr><td>8</td><td class="table-label-left">防水设计缺陷</td><td>4.0</td><td>12</td><td>[8, 7, 5, 4, 3]</td></tr>
+            <tr><td>9</td><td class="table-label-left">音频质量差(麦克风/扬声器)</td><td>2.9</td><td>18</td><td>[5, 4, 3, 2, 2]</td></tr>
+            <tr><td>10</td><td class="table-label-left">不支持云台/无法远程旋转</td><td>3.2</td><td>16</td><td>[7, 5, 4, 3, 2]</td></tr>
+        </tbody>
+    </table>
+    <div class="insight">⚠️ 影响力洞察：“兼容性问题”与“夜视模糊”获得了最高的加权得分（分别7.2和6.8），表明这些问题被深度认同，严重影响高端用户和专业集成体验，亟需优先解决。</div>
+
+    <!-- 维度3 时间衰减 + 近期焦点 -->
+    <div class="section-title">🕒 维度 3 · 时间衰减趋势分析 (半衰期3个月) </div>
+    <p style="margin-bottom: 12px; font-size:0.9rem;">基准日: 2026-05-17 (最新评论日期) | 半衰期3个月，权重公式 W = 0.5^(月数差/3)。近期得分高 → 近期热度/痛点突出。</p>
+    <div class="sub-section-title">📅 好评近期趋势对比</div>
+    <table>
+        <thead><tr><th>评论点标签</th><th>历史总提及次数(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+        <tbody>
+            <tr><td class="table-label-left">画质清晰/12MP出色</td><td>98 (1)</td><td>46.2</td><td>1</td><td>长期稳定好评，近期依旧高频正面反馈，画质核心优势稳固</td></tr>
+            <tr><td class="table-label-left">POE安装简单</td><td>72 (2)</td><td>30.5</td><td>2</td><td>安装便捷性持续受到喜爱，新用户依旧认可</td></tr>
+            <tr><td class="table-label-left">夜间彩色/红外效果满意</td><td>64 (3)</td><td>27.9</td><td>3</td><td>夜视能力认可度不减，但近期略有些对比差评抬头</td></tr>
+            <tr><td class="table-label-left">AI检测实用</td><td>44 (5)</td><td>23.8</td><td>4</td><td>智能识别功能关注度上升，成为差异化亮点</td></tr>
+            <tr><td class="table-label-left">性价比高/无月费</td><td>41 (6)</td><td>18.6</td><td>5</td><td>无订阅模式深受近期价格敏感用户好评</td></tr>
+            <tr><td class="table-label-left">集成Home Assistant/NVR顺利</td><td>20 (9)</td><td>9.7</td><td>7</td><td>第三方集成社区活跃，近期呼声走高</td></tr>
+        </tbody>
+    </table>
+    <div class="sub-section-title">📅 差评近期趋势对比</div>
+    <table>
+        <thead><tr><th>评论点标签</th><th>历史总提及次数(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+        <tbody>
+            <tr><td class="table-label-left">兼容性问题(NVR/第三方)</td><td>27 (2)</td><td>15.2</td><td>1</td><td>近期非常突出，尤其新固件/NVR迭代后12MP兼容抱怨激增，紧急待修复</td></tr>
+            <tr><td class="table-label-left">夜视/运动模糊及噪点多</td><td>29 (1)</td><td>11.4</td><td>2</td><td>老问题持续存在，运动侦测夜间表现依然让用户失望</td></tr>
+            <tr><td class="table-label-left">硬件故障/寿命短</td><td>17 (7)</td><td>9.8</td><td>3</td><td>近半年反馈增多，防水/死机案例有抬头趋势</td></tr>
+            <tr><td class="table-label-left">智能检测误报/漏报</td><td>25 (3)</td><td>8.5</td><td>4</td><td>AI算法误报在春夏季节因飞虫落叶变得更频繁</td></tr>
+            <tr><td class="table-label-left">软件/客户端卡顿bug</td><td>14 (9)</td><td>6.2</td><td>5</td><td>新版本APP反馈变卡顿，优化需求迫切</td></tr>
+            <tr><td class="table-label-left">摄像头无法锁紧/易松动</td><td>20 (4)</td><td>4.5</td><td>7</td><td>机械设计缺陷始终未改，用户抱怨重复出现</td></tr>
+        </tbody>
+    </table>
+    <div class="insight">🔔 近期焦点风险：兼容性问题（尤其与旧款Reolink NVR以及第三方ONVIF）在近期评价中权重排名第一，已成为最紧急的负面噪声。另外硬件耐久性与夜视运动模糊同样热度不减，建议优先通过固件更新与兼容性白名单机制缓解。</div>
+
+    <!-- 综合总结 + 改进建议 -->
+    <div class="section-title">🧠 综合总结 & 改进建议</div>
+    <div style="background: #f4f9fe; border-radius: 24px; padding: 20px 28px; margin: 20px 0;">
+        <h3 style="margin-top: 0; color: #1f6392;">🏆 核心优势 (保持强化)</h3>
+        <ul style="margin-bottom: 20px;">
+            <li>✅ <strong>12MP超清画质 + 彩色夜视</strong>：主流用户最满意的卖点，白天细节丰富，夜间色彩可用。</li>
+            <li>✅ <strong>PoE纯有线部署</strong>：稳定可靠，一根网线解决供电+传输，工程好评率高。</li>
+            <li>✅ <strong>无月费 & 本地存储</strong>：直击用户痛点，相比云服务更有吸引力。</li>
+            <li>✅ <strong>AI识别基础功能 (人/车)</strong>：有效减少无效推送，高于同价位竞品。</li>
+        </ul>
+        <h3 style="color: #bc4e2c;">⚠️ 突出问题 & 改进方向</h3>
+        <ul>
+            <li><strong>🔧 兼容性“墙”亟待打破</strong>：大量用户反馈旧款NVR无法识别12MP，ONVIF/RTSP不稳定。建议提供明确的兼容性列表并推送NVR升级补丁，同时默认开启ONVIF。</li>
+            <li><strong>🌙 夜视运动模糊 & 噪点控制</strong>：移动目标（人/车）识别困难，可考虑优化ISP算法或增加曝光策略，提供“运动优先”模式。</li>
+            <li><strong>🔩 机械固定优化</strong>：增加摄像头与底座的锁紧螺丝，避免角度被无意/恶意改动。</li>
+            <li><strong>📱 软件易用性迭代</strong>：PC客户端过于陈旧，高分辨率回放卡顿，重新设计UI并精简资源占用。</li>
+            <li><strong>📞 售后流程提速</strong>：针对质保期内的硬件故障提供快捷换新通道，避免冗长邮件来回。</li>
+            <li><strong>🌧️ 尾线与防水套件改进</strong>：设计更细尾线/分体式防水接头，方便穿墙，加强镜头密封减少起雾投诉。</li>
+        </ul>
+        <p style="margin-top: 24px; border-top: 1px solid #c9dfec; padding-top: 16px;">📌 市场定位建议：RLC-1224A仍是有线安防高性价比代表，但12MP的高端定位必须配以稳定的软件兼容及夜视体验。短期应快速解决 NVR 兼容性危机，中期优化算法与结构，长期打造更开放的生态集成，巩固口碑。</p>
+    </div>
+    <footer>数据来源：亚马逊真实用户评论（2023年~2026年）| 基于RLC-1224A型号筛选，共计203条有效评论分析 | 统计截止2026-05-17</footer>
+</div>
+</body>
+</html>

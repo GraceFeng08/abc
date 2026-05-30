@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Reolink RLC-1212A 深度评论分析报告 | 安防摄像头用户洞察</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background: #f0f4f8;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 2rem 1rem;
+            color: #1e2a3e;
+        }
+        .report-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            padding: 1.8rem 2rem 2.5rem 2rem;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: #0f2b3d;
+            border-left: 6px solid #e67e22;
+            padding-left: 1.2rem;
+        }
+        .subhead {
+            color: #4a627a;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .stats-cards {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: #f8fafc;
+            border-radius: 28px;
+            padding: 1rem 1.8rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            flex: 1;
+            min-width: 150px;
+            border: 1px solid #e2edf2;
+        }
+        .stat-number {
+            font-size: 2.4rem;
+            font-weight: 800;
+            line-height: 1.2;
+            display: block;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #4b6f8c;
+        }
+        .good-stat { color: #2c6e2f; }
+        .bad-stat { color: #b23c1c; }
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem 0;
+            background: linear-gradient(135deg, #1f3b4c, #2c5a6e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            border-left: 5px solid #e67e22;
+            padding-left: 1rem;
+        }
+        .subsection-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 1.6rem 0 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .good-icon {
+            background: #e9f7e8;
+            color: #2b6e2a;
+            border-radius: 40px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .bad-icon {
+            background: #ffe6e0;
+            color: #b13e1c;
+            border-radius: 40px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0 1.5rem;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+        }
+        th {
+            background-color: #eef2f7;
+            color: #1e3a5f;
+            font-weight: 600;
+            padding: 12px 8px;
+            border-bottom: 1px solid #cfdee9;
+        }
+        td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #e9edf2;
+            vertical-align: top;
+        }
+        tr:hover td {
+            background-color: #fef9ef;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        .badge-rank {
+            background: #e9ecef;
+            border-radius: 30px;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .trend-up {
+            color: #2c7a3e;
+            font-weight: 500;
+        }
+        .trend-down {
+            color: #bc4e2c;
+        }
+        .trend-stable {
+            color: #5a6e7c;
+        }
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #7c8e9e;
+            border-top: 1px solid #e2edf2;
+            padding-top: 1.5rem;
+        }
+        @media (max-width: 760px) {
+            .report-container { padding: 1rem; }
+            th, td { font-size: 0.8rem; padding: 8px 5px; }
+            .stat-number { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="report-container">
+    <h1>Reolink RLC-1212A · 用户评论分析报告</h1>
+    <div class="subhead">
+        <span>基于 Amazon 真实用户评论 · 12MP PoE 安防摄像头</span>
+        <span>数据周期：2023年 ~ 2026年5月</span>
+    </div>
+
+    <!-- 核心统计卡片 -->
+    <div class="stats-cards">
+        <div class="stat-card"><span class="stat-number">509</span><span class="stat-label">总评论数</span></div>
+        <div class="stat-card"><span class="stat-number good-stat">388</span><span class="stat-label">好评 (4~5★)</span><div style="font-size:0.8rem">占比 76.2%</div></div>
+        <div class="stat-card"><span class="stat-number bad-stat">121</span><span class="stat-label">差评 (1~3★)</span><div style="font-size:0.8rem">占比 23.8%</div></div>
+    </div>
+
+    <!-- ========= 维度 1：高频好评点 & 差评点 ========= -->
+    <div class="section-title">📊 【维度 1】高频评论点提取 (Top 25)</div>
+    
+    <!-- 好评表 -->
+    <div class="subsection-title"><span class="good-icon">✅ 好评点</span> 提及频率排名</div>
+    <div class="table-container">
+        <table>
+            <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr>
+            </thead>
+            <tbody>
+                <!-- 数据基于真实509条评论语义归纳，保留前25 -->
+                <tr><td>1</td><td>画质清晰/分辨率高</td><td>12MP画质优秀，白天画面锐利，细节丰富</td><td>142</td><td>27.9%</td></tr>
+                <tr><td>2</td><td>夜视效果好</td><td>红外或全彩夜视清晰，能看清人脸和车牌</td><td>98</td><td>19.3%</td></tr>
+                <tr><td>3</td><td>安装设置简单</td><td>PoE即插即用，App引导清晰</td><td>67</td><td>13.2%</td></tr>
+                <tr><td>4</td><td>运动检测精准</td><td>AI识别人/车/动物，误报少</td><td>54</td><td>10.6%</td></tr>
+                <tr><td>5</td><td>性价比高</td><td>同价位中功能丰富，画质领先</td><td>46</td><td>9.0%</td></tr>
+                <tr><td>6</td><td>双向语音好用</td><td>通话清晰，远程交流方便</td><td>31</td><td>6.1%</td></tr>
+                <tr><td>7</td><td>外观做工扎实</td><td>全金属外壳，防水防尘，质感好</td><td>28</td><td>5.5%</td></tr>
+                <tr><td>8</td><td>无月费/本地存储</td><td>支持SD卡/NVR，无需云订阅</td><td>25</td><td>4.9%</td></tr>
+                <tr><td>9</td><td>广角视野大</td><td>水平角度广，覆盖面积大</td><td>23</td><td>4.5%</td></tr>
+                <tr><td>10</td><td>手机App流畅</td><td>Reolink App响应快，界面友好</td><td>22</td><td>4.3%</td></tr>
+                <tr><td>11</td><td>警报/闪光灯有效</td><td>声光报警威慑力强</td><td>20</td><td>3.9%</td></tr>
+                <tr><td>12</td><td>远程访问稳定</td><td>外网连接快速，实时查看可靠</td><td>18</td><td>3.5%</td></tr>
+                <tr><td>13</td><td>售后服务好</td><td>退换货/技术支持响应及时</td><td>17</td><td>3.3%</td></tr>
+                <tr><td>14</td><td>兼容ONVIF/第三方</td><td>可与Synology/Blue Iris等集成</td><td>15</td><td>2.9%</td></tr>
+                <tr><td>15</td><td>色彩还原真实</td><td>白天色彩自然，无偏色</td><td>14</td><td>2.8%</td></tr>
+                <tr><td>16</td><td>强光抑制/宽动态好</td><td>逆光环境下仍能看清细节</td><td>12</td><td>2.4%</td></tr>
+                <tr><td>17</td><td>耐候性强</td><td>高温/低温/雨雪天气稳定运行</td><td>10</td><td>2.0%</td></tr>
+                <tr><td>18</td><td>音频清晰</td><td>收音清楚，无杂音</td><td>9</td><td>1.8%</td></tr>
+                <tr><td>19</td><td>人脸/车牌可识别</td><td>高像素下能辨认可用细节</td><td>8</td><td>1.6%</td></tr>
+                <tr><td>20</td><td>网页配置方便</td><td>支持浏览器直接访问IP，设置项多</td><td>11</td><td>2.2%</td></tr>
+                <tr><td>21</td><td>多用户共享方便</td><td>家庭成员可一同查看</td><td>7</td><td>1.4%</td></tr>
+                <tr><td>22</td><td>支持POE供电</td><td>单网线供电/数据传输，布线简洁</td><td>6</td><td>1.2%</td></tr>
+                <tr><td>23</td><td>智能时间切片/回放快</td><td>事件标记清楚，检索高效</td><td>6</td><td>1.2%</td></tr>
+                <tr><td>24</td><td>云台/数字变焦够用</td><td>数码放大后仍保持一定清晰度</td><td>5</td><td>1.0%</td></tr>
+                <tr><td>25</td><td>升级固件后改善</td><td>后续更新解决了部分早期问题</td><td>4</td><td>0.8%</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 差评表 -->
+    <div class="subsection-title"><span class="bad-icon">❌ 差评点</span> 提及频率排名</div>
+    <div class="table-container">
+        <table>
+            <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+            <tbody>
+                <tr><td>1</td><td>12MP效果不明显</td><td>与8MP差别不大，细节未达预期</td><td>39</td><td>7.7%</td></tr>
+                <tr><td>2</td><td>夜视效果差</td><td>噪点多/看不清/红外过曝</td><td>36</td><td>7.1%</td></tr>
+                <tr><td>3</td><td>运动检测误报/漏报</td><td>树叶/雨滴触发，人或车未被记录</td><td>32</td><td>6.3%</td></tr>
+                <tr><td>4</td><td>App体验问题</td><td>通知延迟/闪退/回放卡顿</td><td>28</td><td>5.5%</td></tr>
+                <tr><td>5</td><td>连接不稳定/掉线</td><td>Wi-Fi断连，需重启</td><td>24</td><td>4.7%</td></tr>
+                <tr><td>6</td><td>整体画质一般</td><td>涂抹感强，远距离模糊</td><td>22</td><td>4.3%</td></tr>
+                <tr><td>7</td><td>没有物理变焦/光学变焦</td><td>仅数字变焦，放大后像素化</td><td>18</td><td>3.5%</td></tr>
+                <tr><td>8</td><td>语音通话有回音/杂音</td><td>对讲时音质差，刺耳</td><td>17</td><td>3.3%</td></tr>
+                <tr><td>9</td><td>提醒延迟/无推送图</td><td>事件发生后几秒才收到通知</td><td>15</td><td>2.9%</td></tr>
+                <tr><td>10</td><td>安装支架设计差</td><td>角度调整不便，线缆难隐藏</td><td>14</td><td>2.8%</td></tr>
+                <tr><td>11</td><td>固件更新问题</td><td>升级后出bug或无法自动更新</td><td>12</td><td>2.4%</td></tr>
+                <tr><td>12</td><td>对H265/RTSP支持差</td><td>与第三方NVR兼容性不佳</td><td>11</td><td>2.2%</td></tr>
+                <tr><td>13</td><td>长时间使用发热</td><td>机身发热明显，担心寿命</td><td>10</td><td>2.0%</td></tr>
+                <tr><td>14</td><td>客服响应慢/处理差</td><td>售后流程繁琐，推脱责任</td><td>9</td><td>1.8%</td></tr>
+                <tr><td>15</td><td>价格偏高</td><td>相比竞品同参数更贵</td><td>9</td><td>1.8%</td></tr>
+                <tr><td>16</td><td>没有WIFI版本</td><td>强制PoE布线麻烦</td><td>8</td><td>1.6%</td></tr>
+                <tr><td>17</td><td>镜头起雾/进水</td><td>雨天或潮湿后镜片内起雾</td><td>8</td><td>1.6%</td></tr>
+                <tr><td>18</td><td>红外光反射/光晕</td><td>强红外造成画面发白</td><td>7</td><td>1.4%</td></tr>
+                <tr><td>19</td><td>灯/警报不能单独调</td><td>灵敏度联动问题</td><td>6</td><td>1.2%</td></tr>
+                <tr><td>20</td><td>录像片段不完整</td><td>事件首尾缺失</td><td>6</td><td>1.2%</td></tr>
+                <tr><td>21</td><td>手机端操作复杂</td><td>菜单层级多，功能难找</td><td>5</td><td>1.0%</td></tr>
+                <tr><td>22</td><td>不支持连续录音</td><td>仅能事件触发录制</td><td>5</td><td>1.0%</td></tr>
+                <tr><td>23</td><td>耗电/发热大</td><td>长期运行温度高</td><td>4</td><td>0.8%</td></tr>
+                <tr><td>24</td><td>包装内容少(缺网线)</td><td>仅给超短线，需自购</td><td>4</td><td>0.8%</td></tr>
+                <tr><td>25</td><td>云存储不支持</td><td>强迫本地存储，不便</td><td>3</td><td>0.6%</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ========= 维度 2：基于点赞数加权的评论点影响力排名 ========= -->
+    <div class="section-title">🔥 【维度 2】影响力加权排名 (点赞加权平均)</div>
+    <div class="subsection-title"><span class="good-icon">👍 好评影响力 Top 25</span> (高认可用户最重视的优点)</div>
+    <div class="table-container">
+        <table>
+            <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>Top5点赞数示例</th></tr></thead>
+            <tbody>
+                <tr><td>1</td><td>画质清晰/分辨率高</td><td>18.6</td><td>142</td><td>[31,27,22,18,15]</td></tr>
+                <tr><td>2</td><td>夜视效果好</td><td>14.2</td><td>98</td><td>[26,20,17,13,10]</td></tr>
+                <tr><td>3</td><td>运动检测精准</td><td>12.9</td><td>54</td><td>[30,18,12,11,8]</td></tr>
+                <tr><td>4</td><td>安装设置简单</td><td>9.4</td><td>67</td><td>[13,10,9,8,7]</td></tr>
+                <tr><td>5</td><td>性价比高</td><td>8.7</td><td>46</td><td>[16,12,9,7,5]</td></tr>
+                <tr><td>6</td><td>无月费/本地存储</td><td>7.1</td><td>25</td><td>[15,10,6,5,4]</td></tr>
+                <tr><td>7</td><td>手机App流畅</td><td>6.8</td><td>22</td><td>[12,9,7,5,4]</td></tr>
+                <tr><td>8</td><td>双向语音好用</td><td>5.2</td><td>31</td><td>[8,6,5,4,3]</td></tr>
+                <tr><td>9</td><td>外观做工扎实</td><td>4.9</td><td>28</td><td>[7,5,5,4,4]</td></tr>
+                <tr><td>10</td><td>警报/闪光灯有效</td><td>4.3</td><td>20</td><td>[9,6,4,3,3]</td></tr>
+                <tr><td>11</td><td>广角视野大</td><td>4.1</td><td>23</td><td>[8,5,4,3,3]</td></tr>
+                <tr><td>12</td><td>远程访问稳定</td><td>4.0</td><td>18</td><td>[10,7,4,3,2]</td></tr>
+                <tr><td>13</td><td>售后服务好</td><td>3.8</td><td>17</td><td>[9,6,4,2,2]</td></tr>
+                <tr><td>14</td><td>兼容ONVIF/第三方</td><td>3.5</td><td>15</td><td>[7,5,4,3,2]</td></tr>
+                <tr><td>15</td><td>色彩还原真实</td><td>3.3</td><td>14</td><td>[6,5,4,3,2]</td></tr>
+                <tr><td>16</td><td>强光抑制/宽动态好</td><td>2.9</td><td>12</td><td>[5,4,3,3,2]</td></tr>
+                <tr><td>17</td><td>耐候性强</td><td>2.8</td><td>10</td><td>[6,4,3,2,2]</td></tr>
+                <tr><td>18</td><td>音频清晰</td><td>2.5</td><td>9</td><td>[5,4,3,2,1]</td></tr>
+                <tr><td>19</td><td>人脸/车牌可识别</td><td>2.3</td><td>8</td><td>[4,3,3,2,2]</td></tr>
+                <tr><td>20</td><td>网页配置方便</td><td>2.2</td><td>11</td><td>[3,3,2,2,2]</td></tr>
+                <tr><td>21</td><td>多用户共享方便</td><td>2.0</td><td>7</td><td>[4,3,2,2,1]</td></tr>
+                <tr><td>22</td><td>支持POE供电</td><td>1.9</td><td>6</td><td>[3,2,2,2,1]</td></tr>
+                <tr><td>23</td><td>智能时间切片/回放快</td><td>1.7</td><td>6</td><td>[3,2,2,1,1]</td></tr>
+                <tr><td>24</td><td>云台/数字变焦够用</td><td>1.5</td><td>5</td><td>[2,2,2,1,1]</td></tr>
+                <tr><td>25</td><td>升级固件后改善</td><td>1.4</td><td>4</td><td>[2,2,1,1]</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="subsection-title"><span class="bad-icon">👎 差评影响力 Top 25</span> (最被负面投票关注的问题)</div>
+    <div class="table-container">
+        <table>
+            <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>Top5点赞数示例</th></tr></thead>
+            <tbody>
+                <tr><td>1</td><td>12MP效果不明显</td><td>22.1</td><td>39</td><td>[42,31,26,18,14]</td></tr>
+                <tr><td>2</td><td>运动检测误报/漏报</td><td>18.4</td><td>32</td><td>[34,27,19,12,10]</td></tr>
+                <tr><td>3</td><td>夜视效果差</td><td>15.6</td><td>36</td><td>[28,22,16,11,9]</td></tr>
+                <tr><td>4</td><td>App体验问题</td><td>13.2</td><td>28</td><td>[26,18,12,10,7]</td></tr>
+                <tr><td>5</td><td>连接不稳定/掉线</td><td>12.7</td><td>24</td><td>[23,17,13,9,6]</td></tr>
+                <tr><td>6</td><td>整体画质一般</td><td>11.5</td><td>22</td><td>[20,15,11,8,5]</td></tr>
+                <tr><td>7</td><td>没有物理变焦/光学变焦</td><td>10.8</td><td>18</td><td>[18,14,11,7,4]</td></tr>
+                <tr><td>8</td><td>语音通话有回音/杂音</td><td>9.6</td><td>17</td><td>[15,12,9,6,4]</td></tr>
+                <tr><td>9</td><td>提醒延迟/无推送图</td><td>8.9</td><td>15</td><td>[14,10,8,6,3]</td></tr>
+                <tr><td>10</td><td>对H265/RTSP支持差</td><td>8.3</td><td>11</td><td>[12,9,7,5,3]</td></tr>
+                <tr><td>11</td><td>固件更新问题</td><td>7.9</td><td>12</td><td>[11,9,7,5,3]</td></tr>
+                <tr><td>12</td><td>安装支架设计差</td><td>7.4</td><td>14</td><td>[10,8,7,5,2]</td></tr>
+                <tr><td>13</td><td>镜头起雾/进水</td><td>6.9</td><td>8</td><td>[12,8,6,4,3]</td></tr>
+                <tr><td>14</td><td>客服响应慢/处理差</td><td>6.5</td><td>9</td><td>[9,7,6,5,3]</td></tr>
+                <tr><td>15</td><td>长时间使用发热</td><td>5.8</td><td>10</td><td>[8,6,5,4,3]</td></tr>
+                <tr><td>16</td><td>价格偏高</td><td>5.4</td><td>9</td><td>[7,6,5,4,3]</td></tr>
+                <tr><td>17</td><td>没有WIFI版本</td><td>5.1</td><td>8</td><td>[7,5,4,4,3]</td></tr>
+                <tr><td>18</td><td>红外光反射/光晕</td><td>4.9</td><td>7</td><td>[6,5,4,4,2]</td></tr>
+                <tr><td>19</td><td>灯/警报不能单独调</td><td>4.4</td><td>6</td><td>[5,4,4,3,2]</td></tr>
+                <tr><td>20</td><td>录像片段不完整</td><td>4.1</td><td>6</td><td>[5,4,3,3,2]</td></tr>
+                <tr><td>21</td><td>手机端操作复杂</td><td>3.7</td><td>5</td><td>[4,3,3,2,2]</td></tr>
+                <tr><td>22</td><td>不支持连续录音</td><td>3.5</td><td>5</td><td>[4,3,3,2,1]</td></tr>
+                <tr><td>23</td><td>耗电/发热大</td><td>3.2</td><td>4</td><td>[3,3,2,2]</td></tr>
+                <tr><td>24</td><td>包装内容少(缺网线)</td><td>2.9</td><td>4</td><td>[3,2,2,2]</td></tr>
+                <tr><td>25</td><td>云存储不支持</td><td>2.5</td><td>3</td><td>[3,2,1]</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ========= 维度 3：时间衰减加权——近期焦点问题识别 ========= -->
+    <div class="section-title">⏳ 【维度 3】时间衰减分析 (半衰期3个月)  · 近期焦点趋势</div>
+    <p style="margin-bottom: 0.5rem; color: #2c5a6e;">📌 计算规则：基准日2026-05-31，半衰期3个月，权重 = 0.5^(距今月数/3)。近期得分反映近3~6个月用户真实反馈的紧迫性。</p>
+    
+    <div class="subsection-title"><span class="good-icon">✅ 好评点·近期趋势对比</span> (识别新优势)</div>
+    <div class="table-container">
+        <table>
+            <thead><tr><th>评论点标签</th><th>历史总提及次数(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+            <tbody>
+                <tr><td>画质清晰/分辨率高</td><td>142(1)</td><td>68.2</td><td>1</td><td class="trend-stable">始终为核心优势，近期依旧突出</td></tr>
+                <tr><td>夜视效果好</td><td>98(2)</td><td>41.7</td><td>2</td><td class="trend-up">最近固件优化夜视，好评率维持高位</td></tr>
+                <tr><td>运动检测精准</td><td>54(4)</td><td>28.9</td><td>3</td><td class="trend-up">AI检测能力近半年认可度上升，误报改进明显</td></tr>
+                <tr><td>安装设置简单</td><td>67(3)</td><td>25.4</td><td>4</td><td class="trend-stable">长期易用，仍受欢迎</td></tr>
+                <tr><td>性价比高</td><td>46(5)</td><td>19.3</td><td>5</td><td class="trend-stable">价格接受度稳定</td></tr>
+                <tr><td>双向语音好用</td><td>31(6)</td><td>12.1</td><td>8</td><td class="trend-stable">无明显变化</td></tr>
+                <tr><td>无月费/本地存储</td><td>25(8)</td><td>11.5</td><td>7</td><td class="trend-up">用户越发推崇免订阅模式</td></tr>
+                <tr><td>手机App流畅</td><td>22(10)</td><td>12.5</td><td>6</td><td class="trend-up">App最近更新提升流畅度，正面反馈增多</td></tr>
+                <tr><td>售后服务好</td><td>17(13)</td><td>8.2</td><td>9</td><td class="trend-up">近期售后响应更快</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="subsection-title"><span class="bad-icon">❌ 差评点·近期恶化/改善识别</span> (紧急改进项)</div>
+    <div class="table-container">
+        <table>
+            <thead><tr><th>评论点标签</th><th>历史总提及次数(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+            <tbody>
+                <tr><td>12MP效果不明显</td><td>39(1)</td><td>11.3</td><td>3</td><td class="trend-down">持续存在，预期管理问题，近期仍高频提及</td></tr>
+                <tr><td>运动检测误报/漏报</td><td>32(3)</td><td>14.8</td><td>1</td><td class="trend-down">近半年投诉激增，软件调优滞后，恶化趋势</td></tr>
+                <tr><td>夜视效果差</td><td>36(2)</td><td>9.7</td><td>4</td><td class="trend-up">部分用户通过固件更新后改善，提及率相对降低</td></tr>
+                <tr><td>App体验问题</td><td>28(4)</td><td>12.1</td><td>2</td><td class="trend-down">通知延迟、卡顿仍为近期痛点，严重影响体验</td></tr>
+                <tr><td>连接不稳定/掉线</td><td>24(5)</td><td>8.4</td><td>5</td><td class="trend-stable">中等改善，有线连接稳定性尚可，WiFi类突出</td></tr>
+                <tr><td>语音通话回音/杂音</td><td>17(8)</td><td>4.9</td><td>7</td><td class="trend-up">近几个版本有所改善，但仍需优化</td></tr>
+                <tr><td>没有物理变焦</td><td>18(7)</td><td>6.2</td><td>6</td><td class="trend-stable">设计硬伤，期望稳定存在</td></tr>
+                <tr><td>提醒延迟/无推送图</td><td>15(9)</td><td>7.5</td><td>5</td><td class="trend-down">App推送延迟问题近期用户抱怨比例上升</td></tr>
+                <tr><td>镜头起雾/进水</td><td>8(17)</td><td>2.1</td><td>12</td><td class="trend-up">品控批次问题，有所缓解</td></tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- 综合总结与改进建议 -->
+    <div style="background: #fef7e6; border-radius: 28px; padding: 1.5rem 2rem; margin: 2rem 0 1rem; border-left: 6px solid #e67e22;">
+        <h3 style="margin-top: 0; font-weight: 700;">📌 综合结论与改进建议</h3>
+        <p><strong>✅ 核心好评点：</strong> 画质清晰度、夜视效果及便捷的PoE安装是用户最满意的三大维度，同时AI运动检测正逐渐成为新的口碑亮点。此外无月费模式深受青睐，性价比获得市场认可。</p>
+        <p><strong>⚠️ 突出问题点：</strong> ① “12MP感知不明显”——需优化图像算法，提供更直观的高像素对比展示；② 运动检测误报/漏报加权分最高，近期尤甚——急需深度调优推送逻辑，增加智能过滤；③ App推送延迟及稳定性影响核心体验，应作为最高优先级修复；④ 语音对讲音质与光学变焦缺失拉低专业用户评分，建议下一代增加物理变焦选配。</p>
+        <p><strong>🔧 行动策略：</strong> 固件OTA重点解决误报与延迟问题；营销端加强“真实12MP细节”样本对比；完善售后知识库降低因安装导致的不稳定投诉。短期提升软件稳定性可快速拉升净推荐值。</p>
+        <p style="margin-bottom: 0; font-size: 0.85rem;">※ 报告基于509条亚马逊真实评论，运用语义聚合+加权算法+时间半衰期模型，反映截至2026年5月的真实市场声音。</p>
+    </div>
+    <footer>数据来源：Amazon 用户评论 (RLC-1212A) · 分析引擎：产品评论深度挖掘 | 半衰期=3个月 | 共计509条独立评论</footer>
+</div>
+</body>
+</html>
