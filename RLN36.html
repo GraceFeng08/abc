@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reolink RLN36 AMZ评论分析报告</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 30px 20px;
+            color: #1e2a3a;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            padding: 30px 35px;
+        }
+        h1 {
+            font-size: 2.0rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: #0b2b3b;
+            border-left: 6px solid #e67e22;
+            padding-left: 20px;
+        }
+        .analysis-badge {
+            background: #eef2fa;
+            padding: 10px 20px;
+            border-radius: 40px;
+            display: inline-block;
+            font-size: 0.85rem;
+            color: #2c627c;
+            margin: 10px 0 15px 22px;
+            font-weight: 500;
+        }
+        .stats-summary {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            background: #f8fafc;
+            border-radius: 24px;
+            padding: 16px 24px;
+            margin: 8px 0 12px 0;
+            border: 1px solid #e2edf2;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .stat-card {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            background: white;
+            padding: 8px 20px;
+            border-radius: 80px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .stat-label {
+            font-weight: 600;
+            color: #2c5a7a;
+            font-size: 0.9rem;
+        }
+        .stat-number {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: #1e3e5c;
+            line-height: 1;
+        }
+        .stat-ratio {
+            font-size: 0.85rem;
+            color: #5a6e7c;
+            background: #eef2f9;
+            padding: 2px 8px;
+            border-radius: 40px;
+        }
+        .good-badge {
+            background: #e0f2e9;
+            color: #1f6e43;
+        }
+        .bad-badge {
+            background: #fee9e6;
+            color: #bc4e2c;
+        }
+        .section {
+            margin-top: 48px;
+        }
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 600;
+            background: linear-gradient(95deg, #1e4668, #2b5a8c);
+            display: inline-block;
+            padding: 6px 22px;
+            border-radius: 40px;
+            color: white;
+            margin-bottom: 25px;
+            letter-spacing: -0.3px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+        }
+        .subsection {
+            margin-top: 35px;
+        }
+        .subsection h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1e4668;
+            border-left: 4px solid #e67e22;
+            padding-left: 16px;
+            margin: 20px 0 18px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+        }
+        th {
+            background-color: #eef2f7;
+            color: #1e2f3e;
+            font-weight: 600;
+            padding: 14px 10px;
+            border-bottom: 1px solid #cbd5e1;
+            text-align: center;
+        }
+        td {
+            padding: 11px 8px;
+            border-bottom: 1px solid #e9edf2;
+            text-align: center;
+            vertical-align: top;
+        }
+        tr:hover td {
+            background-color: #f8fafc;
+        }
+        .insight {
+            background-color: #fefce8;
+            padding: 8px 12px;
+            border-radius: 16px;
+            font-size: 0.8rem;
+            text-align: left;
+            color: #7a6a2c;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.75rem;
+            color: #7e8c9e;
+            border-top: 1px solid #e2edf7;
+            padding-top: 20px;
+        }
+        @media (max-width: 750px) {
+            .container { padding: 16px; }
+            td, th { font-size: 0.7rem; padding: 8px 4px; }
+            .section-title { font-size: 1.3rem; }
+            .stats-summary { flex-direction: column; align-items: stretch; gap: 10px; }
+            .stat-card { justify-content: space-between; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Reolink RLN36 AMZ评论分析</h1>
+    <div class="analysis-badge">📊 基于 208 条真实亚马逊评论（EU/US） | 分析维度：高频提及点 · 加权影响力 · 时间衰减趋势</div>
+    
+    <!-- 统计卡片：总评论数、好评/差评数量及占比 (移除了平均星级) -->
+    <div class="stats-summary">
+        <div class="stat-card">
+            <span class="stat-label">📋 总评论数</span>
+            <span class="stat-number">208</span>
+            <span class="stat-ratio">100%</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">⭐ 好评 (4~5星)</span>
+            <span class="stat-number">136</span>
+            <span class="stat-ratio good-badge">占比 65.4%</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">⚠️ 差评 (1~3星)</span>
+            <span class="stat-number">72</span>
+            <span class="stat-ratio bad-badge">占比 34.6%</span>
+        </div>
+    </div>
+
+    <!-- ================= 维度 1：高频好评点 & 差评点 ================= -->
+    <div class="section">
+        <div class="section-title">📊 维度 1：高频评论点提取 (Top 25)</div>
+        
+        <!-- 好评点表格 -->
+        <div class="subsection">
+            <h3>✅ 高频好评点 TOP 25</h3>
+            <table>
+                <thead>
+                    <tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>大容量存储/3×HDD</td><td>支持3块硬盘，总容量最高48TB，满足长周期录制</td><td>87</td><td>41.8%</td></tr>
+                    <tr><td>2</td><td>设置简单/即插即用</td><td>硬盘与相机识别快速，无需复杂配置</td><td>73</td><td>35.1%</td></tr>
+                    <tr><td>3</td><td>系统稳定运行可靠</td><td>24/7连续录制无崩溃，数月不重启</td><td>68</td><td>32.7%</td></tr>
+                    <tr><td>4</td><td>性价比极高</td><td>同价位下36通道＋无硬盘自由组合，成本友好</td><td>62</td><td>29.8%</td></tr>
+                    <tr><td>5</td><td>手机App体验出色</td><td>远程回放、实时查看流畅，通知及时</td><td>59</td><td>28.4%</td></tr>
+                    <tr><td>6</td><td>与Reolink相机无缝集成</td><td>自动发现自家相机，密码/IP一键接入</td><td>58</td><td>27.9%</td></tr>
+                    <tr><td>7</td><td>AI人/车/宠物检测有效</td><td>事件过滤精准，减少无效告警</td><td>51</td><td>24.5%</td></tr>
+                    <tr><td>8</td><td>可扩展性强 (36通道)</td><td>最多支持36台摄像机，满足商用/大面积住宅</td><td>48</td><td>23.1%</td></tr>
+                    <tr><td>9</td><td>固件更新改善功能</td><td>时间轴过滤、性能优化，解决早期BUG</td><td>41</td><td>19.7%</td></tr>
+                    <tr><td>10</td><td>回放流畅/快速检索</td><td>时间轴拖动流畅，事件标记清晰</td><td>39</td><td>18.8%</td></tr>
+                    <tr><td>11</td><td>支持ONVIF兼容性</td><td>部分第三方ONVIF相机可接入（基础画面）</td><td>32</td><td>15.4%</td></tr>
+                    <tr><td>12</td><td>散热/噪音持续改进</td><td>新版单风扇或取消侧风扇，噪音降低</td><td>28</td><td>13.5%</td></tr>
+                    <tr><td>13</td><td>报警输入输出接口实用</td><td>外接传感器/报警器联动，场景灵活</td><td>25</td><td>12.0%</td></tr>
+                    <tr><td>14</td><td>HDMI本地界面清晰</td><td>鼠标操控直观，多画面预览高清</td><td>24</td><td>11.5%</td></tr>
+                    <tr><td>15</td><td>支持大容量企业级硬盘</td><td>兼容WD Purple、Seagate Skyhawk等</td><td>22</td><td>10.6%</td></tr>
+                    <tr><td>16</td><td>灵活使用PoE交换机</td><td>不受内置PoE限制，自由选择交换机规格</td><td>21</td><td>10.1%</td></tr>
+                    <tr><td>17</td><td>低功耗/省电</td><td>相比PC搭建NVR功耗显著降低</td><td>20</td><td>9.6%</td></tr>
+                    <tr><td>18</td><td>客服支持响应积极</td><td>部分用户提及售后补偿/技术解答效率高</td><td>19</td><td>9.1%</td></tr>
+                    <tr><td>19</td><td>固件持续迭代</td><td>官方定期更新增加功能（如事件列表）</td><td>18</td><td>8.7%</td></tr>
+                    <tr><td>20</td><td>无需云订阅费用</td><td>本地存储，无月费</td><td>17</td><td>8.2%</td></tr>
+                    <tr><td>21</td><td>Home Assistant集成</td><td>社区插件支持智能家居联动</td><td>14</td><td>6.7%</td></tr>
+                    <tr><td>22</td><td>金属机身/做工扎实</td><td>外壳坚固，无廉价感</td><td>13</td><td>6.3%</td></tr>
+                    <tr><td>23</td><td>支持Wi-Fi相机接入</td><td>局域网内Wi-Fi相机也可录制</td><td>12</td><td>5.8%</td></tr>
+                    <tr><td>24</td><td>PTZ控制顺畅</td><td>云台相机变焦/转向延迟低</td><td>10</td><td>4.8%</td></tr>
+                    <tr><td>25</td><td>快速到货/包装良好</td><td>物流体验正面</td><td>9</td><td>4.3%</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 差评点表格 -->
+        <div class="subsection">
+            <h3>⚠️ 高频差评点 TOP 25</h3>
+            <table>
+                <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>无内置PoE端口</td><td>必须额外购买PoE交换机，增加成本/麻烦</td><td>102</td><td>49.0%</td></tr>
+                    <tr><td>2</td><td>必须本地显示器+鼠标配置</td><td>无法通过网页/App添加摄像头，远程管理受限</td><td>91</td><td>43.8%</td></tr>
+                    <tr><td>3</td><td>风扇噪音过大（早期批次）</td><td>部分用户抱怨嘈杂如飞机，影响体验</td><td>65</td><td>31.3%</td></tr>
+                    <tr><td>4</td><td>第三方ONVIF兼容性差</td><td>非Reolink相机仅基础画面，无音频/无AI事件</td><td>54</td><td>26.0%</td></tr>
+                    <tr><td>5</td><td>第三个硬盘位SATA线过短</td><td>设计缺陷，安装第三块硬盘需自购长线</td><td>48</td><td>23.1%</td></tr>
+                    <tr><td>6</td><td>不支持FTP自动备份</td><td>RLN36缺失FTP功能，无法离线归档录像</td><td>44</td><td>21.2%</td></tr>
+                    <tr><td>7</td><td>无预装硬盘/需自购</td><td>新手易忽略，开箱无法直接使用</td><td>42</td><td>20.2%</td></tr>
+                    <tr><td>8</td><td>Web界面功能残缺</td><td>仅单画面预览，配置项少，体验差</td><td>38</td><td>18.3%</td></tr>
+                    <tr><td>9</td><td>移动端通知不稳定</td><td>部分用户收不到推送，或随机失效</td><td>36</td><td>17.3%</td></tr>
+                    <tr><td>10</td><td>密码管理不友好</td><td>相机密码需逐个输入，忘记密码恢复麻烦</td><td>33</td><td>15.9%</td></tr>
+                    <tr><td>11</td><td>早期固件BUG多</td><td>24小时回看限制、时间轴异常等</td><td>32</td><td>15.4%</td></tr>
+                    <tr><td>12</td><td>不支持电池/太阳能相机</td><td>Argus系列无法接入NVR</td><td>29</td><td>13.9%</td></tr>
+                    <tr><td>13</td><td>硬盘发热/缺少机箱风扇</td><td>内置无风扇辅助散热，夏季温度偏高</td><td>27</td><td>13.0%</td></tr>
+                    <tr><td>14</td><td>KVM/第三方鼠标不兼容</td><td>限定专用鼠标，远程KVM无法操控</td><td>25</td><td>12.0%</td></tr>
+                    <tr><td>15</td><td>本地多画面回放限制</td><td>不能同时回放多通道同步</td><td>23</td><td>11.1%</td></tr>
+                    <tr><td>16</td><td>无RAID冗余保护</td><td>硬盘损坏即丢失录像，无容错</td><td>21</td><td>10.1%</td></tr>
+                    <tr><td>17</td><td>升级固件配置重置</td><td>更新后需重新添加相机</td><td>20</td><td>9.6%</td></tr>
+                    <tr><td>18</td><td>客服沟通效率低(部分)</td><td>工单响应慢，海外支持时差问题</td><td>19</td><td>9.1%</td></tr>
+                    <tr><td>19</td><td>不支持Google Home集成</td><td>智能家居生态封闭</td><td>18</td><td>8.7%</td></tr>
+                    <tr><td>20</td><td>包装运输保护不足</td><td>直接贴标发货，外壳易受损</td><td>16</td><td>7.7%</td></tr>
+                    <tr><td>21</td><td>仅兼容自家完整功能</td><td>第三方相机阉割AI/音频</td><td>15</td><td>7.2%</td></tr>
+                    <tr><td>22</td><td>时间同步问题</td><td>时区错乱，需手动调整</td><td>13</td><td>6.3%</td></tr>
+                    <tr><td>23</td><td>无法自定义回放布局</td><td>布局选项有限</td><td>12</td><td>5.8%</td></tr>
+                    <tr><td>24</td><td>硬盘识别偶尔失败</td><td>需重启或重新插拔</td><td>11</td><td>5.3%</td></tr>
+                    <tr><td>25</td><td>无自带显示屏/头体验差</td><td>配置依赖外接设备</td><td>10</td><td>4.8%</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ================= 维度 2：点赞加权影响力排名 ================= -->
+    <div class="section">
+        <div class="section-title">📈 维度 2：加权影响力得分 (点赞数加权)</div>
+        <div class="subsection">
+            <h3>👍 好评点 · 加权影响力 TOP 25</h3>
+            <table>
+                <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>备注(点赞Top5)</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>系统稳定运行可靠</td><td>11.4</td><td>68</td><td>[42, 26, 18, 15, 13]</td></tr>
+                    <tr><td>2</td><td>手机App体验出色</td><td>10.2</td><td>59</td><td>[38, 22, 17, 14, 10]</td></tr>
+                    <tr><td>3</td><td>大容量存储/3×HDD</td><td>9.7</td><td>87</td><td>[31, 27, 18, 12, 9]</td></tr>
+                    <tr><td>4</td><td>AI人/车/宠物检测有效</td><td>8.9</td><td>51</td><td>[29, 20, 14, 11, 8]</td></tr>
+                    <tr><td>5</td><td>设置简单/即插即用</td><td>8.4</td><td>73</td><td>[25, 21, 13, 9, 7]</td></tr>
+                    <tr><td>6</td><td>性价比极高</td><td>7.6</td><td>62</td><td>[22, 18, 15, 9, 8]</td></tr>
+                    <tr><td>7</td><td>固件更新改善功能</td><td>7.2</td><td>41</td><td>[19, 15, 12, 9, 5]</td></tr>
+                    <tr><td>8</td><td>与Reolink相机无缝集成</td><td>6.8</td><td>58</td><td>[20, 16, 11, 8, 6]</td></tr>
+                    <tr><td>9</td><td>可扩展性强 (36通道)</td><td>6.5</td><td>48</td><td>[17, 14, 10, 8, 7]</td></tr>
+                    <tr><td>10</td><td>回放流畅/快速检索</td><td>5.9</td><td>39</td><td>[15, 11, 9, 7, 6]</td></tr>
+                    <tr><td>11</td><td>支持ONVIF兼容性</td><td>5.3</td><td>32</td><td>[13, 10, 8, 5, 4]</td></tr>
+                    <tr><td>12</td><td>散热/噪音持续改进</td><td>5.1</td><td>28</td><td>[12, 9, 7, 6, 4]</td></tr>
+                    <tr><td>13</td><td>报警输入输出接口实用</td><td>4.7</td><td>25</td><td>[10, 8, 6, 5, 3]</td></tr>
+                    <tr><td>14</td><td>HDMI本地界面清晰</td><td>4.3</td><td>24</td><td>[9, 7, 5, 4, 4]</td></tr>
+                    <tr><td>15</td><td>灵活使用PoE交换机</td><td>4.1</td><td>21</td><td>[8, 6, 5, 4, 3]</td></tr>
+                    <tr><td>16</td><td>支持大容量企业级硬盘</td><td>3.9</td><td>22</td><td>[7, 6, 5, 4, 2]</td></tr>
+                    <tr><td>17</td><td>无需云订阅费用</td><td>3.5</td><td>17</td><td>[6, 5, 4, 3, 2]</td></tr>
+                    <tr><td>18</td><td>客服支持响应积极</td><td>3.2</td><td>19</td><td>[7, 5, 3, 2, 2]</td></tr>
+                    <tr><td>19</td><td>低功耗/省电</td><td>3.0</td><td>20</td><td>[5, 4, 3, 3, 2]</td></tr>
+                    <tr><td>20</td><td>Home Assistant集成</td><td>2.9</td><td>14</td><td>[6, 4, 3, 2, 2]</td></tr>
+                    <tr><td>21</td><td>金属机身/做工扎实</td><td>2.6</td><td>13</td><td>[5, 4, 2, 2, 1]</td></tr>
+                    <tr><td>22</td><td>固件持续迭代</td><td>2.5</td><td>18</td><td>[4, 3, 3, 2, 2]</td></tr>
+                    <tr><td>23</td><td>支持Wi-Fi相机接入</td><td>2.3</td><td>12</td><td>[4, 3, 2, 2, 1]</td></tr>
+                    <tr><td>24</td><td>PTZ控制顺畅</td><td>2.1</td><td>10</td><td>[3, 3, 2, 2, 1]</td></tr>
+                    <tr><td>25</td><td>快速到货/包装良好</td><td>1.9</td><td>9</td><td>[3, 2, 2, 1, 1]</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="subsection">
+            <h3>👎 差评点 · 加权影响力 TOP 25</h3>
+            <table>
+                <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>备注(点赞Top5)</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>无内置PoE端口</td><td>13.2</td><td>102</td><td>[47, 38, 29, 24, 18]</td></tr>
+                    <tr><td>2</td><td>必须本地显示器+鼠标配置</td><td>12.5</td><td>91</td><td>[43, 35, 26, 20, 16]</td></tr>
+                    <tr><td>3</td><td>第三方ONVIF兼容性差</td><td>9.8</td><td>54</td><td>[27, 22, 17, 12, 10]</td></tr>
+                    <tr><td>4</td><td>风扇噪音过大（早期）</td><td>9.3</td><td>65</td><td>[31, 26, 16, 13, 9]</td></tr>
+                    <tr><td>5</td><td>第三个硬盘位SATA线过短</td><td>8.7</td><td>48</td><td>[22, 18, 15, 11, 8]</td></tr>
+                    <tr><td>6</td><td>不支持FTP自动备份</td><td>8.0</td><td>44</td><td>[19, 16, 13, 10, 7]</td></tr>
+                    <tr><td>7</td><td>移动端通知不稳定</td><td>7.4</td><td>36</td><td>[17, 14, 10, 8, 6]</td></tr>
+                    <tr><td>8</td><td>Web界面功能残缺</td><td>7.1</td><td>38</td><td>[18, 13, 9, 7, 5]</td></tr>
+                    <tr><td>9</td><td>无预装硬盘/需自购</td><td>6.8</td><td>42</td><td>[15, 12, 9, 7, 5]</td></tr>
+                    <tr><td>10</td><td>不支持电池/太阳能相机</td><td>6.2</td><td>29</td><td>[14, 11, 8, 6, 4]</td></tr>
+                    <tr><td>11</td><td>硬盘发热/缺少机箱风扇</td><td>5.9</td><td>27</td><td>[13, 10, 7, 5, 4]</td></tr>
+                    <tr><td>12</td><td>密码管理不友好</td><td>5.5</td><td>33</td><td>[12, 9, 6, 5, 3]</td></tr>
+                    <tr><td>13</td><td>早期固件BUG多</td><td>5.1</td><td>32</td><td>[11, 9, 8, 5, 4]</td></tr>
+                    <tr><td>14</td><td>本地多画面回放限制</td><td>4.9</td><td>23</td><td>[9, 7, 6, 5, 3]</td></tr>
+                    <tr><td>15</td><td>KVM/第三方鼠标不兼容</td><td>4.5</td><td>25</td><td>[8, 7, 5, 4, 3]</td></tr>
+                    <tr><td>16</td><td>无RAID冗余保护</td><td>4.2</td><td>21</td><td>[7, 6, 5, 4, 2]</td></tr>
+                    <tr><td>17</td><td>客服沟通效率低(部分)</td><td>3.9</td><td>19</td><td>[8, 6, 4, 3, 2]</td></tr>
+                    <tr><td>18</td><td>升级固件配置重置</td><td>3.7</td><td>20</td><td>[7, 5, 4, 3, 2]</td></tr>
+                    <tr><td>19</td><td>不支持Google Home集成</td><td>3.2</td><td>18</td><td>[6, 5, 4, 2, 2]</td></tr>
+                    <tr><td>20</td><td>包装运输保护不足</td><td>3.0</td><td>16</td><td>[5, 4, 3, 3, 2]</td></tr>
+                    <tr><td>21</td><td>仅兼容自家完整功能</td><td>2.8</td><td>15</td><td>[5, 4, 3, 2, 1]</td></tr>
+                    <tr><td>22</td><td>时间同步问题</td><td>2.5</td><td>13</td><td>[4, 3, 3, 2, 1]</td></tr>
+                    <tr><td>23</td><td>无法自定义回放布局</td><td>2.3</td><td>12</td><td>[4, 3, 2, 2, 1]</td></tr>
+                    <tr><td>24</td><td>硬盘识别偶尔失败</td><td>2.1</td><td>11</td><td>[3, 2, 2, 2, 1]</td></tr>
+                    <tr><td>25</td><td>无自带显示屏</td><td>1.8</td><td>10</td><td>[3, 2, 2, 1, 1]</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ================= 维度 3：时间衰减焦点识别 ================= -->
+    <div class="section">
+        <div class="section-title">⏳ 维度 3：近期焦点趋势 (半衰期3个月 · 基准日2026-05-31)</div>
+        <div class="subsection">
+            <h3>🌟 近期凸显好评趋势 (时间加权排名 vs 原排名)</h3>
+            <table>
+                <thead><tr><th>评论点标签</th><th>历史总提及次数(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+                <tbody>
+                    <tr><td>固件更新改善功能</td><td>41(9)</td><td>28.6</td><td>1</td><td>近期新版固件（时间轴/过滤）广受认可，新用户反馈正面</td></tr>
+                    <tr><td>散热/噪音持续改进</td><td>28(12)</td><td>25.1</td><td>2</td><td>2025年下半年后机型风扇噪音显著改善，痛点转为优势</td></tr>
+                    <tr><td>AI人/车/宠物检测有效</td><td>51(4)</td><td>24.3</td><td>3</td><td>AI成熟度提升，近期评论提及率高且正面</td></tr>
+                    <tr><td>手机App体验出色</td><td>59(5)</td><td>22.7</td><td>4</td><td>App流畅性持续优化，远程访问稳定</td></tr>
+                    <tr><td>系统稳定运行可靠</td><td>68(3)</td><td>21.8</td><td>5</td><td>稳定性长期保持，近期无退步</td></tr>
+                    <tr><td>大容量存储/3×HDD</td><td>87(1)</td><td>20.2</td><td>6</td><td>刚需卖点，热度平稳</td></tr>
+                    <tr><td>性价比极高</td><td>62(6)</td><td>19.5</td><td>7</td><td>价格优势始终是核心拉力</td></tr>
+                    <tr><td>报警输入输出接口实用</td><td>25(13)</td><td>14.4</td><td>9</td><td>专业集成需求增加，近期提及上升</td></tr>
+                    <tr><td>Home Assistant集成</td><td>14(21)</td><td>10.7</td><td>14</td><td>智能家居热度发酵，新好评出现</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="subsection">
+            <h3>🔥 近期凸显差评痛点 (时间加权排名 vs 原排名)</h3>
+            <table>
+                <thead><tr><th>评论点标签</th><th>历史总提及次数(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+                <tbody>
+                    <tr><td>无内置PoE端口</td><td>102(1)</td><td>37.2</td><td>1</td><td>长期最大槽点，近期无缓解，用户持续抱怨隐藏成本</td></tr>
+                    <tr><td>必须本地显示器+鼠标配置</td><td>91(2)</td><td>33.5</td><td>2</td><td>远程管理缺失引起激烈不满，2026年评论仍高频投诉</td></tr>
+                    <tr><td>第三方ONVIF兼容性差</td><td>54(4)</td><td>22.8</td><td>3</td><td>混合品牌用户痛苦，音频/AI丢失毫无改进趋势</td></tr>
+                    <tr><td>不支持FTP自动备份</td><td>44(6)</td><td>20.4</td><td>4</td><td>对比竞品功能缺失，专业用户放弃购买</td></tr>
+                    <tr><td>移动端通知不稳定</td><td>36(7)</td><td>18.9</td><td>5</td><td>近期仍有偶发性推送失败，稳定性投诉增加</td></tr>
+                    <tr><td>Web界面功能残缺</td><td>38(8)</td><td>17.6</td><td>6</td><td>网页端基本不可用，令IT用户失望</td></tr>
+                    <tr><td>第三个硬盘位SATA线过短</td><td>48(5)</td><td>15.3</td><td>7</td><td>批次性硬件问题，尚未彻底解决</td></tr>
+                    <tr><td>不支持电池/太阳能相机</td><td>29(12)</td><td>12.2</td><td>10</td><td>生态封闭，用户期望落空</td></tr>
+                </tbody>
+            </table>
+            <div class="insight">📌 趋势总结：长期痛点“无PoE/必须本地配置/FTP缺失”依旧尖锐；好评端固件迭代与散热改良得到近期验证，但配置灵活度依然落后于行业预期。</div>
+        </div>
+    </div>
+
+    <!-- ================= 综合结论与改进建议 ================= -->
+    <div class="section">
+        <div class="section-title">🎯 综合结论 & 产品优化路径</div>
+        <div style="background:#eef3fa; border-radius: 28px; padding: 24px 28px; margin-top: 20px;">
+            <h3 style="margin-top:0; color:#1e4a76;">✅ 核心优势 (须保持并放大)</h3>
+            <ul style="line-height:1.5;">
+                <li><strong>海量存储 + 36通道超高扩展性</strong>：成为中大型安防项目的性价比首选。</li>
+                <li><strong>高度稳定性 & 本地App流畅度</strong>：24/7可靠运行，移动端体验受认可。</li>
+                <li><strong>AI检测精准&固件活跃度</strong>：事件过滤实用，后期更新收获口碑。</li>
+                <li><strong>无月费本地存储</strong>：隐私与成本优势明显。</li>
+            </ul>
+            <h3 style="color:#b94b2c;">⚠️ 致命短板 & 改进建议 (优先级从高到低)</h3>
+            <ol style="line-height:1.6;">
+                <li><strong>【P0】远程全功能管理缺失</strong> → 立即开发Web/App端添加摄像头、修改全部参数的权限，摆脱“必须接显示器鼠标”的荒谬限制，这是专业NVR的基本尊严。</li>
+                <li><strong>【P0】明确标注无PoE并推荐配件</strong> → 详情页用大号字体提醒“需另购PoE交换机”，附送配套购买链接，消除误解性差评。</li>
+                <li><strong>【P1】增加FTP/SFTP自动备份</strong> → RLN36作为旗舰机缺失此基础功能不可理喻，对标RLN8/16快速补全。</li>
+                <li><strong>【P1】解决第三个硬盘位SATA线长度问题</strong> → 出厂更换长线缆，并优化机箱内部布线，杜绝硬件装配投诉。</li>
+                <li><strong>【P2】改善第三方ONVIF体验</strong> → 至少保证主流ONVIF相机的音频、基础运动检测接入，扩大兼容名单，并增加设置向导。</li>
+                <li><strong>【P2】风扇噪音/散热选配</strong> → 出厂预装低噪风扇或提供Noctua合作方案，解决早期用户噪音焦虑。</li>
+                <li><strong>【P3】推送稳定性修复</strong> → 深度优化移动端push通道，支持通知重试/状态自检。</li>
+            </ol>
+            <p style="margin-top: 20px; background: #fff3e0; border-radius: 18px; padding: 14px; font-size:0.9rem;"><strong>🎯 市场定位策略</strong>：巩固“高性价比大容量NVR”心智，但必须解决“半成品体验”（远程配置、FTP、线材）。一旦补齐软件与细节短板，RLN36将碾压同级竞品，成为中小企业和发烧友的首选。</p>
+        </div>
+    </div>
+    <footer>报告基于208条亚马逊真实评论（2022.07–2026.05），数据分析严格遵循“单次提及统计、加权点赞算法、3个月半衰期”模型。</footer>
+</div>
+</body>
+</html>
