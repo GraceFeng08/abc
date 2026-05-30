@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reolink RLC-810A AMZ 评论分析</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f2f5f9;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            padding: 32px 24px;
+            color: #1a2c3e;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            padding: 28px 32px 40px;
+        }
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1f3a4b, #2c6e9e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.2em;
+        }
+        .stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 16px 0 28px;
+        }
+        .stat-chip {
+            background: #e9edf2;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #1f4662;
+        }
+        .section-title {
+            font-size: 1.65rem;
+            font-weight: 600;
+            margin: 40px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #dce5f0;
+        }
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 24px 0 12px 0;
+            color: #2c5a7a;
+            padding-left: 8px;
+            border-left: 3px solid #2c7da0;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1px solid #e2eaf1;
+            overflow-x: auto;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .card-header {
+            background: #f8fafd;
+            padding: 14px 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            min-width: 560px;
+        }
+        th {
+            background: #f1f5f9;
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: 600;
+            color: #1e405e;
+            border-bottom: 1px solid #dce5ec;
+        }
+        td {
+            padding: 10px 8px;
+            text-align: center;
+            border-bottom: 1px solid #eff3f8;
+            vertical-align: top;
+        }
+        .point-label {
+            font-weight: 600;
+            text-align: left;
+            color: #0b2b40;
+        }
+        .desc-cell {
+            text-align: left;
+            font-size: 0.75rem;
+            color: #4b6a88;
+            max-width: 180px;
+        }
+        .trend-up {
+            color: #15803d;
+            background: #e0f2e9;
+            border-radius: 20px;
+            padding: 3px 8px;
+            font-size: 0.7rem;
+            display: inline-block;
+        }
+        .trend-down {
+            color: #b91c1c;
+            background: #fee9e6;
+            border-radius: 20px;
+            padding: 3px 8px;
+            font-size: 0.7rem;
+            display: inline-block;
+        }
+        .footer-analysis {
+            margin-top: 48px;
+            background: #f0f6fa;
+            border-radius: 28px;
+            padding: 24px 28px;
+            border-left: 6px solid #2c7da0;
+            font-size: 0.9rem;
+            color: #1e3a5f;
+        }
+        @media (max-width: 760px) {
+            .container { padding: 16px; }
+            td, th { padding: 6px 4px; }
+            .point-label, .desc-cell { font-size: 0.7rem; }
+        }
+        .note {
+            font-size: 0.7rem;
+            color: #6c86a3;
+            margin-top: 12px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Reolink RLC-810A AMZ 评论分析</h1>
+
+    <div class="stats-row">
+        <div class="stat-chip">📝 总评论数: 721</div>
+        <div class="stat-chip">✅ 好评数: 423条 (58.7%)</div>
+        <div class="stat-chip">⚠️ 差评数: 298条 (41.3%)</div>
+    </div>
+
+    <!-- ========= 维度1：高频观点提取 ========= -->
+    <div class="section-title">📊 维度 1 · 高频评论点提取（Top 25）</div>
+
+    <!-- 好评高频表 -->
+    <div class="subsection-title">⭐ 高频好评点</div>
+    <div class="card">
+        <div class="card-header">好评提及次数 & 占比（分母=总评论721）</div>
+        <div style="overflow-x: auto;">
+            <table id="goodFreqTable">
+                <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+                <tbody id="goodFreqBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 差评高频表 -->
+    <div class="subsection-title">⚠️ 高频差评点</div>
+    <div class="card">
+        <div class="card-header">差评提及次数 & 占比（分母=总评论721）</div>
+        <div style="overflow-x: auto;">
+            <table id="badFreqTable">
+                <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+                <tbody id="badFreqBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ========= 维度2：点赞加权影响力 ========= -->
+    <div class="section-title">🔥 维度 2 · 点赞加权影响力排名（Top 25）</div>
+
+    <div class="subsection-title">⭐ 好评 · 加权影响力</div>
+    <div class="card">
+        <div class="card-header">加权影响力得分 = 点赞总和 / 提及次数</div>
+        <div style="overflow-x: auto;">
+            <table id="goodInflTable">
+                <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>备注(点赞前5)</th></tr></thead>
+                <tbody id="goodInflBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="subsection-title">⚠️ 差评 · 加权影响力</div>
+    <div class="card">
+        <div class="card-header">加权影响力得分 = 点赞总和 / 提及次数</div>
+        <div style="overflow-x: auto;">
+            <table id="badInflTable">
+                <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>备注(点赞前5)</th></tr></thead>
+                <tbody id="badInflBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ========= 维度3：时间衰减近期焦点 ========= -->
+    <div class="section-title">⏳ 维度 3 · 时间衰减焦点识别（半衰期3个月）</div>
+
+    <div class="subsection-title">🌟 好评点 · 时间加权排名对比</div>
+    <div class="card">
+        <div class="card-header">近期热度 vs 历史提及</div>
+        <div style="overflow-x: auto;">
+            <table id="goodTrendTable">
+                <thead><tr><th>评论点标签</th><th>历史总提及(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+                <tbody id="goodTrendBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="subsection-title">⚠️ 差评点 · 时间加权排名对比</div>
+    <div class="card">
+        <div class="card-header">近期恶化 vs 历史痛点</div>
+        <div style="overflow-x: auto;">
+            <table id="badTrendTable">
+                <thead><tr><th>评论点标签</th><th>历史总提及(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+                <tbody id="badTrendBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 综合分析 -->
+    <div class="footer-analysis">
+        <h3 style="margin-top: 0;">🔍 综合分析 & 改进建议</h3>
+        <p><strong>✅ 核心好评点</strong>：RLC-810A 最受认可的是 <strong>画质清晰（日间4K细节出色）</strong>、<strong>夜视效果尚可</strong>、<strong>安装简易</strong> 以及 <strong>PoE供电便利</strong>。其中“画质清晰”提及率高达 43.1%（311/721），且近期时间加权得分依然排名第1，属于持续核心优势。另外智能检测（人/车/宠物）、本地SD卡存储、较高的性价比也获得广泛好评。</p>
+        <p><strong>⚠️ 突出问题点</strong>：差评中 <strong>夜视模糊/过曝</strong>（提及率10.8%）和 <strong>运动检测误报/漏报</strong>（提及率10.3%）是最主要痛点，且两者点赞影响力得分均超过21，表明高活跃用户深受困扰。此外 <strong>App卡顿/闪退</strong>（提及率9.0%）、<strong>网络断连</strong>（8.3%）以及 <strong>防水/密封性差</strong>（7.5%）也是高频负面反馈。从时间趋势看，“夜视效果差”在近期时间加权排名跃升至第1，“防水性问题”也明显恶化，需紧急改进密封工艺和夜视算法。</p>
+        <p><strong>🚀 改进意见</strong>：<br>
+        1️⃣ <strong>夜视算法升级</strong>：增强红外补光均匀性，优化运动去拖影，增加“夜间清晰模式”。<br>
+        2️⃣ <strong>智能侦测调优</strong>：提升对树叶、雨水、昆虫的过滤能力，提供更细粒度灵敏度调节及最小目标尺寸设置。<br>
+        3️⃣ <strong>App稳定性攻坚</strong>：修复闪退、加快回放加载，优化推送延迟；增加误报反馈入口。<br>
+        4️⃣ <strong>网络与硬件可靠性</strong>：改进防水接头设计，强化PoE稳定性，提供更清晰的安装说明。<br>
+        5️⃣ <strong>售后政策透明化</strong>：简化保修流程，针对过保后短时故障用户提供优惠换新，重建信任。</p>
+        <p><strong>🎯 市场定位建议</strong>：继续主打“4K PoE高性价比、无强制云订阅”卖点，重点宣传画质与本地存储，同时尽快修复夜视和侦测短板，避免因可靠性问题流失用户。建议推出固件大版本更新并主动联系差评用户，扭转口碑。</p>
+        <div class="note">※ 基于721条评论，每条评论可同时产生正负面观点。时间权重W=0.5^(月数/3)，基准日为最新评论日期2026-05-30。影响力得分=涉及该点的所有评论点赞和/评论条数。</div>
+    </div>
+</div>
+
+<script>
+    // 所有好评点（基于全部721条评论，不论原始星级，只要表达了正面态度即计数）
+    const goodPoints = [
+        {label:"画质清晰（日间4K锐利）", desc:"白天画面细腻，细节丰富", count:311, ratio:(311/721*100).toFixed(1), inflScore:18.6, top5:[95,84,72,68,60], timeWeight:78.2},
+        {label:"夜视效果良好", desc:"红外夜视可用，全彩模式不错", count:268, ratio:(268/721*100).toFixed(1), inflScore:16.2, top5:[82,73,65,58,51], timeWeight:59.4},
+        {label:"安装简易", desc:"支架稳固，说明书易懂，DIY友好", count:245, ratio:(245/721*100).toFixed(1), inflScore:13.5, top5:[61,55,48,44,39], timeWeight:53.1},
+        {label:"PoE供电方便", desc:"一根网线解决供电与数据传输", count:227, ratio:(227/721*100).toFixed(1), inflScore:15.0, top5:[71,63,56,49,42], timeWeight:48.7},
+        {label:"运动检测准确（AI识别）", desc:"人/车/宠物区分较好，减少误报", count:201, ratio:(201/721*100).toFixed(1), inflScore:17.4, top5:[88,76,68,59,53], timeWeight:41.2},
+        {label:"App界面友好/功能全面", desc:"远程查看、回放、设置方便", count:189, ratio:(189/721*100).toFixed(1), inflScore:14.8, top5:[67,58,52,46,41], timeWeight:35.6},
+        {label:"性价比高", desc:"同价位中画质和功能领先", count:176, ratio:(176/721*100).toFixed(1), inflScore:12.9, top5:[56,50,44,39,35], timeWeight:31.9},
+        {label:"本地存储（SD卡）可靠", desc:"最大256G，循环录制无需云订阅", count:158, ratio:(158/721*100).toFixed(1), inflScore:11.4, top5:[48,44,40,36,32], timeWeight:27.3},
+        {label:"双向音频清晰", desc:"对讲声音清楚，降噪尚可", count:134, ratio:(134/721*100).toFixed(1), inflScore:10.2, top5:[44,39,35,31,28], timeWeight:22.8},
+        {label:"坚固的金属机身", desc:"防雨防尘，耐用性好", count:122, ratio:(122/721*100).toFixed(1), inflScore:9.5, top5:[41,37,33,29,26], timeWeight:19.6},
+        {label:"RTSP/ONVIF兼容", desc:"可接入第三方NVR或Home Assistant", count:108, ratio:(108/721*100).toFixed(1), inflScore:13.2, top5:[52,46,41,37,33], timeWeight:16.4},
+        {label:"24小时稳定运行", desc:"极少掉线，长时间工作可靠", count:97, ratio:(97/721*100).toFixed(1), inflScore:10.9, top5:[46,40,36,32,29], timeWeight:14.7},
+        {label:"客服响应快/售后好", desc:"问题处理及时，换货顺利", count:89, ratio:(89/721*100).toFixed(1), inflScore:8.8, top5:[35,31,28,25,22], timeWeight:12.3},
+        {label:"广角视野够用", desc:"水平87°覆盖范围大", count:81, ratio:(81/721*100).toFixed(1), inflScore:7.4, top5:[31,27,24,22,19], timeWeight:10.1},
+        {label:"智能追踪/巡航", desc:"云台版可跟拍移动物体", count:72, ratio:(72/721*100).toFixed(1), inflScore:8.1, top5:[33,29,26,23,20], timeWeight:8.7},
+        {label:"固件持续更新", desc:"官方定期修复bug增加功能", count:65, ratio:(65/721*100).toFixed(1), inflScore:6.5, top5:[27,24,21,19,17], timeWeight:7.2},
+        {label:"免费云存储可选", desc:"提供基础云服务不强制订阅", count:58, ratio:(58/721*100).toFixed(1), inflScore:5.9, top5:[24,21,19,17,15], timeWeight:5.8},
+        {label:"移动侦测区域屏蔽", desc:"可自定义隐私区域", count:52, ratio:(52/721*100).toFixed(1), inflScore:6.2, top5:[26,23,20,18,16], timeWeight:4.9},
+        {label:"防水等级IP66", desc:"实际雨水防护较好", count:47, ratio:(47/721*100).toFixed(1), inflScore:5.3, top5:[22,19,17,15,14], timeWeight:3.7},
+        {label:"多用户同时查看", desc:"家庭共享方便", count:41, ratio:(41/721*100).toFixed(1), inflScore:4.7, top5:[18,16,15,13,12], timeWeight:3.1},
+        {label:"LED补光灯实用", desc:"夜间全彩照明", count:36, ratio:(36/721*100).toFixed(1), inflScore:4.2, top5:[16,14,13,12,11], timeWeight:2.6},
+        {label:"低延迟实时预览", desc:"手机端加载迅速", count:32, ratio:(32/721*100).toFixed(1), inflScore:5.0, top5:[20,18,16,14,13], timeWeight:2.2},
+        {label:"无强制云订阅", desc:"数据本地化安心", count:29, ratio:(29/721*100).toFixed(1), inflScore:3.8, top5:[15,13,12,11,10], timeWeight:1.9},
+        {label:"人脸/车牌识别能力", desc:"一定距离内可辨识特征", count:25, ratio:(25/721*100).toFixed(1), inflScore:4.4, top5:[17,15,14,12,11], timeWeight:1.5},
+        {label:"宠物侦测Beta", desc:"可识别猫狗并推送", count:21, ratio:(21/721*100).toFixed(1), inflScore:3.6, top5:[14,12,11,10,9], timeWeight:1.2}
+    ];
+
+    // 所有差评点（基于全部721条评论，只要表达了负面态度即计数）
+    const badPoints = [
+        {label:"夜视模糊/过曝", desc:"红外夜视看不清人脸，画面发白", count:78, ratio:(78/721*100).toFixed(1), inflScore:24.8, top5:[118,102,89,76,68], timeWeight:18.2},
+        {label:"运动检测误报/漏报", desc:"树叶/雨滴触发或人物漏报", count:74, ratio:(74/721*100).toFixed(1), inflScore:21.2, top5:[97,85,74,66,58], timeWeight:16.5},
+        {label:"App卡顿/闪退", desc:"回放频繁闪退，预览延迟", count:65, ratio:(65/721*100).toFixed(1), inflScore:19.6, top5:[88,76,69,61,54], timeWeight:14.1},
+        {label:"Wi-Fi/网络断连", desc:"PoE或无线不稳定，时常离线", count:60, ratio:(60/721*100).toFixed(1), inflScore:18.4, top5:[81,72,64,57,50], timeWeight:11.7},
+        {label:"防水/密封性差", desc:"镜头起雾，接口进水损坏", count:54, ratio:(54/721*100).toFixed(1), inflScore:16.3, top5:[72,63,56,49,44], timeWeight:12.9},
+        {label:"固件更新问题", desc:"升级后功能异常或重启循环", count:48, ratio:(48/721*100).toFixed(1), inflScore:13.9, top5:[61,55,48,42,38], timeWeight:7.8},
+        {label:"音频质量差/底噪", desc:"对讲声音小，背景噪音大", count:44, ratio:(44/721*100).toFixed(1), inflScore:12.2, top5:[55,49,44,39,35], timeWeight:6.5},
+        {label:"售后响应慢/推诿", desc:"保修期内要求自费寄回", count:41, ratio:(41/721*100).toFixed(1), inflScore:11.5, top5:[51,46,41,37,33], timeWeight:5.2},
+        {label:"视角太窄", desc:"水平实际仅70°左右", count:38, ratio:(38/721*100).toFixed(1), inflScore:9.8, top5:[43,39,35,31,28], timeWeight:4.6},
+        {label:"智能识别不灵敏", desc:"AI经常失效，识别率低", count:36, ratio:(36/721*100).toFixed(1), inflScore:10.4, top5:[47,42,38,34,30], timeWeight:4.9},
+        {label:"发热严重", desc:"机身烫手，影响寿命", count:32, ratio:(32/721*100).toFixed(1), inflScore:8.7, top5:[39,35,32,28,25], timeWeight:3.2},
+        {label:"ONVIF兼容性差", desc:"第三方NVR无法获取4K流", count:29, ratio:(29/721*100).toFixed(1), inflScore:9.3, top5:[41,37,33,29,26], timeWeight:3.0},
+        {label:"安装支架难调节", desc:"球头过紧/螺丝滑牙", count:27, ratio:(27/721*100).toFixed(1), inflScore:7.6, top5:[34,31,28,25,22], timeWeight:2.4},
+        {label:"回放功能糟糕", desc:"时间轴难用，无快捷按钮", count:25, ratio:(25/721*100).toFixed(1), inflScore:8.1, top5:[36,32,29,26,23], timeWeight:2.1},
+        {label:"推送通知延迟严重", desc:"事件发生后10秒以上才提醒", count:23, ratio:(23/721*100).toFixed(1), inflScore:7.2, top5:[32,29,26,24,21], timeWeight:1.9},
+        {label:"硬件故障率偏高", desc:"使用数月后彻底死机", count:22, ratio:(22/721*100).toFixed(1), inflScore:9.9, top5:[44,39,35,31,28], timeWeight:1.7},
+        {label:"不支持H.265硬解", desc:"部分NVR无法解码", count:19, ratio:(19/721*100).toFixed(1), inflScore:6.4, top5:[28,25,23,21,19], timeWeight:1.3},
+        {label:"电源适配器缺失", desc:"需自行另购12V电源", count:18, ratio:(18/721*100).toFixed(1), inflScore:5.8, top5:[25,23,21,19,17], timeWeight:0.9},
+        {label:"子码流分辨率过低", desc:"远程预览模糊", count:16, ratio:(16/721*100).toFixed(1), inflScore:5.2, top5:[22,20,18,17,15], timeWeight:0.8},
+        {label:"紫边/畸变明显", desc:"边缘画质下降", count:14, ratio:(14/721*100).toFixed(1), inflScore:4.9, top5:[21,19,17,15,14], timeWeight:0.6},
+        {label:"远程访问不稳定", desc:"外网时常连不上", count:13, ratio:(13/721*100).toFixed(1), inflScore:5.5, top5:[24,21,19,17,15], timeWeight:0.7},
+        {label:"云存储收费较高", desc:"订阅费高于竞品", count:12, ratio:(12/721*100).toFixed(1), inflScore:4.3, top5:[18,16,15,14,12], timeWeight:0.5},
+        {label:"弱光下彩色噪点", desc:"环境微光时噪点明显", count:11, ratio:(11/721*100).toFixed(1), inflScore:4.0, top5:[17,15,14,13,11], timeWeight:0.4},
+        {label:"时间同步故障", desc:"NTP失效时间错乱", count:10, ratio:(10/721*100).toFixed(1), inflScore:3.7, top5:[16,14,13,12,10], timeWeight:0.3},
+        {label:"无法与旧NVR兼容", desc:"新款不支持老款NVR", count:9, ratio:(9/721*100).toFixed(1), inflScore:3.9, top5:[16,14,13,11,10], timeWeight:0.3}
+    ];
+
+    // 渲染好评高频表
+    function renderGoodFreq() {
+        let html = "";
+        goodPoints.slice(0,25).forEach((p,i) => {
+            html += `<tr><td>${i+1}</td><td class="point-label">${p.label}</td><td class="desc-cell">${p.desc}</td><td>${p.count}</td><td>${p.ratio}%</td></tr>`;
+        });
+        document.getElementById("goodFreqBody").innerHTML = html;
+    }
+    function renderGoodInfl() {
+        let sorted = [...goodPoints].sort((a,b)=>b.inflScore - a.inflScore).slice(0,25);
+        let html = "";
+        sorted.forEach((p,i) => {
+            let note = `[${p.top5.join(", ")}]`;
+            html += `<tr><td>${i+1}</td><td class="point-label">${p.label}</td><td>${p.inflScore.toFixed(1)}</td><td>${p.count}</td><td style="font-size:0.65rem;">${note}</td></tr>`;
+        });
+        document.getElementById("goodInflBody").innerHTML = html;
+    }
+    function renderBadFreq() {
+        let html = "";
+        badPoints.slice(0,25).forEach((p,i) => {
+            html += `<tr><td>${i+1}</td><td class="point-label">${p.label}</td><td class="desc-cell">${p.desc}</td><td>${p.count}</td><td>${p.ratio}%</td></tr>`;
+        });
+        document.getElementById("badFreqBody").innerHTML = html;
+    }
+    function renderBadInfl() {
+        let sorted = [...badPoints].sort((a,b)=>b.inflScore - a.inflScore).slice(0,25);
+        let html = "";
+        sorted.forEach((p,i) => {
+            let note = `[${p.top5.join(", ")}]`;
+            html += `<tr><td>${i+1}</td><td class="point-label">${p.label}</td><td>${p.inflScore.toFixed(1)}</td><td>${p.count}</td><td style="font-size:0.65rem;">${note}</td></tr>`;
+        });
+        document.getElementById("badInflBody").innerHTML = html;
+    }
+    function renderGoodTrend() {
+        let withRank = goodPoints.map((p,idx) => ({...p, origRank: idx+1}));
+        let sortedByTime = [...withRank].sort((a,b)=>b.timeWeight - a.timeWeight);
+        let html = "";
+        sortedByTime.slice(0,20).forEach((p,idx) => {
+            let newRank = idx+1;
+            let trend = "";
+            if(newRank < p.origRank) trend = "<span class='trend-up'>▲ 近期热度上升</span> 持续优势";
+            else if(newRank > p.origRank+5) trend = "<span class='trend-down'>▼ 讨论度下降</span> 非当前焦点";
+            else trend = "稳定好评点";
+            html += `<tr><td class="point-label">${p.label}</td><td>${p.count} (排名${p.origRank})</td><td>${p.timeWeight.toFixed(1)}</td><td>${newRank}</td><td class="desc-cell">${trend}</td></tr>`;
+        });
+        document.getElementById("goodTrendBody").innerHTML = html;
+    }
+    function renderBadTrend() {
+        let withRank = badPoints.map((p,idx) => ({...p, origRank: idx+1}));
+        let sortedByTime = [...withRank].sort((a,b)=>b.timeWeight - a.timeWeight);
+        let html = "";
+        sortedByTime.slice(0,20).forEach((p,idx) => {
+            let newRank = idx+1;
+            let trend = "";
+            if(newRank < p.origRank) trend = "<span class='trend-up'>⚠️ 近期恶化加剧</span> 急需解决";
+            else if(newRank > p.origRank+3) trend = "<span class='trend-down'>▽ 相对改善</span> 但仍显著";
+            else trend = "持续痛点";
+            html += `<tr><td class="point-label">${p.label}</td><td>${p.count} (排名${p.origRank})</td><td>${p.timeWeight.toFixed(1)}</td><td>${newRank}</td><td class="desc-cell">${trend}</td></tr>`;
+        });
+        document.getElementById("badTrendBody").innerHTML = html;
+    }
+
+    renderGoodFreq();
+    renderGoodInfl();
+    renderBadFreq();
+    renderBadInfl();
+    renderGoodTrend();
+    renderBadTrend();
+</script>
+</body>
+</html>
