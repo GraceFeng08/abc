@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reolink B500 评论分析报告</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f5f7fb;
+            margin: 0;
+            padding: 24px;
+            color: #1e2a3a;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            padding: 28px 32px;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: #0a2540;
+            border-left: 5px solid #e67e22;
+            padding-left: 20px;
+        }
+        .stats-grid {
+            display: flex;
+            gap: 24px;
+            margin: 24px 0 32px 0;
+            flex-wrap: wrap;
+        }
+        .stat-card {
+            flex: 1;
+            background: #f8fafc;
+            border-radius: 24px;
+            padding: 20px 24px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            border: 1px solid #e9edf2;
+        }
+        .stat-number {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1e466e;
+        }
+        .stat-label {
+            font-size: 16px;
+            color: #4a627a;
+            margin-top: 8px;
+        }
+        .stat-sub {
+            font-size: 14px;
+            color: #6c86a3;
+            margin-top: 6px;
+        }
+        .section-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 36px 0 20px 0;
+            background: #eef2f7;
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 40px;
+            color: #0f2b3d;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            margin-bottom: 28px;
+            font-size: 14px;
+        }
+        th {
+            background-color: #eef2f7;
+            padding: 14px 12px;
+            text-align: center;
+            font-weight: 600;
+            color: #1f3b4c;
+            border-bottom: 1px solid #dce3ec;
+        }
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #eef2f5;
+            vertical-align: top;
+            text-align: center;
+        }
+        .table-label {
+            text-align: left;
+            font-weight: 500;
+            color: #1e466e;
+        }
+        .badge-positive {
+            background: #e0f2e9;
+            color: #1e6f3f;
+            border-radius: 30px;
+            padding: 2px 10px;
+            font-size: 12px;
+            font-weight: 500;
+            display: inline-block;
+        }
+        .badge-negative {
+            background: #ffe6e5;
+            color: #b13b2d;
+            border-radius: 30px;
+            padding: 2px 10px;
+            font-size: 12px;
+            font-weight: 500;
+            display: inline-block;
+        }
+        .insight {
+            background-color: #fefce8;
+            border-left: 4px solid #f4b942;
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            color: #7a5a1a;
+            text-align: left;
+        }
+        .footer-note {
+            margin-top: 40px;
+            background: #f1f5f9;
+            padding: 18px 24px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #2c4c6e;
+            border: 1px solid #e2e8f0;
+        }
+        @media (max-width: 800px) {
+            .container { padding: 16px; }
+            td, th { font-size: 12px; padding: 8px 6px; }
+            .stat-number { font-size: 32px; }
+        }
+        .note-italic {
+            font-style: italic;
+            color: #5a6e85;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📷 Reolink B500 评论分析报告</h1>
+    
+    <!-- 总体统计 -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">242</div>
+            <div class="stat-label">总评论数</div>
+            <div class="stat-sub">100% 基准</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">173</div>
+            <div class="stat-label">好评 (4~5星)</div>
+            <div class="stat-sub">占比 71.5%</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">69</div>
+            <div class="stat-label">差评 (1~3星)</div>
+            <div class="stat-sub">占比 28.5%</div>
+        </div>
+    </div>
+
+    <!-- ================= 维度1：高频好评点 Top20 ================= -->
+    <div class="section-title">📈 维度 1 · 高频好评点 (Top 20)</div>
+    <table>
+        <thead>
+            <tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td class="table-label">画质清晰/分辨率高</td><td>白天/夜视画面清楚，5MP够用，细节丰富</td><td>98</td><td>40.5%</td></tr>
+            <tr><td>2</td><td class="table-label">安装简单/即插即用</td><td>PoE布线简单，自动识别摄像头，快速上手</td><td>72</td><td>29.8%</td></tr>
+            <tr><td>3</td><td class="table-label">性价比高</td><td>同价位下功能齐全，无月费，物超所值</td><td>58</td><td>24.0%</td></tr>
+            <tr><td>4</td><td class="table-label">夜视效果优秀</td><td>红外/黑白夜视清晰，30米可视，补光足够</td><td>54</td><td>22.3%</td></tr>
+            <tr><td>5</td><td class="table-label">APP远程稳定</td><td>手机端流畅观看回放，推送及时，界面友好</td><td>47</td><td>19.4%</td></tr>
+            <tr><td>6</td><td class="table-label">AI人车识别准确</td><td>有效过滤误报，区分人/车/宠物，实用性强</td><td>41</td><td>16.9%</td></tr>
+            <tr><td>7</td><td class="table-label">金属机身/做工扎实</td><td>铝合金外壳，防雨防尘，耐用性好</td><td>36</td><td>14.9%</td></tr>
+            <tr><td>8</td><td class="table-label">客服响应积极</td><td>售后问题处理快，更换配件/远程协助周到</td><td>29</td><td>12.0%</td></tr>
+            <tr><td>9</td><td class="table-label">POE供电便捷</td><td>单网线供电+传输，减少布线麻烦</td><td>28</td><td>11.6%</td></tr>
+            <tr><td>10</td><td class="table-label">本地存储/无订阅费</td><td>NVR硬盘记录，无月租，长期经济</td><td>27</td><td>11.2%</td></tr>
+            <tr><td>11</td><td class="table-label">音频清晰</td><td>双向语音/环境收音质量良好</td><td>25</td><td>10.3%</td></tr>
+            <tr><td>12</td><td class="table-label">NVR界面易操作</td><td>菜单逻辑简单，鼠标/USB控制方便</td><td>24</td><td>9.9%</td></tr>
+            <tr><td>13</td><td class="table-label">配件齐全</td><td>附带网线、螺丝、防水套，开箱即装</td><td>22</td><td>9.1%</td></tr>
+            <tr><td>14</td><td class="table-label">运动检测灵敏</td><td>可调灵敏度，准确捕捉动态事件</td><td>21</td><td>8.7%</td></tr>
+            <tr><td>15</td><td class="table-label">支持多平台查看</td><td>PC/Mac客户端、网页端，使用灵活</td><td>19</td><td>7.9%</td></tr>
+            <tr><td>16</td><td class="table-label">可扩展性强</td><td>支持额外添加摄像头，兼容其他Reolink设备</td><td>18</td><td>7.4%</td></tr>
+            <tr><td>17</td><td class="table-label">宽动态/逆光表现好</td><td>强背光下仍可见细节</td><td>15</td><td>6.2%</td></tr>
+            <tr><td>18</td><td class="table-label">固件持续更新</td><td>官方定期优化系统，增加新特性</td><td>14</td><td>5.8%</td></tr>
+            <tr><td>19</td><td class="table-label">包装严实</td><td>运输保护到位，未出现运输损坏</td><td>13</td><td>5.4%</td></tr>
+            <tr><td>20</td><td class="table-label">回放检索方便</td><td>按时间/事件快速定位录像</td><td>12</td><td>5.0%</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 维度1：高频差评点 Top20 -->
+    <div class="section-title">⚠️ 维度 1 · 高频差评点 (Top 20)</div>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td class="table-label">摄像头故障/不工作</td><td>单颗或多颗摄像头无法点亮、无信号、彻底损坏</td><td>47</td><td>19.4%</td></tr>
+            <tr><td>2</td><td class="table-label">NVR/DVR硬件故障</td><td>主机无法开机、LAN口失效、自动重启、硬盘损坏</td><td>31</td><td>12.8%</td></tr>
+            <tr><td>3</td><td class="table-label">远程/外网访问困难</td><td>离开WiFi无法连接，UID失效，端口设置复杂</td><td>28</td><td>11.6%</td></tr>
+            <tr><td>4</td><td class="table-label">APP/软件体验差</td><td>界面卡顿、回放跳帧、设置逻辑混乱</td><td>26</td><td>10.7%</td></tr>
+            <tr><td>5</td><td class="table-label">运动检测误报频繁</td><td>飞虫、雨雪、树叶触发大量垃圾警报</td><td>24</td><td>9.9%</td></tr>
+            <tr><td>6</td><td class="table-label">客户服务响应慢/推诿</td><td>海外客服时差大，邮件回复慢，保修流程繁琐</td><td>23</td><td>9.5%</td></tr>
+            <tr><td>7</td><td class="table-label">随机断连/信号丢失</td><td>摄像头间歇性离线，需频繁重启NVR</td><td>22</td><td>9.1%</td></tr>
+            <tr><td>8</td><td class="table-label">夜视有缺陷</td><td>红外反光、过曝，边缘模糊，识别不清</td><td>19</td><td>7.9%</td></tr>
+            <tr><td>9</td><td class="table-label">安装过程繁琐</td><td>打孔/穿线困难，说明书缺失或不详</td><td>18</td><td>7.4%</td></tr>
+            <tr><td>10</td><td class="table-label">画面畸变/鱼眼效应</td><td>广角导致边缘变形，无法准确辨识</td><td>16</td><td>6.6%</td></tr>
+            <tr><td>11</td><td class="table-label">网络线缆质量差</td><td>原装网线细软易断，接触不良</td><td>15</td><td>6.2%</td></tr>
+            <tr><td>12</td><td class="table-label">AI识别不准/漏报</td><td>人车识别时好时坏，关键事件未触发</td><td>14</td><td>5.8%</td></tr>
+            <tr><td>13</td><td class="table-label">固件更新导致问题</td><td>升级后变砖、设置丢失或性能下降</td><td>12</td><td>5.0%</td></tr>
+            <tr><td>14</td><td class="table-label">防水性能不佳</td><td>雨水渗入摄像头内部，镜头起雾</td><td>11</td><td>4.5%</td></tr>
+            <tr><td>15</td><td class="table-label">回放检索卡顿/慢</td><td>加载时间长，进度条拖动不流畅</td><td>10</td><td>4.1%</td></tr>
+            <tr><td>16</td><td class="table-label">发热量大/噪音</td><td>NVR散热风扇噪音明显，机身烫手</td><td>9</td><td>3.7%</td></tr>
+            <tr><td>17</td><td class="table-label">配件缺失/鼠标损坏</td><td>随附鼠标不能用，缺少螺丝或电源线</td><td>8</td><td>3.3%</td></tr>
+            <tr><td>18</td><td class="table-label">密码/账号问题</td><td>忘记密码难恢复，绑定异常</td><td>7</td><td>2.9%</td></tr>
+            <tr><td>19</td><td class="table-label">云台/变焦功能欠缺</td><td>无法远程旋转镜头，缺少光学变焦</td><td>6</td><td>2.5%</td></tr>
+            <tr><td>20</td><td class="table-label">硬盘容量不足/识别问题</td><td>2TB覆盖太快，换大硬盘不识别</td><td>6</td><td>2.5%</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ================= 维度2：点赞加权影响力（好评）Top20 ================= -->
+    <div class="section-title">💡 维度 2 · 高赞同度好评点 (加权影响力 Top 20)</div>
+    <table>
+        <thead><tr><th>排名</th><th>好评点标签</th><th>加权影响力得分</th><th>提及次数</th><th>备注(点赞数最高的5条评论)</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td class="table-label">性价比高</td><td>4.8</td><td>58</td><td>[12,8,7,6,5]</td></tr>
+            <tr><td>2</td><td class="table-label">画质清晰/分辨率高</td><td>4.2</td><td>98</td><td>[10,8,7,6,5]</td></tr>
+            <tr><td>3</td><td class="table-label">AI人车识别准确</td><td>4.0</td><td>41</td><td>[12,5,5,4,3]</td></tr>
+            <tr><td>4</td><td class="table-label">客服响应积极</td><td>3.9</td><td>29</td><td>[13,5,4,3,2]</td></tr>
+            <tr><td>5</td><td class="table-label">本地存储/无订阅费</td><td>3.7</td><td>27</td><td>[5,4,4,3,2]</td></tr>
+            <tr><td>6</td><td class="table-label">APP远程稳定</td><td>3.6</td><td>47</td><td>[8,6,5,4,3]</td></tr>
+            <tr><td>7</td><td class="table-label">安装简单/即插即用</td><td>3.5</td><td>72</td><td>[7,5,5,4,3]</td></tr>
+            <tr><td>8</td><td class="table-label">夜视效果优秀</td><td>3.4</td><td>54</td><td>[6,5,5,4,3]</td></tr>
+            <tr><td>9</td><td class="table-label">金属机身/做工扎实</td><td>3.3</td><td>36</td><td>[5,4,4,3,2]</td></tr>
+            <tr><td>10</td><td class="table-label">POE供电便捷</td><td>3.2</td><td>28</td><td>[5,4,3,2,2]</td></tr>
+            <tr><td>11</td><td class="table-label">音频清晰</td><td>3.0</td><td>25</td><td>[4,4,3,3,2]</td></tr>
+            <tr><td>12</td><td class="table-label">NVR界面易操作</td><td>2.9</td><td>24</td><td>[4,3,3,2,2]</td></tr>
+            <tr><td>13</td><td class="table-label">支持多平台查看</td><td>2.8</td><td>19</td><td>[4,3,2,2,1]</td></tr>
+            <tr><td>14</td><td class="table-label">固件持续更新</td><td>2.7</td><td>14</td><td>[5,3,2,1,1]</td></tr>
+            <tr><td>15</td><td class="table-label">运动检测灵敏</td><td>2.6</td><td>21</td><td>[4,3,2,2,1]</td></tr>
+            <tr><td>16</td><td class="table-label">可扩展性强</td><td>2.5</td><td>18</td><td>[3,2,2,2,1]</td></tr>
+            <tr><td>17</td><td class="table-label">宽动态/逆光表现好</td><td>2.4</td><td>15</td><td>[3,2,2,1,1]</td></tr>
+            <tr><td>18</td><td class="table-label">适合中小商用</td><td>2.3</td><td>11</td><td>[3,2,1,1,1]</td></tr>
+            <tr><td>19</td><td class="table-label">回放检索方便</td><td>2.2</td><td>12</td><td>[2,2,1,1,1]</td></tr>
+            <tr><td>20</td><td class="table-label">配件齐全</td><td>2.1</td><td>22</td><td>[3,2,1,1,1]</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 维度2：差评加权影响力 Top20 -->
+    <div class="section-title">🔥 维度 2 · 高赞同度差评点 (加权影响力 Top 20)</div>
+    <table>
+        <thead><tr><th>排名</th><th>差评点标签</th><th>加权影响力得分</th><th>提及次数</th><th>备注(点赞数最高的5条评论)</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td class="table-label">摄像头故障/不工作</td><td>5.9</td><td>47</td><td>[13,12,10,8,6]</td></tr>
+            <tr><td>2</td><td class="table-label">NVR/DVR硬件故障</td><td>5.2</td><td>31</td><td>[13,10,7,5,4]</td></tr>
+            <tr><td>3</td><td class="table-label">客户服务响应慢/推诿</td><td>5.0</td><td>23</td><td>[10,8,7,5,4]</td></tr>
+            <tr><td>4</td><td class="table-label">远程/外网访问困难</td><td>4.8</td><td>28</td><td>[12,8,5,4,3]</td></tr>
+            <tr><td>5</td><td class="table-label">随机断连/信号丢失</td><td>4.5</td><td>22</td><td>[8,7,5,4,3]</td></tr>
+            <tr><td>6</td><td class="table-label">APP/软件体验差</td><td>4.3</td><td>26</td><td>[9,6,5,4,3]</td></tr>
+            <tr><td>7</td><td class="table-label">运动检测误报频繁</td><td>4.1</td><td>24</td><td>[7,6,5,4,3]</td></tr>
+            <tr><td>8</td><td class="table-label">AI识别不准/漏报</td><td>3.9</td><td>14</td><td>[7,5,4,3,2]</td></tr>
+            <tr><td>9</td><td class="table-label">夜视有缺陷</td><td>3.7</td><td>19</td><td>[6,5,4,3,2]</td></tr>
+            <tr><td>10</td><td class="table-label">画面畸变/鱼眼效应</td><td>3.5</td><td>16</td><td>[5,4,4,3,2]</td></tr>
+            <tr><td>11</td><td class="table-label">固件更新导致问题</td><td>3.4</td><td>12</td><td>[8,4,3,2,1]</td></tr>
+            <tr><td>12</td><td class="table-label">防水性能不佳</td><td>3.3</td><td>11</td><td>[5,4,3,2,1]</td></tr>
+            <tr><td>13</td><td class="table-label">安装过程繁琐</td><td>3.1</td><td>18</td><td>[5,4,3,2,1]</td></tr>
+            <tr><td>14</td><td class="table-label">网络线缆质量差</td><td>2.9</td><td>15</td><td>[5,3,2,2,1]</td></tr>
+            <tr><td>15</td><td class="table-label">回放检索卡顿/慢</td><td>2.8</td><td>10</td><td>[4,3,2,2,1]</td></tr>
+            <tr><td>16</td><td class="table-label">硬盘容量不足/识别问题</td><td>2.7</td><td>6</td><td>[4,3,2,1,1]</td></tr>
+            <tr><td>17</td><td class="table-label">发热量大/噪音</td><td>2.6</td><td>9</td><td>[3,3,2,2,1]</td></tr>
+            <tr><td>18</td><td class="table-label">网口接触不良</td><td>2.5</td><td>5</td><td>[3,2,2,1,1]</td></tr>
+            <tr><td>19</td><td class="table-label">配件缺失/鼠标损坏</td><td>2.4</td><td>8</td><td>[3,2,2,1,1]</td></tr>
+            <tr><td>20</td><td class="table-label">密码/账号问题</td><td>2.3</td><td>7</td><td>[3,2,1,1,1]</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ================= 维度3：时间衰减近期焦点问题（半衰期3个月） ================= -->
+    <div class="section-title">⏳ 维度 3 · 近期焦点问题 (时间加权排名) — 好评对比</div>
+    <table>
+        <thead><tr><th>好评点标签</th><th>历史总提及次数(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+        <tbody>
+            <tr><td class="table-label">画质清晰/分辨率高</td><td>98 (1)</td><td>32.4</td><td>1</td><td>始终保持核心优势，近期好评持续稳定，未出现下滑。</td></tr>
+            <tr><td class="table-label">安装简单/即插即用</td><td>72 (2)</td><td>27.1</td><td>2</td><td>近期用户安装体验较好，新手友好度高，优势延续。</td></tr>
+            <tr><td class="table-label">性价比高</td><td>58 (3)</td><td>24.3</td><td>3</td><td>价格优势仍是主要卖点，近期讨论热度不减。</td></tr>
+            <tr><td class="table-label">APP远程稳定</td><td>47 (5)</td><td>20.5</td><td>4</td><td>近期App稳定性改善明显，负面提及减少，权重升高。</td></tr>
+            <tr><td class="table-label">夜视效果优秀</td><td>54 (4)</td><td>18.6</td><td>5</td><td>夜视总体正面，但近期有部分反馈边缘模糊，排名微降。</td></tr>
+            <tr><td class="table-label">客服响应积极</td><td>29 (8)</td><td>16.8</td><td>6</td><td>近期客服好评增加，售后改善明显，影响力提升。</td></tr>
+            <tr><td class="table-label">POE供电便捷</td><td>28 (9)</td><td>15.0</td><td>7</td><td>近期家庭用户更喜欢POE简洁性，正面得分上升。</td></tr>
+            <tr><td class="table-label">AI人车识别准确</td><td>41 (6)</td><td>14.2</td><td>8</td><td>虽有正面评价，但近期部分用户反映漏报，得分相对下降。</td></tr>
+            <tr><td class="table-label">金属机身/做工扎实</td><td>36 (7)</td><td>13.9</td><td>9</td><td>品控依然可靠，但提及热度稍减，属于成熟亮点。</td></tr>
+        </tbody>
+    </table>
+
+    <div class="section-title">⏳ 维度 3 · 近期焦点问题 (时间加权排名) — 差评对比</div>
+    <table>
+        <thead><tr><th>差评点标签</th><th>历史总提及次数(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+        <tbody>
+            <tr><td class="table-label">摄像头故障/不工作</td><td>47 (1)</td><td>21.6</td><td>1</td><td>依然是最大痛点，近期仍有大量新购用户遭遇硬件故障，需加强品控。</td></tr>
+            <tr><td class="table-label">远程/外网访问困难</td><td>28 (3)</td><td>15.8</td><td>2</td><td>近期投诉比例上升，固件或App更新后部分用户无法外网连接，紧急程度高。</td></tr>
+            <tr><td class="table-label">NVR/DVR硬件故障</td><td>31 (2)</td><td>14.9</td><td>3</td><td>NVR死机/不启动问题仍常见，半年内多起案例，影响核心功能。</td></tr>
+            <tr><td class="table-label">APP/软件体验差</td><td>26 (4)</td><td>13.2</td><td>4</td><td>近期App改版后部分用户不适，回放卡顿增多，需优化交互。</td></tr>
+            <tr><td class="table-label">客户服务响应慢/推诿</td><td>23 (6)</td><td>11.8</td><td>5</td><td>尽管服务有好评，但差评仍集中，售后流程复杂，国际用户抱怨多。</td></tr>
+            <tr><td class="table-label">随机断连/信号丢失</td><td>22 (7)</td><td>10.5</td><td>6</td><td>受Wi-Fi/网线干扰，近期固件更新后稳定感略有改善但未根治。</td></tr>
+            <tr><td class="table-label">运动检测误报频繁</td><td>24 (5)</td><td>9.7</td><td>7</td><td>飞虫/雨水依然触发大量误报，AI仍需优化，近期无实质改进。</td></tr>
+            <tr><td class="table-label">防水性能不佳</td><td>11 (14)</td><td>6.9</td><td>8</td><td>新批次摄像头进水案例减少，但仍是影响长期户外使用的隐患。</td></tr>
+            <tr><td class="table-label">画面畸变/鱼眼效应</td><td>16 (10)</td><td>5.5</td><td>9</td><td>广角畸变属于设计特性，近期用户接受度略升，排名下降。</td></tr>
+            <tr><td class="table-label">固件更新导致问题</td><td>12 (13)</td><td>5.2</td><td>10</td><td>更新策略需更稳健，近期有自动推送变砖抱怨，风险较高。</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 综合分析及改进建议 -->
+    <div class="footer-note">
+        <strong>📌 综合分析 & 改进建议</strong><br><br>
+        ✅ <strong>核心优势</strong>：Reolink B500系列以高性价比、清晰画质、简易PoE安装赢得市场，夜视和本地无订阅存储深受认可。金属机身及多平台客户端也是差异化亮点。<br>
+        ❌ <strong>突出问题</strong>：硬件故障率（特别是摄像头单点失效、NVR端口损坏）是最高频且影响力最大的差评，外网访问困难、App体验瑕疵以及运动检测误报严重损害用户体验。客服响应不及时加剧了负面情绪。<br>
+        🔧 <strong>改进方向</strong>：<br>
+        &nbsp;&nbsp;1️⃣ <strong>品控升级</strong>：加强对摄像头、NVR主板的出厂老化测试，针对POE供电稳定性优化，降低早期失效率。<br>
+        &nbsp;&nbsp;2️⃣ <strong>远程连接简化</strong>：改良UID穿透技术，提供一键诊断工具，彻底解决外网无法访问的顽疾。<br>
+        &nbsp;&nbsp;3️⃣ <strong>AI算法迭代</strong>：针对飞虫/雨水/树叶等误报，增加深度学习模型过滤，提高人车识别的精准度及召回率。<br>
+        &nbsp;&nbsp;4️⃣ <strong>售后体系优化</strong>：设立本地化客服团队或实时聊天渠道，简化保修换货流程，对国际用户提供更友好的退换政策。<br>
+        &nbsp;&nbsp;5️⃣ <strong>固件发布机制</strong>：推送前扩大灰度测试，并保证固件回滚能力，避免强制更新导致系统不可用。<br>
+        <div class="note-italic" style="margin-top: 12px;">* 基于242条真实用户评论（时间跨度2024-01至2026-05），半衰期3个月指数衰减加权，点赞数据均来自原始表格。好评占比71.5%，差评占比28.5% 。</div>
+    </div>
+</div>
+</body>
+</html>
