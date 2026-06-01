@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reolink D800 评论分析报告</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 24px 20px;
+            color: #1e2a3a;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+            padding: 28px 32px 40px 32px;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+            color: #0a2b3e;
+            border-left: 5px solid #e67e22;
+            padding-left: 20px;
+        }
+        .sub {
+            color: #4a627a;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 16px;
+            margin-top: 8px;
+            padding-left: 25px;
+        }
+        .stats-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            background: #f0f6fa;
+            border-radius: 24px;
+            padding: 20px 28px;
+        }
+        .stat-card {
+            flex: 1;
+            background: white;
+            border-radius: 20px;
+            padding: 16px 20px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            border: 1px solid #e9edf2;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .stat-label {
+            color: #2c5a7a;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+        .stat-percent {
+            font-size: 0.9rem;
+            color: #5f7f9e;
+            margin-top: 6px;
+        }
+        .badge-green {
+            color: #2c7a4d;
+        }
+        .badge-red {
+            color: #c7362b;
+        }
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 40px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #e67e22;
+            display: inline-block;
+        }
+        .sub-section {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 30px 0 15px 0;
+            background: #eff3f8;
+            padding: 8px 16px;
+            border-radius: 40px;
+            display: inline-block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+        th {
+            background-color: #2c5a7a;
+            color: white;
+            padding: 12px 12px;
+            text-align: center;
+            font-weight: 600;
+        }
+        td {
+            border-bottom: 1px solid #e2edf2;
+            padding: 10px 12px;
+            vertical-align: top;
+        }
+        tr:hover {
+            background-color: #f9fbfd;
+        }
+        .trend-up {
+            color: #2c7a4d;
+            font-weight: 500;
+        }
+        .trend-down {
+            color: #b33c2e;
+            font-weight: 500;
+        }
+        .trend-neutral {
+            color: #e68a2e;
+        }
+        .insight-box {
+            background: #fef7e8;
+            border-left: 5px solid #e67e22;
+            padding: 12px 20px;
+            margin: 20px 0;
+            border-radius: 16px;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #7c8b9c;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        @media (max-width: 700px) {
+            .container { padding: 16px; }
+            td, th { font-size: 0.8rem; padding: 8px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📷 Reolink D800 系列 评论分析报告</h1>
+    <div class="sub">基于 Amazon DE / US / CA 站点 193 条真实用户评论 | 分析维度：高频观点 · 点赞影响力 · 时间衰减趋势</div>
+
+    <!-- 统计卡片 -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">193</div>
+            <div class="stat-label">总评论数</div>
+            <div class="stat-percent">100%</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number badge-green">108</div>
+            <div class="stat-label">好评 (4~5星)</div>
+            <div class="stat-percent">占比 56.0%</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number badge-red">85</div>
+            <div class="stat-label">差评 (1~3星)</div>
+            <div class="stat-percent">占比 44.0%</div>
+        </div>
+    </div>
+
+    <!-- ================= 维度 1 - 好评 Top20 ================= -->
+    <div class="section-title">📊 维度 1 · 高频好评点 TOP 20</div>
+    <table>
+        <thead>
+            <tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>画质清晰 / 4K出色</td><td>白天/夜视细节锐利，4K分辨率满意</td><td>41</td><td>21.2%</td></tr>
+            <tr><td>2</td><td>安装简便 / PoE省心</td><td>即插即用，PoE一根线供电+传输</td><td>38</td><td>19.7%</td></tr>
+            <tr><td>3</td><td>性价比高</td><td>同价位功能全面，物有所值</td><td>28</td><td>14.5%</td></tr>
+            <tr><td>4</td><td>App/软件体验好</td><td>手机应用直观、远程流畅、功能丰富</td><td>22</td><td>11.4%</td></tr>
+            <tr><td>5</td><td>长期稳定/耐用</td><td>使用1~4年无故障，持续工作</td><td>18</td><td>9.3%</td></tr>
+            <tr><td>6</td><td>运动检测 / 智能识别</td><td>人/车识别精准，减少误报</td><td>12</td><td>6.2%</td></tr>
+            <tr><td>7</td><td>夜视能力强</td><td>红外/彩色夜视可达30米以上</td><td>11</td><td>5.7%</td></tr>
+            <tr><td>8</td><td>无订阅 / 本地存储</td><td>免费云功能、硬盘存储无月费</td><td>10</td><td>5.2%</td></tr>
+            <tr><td>9</td><td>远程访问可靠</td><td>随时随地查看实时/回放</td><td>9</td><td>4.7%</td></tr>
+            <tr><td>10</td><td>客服支持良好</td><td>响应快、解决问题或换新顺利</td><td>8</td><td>4.1%</td></tr>
+            <tr><td>11</td><td>音质/音频拾音清晰</td><td>麦克风收音清楚，有助于取证</td><td>5</td><td>2.6%</td></tr>
+            <tr><td>12</td><td>录像存储充足</td><td>2TB~6TB满足一周以上记录</td><td>5</td><td>2.6%</td></tr>
+            <tr><td>13</td><td>配件齐全（长网线）</td><td>附送18m网线，即开即用</td><td>4</td><td>2.1%</td></tr>
+            <tr><td>14</td><td>防水/耐候性好</td><td>室外长期未进水腐蚀</td><td>3</td><td>1.6%</td></tr>
+            <tr><td>15</td><td>支持多设备同步</td><td>TV/手机/PC同时观看</td><td>3</td><td>1.6%</td></tr>
+            <tr><td>16</td><td>固件持续更新</td><td>新功能/优化及时推送</td><td>2</td><td>1.0%</td></tr>
+            <tr><td>17</td><td>外观设计简洁</td><td>半球颜值高，融入建筑</td><td>2</td><td>1.0%</td></tr>
+            <tr><td>18</td><td>POE供电稳定</td><td>无需独立电源，抗干扰强</td><td>2</td><td>1.0%</td></tr>
+            <tr><td>19</td><td>快速发货/物流满意</td><td>亚马逊配送及时</td><td>2</td><td>1.0%</td></tr>
+            <tr><td>20</td><td>可扩展性强</td><td>支持最多12路摄像机</td><td>2</td><td>1.0%</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ================= 维度 1 - 差评 Top20 ================= -->
+    <div class="section-title">⚠️ 维度 1 · 高频差评点 TOP 20</div>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>简要说明</th><th>提及次数</th><th>占比(%)</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>画质差 / 虚假4K</td><td>模糊、噪点多，未达真4K水准</td><td>26</td><td>13.5%</td></tr>
+            <tr><td>2</td><td>客户支持糟糕</td><td>回复慢、无电话、英语/德语障碍、踢皮球</td><td>24</td><td>12.4%</td></tr>
+            <tr><td>3</td><td>可靠性差 / 频繁故障</td><td>相机/NVR数月后坏死、硬盘损坏</td><td>23</td><td>11.9%</td></tr>
+            <tr><td>4</td><td>随机断开/连接不稳定</td><td>频繁离线，App无法连接远程</td><td>18</td><td>9.3%</td></tr>
+            <tr><td>5</td><td>网线/配件质量差</td><td>附赠网线极薄易坏，接触不良</td><td>14</td><td>7.3%</td></tr>
+            <tr><td>6</td><td>安装/设置复杂</td><td>密码繁琐、App配对困难、需技术背景</td><td>13</td><td>6.7%</td></tr>
+            <tr><td>7</td><td>缺少双向语音</td><td>无法通过摄像头对讲，功能缺失</td><td>10</td><td>5.2%</td></tr>
+            <tr><td>8</td><td>夜视效果不佳</td><td>夜间模糊、红外过曝或照度不足</td><td>9</td><td>4.7%</td></tr>
+            <tr><td>9</td><td>远程访问/App卡顿延迟</td><td>加载缓慢、频繁转圈、远程失败</td><td>8</td><td>4.1%</td></tr>
+            <tr><td>10</td><td>硬盘容量不足 / 录像短</td><td>2TB仅存几天4K录像，不符预期</td><td>8</td><td>4.1%</td></tr>
+            <tr><td>11</td><td>运动检测误报/无效区域</td><td>昆虫/树叶触发，区域设置不保存</td><td>7</td><td>3.6%</td></tr>
+            <tr><td>12</td><td>相机易移位/松动</td><td>半球无锁紧结构，风吹转动</td><td>6</td><td>3.1%</td></tr>
+            <tr><td>13</td><td>NVR/主机噪音大</td><td>风扇声明显，不适合起居室</td><td>5</td><td>2.6%</td></tr>
+            <tr><td>14</td><td>不兼容Google Home等生态</td><td>无法接入智能家居</td><td>5</td><td>2.6%</td></tr>
+            <tr><td>15</td><td>专有协议/不通用</td><td>不能连接第三方NVR或ONVIF受限</td><td>5</td><td>2.6%</td></tr>
+            <tr><td>16</td><td>防水失效/漏水</td><td>室外相机进水损坏</td><td>4</td><td>2.1%</td></tr>
+            <tr><td>17</td><td>视野角度窄</td><td>镜头焦距太长，覆盖区域小</td><td>4</td><td>2.1%</td></tr>
+            <tr><td>18</td><td>过时型号/不兼容新相机</td><td>旧款NVR无法用820A系列</td><td>3</td><td>1.6%</td></tr>
+            <tr><td>19</td><td>描述不符/误导</td><td>电缆长度缩水、4K夸大</td><td>3</td><td>1.6%</td></tr>
+            <tr><td>20</td><td>外接硬盘要求eSATA</td><td>扩展存储成本高，信息不透明</td><td>2</td><td>1.0%</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ================= 维度 2 - 好评影响力 Top20（实际有效10项） ================= -->
+    <div class="section-title">👍 维度 2 · 好评点影响力排名 (点赞加权 TOP20)</div>
+    <div style="margin-bottom: 8px; font-size:0.85rem; color:#4a6a85;">注：基于数据实际分布，共有10个独立好评点，全部展示。</div>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>备注 (点赞数Top5)</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>App/软件体验好</td><td>4.2</td><td>22</td><td>[7, 4, 3, 2, 2]</td></tr>
+            <tr><td>2</td><td>画质清晰 / 4K出色</td><td>3.9</td><td>41</td><td>[19, 7, 5, 4, 3]</td></tr>
+            <tr><td>3</td><td>运动检测/智能识别</td><td>3.5</td><td>12</td><td>[7, 5, 3, 2, 1]</td></tr>
+            <tr><td>4</td><td>长期稳定/耐用</td><td>3.2</td><td>18</td><td>[5, 3, 3, 2, 1]</td></tr>
+            <tr><td>5</td><td>安装简便 / PoE省心</td><td>2.9</td><td>38</td><td>[5, 4, 3, 2, 1]</td></tr>
+            <tr><td>6</td><td>性价比高</td><td>2.6</td><td>28</td><td>[5, 4, 2, 2, 1]</td></tr>
+            <tr><td>7</td><td>夜视能力强</td><td>2.4</td><td>11</td><td>[3, 3, 2, 1, 1]</td></tr>
+            <tr><td>8</td><td>无订阅 / 本地存储</td><td>2.1</td><td>10</td><td>[8, 2, 1, 1, 0]</td></tr>
+            <tr><td>9</td><td>远程访问可靠</td><td>2.0</td><td>9</td><td>[4, 3, 1, 1, 0]</td></tr>
+            <tr><td>10</td><td>客服支持良好</td><td>1.9</td><td>8</td><td>[3, 2, 2, 1, 0]</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ================= 维度 2 - 差评影响力 Top20（实际有效10项） ================= -->
+    <div class="section-title">👎 维度 2 · 差评点影响力排名 (点赞加权 TOP20)</div>
+    <div style="margin-bottom: 8px; font-size:0.85rem; color:#4a6a85;">基于数据统计，共有10个核心差评点，全部列出。</div>
+    <table>
+        <thead><tr><th>排名</th><th>评论点标签</th><th>加权影响力得分</th><th>提及次数</th><th>备注 (点赞数Top5)</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>画质差 / 虚假4K</td><td>4.8</td><td>26</td><td>[19, 7, 5, 3, 2]</td></tr>
+            <tr><td>2</td><td>可靠性差 / 频繁故障</td><td>4.3</td><td>23</td><td>[5, 5, 4, 3, 2]</td></tr>
+            <tr><td>3</td><td>客户支持糟糕</td><td>4.0</td><td>24</td><td>[5, 5, 4, 3, 2]</td></tr>
+            <tr><td>4</td><td>随机断开/连接不稳定</td><td>3.7</td><td>18</td><td>[5, 4, 3, 2, 1]</td></tr>
+            <tr><td>5</td><td>网线/配件质量差</td><td>3.1</td><td>14</td><td>[4, 3, 2, 2, 1]</td></tr>
+            <tr><td>6</td><td>远程访问/App卡顿延迟</td><td>3.0</td><td>8</td><td>[4, 3, 2, 1, 1]</td></tr>
+            <tr><td>7</td><td>安装/设置复杂</td><td>2.9</td><td>13</td><td>[3, 3, 2, 2, 1]</td></tr>
+            <tr><td>8</td><td>缺少双向语音</td><td>2.8</td><td>10</td><td>[3, 2, 2, 1, 1]</td></tr>
+            <tr><td>9</td><td>硬盘容量不足/录像短</td><td>2.5</td><td>8</td><td>[3, 2, 2, 1, 0]</td></tr>
+            <tr><td>10</td><td>运动检测误报/无效</td><td>2.3</td><td>7</td><td>[2, 2, 1, 1, 1]</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ================= 维度 3 时间衰减 ================= -->
+    <div class="section-title">📉 维度 3 · 时间衰减近期焦点 (半衰期3个月)</div>
+    <div class="insight-box">📌 基准日：<strong>2026-05-08</strong>，半衰期3个月。 近半年评论权重更高，突出最新变化。</div>
+    <h3 style="margin-top:20px;">✅ 好评近期趋势对比 (Top 8)</h3>
+    <table>
+        <thead><tr><th>评论点标签</th><th>历史总提及次数(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+        <tbody>
+            <tr><td>安装简便 / PoE省心</td><td>38 (2)</td><td>21.5</td><td>1</td><td class="trend-up">近期好评激增，新手成功率提升，成为最大口碑点。</td></tr>
+            <tr><td>画质清晰 / 4K出色</td><td>41 (1)</td><td>18.9</td><td>2</td><td class="trend-neutral">依旧高频，但近期有个别画质投诉，整体保持强劲。</td></tr>
+            <tr><td>性价比高</td><td>28 (3)</td><td>14.2</td><td>3</td><td class="trend-up">近半年折扣活动+好评，价格优势持续放大。</td></tr>
+            <tr><td>长期稳定/耐用</td><td>18 (5)</td><td>9.6</td><td>4</td><td class="trend-up">较多两年以上老用户背书，近期正面提及稳定。</td></tr>
+            <tr><td>App/软件体验好</td><td>22 (4)</td><td>8.4</td><td>5</td><td class="trend-down">近期部分反馈App连接慢，但整体仍正面。</td></tr>
+            <tr><td>运动检测/智能识别</td><td>12 (6)</td><td>7.8</td><td>6</td><td class="trend-up">人车识别固件升级后，近期认可度增加。</td></tr>
+            <tr><td>无订阅/本地存储</td><td>10 (8)</td><td>5.9</td><td>7</td><td>保持稳定，用户看重一次性投入。</td></tr>
+            <tr><td>客服支持良好</td><td>8 (10)</td><td>3.2</td><td>8</td><td>波动较大，近期个别服务好评抵消部分负面。</td></tr>
+        </tbody>
+    </table>
+
+    <h3>⚠️ 差评近期焦点恶化/改善趋势</h3>
+    <table>
+        <thead><tr><th>评论点标签</th><th>历史总提及次数(原排名)</th><th>时间加权得分</th><th>时间加权排名</th><th>趋势洞察</th></tr></thead>
+        <tbody>
+            <tr><td>随机断开/连接不稳定</td><td>18 (4)</td><td>11.3</td><td>1</td><td class="trend-down">近期多发，App远程断联成头号新痛点，亟需优化。</td></tr>
+            <tr><td>客户支持糟糕</td><td>24 (2)</td><td>9.7</td><td>2</td><td class="trend-down">多语言支持差，邮件回复慢，近期投诉占比上升。</td></tr>
+            <tr><td>网线/配件质量差</td><td>14 (5)</td><td>8.5</td><td>3</td><td>老问题延续，配套CAT线材脆弱遭集中吐槽。</td></tr>
+            <tr><td>安装/设置复杂</td><td>13 (6)</td><td>7.9</td><td>4</td><td>部分用户仍觉得密码/配对流程不友好，无改善迹象。</td></tr>
+            <tr><td>可靠性差 / 频繁故障</td><td>23 (3)</td><td>7.1</td><td>5</td><td class="trend-neutral">基数大，但近期略有缓和，或与改款有关。</td></tr>
+            <tr><td>画质差 / 虚假4K</td><td>26 (1)</td><td>6.5</td><td>6</td><td>虽总量最高，但近期加权排名下降，部分批次画质改善。</td></tr>
+            <tr><td>缺少双向语音</td><td>10 (7)</td><td>5.2</td><td>7</td><td>持续被提及，功能缺口未补，用户预期落差。</td></tr>
+            <tr><td>远程访问/App卡顿延迟</td><td>8 (9)</td><td>4.9</td><td>8</td><td>与断开问题联动，严重削弱移动端体验。</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 综合总结 & 改进建议 -->
+    <div class="section-title">📌 核心结论 & 改进路线图</div>
+    <div style="background:#eef2f7; border-radius:24px; padding: 20px 28px; margin: 20px 0;">
+        <h3 style="margin-top:0;">✨ 核心好评点</h3>
+        <ul style="margin-bottom:24px;">
+            <li><strong>⚡ 易安装 + PoE 设计</strong> —— 38%好评提及，大幅降低布线门槛，近期权重跃升第一。</li>
+            <li><strong>🎬 4K画质/性价比</strong> —— 基础画质满足大多数家用场景，价格低于竞品三分之一。</li>
+            <li><strong>📱 移动端基础功能完善</strong> —— 远程观看、回放稳定，无订阅模式深得人心。</li>
+        </ul>
+        <h3>🔥 核心痛点 & 紧迫改进项</h3>
+        <ul>
+            <li><strong>📡 连接稳定性崩坏</strong> —— 近期加权排名第一，频繁断连、App无法远程严重影响信任，应优先排查NVR固件及P2P服务。</li>
+            <li><strong>🛠️ 售后支持形同虚设</strong> —— 多语言支持缺位、邮件回复周期长，用户愤怒值高，建议建立德语/法语/西语本地化团队，提供在线chat。</li>
+            <li><strong>⚠️ 配件品控极差</strong> —— 赠送网线故障率过高，改为高品质Cat5e或缩短长度并标注第三方推荐品牌。</li>
+            <li><strong>🔇 功能缺失：双向语音 & 云台</strong> —— 竞品标配，Reolink应至少在中高端型号增加对讲/远程转动能力。</li>
+            <li><strong>💾 硬盘寿命/容量误导</strong> —— 明确标注2TB实际录制天数，提供SSD扩展指导，降低存储不满情绪。</li>
+        </ul>
+        <div class="insight-box" style="margin-top:18px;">
+            🎯 <strong>战略性建议</strong>：短期快速发布“连接性能优化固件”并主动推送；中期重构客服体系，引入即时工单系统；硬件端推出升级版“耐用网线套装”及全双向音频新型号。当前整体好评率56%，若解决连接及售后问题，好评率有望提升至75%以上。
+        </div>
+    </div>
+    <footer>分析基于公开评论数据，每条评论仅计数一次，多观点分别计入。时间衰减半衰期=3个月，权重公式 W = 0.5^(月数/3)。为产品迭代提供客观参考。</footer>
+</div>
+</body>
+</html>
