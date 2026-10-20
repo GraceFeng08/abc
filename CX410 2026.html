@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>安防摄像头 CX410 用户评论分析报告</title>
+<style>
+  :root{
+    --bg:#f5f7fa;
+    --card:#ffffff;
+    --text:#1f2933;
+    --muted:#6b7280;
+    --line:#e5e7eb;
+    --pos:#0f9d58;
+    --neg:#d93025;
+    --accent:#1a73e8;
+    --pos-bg:#e8f5ee;
+    --neg-bg:#fdecea;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    padding:32px 20px 64px;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:1180px;margin:0 auto;}
+  header{
+    background:linear-gradient(135deg,#1a73e8,#0b57d0);
+    color:#fff;
+    border-radius:16px;
+    padding:32px 36px;
+    margin-bottom:24px;
+    box-shadow:0 8px 24px rgba(26,115,232,.22);
+  }
+  header h1{margin:0 0 8px;font-size:28px;letter-spacing:.5px;}
+  header p{margin:0;opacity:.92;font-size:14px;}
+  .kpis{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:16px;
+    margin-bottom:24px;
+  }
+  .kpi{
+    background:var(--card);
+    border-radius:12px;
+    padding:20px;
+    border:1px solid var(--line);
+    box-shadow:0 2px 8px rgba(0,0,0,.04);
+  }
+  .kpi .label{font-size:13px;color:var(--muted);margin-bottom:6px;}
+  .kpi .value{font-size:28px;font-weight:700;color:var(--accent);}
+  .kpi .value.pos{color:var(--pos);}
+  .kpi .value.neg{color:var(--neg);}
+  section{
+    background:var(--card);
+    border-radius:14px;
+    padding:24px 28px;
+    margin-bottom:24px;
+    border:1px solid var(--line);
+    box-shadow:0 2px 10px rgba(0,0,0,.04);
+  }
+  h2{
+    font-size:20px;
+    margin:0 0 6px;
+    padding-left:12px;
+    border-left:5px solid var(--accent);
+  }
+  h3{
+    font-size:16px;
+    margin:26px 0 12px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  h3 .dot{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  h3.pos .dot{background:var(--pos);}
+  h3.neg .dot{background:var(--neg);}
+  .note{
+    font-size:13px;
+    color:var(--muted);
+    background:#f8fafc;
+    border:1px dashed var(--line);
+    border-radius:8px;
+    padding:10px 14px;
+    margin:10px 0 18px;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+    margin-bottom:8px;
+  }
+  thead th{
+    background:#f1f5f9;
+    color:#334155;
+    text-align:left;
+    padding:10px 12px;
+    font-weight:600;
+    border-bottom:2px solid var(--line);
+    position:sticky;
+    top:0;
+  }
+  tbody td{
+    padding:9px 12px;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  tbody tr:nth-child(even){background:#fafbfc;}
+  tbody tr:hover{background:#eef4ff;}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  td.rank{text-align:center;font-weight:700;color:var(--accent);width:56px;}
+  td.pct{text-align:right;font-weight:600;white-space:nowrap;}
+  .pos-tbl td.pct{color:var(--pos);}
+  .neg-tbl td.pct{color:var(--neg);}
+  .bar{
+    display:inline-block;
+    height:8px;
+    border-radius:4px;
+    vertical-align:middle;
+    margin-left:6px;
+  }
+  .bar.pos{background:linear-gradient(90deg,#34a853,#0f9d58);}
+  .bar.neg{background:linear-gradient(90deg,#f28b82,#d93025);}
+  .concl{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:20px;
+  }
+  .box{
+    border-radius:12px;
+    padding:20px 22px;
+    border:1px solid var(--line);
+  }
+  .box.pos{background:var(--pos-bg);border-color:#bfe6cf;}
+  .box.neg{background:var(--neg-bg);border-color:#f5c6c2;}
+  .box h4{margin:0 0 12px;font-size:16px;}
+  .box.pos h4{color:#0b6b3a;}
+  .box.neg h4{color:#a50e0e;}
+  .box ol{margin:0;padding-left:20px;}
+  .box li{margin-bottom:8px;font-size:14px;}
+  .advice ol{padding-left:22px;}
+  .advice li{
+    margin-bottom:12px;
+    font-size:14px;
+    padding-left:4px;
+  }
+  .advice b{color:var(--accent);}
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:12.5px;
+    margin-top:30px;
+  }
+  .scroll{max-height:720px;overflow:auto;border:1px solid var(--line);border-radius:10px;}
+  @media(max-width:640px){
+    body{padding:16px 10px 40px;}
+    header{padding:22px;}
+    header h1{font-size:21px;}
+    section{padding:16px;}
+    table{font-size:12px;}
+    thead th,tbody td{padding:7px 8px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>安防摄像头 CX410 用户评论分析报告</h1>
+    <p>Amazon 平台 · ASIN B0C2PB5J7Y / B0C2Q5BHX9 · 基于评论内容（F列）的语义归纳与频次统计</p>
+  </header>
+
+  <div class="kpis">
+    <div class="kpi"><div class="label">总评论数</div><div class="value">184</div></div>
+    <div class="kpi"><div class="label">好评 4~5 星</div><div class="value pos">158</div></div>
+    <div class="kpi"><div class="label">差评 1~3 星</div><div class="value neg">26</div></div>
+    <div class="kpi"><div class="label">好评率（4~5星）</div><div class="value pos">85.9%</div></div>
+  </div>
+
+  <section>
+    <h2>统计口径说明</h2>
+    <div class="note">
+      1. 数据源为附件 F 列“评论内容”，共 184 条评论，其中好评 4~5 星 158 条，差评 1~3 星 26 条。<br>
+      2. 每条评论对同一观点的多次提及仅计 1 次；一条评论可同时计入多个观点，因此各观点占比合计会大于 100%。<br>
+      3. 占比分母：好评观点 ÷ 158；差评观点 ÷ 26。<br>
+      4. 好评评论中同时包含的负面表述计入“好评中的负面观点”；差评评论中同时包含的正面表述计入“差评中的正面观点”。<br>
+      5. 相似观点已做合并归并；差评组样本量仅 26 条，部分长尾观点频次较低，Top40 不足处已做说明。
+    </div>
+  </section>
+
+  <section>
+    <h2>维度 1：高频好评提取（好评 4~5 星 / 158 条）</h2>
+
+    <h3 class="pos"><span class="dot"></span>1.1 好评中的正面态度观点 Top40</h3>
+    <div class="note">好评组共 158 条，正面有效标签 28 项，Top40 不足处不再展开；占比分母为 158。</div>
+    <div class="scroll">
+    <table class="pos-tbl">
+      <thead>
+        <tr><th style="width:56px">排名</th><th>评论点标签</th><th>简要说明</th><th style="width:86px">提及次数</th><th style="width:86px">占比(%)</th><th style="width:140px">占比可视化</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="rank">1</td><td>彩色夜视/夜视出色</td><td>夜间彩色画面明亮，接近白天效果，核心卖点获高度认可</td><td class="num">112</td><td class="pct">70.9</td><td><span class="bar pos" style="width:142px"></span></td></tr>
+        <tr><td class="rank">2</td><td>性价比高/物有所值</td><td>同价位夜视表现突出，百元级产品被认为超值</td><td class="num">58</td><td class="pct">36.7</td><td><span class="bar pos" style="width:73px"></span></td></tr>
+        <tr><td class="rank">3</td><td>白天画质清晰/2K够用</td><td>白天成像清晰，2K 分辨率满足日常识别需求</td><td class="num">52</td><td class="pct">32.9</td><td><span class="bar pos" style="width:66px"></span></td></tr>
+        <tr><td class="rank">4</td><td>低光/微光性能好</td><td>微弱环境光下仍可彩色成像，大传感器优势明显</td><td class="num">32</td><td class="pct">20.3</td><td><span class="bar pos" style="width:41px"></span></td></tr>
+        <tr><td class="rank">5</td><td>PoE/有线连接稳定</td><td>PoE 供电方便，有线网络稳定，长距离传输可靠</td><td class="num">30</td><td class="pct">19.0</td><td><span class="bar pos" style="width:38px"></span></td></tr>
+        <tr><td class="rank">6</td><td>智能检测准确/误报少</td><td>人、车、宠物识别较准，部分用户反馈几乎无假报</td><td class="num">26</td><td class="pct">16.5</td><td><span class="bar pos" style="width:33px"></span></td></tr>
+        <tr><td class="rank">7</td><td>安装设置简单/App易用</td><td>App、Web 端配置直观，即插即用，安装快速</td><td class="num">25</td><td class="pct">15.8</td><td><span class="bar pos" style="width:32px"></span></td></tr>
+        <tr><td class="rank">8</td><td>做工坚固/金属外壳/防水</td><td>金属机身、防护设计扎实，户外耐用性获好评</td><td class="num">25</td><td class="pct">15.8</td><td><span class="bar pos" style="width:32px"></span></td></tr>
+        <tr><td class="rank">9</td><td>RTSP/ONVIF/NVR/NAS集成</td><td>可接 NVR、NAS、Home Assistant、Blue Iris 等</td><td class="num">21</td><td class="pct">13.3</td><td><span class="bar pos" style="width:27px"></span></td></tr>
+        <tr><td class="rank">10</td><td>设置丰富/Web界面好</td><td>检测区域、灵敏度、灯光、码流等可调项丰富</td><td class="num">20</td><td class="pct">12.7</td><td><span class="bar pos" style="width:25px"></span></td></tr>
+        <tr><td class="rank">11</td><td>聚光灯/暖光补光有效</td><td>暖光补光改善夜间彩色成像，亮度可调</td><td class="num">18</td><td class="pct">11.4</td><td><span class="bar pos" style="width:23px"></span></td></tr>
+        <tr><td class="rank">12</td><td>多存储方式（SD/FTP/NVR）</td><td>支持 Micro SD、FTP、NVR/NAS，本地存储灵活</td><td class="num">18</td><td class="pct">11.4</td><td><span class="bar pos" style="width:23px"></span></td></tr>
+        <tr><td class="rank">13</td><td>双向语音/警笛实用</td><td>对讲、警笛、音频功能在部分场景下可用</td><td class="num">15</td><td class="pct">9.5</td><td><span class="bar pos" style="width:19px"></span></td></tr>
+        <tr><td class="rank">14</td><td>无需订阅/本地隐私</td><td>无强制云订阅，可完全本地运行，隐私友好</td><td class="num">9</td><td class="pct">5.7</td><td><span class="bar pos" style="width:11px"></span></td></tr>
+        <tr><td class="rank">15</td><td>无红外/隐蔽/防虫</td><td>无红曝，较隐蔽；相比红外更少蜘蛛网和飞虫</td><td class="num">8</td><td class="pct">5.1</td><td><span class="bar pos" style="width:10px"></span></td></tr>
+        <tr><td class="rank">16</td><td>色彩还原好/识别衣物颜色</td><td>夜间能保留颜色信息，便于识别人物衣着、车辆颜色</td><td class="num">7</td><td class="pct">4.4</td><td><span class="bar pos" style="width:9px"></span></td></tr>
+        <tr><td class="rank">17</td><td>客服支持好/固件解决</td><td>部分用户反馈客服响应积极，固件更新可解决问题</td><td class="num">5</td><td class="pct">3.2</td><td><span class="bar pos" style="width:6px"></span></td></tr>
+        <tr><td class="rank">18</td><td>体积小巧/外观好</td><td>枪型机身小巧，安装后不显眼，外观现代</td><td class="num">5</td><td class="pct">3.2</td><td><span class="bar pos" style="width:6px"></span></td></tr>
+        <tr><td class="rank">19</td><td>移动侦测/通知快速</td><td>侦测触发快，手机推送及时</td><td class="num">3</td><td class="pct">1.9</td><td><span class="bar pos" style="width:4px"></span></td></tr>
+        <tr><td class="rank">20</td><td>配件齐全/包装好</td><td>含螺丝、模板、防水盖等，开箱安装便利</td><td class="num">3</td><td class="pct">1.9</td><td><span class="bar pos" style="width:4px"></span></td></tr>
+        <tr><td class="rank">21</td><td>升级替换方便</td><td>与旧款底座/孔位兼容，替换省时</td><td class="num">2</td><td class="pct">1.3</td><td><span class="bar pos" style="width:3px"></span></td></tr>
+        <tr><td class="rank">22</td><td>支持Alexa/Google/HomeKit</td><td>可与智能家居平台集成，扩展性较好</td><td class="num">2</td><td class="pct">1.3</td><td><span class="bar pos" style="width:3px"></span></td></tr>
+        <tr><td class="rank">23</td><td>视频流畅/30fps</td><td>30fps 画面流畅，动态观感较好</td><td class="num">2</td><td class="pct">1.3</td><td><span class="bar pos" style="width:3px"></span></td></tr>
+        <tr><td class="rank">24</td><td>近距车牌/细节可读</td><td>部分场景下 5~10 米可辨识车牌或面部</td><td class="num">2</td><td class="pct">1.3</td><td><span class="bar pos" style="width:3px"></span></td></tr>
+        <tr><td class="rank">25</td><td>视角广</td><td>广角覆盖减少盲区，适合庭院/门口</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar pos" style="width:1px"></span></td></tr>
+        <tr><td class="rank">26</td><td>低功耗</td><td>功耗约 2W，适合长期运行</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar pos" style="width:1px"></span></td></tr>
+        <tr><td class="rank">27</td><td>可手动调节角度</td><td>云台/支架可手动调整，对准方便</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar pos" style="width:1px"></span></td></tr>
+        <tr><td class="rank">28</td><td>探测距离较远</td><td>夜间可探测较远距离的小动物/移动目标</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar pos" style="width:1px"></span></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3 class="neg"><span class="dot"></span>1.2 好评中的负面态度观点 Top40</h3>
+    <div class="note">好评评论中同时暴露的问题，反映“卖点被认可但仍有落差”的环节；占比分母为 158。</div>
+    <div class="scroll">
+    <table class="neg-tbl">
+      <thead>
+        <tr><th style="width:56px">排名</th><th>评论点标签</th><th>简要说明</th><th style="width:86px">提及次数</th><th style="width:86px">占比(%)</th><th style="width:140px">占比可视化</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="rank">1</td><td>分辨率低/4MP细节不足</td><td>4MP 细节有限，放大或远距识别不足，期望 5MP/4K</td><td class="num">22</td><td class="pct">13.9</td><td><span class="bar neg" style="width:28px"></span></td></tr>
+        <tr><td class="rank">2</td><td>聚光灯常亮/控制不灵/显眼</td><td>无法仅运动触发，夜间常亮、招虫、暴露位置</td><td class="num">12</td><td class="pct">7.6</td><td><span class="bar neg" style="width:15px"></span></td></tr>
+        <tr><td class="rank">3</td><td>缺电源/PoE配件需另购</td><td>包装不含电源适配器，PoE 交换机/注入器需自备</td><td class="num">10</td><td class="pct">6.3</td><td><span class="bar neg" style="width:13px"></span></td></tr>
+        <tr><td class="rank">4</td><td>音频/麦克风差</td><td>声音如水下、延迟大、双向语音效果差</td><td class="num">9</td><td class="pct">5.7</td><td><span class="bar neg" style="width:11px"></span></td></tr>
+        <tr><td class="rank">5</td><td>无红外/全黑依赖环境光</td><td>完全无光环境表现差，需要路灯/门廊灯等环境光</td><td class="num">9</td><td class="pct">5.7</td><td><span class="bar neg" style="width:11px"></span></td></tr>
+        <tr><td class="rank">6</td><td>App/软件/设置问题</td><td>连接慢、设置繁琐、更新异常、部分功能仅网页可调</td><td class="num">9</td><td class="pct">5.7</td><td><span class="bar neg" style="width:11px"></span></td></tr>
+        <tr><td class="rank">7</td><td>智能检测/AI误报</td><td>夜间车灯、光影、昆虫触发误报，人形识别不稳定</td><td class="num">7</td><td class="pct">4.4</td><td><span class="bar neg" style="width:9px"></span></td></tr>
+        <tr><td class="rank">8</td><td>移动物体重影/拖影</td><td>夜间移动人物有 ghosting，面部/细节模糊</td><td class="num">6</td><td class="pct">3.8</td><td><span class="bar neg" style="width:8px"></span></td></tr>
+        <tr><td class="rank">9</td><td>不支持WiFi</td><td>仅支持有线/PoE，部分用户部署不便</td><td class="num">6</td><td class="pct">3.8</td><td><span class="bar neg" style="width:8px"></span></td></tr>
+        <tr><td class="rank">10</td><td>视野窄</td><td>水平约 89°，部分用户希望更广视角</td><td class="num">5</td><td class="pct">3.2</td><td><span class="bar neg" style="width:6px"></span></td></tr>
+        <tr><td class="rank">11</td><td>固件/自动更新问题</td><td>自动更新失效、需手动刷固件，偶发粉屏/冻结</td><td class="num">5</td><td class="pct">3.2</td><td><span class="bar neg" style="width:6px"></span></td></tr>
+        <tr><td class="rank">12</td><td>价格偏高</td><td>相比同品牌 RLC 系列价格更高，部分用户认为偏贵</td><td class="num">4</td><td class="pct">2.5</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">13</td><td>HDR/过曝/反光</td><td>强光、车灯、路灯下过曝，HDR 在 NVR 下受限</td><td class="num">3</td><td class="pct">1.9</td><td><span class="bar neg" style="width:4px"></span></td></tr>
+        <tr><td class="rank">14</td><td>安装/布线麻烦</td><td>需布网线，防水接头设计不便穿墙</td><td class="num">3</td><td class="pct">1.9</td><td><span class="bar neg" style="width:4px"></span></td></tr>
+        <tr><td class="rank">15</td><td>支架/QC问题</td><td>个别底座螺纹加工差、难拧紧，存在品控波动</td><td class="num">3</td><td class="pct">1.9</td><td><span class="bar neg" style="width:4px"></span></td></tr>
+        <tr><td class="rank">16</td><td>聚光灯招虫致误报</td><td>灯光吸引飞蛾/昆虫，触发连续报警录像</td><td class="num">2</td><td class="pct">1.3</td><td><span class="bar neg" style="width:3px"></span></td></tr>
+        <tr><td class="rank">17</td><td>客服/售后问题</td><td>部分用户反馈售后处理慢、亚马逊渠道支持受限</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">18</td><td>通知/回放体验差</td><td>无缩略图、点击近期事件跳直播、回看不便</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">19</td><td>防水密封问题</td><td>雨天画面轻微模糊，密封性有改进空间</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">20</td><td>缺少周界防护</td><td>缺少其他型号已有的周界防护功能</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">21</td><td>帧率一般</td><td>部分用户希望更高帧率</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">22</td><td>无H.265</td><td>缺少 H.265 编码，带宽占用较高</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">23</td><td>需App初始设置</td><td>默认关闭 HTTP/Web 服务，需 App 开启</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">24</td><td>NVR兼容性</td><td>个别旧 NVR 需升级固件后才能识别</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">25</td><td>Web服务器默认关闭</td><td>网页服务默认关闭，增加初始配置步骤</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">26</td><td>无4K</td><td>部分用户期待 4K 版本</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">27</td><td>车灯触发误报</td><td>夜间过往车辆大灯扫过即触发报警</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>维度 2：高频差评提取（差评 1~3 星 / 26 条）</h2>
+
+    <h3 class="neg"><span class="dot"></span>2.1 差评中的负面态度观点 Top40</h3>
+    <div class="note">差评组共 26 条，负面有效标签 24 项，Top40 不足处不再展开；占比分母为 26。</div>
+    <div class="scroll">
+    <table class="neg-tbl">
+      <thead>
+        <tr><th style="width:56px">排名</th><th>评论点标签</th><th>简要说明</th><th style="width:86px">提及次数</th><th style="width:86px">占比(%)</th><th style="width:140px">占比可视化</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="rank">1</td><td>App/软件/设置复杂</td><td>网络配置、端口转发、App 更新与设置体验差</td><td class="num">10</td><td class="pct">38.5</td><td><span class="bar neg" style="width:77px"></span></td></tr>
+        <tr><td class="rank">2</td><td>无红外/全黑/依赖环境光</td><td>无红外补光，完全黑暗场景基本不可用</td><td class="num">8</td><td class="pct">30.8</td><td><span class="bar neg" style="width:62px"></span></td></tr>
+        <tr><td class="rank">3</td><td>智能检测/AI误报</td><td>车灯、区域、警报准确性差，夜间检测失效</td><td class="num">6</td><td class="pct">23.1</td><td><span class="bar neg" style="width:46px"></span></td></tr>
+        <tr><td class="rank">4</td><td>分辨率低/画质差</td><td>4MP 被指细节不足，不如 CX810/4K 版本</td><td class="num">5</td><td class="pct">19.2</td><td><span class="bar neg" style="width:38px"></span></td></tr>
+        <tr><td class="rank">5</td><td>音频差/麦克风故障</td><td>声音水下感、延迟高、双向语音不可用</td><td class="num">5</td><td class="pct">19.2</td><td><span class="bar neg" style="width:38px"></span></td></tr>
+        <tr><td class="rank">6</td><td>设备故障/QC问题</td><td>自动关机、12V 接口故障、缺件、无法工作</td><td class="num">5</td><td class="pct">19.2</td><td><span class="bar neg" style="width:38px"></span></td></tr>
+        <tr><td class="rank">7</td><td>过曝/HDR/反光</td><td>强光过曝，HDR 受限，反光影响画面</td><td class="num">4</td><td class="pct">15.4</td><td><span class="bar neg" style="width:31px"></span></td></tr>
+        <tr><td class="rank">8</td><td>移动物体重影/模糊</td><td>长曝光导致移动人物模糊、透明、细节丢失</td><td class="num">3</td><td class="pct">11.5</td><td><span class="bar neg" style="width:23px"></span></td></tr>
+        <tr><td class="rank">9</td><td>聚光灯常亮/招虫/显眼</td><td>橙色灯常亮、招虫、暴露摄像头位置</td><td class="num">3</td><td class="pct">11.5</td><td><span class="bar neg" style="width:23px"></span></td></tr>
+        <tr><td class="rank">10</td><td>缺电源/PoE配件</td><td>无 12V 电源，PoE 交换机需另购</td><td class="num">3</td><td class="pct">11.5</td><td><span class="bar neg" style="width:23px"></span></td></tr>
+        <tr><td class="rank">11</td><td>固件/硬件问题无修复</td><td>音频等硬件问题官方称无法修复，更新不及时</td><td class="num">3</td><td class="pct">11.5</td><td><span class="bar neg" style="width:23px"></span></td></tr>
+        <tr><td class="rank">12</td><td>售后/退货体验差</td><td>自费寄回、无签收确认、退款困难、支持不足</td><td class="num">3</td><td class="pct">11.5</td><td><span class="bar neg" style="width:23px"></span></td></tr>
+        <tr><td class="rank">13</td><td>聚光灯招虫致误报</td><td>飞蛾/昆虫触发报警和录像，整夜误报</td><td class="num">2</td><td class="pct">7.7</td><td><span class="bar neg" style="width:15px"></span></td></tr>
+        <tr><td class="rank">14</td><td>性能不如新款/建议买CX810</td><td>认为分辨率与夜视不如更新款 CX810</td><td class="num">2</td><td class="pct">7.7</td><td><span class="bar neg" style="width:15px"></span></td></tr>
+        <tr><td class="rank">15</td><td>视野窄</td><td>视场角不足，覆盖范围有限</td><td class="num">1</td><td class="pct">3.8</td><td><span class="bar neg" style="width:8px"></span></td></tr>
+        <tr><td class="rank">16</td><td>性价比低</td><td>价格与体验不匹配</td><td class="num">1</td><td class="pct">3.8</td><td><span class="bar neg" style="width:8px"></span></td></tr>
+        <tr><td class="rank">17</td><td>网络配置麻烦</td><td>端口、路由、VPN 等配置门槛高</td><td class="num">1</td><td class="pct">3.8</td><td><span class="bar neg" style="width:8px"></span></td></tr>
+        <tr><td class="rank">18</td><td>通知/回放体验差</td><td>无缩略图、事件跳转直播、回看不便</td><td class="num">1</td><td class="pct">3.8</td><td><span class="bar neg" style="width:8px"></span></td></tr>
+        <tr><td class="rank">19</td><td>防水密封差</td><td>下雨后画面模糊，密封设计需改进</td><td class="num">1</td><td class="pct">3.8</td><td><span class="bar neg" style="width:8px"></span></td></tr>
+        <tr><td class="rank">20</td><td>帧率一般</td><td>帧率表现不够理想</td><td class="num">1</td><td class="pct">3.8</td><td><span class="bar neg" style="width:8px"></span></td></tr>
+        <tr><td class="rank">21</td><td>需App初始设置</td><td>默认关闭 Web 服务，必须 App 开启</td><td class="num">1</td><td class="pct">3.8</td><td><span class="bar neg" style="width:8px"></span></td></tr>
+        <tr><td class="rank">22</td><td>NVR兼容性</td><td>不能兼容所有 Reolink NVR，修改设置需重置</td><td class="num">1</td><td class="pct">3.8</td><td><span class="bar neg" style="width:8px"></span></td></tr>
+        <tr><td class="rank">23</td><td>Web服务器默认关闭</td><td>网页访问被默认禁用，增加使用门槛</td><td class="num">1</td><td class="pct">3.8</td><td><span class="bar neg" style="width:8px"></span></td></tr>
+        <tr><td class="rank">24</td><td>车灯触发误报</td><td>车辆大灯扫过即触发移动侦测</td><td class="num">1</td><td class="pct">3.8</td><td><span class="bar neg" style="width:8px"></span></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3 class="pos"><span class="dot"></span>2.2 差评中的正面态度观点（有效标签不足 40，列主要项）</h3>
+    <div class="note">差评组共 26 条，正面有效标签 13 项，Top40 不足处不再展开；其余为极低频率长尾。占比分母为 26。</div>
+    <table class="pos-tbl">
+      <thead>
+        <tr><th style="width:56px">排名</th><th>评论点标签</th><th>简要说明</th><th style="width:86px">提及次数</th><th style="width:86px">占比(%)</th><th style="width:140px">占比可视化</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="rank">1</td><td>静态夜视/彩色画面好</td><td>静态场景下彩色夜视效果仍被部分差评用户认可</td><td class="num">5</td><td class="pct">19.2</td><td><span class="bar pos" style="width:38px"></span></td></tr>
+        <tr><td class="rank">2</td><td>白天画质好</td><td>白天成像清晰，细节较好</td><td class="num">4</td><td class="pct">15.4</td><td><span class="bar pos" style="width:31px"></span></td></tr>
+        <tr><td class="rank">3</td><td>整体/价格尚可</td><td>相机本身可工作，部分用户认为价格合适</td><td class="num">3</td><td class="pct">11.5</td><td><span class="bar pos" style="width:23px"></span></td></tr>
+        <tr><td class="rank">4</td><td>PoE/有线连接</td><td>PoE 供电和有线连接方式受认可</td><td class="num">2</td><td class="pct">7.7</td><td><span class="bar pos" style="width:15px"></span></td></tr>
+        <tr><td class="rank">5</td><td>做工/防水好</td><td>金属机身、做工扎实、防水表现不错</td><td class="num">2</td><td class="pct">7.7</td><td><span class="bar pos" style="width:15px"></span></td></tr>
+        <tr><td class="rank">6</td><td>检测/通知较准</td><td>部分用户认为移动侦测和通知效果尚可</td><td class="num">2</td><td class="pct">7.7</td><td><span class="bar pos" style="width:15px"></span></td></tr>
+        <tr><td class="rank">7</td><td>通知快速</td><td>推送及时，触发速度较快</td><td class="num">2</td><td class="pct">7.7</td><td><span class="bar pos" style="width:15px"></span></td></tr>
+        <tr><td class="rank">8</td><td>低光录制可用</td><td>低光下录制效果尚可</td><td class="num">1</td><td class="pct">3.8</td><td><span class="bar pos" style="width:8px"></span></td></tr>
+        <tr><td class="rank">9</td><td>App/安装易用</td><td>App 设置和安装相对简单</td><td class="num">1</td><td class="pct">3.8</td><td><span class="bar pos" style="width:8px"></span></td></tr>
+        <tr><td class="rank">10</td><td>无需注册/无订阅</td><td>无需注册账号，减少隐私顾虑</td><td class="num">1</td><td class="pct">3.8</td><td><span class="bar pos" style="width:8px"></span></td></tr>
+        <tr><td class="rank">11</td><td>RTSP/WebGUI高级</td><td>支持 RTSP，网页端高级设置丰富</td><td class="num">1</td><td class="pct">3.8</td><td><span class="bar pos" style="width:8px"></span></td></tr>
+        <tr><td class="rank">12</td><td>聚光灯亮</td><td>聚光灯亮度足够，可辅助照明</td><td class="num">1</td><td class="pct">3.8</td><td><span class="bar pos" style="width:8px"></span></td></tr>
+        <tr><td class="rank">13</td><td>WebGUI功能丰富</td><td>网页配置选项多，可调性强</td><td class="num">1</td><td class="pct">3.8</td><td><span class="bar pos" style="width:8px"></span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>综合结论</h2>
+    <div class="concl">
+      <div class="box pos">
+        <h4>✅ 核心好评点</h4>
+        <ol>
+          <li><b>彩色夜视/低光能力是绝对核心卖点</b>：好评中约 70.9% 提及夜视/彩色夜视，大量用户用“黑夜如白天”“游戏规则改变者”形容，说明 ColorX 定位成功。</li>
+          <li><b>性价比突出</b>：约 36.7% 好评提及价格/性价比，用户普遍认为百元级产品具备越级夜视表现。</li>
+          <li><b>白天 2K 画质、PoE 稳定、做工扎实、安装简单</b>构成基础体验保障，适合庭院、门口、车道等近中距监控。</li>
+          <li><b>本地化与开放集成受认可</b>：无需订阅、支持 RTSP/ONVIF/NVR/NAS/Home Assistant 等，吸引技术型用户和隐私敏感用户。</li>
+          <li><b>智能检测在部分场景表现良好</b>：人、车、宠物识别较准，部分用户反馈运行数周无误报。</li>
+        </ol>
+      </div>
+      <div class="box neg">
+        <h4>⚠️ 突出问题点</h4>
+        <ol>
+          <li><b>AI 检测与误报仍是最大体验短板</b>：好评中 4.4%、差评中 23.1% 提及智能检测/AI 误报；夜间车灯、光影、昆虫、区域设置不当均易触发报警，差评中“车辆检测误报”尤其突出。</li>
+          <li><b>音频/麦克风问题跨版本存在</b>：好评中 5.7%、差评中 19.2% 提及音频差；水下声、延迟、双向语音不可用，部分用户认为属硬件问题且官方无修复方案。</li>
+          <li><b>聚光灯控制逻辑不理想</b>：无法“仅运动触发/完全关闭”，夜间常亮或微亮，既招虫又暴露位置，是好评中的主要扣分项之一（7.6%）。</li>
+          <li><b>无红外导致全黑环境受限</b>：差评中 30.8% 提及无红外/全黑不可用；产品强依赖环境光，与“安防全天候”预期存在落差。</li>
+          <li><b>4MP 细节与视野限制</b>：好评中 13.9% 提及分辨率/细节不足，5.7% 认为视野窄；远距车牌、人脸识别能力有限，不适合高细节取证场景。</li>
+          <li><b>配件与初始配置门槛</b>：缺电源/PoE 配件、App/Web 默认关闭、端口配置复杂，导致开箱体验分化。</li>
+          <li><b>售后与品控一致性</b>：差评中设备故障/QC 占 19.2%，售后/退货体验差占 11.5%，需关注渠道售后政策与品控稳定性。</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="advice">
+    <h2>改进建议</h2>
+    <ol>
+      <li><b>固件优先优化 AI 检测：</b>增加车灯抑制、昆虫/雨雪过滤、夜间人形/车辆分类稳定性；提供更细的检测区域、目标尺寸、时间表与灵敏度组合，降低误报。</li>
+      <li><b>重做聚光灯控制策略：</b>增加“完全关闭”“仅运动触发”“低亮度常亮可关闭”“渐变过渡”等模式，并允许关闭彩色夜视常亮补光，减少招虫与暴露。</li>
+      <li><b>音频硬件升级：</b>更换麦克风/扬声器，优化降噪与回声抑制；若硬件无法修复，应在详情页明确说明双向语音适用场景，避免预期落差。</li>
+      <li><b>推出 IR+ColorX 混合夜视版本：</b>在极暗环境自动切换红外或混合补光，解决全黑场景可用性；同时保留无红曝模式供隐蔽场景选择。</li>
+      <li><b>提升分辨率与视野：</b>规划 5MP/4K 版本，或优化 4MP 的锐度、码率与 H.265 支持；提供更广视角选配镜头。</li>
+      <li><b>改善开箱与配置体验：</b>标配 PoE 注入器/电源或明确“需自备”标识；默认开启必要 Web 服务或提供一键开启；优化 App 连接速度、事件缩略图、回放跳转。</li>
+      <li><b>加强防水与品控：</b>改进密封结构与网口防水设计；对底座螺纹、12V 接口等做出货全检。</li>
+      <li><b>市场定位建议：</b>主打“有环境光的庭院/门口/车道彩色夜视监控”，强调性价比与本地集成；对全黑无光、远距车牌、高音频要求场景，推荐 IR 型号或更高端型号，避免错配。</li>
+    </ol>
+  </section>
+
+  <footer>
+    数据来源：附件 F 列评论内容 · 统计口径：好评 158 条 / 差评 26 条 · 同一评论同一观点仅计 1 次
+  </footer>
+
+</div>
+</body>
+</html>
