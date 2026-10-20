@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>安防摄像头 CX820 用户评论分析报告</title>
+<style>
+  :root{
+    --bg:#f5f7fa;
+    --card:#ffffff;
+    --text:#1f2933;
+    --muted:#6b7280;
+    --line:#e5e7eb;
+    --pos:#0f9d58;
+    --neg:#d93025;
+    --accent:#1a73e8;
+    --pos-bg:#e8f5ee;
+    --neg-bg:#fdecea;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    padding:32px 20px 64px;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:1180px;margin:0 auto;}
+  header{
+    background:linear-gradient(135deg,#1a73e8,#0b57d0);
+    color:#fff;
+    border-radius:16px;
+    padding:32px 36px;
+    margin-bottom:24px;
+    box-shadow:0 8px 24px rgba(26,115,232,.22);
+  }
+  header h1{margin:0 0 8px;font-size:28px;letter-spacing:.5px;}
+  header p{margin:0;opacity:.92;font-size:14px;}
+  .kpis{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:16px;
+    margin-bottom:24px;
+  }
+  .kpi{
+    background:var(--card);
+    border-radius:12px;
+    padding:20px;
+    border:1px solid var(--line);
+    box-shadow:0 2px 8px rgba(0,0,0,.04);
+  }
+  .kpi .label{font-size:13px;color:var(--muted);margin-bottom:6px;}
+  .kpi .value{font-size:28px;font-weight:700;color:var(--accent);}
+  .kpi .value.pos{color:var(--pos);}
+  .kpi .value.neg{color:var(--neg);}
+  section{
+    background:var(--card);
+    border-radius:14px;
+    padding:24px 28px;
+    margin-bottom:24px;
+    border:1px solid var(--line);
+    box-shadow:0 2px 10px rgba(0,0,0,.04);
+  }
+  h2{
+    font-size:20px;
+    margin:0 0 6px;
+    padding-left:12px;
+    border-left:5px solid var(--accent);
+  }
+  h3{
+    font-size:16px;
+    margin:26px 0 12px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  h3 .dot{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  h3.pos .dot{background:var(--pos);}
+  h3.neg .dot{background:var(--neg);}
+  .note{
+    font-size:13px;
+    color:var(--muted);
+    background:#f8fafc;
+    border:1px dashed var(--line);
+    border-radius:8px;
+    padding:10px 14px;
+    margin:10px 0 18px;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+    margin-bottom:8px;
+  }
+  thead th{
+    background:#f1f5f9;
+    color:#334155;
+    text-align:left;
+    padding:10px 12px;
+    font-weight:600;
+    border-bottom:2px solid var(--line);
+    position:sticky;
+    top:0;
+  }
+  tbody td{
+    padding:9px 12px;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  tbody tr:nth-child(even){background:#fafbfc;}
+  tbody tr:hover{background:#eef4ff;}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  td.rank{text-align:center;font-weight:700;color:var(--accent);width:56px;}
+  td.pct{text-align:right;font-weight:600;white-space:nowrap;}
+  .pos-tbl td.pct{color:var(--pos);}
+  .neg-tbl td.pct{color:var(--neg);}
+  .bar{
+    display:inline-block;
+    height:8px;
+    border-radius:4px;
+    vertical-align:middle;
+    margin-left:6px;
+  }
+  .bar.pos{background:linear-gradient(90deg,#34a853,#0f9d58);}
+  .bar.neg{background:linear-gradient(90deg,#f28b82,#d93025);}
+  .concl{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:20px;
+  }
+  .box{
+    border-radius:12px;
+    padding:20px 22px;
+    border:1px solid var(--line);
+  }
+  .box.pos{background:var(--pos-bg);border-color:#bfe6cf;}
+  .box.neg{background:var(--neg-bg);border-color:#f5c6c2;}
+  .box h4{margin:0 0 12px;font-size:16px;}
+  .box.pos h4{color:#0b6b3a;}
+  .box.neg h4{color:#a50e0e;}
+  .box ol{margin:0;padding-left:20px;}
+  .box li{margin-bottom:8px;font-size:14px;}
+  .advice ol{padding-left:22px;}
+  .advice li{
+    margin-bottom:12px;
+    font-size:14px;
+    padding-left:4px;
+  }
+  .advice b{color:var(--accent);}
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:12.5px;
+    margin-top:30px;
+  }
+  .scroll{max-height:720px;overflow:auto;border:1px solid var(--line);border-radius:10px;}
+  @media(max-width:640px){
+    body{padding:16px 10px 40px;}
+    header{padding:22px;}
+    header h1{font-size:21px;}
+    section{padding:16px;}
+    table{font-size:12px;}
+    thead th,tbody td{padding:7px 8px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>安防摄像头 CX820 用户评论分析报告</h1>
+    <p>Amazon 平台 · ASIN B0DQ8QHQBX / B0DQ5BJPYL · 基于评论内容（F列）的语义归纳与频次统计</p>
+  </header>
+
+  <div class="kpis">
+    <div class="kpi"><div class="label">总评论数</div><div class="value">222</div></div>
+    <div class="kpi"><div class="label">好评 4~5 星</div><div class="value pos">181</div></div>
+    <div class="kpi"><div class="label">差评 1~3 星</div><div class="value neg">41</div></div>
+    <div class="kpi"><div class="label">好评率（4~5星）</div><div class="value pos">81.5%</div></div>
+  </div>
+
+  <section>
+    <h2>统计口径说明</h2>
+    <div class="note">
+      1. 数据源为附件 F 列“评论内容”，共 222 条评论，其中好评 4~5 星 181 条，差评 1~3 星 41 条。<br>
+      2. 每条评论对同一观点的多次提及仅计 1 次；一条评论可同时计入多个观点，因此各观点占比合计会大于 100%。<br>
+      3. 占比分母：好评观点 ÷ 181；差评观点 ÷ 41。<br>
+      4. 好评评论中同时包含的负面表述计入“好评中的负面观点”；差评评论中同时包含的正面表述计入“差评中的正面观点”。<br>
+      5. 相似观点已做合并归并；好评正面有效标签 24 个，差评正面有效标签 7 个，长尾不再展开。
+    </div>
+  </section>
+
+  <section>
+    <h2>维度 1：高频好评提取（好评 4~5 星 / 181 条）</h2>
+
+    <h3 class="pos"><span class="dot"></span>1.1 好评中的正面态度观点 Top40</h3>
+    <div class="note">好评组共 181 条，语义合并后有效正面标签 24 个，按提及次数降序排列。占比 = 提及次数 ÷ 181。</div>
+    <div class="scroll">
+    <table class="pos-tbl">
+      <thead>
+        <tr><th style="width:56px">排名</th><th>评论点标签</th><th>简要说明</th><th style="width:86px">提及次数</th><th style="width:86px">占比(%)</th><th style="width:140px">占比可视化</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="rank">1</td><td>夜间彩色/低光性能强</td><td>夜间无需红外即可呈现彩色画面，低照度下如白天</td><td class="num">121</td><td class="pct">66.9</td><td><span class="bar pos" style="width:134px"></span></td></tr>
+        <tr><td class="rank">2</td><td>画质清晰/4K分辨率高</td><td>4K 细节丰富、色彩准确、画面锐利</td><td class="num">99</td><td class="pct">54.7</td><td><span class="bar pos" style="width:109px"></span></td></tr>
+        <tr><td class="rank">3</td><td>安装设置简单</td><td>App 自动发现、PoE 即插即用、20 分钟可装好</td><td class="num">50</td><td class="pct">27.6</td><td><span class="bar pos" style="width:55px"></span></td></tr>
+        <tr><td class="rank">4</td><td>PoE 单线供电方便</td><td>一根网线同时供电与传数据，布线整洁可靠</td><td class="num">32</td><td class="pct">17.7</td><td><span class="bar pos" style="width:35px"></span></td></tr>
+        <tr><td class="rank">5</td><td>做工质量好/金属外壳</td><td>金属机身、IP67 防水、用料扎实耐用</td><td class="num">32</td><td class="pct">17.7</td><td><span class="bar pos" style="width:35px"></span></td></tr>
+        <tr><td class="rank">6</td><td>RTSP/ONVIF/第三方兼容</td><td>可接入 Home Assistant、Frigate、Blue Iris、群晖、UniFi</td><td class="num">31</td><td class="pct">17.1</td><td><span class="bar pos" style="width:34px"></span></td></tr>
+        <tr><td class="rank">7</td><td>性价比高/价格合理</td><td>同规格中价格有竞争力，物有所值</td><td class="num">30</td><td class="pct">16.6</td><td><span class="bar pos" style="width:33px"></span></td></tr>
+        <tr><td class="rank">8</td><td>智能检测准确</td><td>人/车/动物识别准，误报少，可分区设置</td><td class="num">28</td><td class="pct">15.5</td><td><span class="bar pos" style="width:31px"></span></td></tr>
+        <tr><td class="rank">9</td><td>App/软件好用</td><td>Reolink App 成熟、配置直观、通知快</td><td class="num">28</td><td class="pct">15.5</td><td><span class="bar pos" style="width:31px"></span></td></tr>
+        <tr><td class="rank">10</td><td>双向通话/音频</td><td>可远程对话，声音清晰，实用性强</td><td class="num">21</td><td class="pct">11.6</td><td><span class="bar pos" style="width:23px"></span></td></tr>
+        <tr><td class="rank">11</td><td>聚光灯/警报器</td><td>暖光 LED 与警报器可作威慑，灯光可调</td><td class="num">21</td><td class="pct">11.6</td><td><span class="bar pos" style="width:23px"></span></td></tr>
+        <tr><td class="rank">12</td><td>运动检测/通知快</td><td>触发及时、录像带预录、通知准确</td><td class="num">16</td><td class="pct">8.8</td><td><span class="bar pos" style="width:18px"></span></td></tr>
+        <tr><td class="rank">13</td><td>品牌可靠/生态成熟</td><td>Reolink 产品线丰富、售后与技术支撑较好</td><td class="num">14</td><td class="pct">7.7</td><td><span class="bar pos" style="width:15px"></span></td></tr>
+        <tr><td class="rank">14</td><td>HDR/动态范围好</td><td>逆光与阴影细节保留好，不过曝</td><td class="num">13</td><td class="pct">7.2</td><td><span class="bar pos" style="width:14px"></span></td></tr>
+        <tr><td class="rank">15</td><td>无需订阅/本地存储</td><td>可 SD 卡/NVR/FTP 本地存，无月费</td><td class="num">12</td><td class="pct">6.6</td><td><span class="bar pos" style="width:13px"></span></td></tr>
+        <tr><td class="rank">16</td><td>多种存储方式</td><td>支持 microSD、NVR、FTP、NAS 灵活选择</td><td class="num">12</td><td class="pct">6.6</td><td><span class="bar pos" style="width:13px"></span></td></tr>
+        <tr><td class="rank">17</td><td>安装灵活/可调角度</td><td>三轴可调、吸顶/壁装皆可、模板好对齐</td><td class="num">10</td><td class="pct">5.5</td><td><span class="bar pos" style="width:11px"></span></td></tr>
+        <tr><td class="rank">18</td><td>防水耐候</td><td>IP67，暴雨、加拿大冬季均正常工作</td><td class="num">9</td><td class="pct">5.0</td><td><span class="bar pos" style="width:10px"></span></td></tr>
+        <tr><td class="rank">19</td><td>无红外/不招虫</td><td>无红暴、不吸引飞虫，画面不被蛛网遮挡</td><td class="num">7</td><td class="pct">3.9</td><td><span class="bar pos" style="width:8px"></span></td></tr>
+        <tr><td class="rank">20</td><td>客服好/售后到位</td><td>响应快、换货积极、技术支持专业</td><td class="num">6</td><td class="pct">3.3</td><td><span class="bar pos" style="width:7px"></span></td></tr>
+        <tr><td class="rank">21</td><td>广角/视野合适</td><td>93° 水平视角，覆盖门口/车道足够</td><td class="num">5</td><td class="pct">2.8</td><td><span class="bar pos" style="width:6px"></span></td></tr>
+        <tr><td class="rank">22</td><td>外观设计好</td><td>Turret 造型低调美观，比枪机更耐看</td><td class="num">5</td><td class="pct">2.8</td><td><span class="bar pos" style="width:6px"></span></td></tr>
+        <tr><td class="rank">23</td><td>帧率稳定/流畅</td><td>25fps 平衡画质与带宽，无明显卡顿</td><td class="num">5</td><td class="pct">2.8</td><td><span class="bar pos" style="width:6px"></span></td></tr>
+        <tr><td class="rank">24</td><td>自动更新</td><td>连接 NVR 后自动升级固件</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar pos" style="width:1px"></span></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3 class="neg"><span class="dot"></span>1.2 好评中的负面态度观点 Top40</h3>
+    <div class="note">好评评论中同时暴露的问题，反映“卖点被认可但仍有落差”的环节，占比分母为 181。</div>
+    <div class="scroll">
+    <table class="neg-tbl">
+      <thead>
+        <tr><th style="width:56px">排名</th><th>评论点标签</th><th>简要说明</th><th style="width:86px">提及次数</th><th style="width:86px">占比(%)</th><th style="width:140px">占比可视化</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="rank">1</td><td>纯黑环境效果差/需环境光</td><td>完全无光时噪点多、需路灯或补光才出彩</td><td class="num">13</td><td class="pct">7.2</td><td><span class="bar neg" style="width:14px"></span></td></tr>
+        <tr><td class="rank">2</td><td>网线短/不含电源适配器</td><td>附赠网线仅约 1 米，PoE 供电需自备交换机/注入器</td><td class="num">11</td><td class="pct">6.1</td><td><span class="bar neg" style="width:12px"></span></td></tr>
+        <tr><td class="rank">3</td><td>运动模糊/鬼影/噪点</td><td>夜间高速运动物体模糊，高 ISO 有伪影</td><td class="num">9</td><td class="pct">5.0</td><td><span class="bar neg" style="width:10px"></span></td></tr>
+        <tr><td class="rank">4</td><td>无 PTZ/不能自动旋转</td><td>造型像云台但只能手动定向，固定后不可远程转动</td><td class="num">8</td><td class="pct">4.4</td><td><span class="bar neg" style="width:9px"></span></td></tr>
+        <tr><td class="rank">5</td><td>需 NVR/PoE 交换机</td><td>非即插即用，需额外购置 PoE 供电或 NVR 设备</td><td class="num">8</td><td class="pct">4.4</td><td><span class="bar neg" style="width:9px"></span></td></tr>
+        <tr><td class="rank">6</td><td>固件/软件 Bug</td><td>SD 回放卡死、延时摄影闪退、LED 常亮等</td><td class="num">7</td><td class="pct">3.9</td><td><span class="bar neg" style="width:8px"></span></td></tr>
+        <tr><td class="rank">7</td><td>需手动启用 ONVIF/RTSP</td><td>默认关闭，需先通过 App 或浏览器激活</td><td class="num">7</td><td class="pct">3.9</td><td><span class="bar neg" style="width:8px"></span></td></tr>
+        <tr><td class="rank">8</td><td>无红外</td><td>没有 IR 模式，极暗环境只能靠白光 LED</td><td class="num">6</td><td class="pct">3.3</td><td><span class="bar neg" style="width:7px"></span></td></tr>
+        <tr><td class="rank">9</td><td>检测误报/漏报</td><td>有时把车/人识别为动物，夜间车灯场景漏检</td><td class="num">6</td><td class="pct">3.3</td><td><span class="bar neg" style="width:7px"></span></td></tr>
+        <tr><td class="rank">10</td><td>布线/安装麻烦</td><td>PoE 需拉网线，线缆管理设计一般</td><td class="num">6</td><td class="pct">3.3</td><td><span class="bar neg" style="width:7px"></span></td></tr>
+        <tr><td class="rank">11</td><td>夜间过曝/白平衡偏</td><td>Auto 模式路灯下过曝，白平衡需手动调</td><td class="num">5</td><td class="pct">2.8</td><td><span class="bar neg" style="width:6px"></span></td></tr>
+        <tr><td class="rank">12</td><td>价格偏高</td><td>部分用户希望价格再降 20–25%</td><td class="num">4</td><td class="pct">2.2</td><td><span class="bar neg" style="width:4px"></span></td></tr>
+        <tr><td class="rank">13</td><td>灯光设置不合理/常亮</td><td>低光补光灯常亮招虫，无法仅运动触发聚光灯</td><td class="num">4</td><td class="pct">2.2</td><td><span class="bar neg" style="width:4px"></span></td></tr>
+        <tr><td class="rank">14</td><td>App 通知功能差</td><td>通知无缩略图，无法临时静音 30/60/90 分钟</td><td class="num">3</td><td class="pct">1.7</td><td><span class="bar neg" style="width:3px"></span></td></tr>
+        <tr><td class="rank">15</td><td>支架/安装座差</td><td>安装座仅为平板、缺乏调节臂，固定后角度受限</td><td class="num">3</td><td class="pct">1.7</td><td><span class="bar neg" style="width:3px"></span></td></tr>
+        <tr><td class="rank">16</td><td>音频质量一般</td><td>双向通话音量偏小或偶有失真</td><td class="num">3</td><td class="pct">1.7</td><td><span class="bar neg" style="width:3px"></span></td></tr>
+        <tr><td class="rank">17</td><td>不如专业品牌</td><td>与 Hikvision/Dahua/UniFi 相比功能/流畅度有差距</td><td class="num">3</td><td class="pct">1.7</td><td><span class="bar neg" style="width:3px"></span></td></tr>
+        <tr><td class="rank">18</td><td>子码流质量低</td><td>低码流仅 640×360，Home Assistant 等场景受限</td><td class="num">2</td><td class="pct">1.1</td><td><span class="bar neg" style="width:2px"></span></td></tr>
+        <tr><td class="rank">19</td><td>SD 卡螺丝难拆</td><td>螺丝小且紧，易滑丝</td><td class="num">2</td><td class="pct">1.1</td><td><span class="bar neg" style="width:2px"></span></td></tr>
+        <tr><td class="rank">20</td><td>NVR 配置受限</td><td>周边防护等功能需独立 PoE 接入 App 才能管理</td><td class="num">2</td><td class="pct">1.1</td><td><span class="bar neg" style="width:2px"></span></td></tr>
+        <tr><td class="rank">21</td><td>需另购存储</td><td>microSD 卡不包含，需额外购买</td><td class="num">2</td><td class="pct">1.1</td><td><span class="bar neg" style="width:2px"></span></td></tr>
+        <tr><td class="rank">22</td><td>无配置备份</td><td>无法导出/恢复当前参数配置</td><td class="num">2</td><td class="pct">1.1</td><td><span class="bar neg" style="width:2px"></span></td></tr>
+        <tr><td class="rank">23</td><td>线缆管理/SD 难插</td><td>尾线仓局促，插卡需小心，线材易被挤压</td><td class="num">2</td><td class="pct">1.1</td><td><span class="bar neg" style="width:2px"></span></td></tr>
+        <tr><td class="rank">24</td><td>重置按钮难够到/尾线大</td><td>重置键在背面，操作不便</td><td class="num">2</td><td class="pct">1.1</td><td><span class="bar neg" style="width:2px"></span></td></tr>
+        <tr><td class="rank">25</td><td>视野不够宽</td><td>与部分竞品相比视场角偏窄</td><td class="num">2</td><td class="pct">1.1</td><td><span class="bar neg" style="width:2px"></span></td></tr>
+        <tr><td class="rank">26</td><td>中国制造/安全顾虑</td><td>个别用户因产地产生数据安全疑虑</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">27</td><td>不录 30fps</td><td>实际帧率低于宣传的 30fps</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">28</td><td>设置选项少</td><td>快门、曝光、增益等专业参数不可调</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">29</td><td>手动指向受限</td><td>最高角度有限，安装位置需精心选择</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">30</td><td>无锁易被盗</td><td>底座无防盗锁扣，技术上易被拆走</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">31</td><td>HomeKit 需降分辨率</td><td>经 Scrypted 接入 HomeKit 需降低分辨率</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">32</td><td>子码流编码不可改</td><td>子码流固定 H.264，无法调整</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">33</td><td>机身微热</td><td>长时间运行外壳温热，属正常但被提及</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">34</td><td>日期时间文字太大</td><td>OSD 文字在高分辨率下占比过大</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">35</td><td>希望有固定螺丝</td><td>调节好角度后缺少锁紧螺丝</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">36</td><td>近物失焦</td><td>距镜头过近时无法对焦</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">37</td><td>不建议墙装</td><td>最佳安装方式为吊顶，墙面安装角度受限</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">38</td><td>回放延迟</td><td>PC 端预览延迟明显高于手机端</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">39</td><td>第一台 DOA</td><td>个别用户收到故障机，换货后正常</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+        <tr><td class="rank">40</td><td>灯光设置不透明</td><td>补光灯与聚光灯联动逻辑需反复试验</td><td class="num">1</td><td class="pct">0.6</td><td><span class="bar neg" style="width:1px"></span></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>维度 2：高频差评提取（差评 1~3 星 / 41 条）</h2>
+
+    <h3 class="neg"><span class="dot"></span>2.1 差评中的负面态度观点 Top40</h3>
+    <div class="note">差评组共 41 条，按提及次数降序排列。占比 = 提及次数 ÷ 41。</div>
+    <div class="scroll">
+    <table class="neg-tbl">
+      <thead>
+        <tr><th style="width:56px">排名</th><th>评论点标签</th><th>简要说明</th><th style="width:86px">提及次数</th><th style="width:86px">占比(%)</th><th style="width:140px">占比可视化</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="rank">1</td><td>不含电源适配器</td><td>需自备 PoE 交换机/注入器或 12V 电源，开箱无法直接用</td><td class="num">7</td><td class="pct">17.1</td><td><span class="bar neg" style="width:34px"></span></td></tr>
+        <tr><td class="rank">2</td><td>软件/App 问题</td><td>Web 界面需 App 激活、菜单不一致、播放卡顿</td><td class="num">6</td><td class="pct">14.6</td><td><span class="bar neg" style="width:29px"></span></td></tr>
+        <tr><td class="rank">3</td><td>需额外设备（NVR/PoE）</td><td>需另购 NVR、Home Hub 或 PoE 供电才能用</td><td class="num">5</td><td class="pct">12.2</td><td><span class="bar neg" style="width:24px"></span></td></tr>
+        <tr><td class="rank">4</td><td>说明不清/宣传误导</td><td>商品页未明确需额外设备，图片让人误以为无线</td><td class="num">5</td><td class="pct">12.2</td><td><span class="bar neg" style="width:24px"></span></td></tr>
+        <tr><td class="rank">5</td><td>夜间画质差/模糊</td><td>夜间运动画面帧率低、跳跃、像素化，不可用</td><td class="num">4</td><td class="pct">9.8</td><td><span class="bar neg" style="width:20px"></span></td></tr>
+        <tr><td class="rank">6</td><td>安装/接线困难</td><td>尾线巨大需 25mm 大孔，需接线盒，重置键难操作</td><td class="num">4</td><td class="pct">9.8</td><td><span class="bar neg" style="width:20px"></span></td></tr>
+        <tr><td class="rank">7</td><td>二手/损坏产品</td><td>收到已设密码、带坏 SD 卡的二手货，或 DOA</td><td class="num">4</td><td class="pct">9.8</td><td><span class="bar neg" style="width:20px"></span></td></tr>
+        <tr><td class="rank">8</td><td>灯光问题/常亮</td><td>白光 LED 常亮招虫，无法单独关闭常亮只保留运动触发</td><td class="num">4</td><td class="pct">9.8</td><td><span class="bar neg" style="width:20px"></span></td></tr>
+        <tr><td class="rank">9</td><td>完全不能用/DOA</td><td>到货即坏、无法连接、重置无效</td><td class="num">3</td><td class="pct">7.3</td><td><span class="bar neg" style="width:15px"></span></td></tr>
+        <tr><td class="rank">10</td><td>固件/连接问题</td><td>连接不稳、重启锁死、变砖，固件不成熟</td><td class="num">3</td><td class="pct">7.3</td><td><span class="bar neg" style="width:15px"></span></td></tr>
+        <tr><td class="rank">11</td><td>角度受限/不能立式</td><td>只能吊顶/壁装，放柜顶镜头无法下俯</td><td class="num">3</td><td class="pct">7.3</td><td><span class="bar neg" style="width:15px"></span></td></tr>
+        <tr><td class="rank">12</td><td>网线太短</td><td>附赠仅 2 米，实际安装基本不够用</td><td class="num">2</td><td class="pct">4.9</td><td><span class="bar neg" style="width:10px"></span></td></tr>
+        <tr><td class="rank">13</td><td>无 PTZ/不能远程旋转</td><td>外观像云台但仅手动旋转，固定后不能动</td><td class="num">2</td><td class="pct">4.9</td><td><span class="bar neg" style="width:10px"></span></td></tr>
+        <tr><td class="rank">14</td><td>检测/AI 不工作</td><td>人形识别失效，只剩通用运动触发，误报严重</td><td class="num">2</td><td class="pct">4.9</td><td><span class="bar neg" style="width:10px"></span></td></tr>
+        <tr><td class="rank">15</td><td>兼容性差/不支持 H.264</td><td>Web 端无 H.264，第三方系统只能 640×360</td><td class="num">2</td><td class="pct">4.9</td><td><span class="bar neg" style="width:10px"></span></td></tr>
+        <tr><td class="rank">16</td><td>音频差</td><td>录音或双向通话音质差、失真</td><td class="num">2</td><td class="pct">4.9</td><td><span class="bar neg" style="width:10px"></span></td></tr>
+        <tr><td class="rank">17</td><td>完全黑暗不可用</td><td>无光环境下噪点严重，需额外补光</td><td class="num">2</td><td class="pct">4.9</td><td><span class="bar neg" style="width:10px"></span></td></tr>
+        <tr><td class="rank">18</td><td>价格/额外成本高</td><td>需另购电源、网线、接线盒，总成本上升</td><td class="num">2</td><td class="pct">4.9</td><td><span class="bar neg" style="width:10px"></span></td></tr>
+        <tr><td class="rank">19</td><td>不支持第三方软件</td><td>Frigate/Home Assistant 集成困难或受限</td><td class="num">2</td><td class="pct">4.9</td><td><span class="bar neg" style="width:10px"></span></td></tr>
+        <tr><td class="rank">20</td><td>非即插即用</td><td>需先配置 ONVIF/RTSP，对新手不友好</td><td class="num">2</td><td class="pct">4.9</td><td><span class="bar neg" style="width:10px"></span></td></tr>
+        <tr><td class="rank">21</td><td>客服/售后差</td><td>售后响应慢，问题未有效解决</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">22</td><td>支架差/易掉落</td><td>安装支架不牢，有从墙面脱落风险</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">23</td><td>外观缝隙招虫</td><td>镜头与支架间缝隙大，易藏昆虫</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">24</td><td>慢/卡顿</td><td>连接慢、操作迟钝</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">25</td><td>无 WiFi</td><td>不支持无线连接，必须走网线</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">26</td><td>帧率低/运动模糊</td><td>夜间运动仅 1–3fps，画面跳帧</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">27</td><td>画质随时间下降/进水</td><td>使用数月后画面变差，疑似外壳进水</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">28</td><td>视野不够宽</td><td>监控范围偏窄，需更多台覆盖</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">29</td><td>无免费云测试</td><td>不订阅无法充分测试云功能</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">30</td><td>不提供帧率/快门参数</td><td>规格页缺少最低照度、快门与帧率对应关系</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">31</td><td>安全/间谍软件担忧</td><td>个别用户因诈骗事件产生数据安全疑虑</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">32</td><td>卖家故意卖坏</td><td>用户主观认为卖家知情仍发坏货</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">33</td><td>第三方卖家无保修</td><td>非官方渠道购买不享受 Reolink 官方保修</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">34</td><td>缩放噪点/25fps 不够</td><td>数码变焦后画质下降，25fps 偏低</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">35</td><td>网站不卖 AC 适配器</td><td>官网仅有 PoE 配件，缺少 12V 电源购买入口</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">36</td><td>不支持 H.264 网页预览</td><td>浏览器无法看高清流</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">37</td><td>仅 App 激活 Web 界面</td><td>Web 管理页需先用手机 App 开启</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">38</td><td>ColorX 不如竞品</td><td>与 Hikvision Darkfighter 等相比有差距</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">39</td><td>灯在暗时不愿亮</td><td>与 Hikvision NVR 搭配时，灯不按预期自动亮</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+        <tr><td class="rank">40</td><td>通用运动触发无用</td><td>AI 失效后，只能收树叶晃动等无效警报</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar neg" style="width:5px"></span></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3 class="pos"><span class="dot"></span>2.2 差评中的正面态度观点（有效标签不足 40，列主要项）</h3>
+    <div class="note">差评组共 41 条，正面有效标签较少，故 Top40 不足；其余为极低频率长尾，不再展开。占比分母为 41。</div>
+    <table class="pos-tbl">
+      <thead>
+        <tr><th style="width:56px">排名</th><th>评论点标签</th><th>简要说明</th><th style="width:86px">提及次数</th><th style="width:86px">占比(%)</th><th style="width:140px">占比可视化</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="rank">1</td><td>白天画质好/4K</td><td>即使给差评，也认可白天画面清晰、4K 细节好</td><td class="num">9</td><td class="pct">22.0</td><td><span class="bar pos" style="width:44px"></span></td></tr>
+        <tr><td class="rank">2</td><td>做工质量好</td><td>金属机身、有分量、外观不廉价、IP67 扎实</td><td class="num">8</td><td class="pct">19.5</td><td><span class="bar pos" style="width:39px"></span></td></tr>
+        <tr><td class="rank">3</td><td>夜视好（有光时）</td><td>有环境光/路灯时彩色夜视效果获得认可</td><td class="num">7</td><td class="pct">17.1</td><td><span class="bar pos" style="width:34px"></span></td></tr>
+        <tr><td class="rank">4</td><td>安装简单</td><td>App 设置顺利、网络连接快、配件齐全</td><td class="num">4</td><td class="pct">9.8</td><td><span class="bar pos" style="width:20px"></span></td></tr>
+        <tr><td class="rank">5</td><td>品牌可靠</td><td>信任 Reolink 品牌，与其他产品集成顺畅</td><td class="num">2</td><td class="pct">4.9</td><td><span class="bar pos" style="width:10px"></span></td></tr>
+        <tr><td class="rank">6</td><td>包装好/配件全</td><td>包装保护到位，说明书、螺丝、防水帽齐全</td><td class="num">2</td><td class="pct">4.9</td><td><span class="bar pos" style="width:10px"></span></td></tr>
+        <tr><td class="rank">7</td><td>产品有潜力</td><td>硬件规格好，期待固件更新解决软件问题</td><td class="num">1</td><td class="pct">2.4</td><td><span class="bar pos" style="width:5px"></span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>综合结论</h2>
+    <div class="concl">
+      <div class="box pos">
+        <h4>✅ 核心好评点</h4>
+        <ol>
+          <li><b>夜间彩色是绝对王牌：</b>66.9% 的好评提及夜间彩色/低光性能，用户普遍认为“夜间如白天”，这是 CX820 最强差异化卖点。</li>
+          <li><b>4K 画质扎实：</b>54.7% 的好评认可清晰度与色彩，白天细节、HDR、阴影表现均获高评价。</li>
+          <li><b>安装与 PoE 体验好：</b>27.6% 认为设置简单，17.7% 认可 PoE 单线供电的整洁与可靠。</li>
+          <li><b>开放性受技术用户欢迎：</b>17.1% 提及 RTSP/ONVIF 及与 Home Assistant、Frigate、Blue Iris、群晖、UniFi 的兼容性。</li>
+          <li><b>性价比与做工：</b>16.6% 认为价格合理，17.7% 肯定金属机身与 IP67 耐用性。</li>
+        </ol>
+      </div>
+      <div class="box neg">
+        <h4>⚠️ 突出问题点</h4>
+        <ol>
+          <li><b>“无光即废”的预期落差：</b>好评中 7.2%、差评中 4.9% 提到完全黑暗环境效果差，产品定位“低光”而非“无光”，但宣传易让用户误解。</li>
+          <li><b>开箱可用性不足：</b>差评中 17.1% 抱怨不含电源适配器，12.2% 抱怨需额外 NVR/PoE，12.2% 认为说明不清，导致“买回来用不了”的差评。</li>
+          <li><b>附赠网线过短：</b>好评中 6.1%、差评中 4.9% 提及，1–2 米网线在实际安装中几乎无用。</li>
+          <li><b>软件/固件成熟度不够：</b>好评中 3.9%、差评中 14.6% 遇到 App 或固件问题（SD 回放卡死、延时摄影崩溃、菜单不一致、通知无缩略图）。</li>
+          <li><b>灯光逻辑与虫害：</b>低光补光灯常亮招虫、无法单独开启“运动触发聚光灯”，是跨好评/差评的共性痛点。</li>
+          <li><b>非 PTZ 的认知偏差：</b>外观像云台但只能手动定向，好评中 4.4%、差评中 4.9% 提及，属于预期管理问题。</li>
+          <li><b>极暗环境运动画面不可用：</b>差评中 9.8% 明确提到夜间运动帧率低至 1–3fps，画面跳跃模糊。</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="advice">
+    <h2>改进建议</h2>
+    <ol>
+      <li><b>强化“低光彩色”卖点，同时明确使用边界。</b>在 listing、包装和 App 引导中清晰标注：“本产品为低光彩色相机，完全无光环境需配合环境光或内置白光 LED 使用；若需全黑环境监控，建议选择带 IR 的型号。” 从源头降低“无光即废”的预期落差。</li>
+      <li><b>推出“开箱即用”套装或明确配件清单。</b>针对非技术用户，提供含 PoE 注入器/12V 电源 + 长网线的套装 SKU；同时在商品页顶部用醒目图标说明“需 PoE 交换机/注入器/NVR，不含电源适配器”，差评中 17.1% 的“无电源”问题可显著下降。</li>
+      <li><b>附赠网线升级为 5–10 米，或直接取消以降低成本。</b>1–2 米网线在实际安装中几乎无用，反而引发“配件不全”的负面感受；若保留，至少满足从屋檐到最近 PoE 端口的典型距离。</li>
+      <li><b>优先修复固件/软件高频 Bug。</b>重点解决：SD 卡录像回放卡死/超时、延时摄影查看崩溃、Web 与 App 菜单不一致、通知无缩略图、无法临时静音通知。这些是差评中 14.6% 的直接来源，且修复成本低于硬件改动。</li>
+      <li><b>优化灯光逻辑，提供“仅运动触发聚光灯”选项。</b>允许用户关闭低光常亮 LED，同时保留运动触发聚光灯；或增加“智能混合模式”（无光时用低亮暖光，检测到人/车时提亮），既减少招虫，又兼顾全黑场景可用性。</li>
+      <li><b>加强 PTZ 预期的视觉传达。</b>在商品主图/视频中明确标注“手动调节，非电动云台”，避免因 turret 造型产生“可远程旋转”的误解；若产品线允许，可推出真正的 PTZ ColorX 版本满足高端需求。</li>
+      <li><b>改善暗光运动画质。</b>通过固件优化夜间运动场景的快门/增益策略，减少 1–3fps 的极端降帧；在 App 中提供“运动优先/画质优先”模式，让用户按场景取舍。</li>
+      <li><b>完善第三方集成文档与默认设置。</b>将 ONVIF/RTSP 的开启步骤做成图文/视频教程；考虑出厂默认开启 RTSP（或首次配置时弹窗引导），降低 Frigate/Home Assistant 用户的接入门槛。</li>
+      <li><b>加强渠道与售后管理。</b>针对“二手当全新卖”“第三方卖家无保修”的差评，强化官方渠道标识与退货质检；在商品页明确第三方购买保修政策，减少售后纠纷。</li>
+      <li><b>市场定位建议：</b>CX820 最适合“有环境光/路灯的住宅外围、门口、车道、后院”场景，核心人群是看重夜间彩色识别（衣服/车辆颜色）且希望无订阅、本地存储的用户；不建议作为“全黑仓库/农田”的唯一监控方案。传播上应主打“低光彩色 + 4K + PoE 开放生态 + 无订阅”，同时主动管理“无光/无 PoE/无 NVR”的预期。</li>
+    </ol>
+  </section>
+
+  <footer>
+    数据来源：附件 F 列评论内容 · 统计口径：好评 181 条 / 差评 41 条 · 同一评论同一观点仅计 1 次
+  </footer>
+
+</div>
+</body>
+</html>
