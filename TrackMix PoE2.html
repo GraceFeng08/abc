@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Reolink TrackMix PoE 用户评论分析报告</title>
+<style>
+  :root{
+    --bg:#f5f7fa; --card:#ffffff; --ink:#1f2d3d; --sub:#5b6b7c;
+    --brand:#2563eb; --good:#16a34a; --bad:#dc2626; --line:#e5e9f0;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:32px 20px 60px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.65;
+  }
+  .wrap{max-width:1180px; margin:0 auto;}
+  header{
+    background:linear-gradient(135deg,#1e3a8a 0%,#2563eb 55%,#3b82f6 100%);
+    color:#fff; border-radius:16px; padding:34px 36px; margin-bottom:26px;
+    box-shadow:0 10px 30px rgba(37,99,235,.22);
+  }
+  header h1{margin:0 0 8px; font-size:27px; letter-spacing:.5px;}
+  header p{margin:0; opacity:.9; font-size:14px;}
+  .kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; margin:26px 0 30px;}
+  .kpi{background:var(--card); border-radius:14px; padding:20px 22px; border:1px solid var(--line); box-shadow:0 2px 8px rgba(16,24,40,.04);}
+  .kpi .label{font-size:13px; color:var(--sub); margin-bottom:6px;}
+  .kpi .value{font-size:28px; font-weight:700; color:var(--brand); line-height:1.2;}
+  .kpi .value.g{color:var(--good);}
+  .kpi .value.r{color:var(--bad);}
+  .kpi .foot{font-size:12px; color:var(--sub); margin-top:4px;}
+  section{background:var(--card); border-radius:16px; padding:28px 30px 32px; margin-bottom:26px; border:1px solid var(--line); box-shadow:0 2px 10px rgba(16,24,40,.04);}
+  h2{font-size:20px; margin:0 0 6px; padding-left:12px; border-left:5px solid var(--brand); line-height:1.2;}
+  h2.good{border-left-color:var(--good);}
+  h2.bad{border-left-color:var(--bad);}
+  .desc{font-size:13.5px; color:var(--sub); margin:10px 0 18px;}
+  table{width:100%; border-collapse:collapse; font-size:13.5px;}
+  thead th{
+    background:#eef3fb; color:#243b53; text-align:left; font-weight:600;
+    padding:11px 12px; border-bottom:2px solid #d9e2ef; white-space:nowrap;
+  }
+  tbody td{padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tbody tr:nth-child(even){background:#fafbfd;}
+  tbody tr:hover{background:#f0f6ff;}
+  td.num{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .rank{color:var(--sub); font-weight:600; width:46px;}
+  .tag{font-weight:600;}
+  .bar{position:relative; height:8px; border-radius:4px; background:#eef1f6; overflow:hidden; min-width:70px;}
+  .bar span{position:absolute; left:0; top:0; bottom:0; border-radius:4px;}
+  .bar .pos{background:linear-gradient(90deg,#4ade80,#16a34a);}
+  .bar .neg{background:linear-gradient(90deg,#fb7185,#dc2626);}
+  .note{background:#f8fafc; border-left:4px solid #94a3b8; padding:12px 16px; font-size:13px; color:var(--sub); border-radius:0 8px 8px 0; margin:14px 0 0;}
+  .summary-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:8px;}
+  @media(max-width:820px){ .summary-grid{grid-template-columns:1fr;} }
+  .box{border-radius:12px; padding:18px 20px; border:1px solid var(--line);}
+  .box.good{background:#f0fdf4; border-color:#bbf7d0;}
+  .box.bad{background:#fef2f2; border-color:#fecaca;}
+  .box h3{margin:0 0 10px; font-size:15.5px;}
+  .box.good h3{color:#15803d;}
+  .box.bad h3{color:#b91c1c;}
+  .box ol{margin:0; padding-left:20px; font-size:13.5px;}
+  .box li{margin-bottom:6px;}
+  .action{counter-reset:act;}
+  .action .item{
+    display:flex; gap:16px; padding:16px 0; border-bottom:1px dashed var(--line);
+  }
+  .action .item:last-child{border-bottom:none;}
+  .action .idx{
+    flex:0 0 34px; height:34px; border-radius:50%;
+    background:var(--brand); color:#fff; font-weight:700; font-size:14px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .action .body h4{margin:0 0 4px; font-size:14.5px;}
+  .action .body p{margin:0; font-size:13.5px; color:var(--sub);}
+  .prio{display:inline-block; font-size:11.5px; padding:1px 8px; border-radius:10px; margin-left:8px; vertical-align:2px;}
+  .p1{background:#fee2e2; color:#b91c1c;}
+  .p2{background:#fef3c7; color:#b45309;}
+  .p3{background:#e0f2fe; color:#0369a1;}
+  footer{text-align:center; font-size:12.5px; color:#94a3b8; padding-top:10px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Reolink TrackMix PoE 用户评论深度分析报告</h1>
+  <p>数据源：Amazon 多站点（US / EU / CA / AU / DE / FR / IT / ES / NL / JP）用户评论 · 分析字段：评论文本（F列）· 分析口径：一条评论一个观点计 1 次</p>
+</header>
+
+<div class="kpis">
+  <div class="kpi"><div class="label">评论总量</div><div class="value">731</div><div class="foot">有效文本评论</div></div>
+  <div class="kpi"><div class="label">好评（4~5星）</div><div class="value g">409</div><div class="foot">占比 55.9%</div></div>
+  <div class="kpi"><div class="label">差评（1~3星）</div><div class="value r">322</div><div class="foot">占比 44.1%</div></div>
+  <div class="kpi"><div class="label">好评率 / 差评率</div><div class="value">1.27 : 1</div><div class="foot">口碑结构偏“两极分化”</div></div>
+</div>
+
+<!-- ===================== 维度1 ===================== -->
+<section>
+  <h2 class="good">维度一 · 好评（4~5星，n=409）态度观点提取</h2>
+  <p class="desc">对 409 条好评逐条做语义拆解：既提取用户明确赞赏的正面观点，也提取好评中夹带的抱怨（负面观点）。同一评论内同一观点重复出现仅计 1 次，占比 = 提及次数 ÷ 409。</p>
+
+  <h3 style="font-size:16px;margin:22px 0 10px;color:#15803d;">1.1 好评中的正面态度观点（Top 40）</h3>
+  <table>
+    <thead>
+      <tr><th class="rank">排名</th><th>评论点标签</th><th>简要说明</th><th class="num">提及次数</th><th class="num">占比(%)</th><th style="width:130px;">强度</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="rank">1</td><td class="tag">画质清晰/4K细节强</td><td>白天成像锐利，细节丰富，远超旧机型</td><td class="num">128</td><td class="num">31.3</td><td><div class="bar"><span class="pos" style="width:100%"></span></div></td></tr>
+      <tr><td class="rank">2</td><td class="tag">安装设置简单</td><td>插线即用，App引导配置，几分钟完成</td><td class="num">92</td><td class="num">22.5</td><td><div class="bar"><span class="pos" style="width:72%"></span></div></td></tr>
+      <tr><td class="rank">3</td><td class="tag">自动追踪精准</td><td>云台随人/车转动，目标保持在画面中</td><td class="num">84</td><td class="num">20.5</td><td><div class="bar"><span class="pos" style="width:66%"></span></div></td></tr>
+      <tr><td class="rank">4</td><td class="tag">双镜头/双画面实用</td><td>广角全景＋长焦特写同屏，信息更完整</td><td class="num">62</td><td class="num">15.2</td><td><div class="bar"><span class="pos" style="width:48%"></span></div></td></tr>
+      <tr><td class="rank">5</td><td class="tag">夜视效果好</td><td>红外清晰，聚光灯下可彩色夜视</td><td class="num">58</td><td class="num">14.2</td><td><div class="bar"><span class="pos" style="width:45%"></span></div></td></tr>
+      <tr><td class="rank">6</td><td class="tag">做工扎实/金属机身</td><td>外壳坚固有分量，耐候性令人放心</td><td class="num">54</td><td class="num">13.2</td><td><div class="bar"><span class="pos" style="width:42%"></span></div></td></tr>
+      <tr><td class="rank">7</td><td class="tag">PoE单线缆供电</td><td>一根网线搞定供电＋数据，布线整洁</td><td class="num">48</td><td class="num">11.7</td><td><div class="bar"><span class="pos" style="width:37%"></span></div></td></tr>
+      <tr><td class="rank">8</td><td class="tag">性价比高</td><td>功能配置对标更高价位，物超所值</td><td class="num">45</td><td class="num">11.0</td><td><div class="bar"><span class="pos" style="width:35%"></span></div></td></tr>
+      <tr><td class="rank">9</td><td class="tag">无订阅/本地存储</td><td>不强制云套餐，SD卡或NVR本地录像</td><td class="num">42</td><td class="num">10.3</td><td><div class="bar"><span class="pos" style="width:33%"></span></div></td></tr>
+      <tr><td class="rank">10</td><td class="tag">AI识别准确</td><td>人/车/宠物分类识别，减少无效告警</td><td class="num">40</td><td class="num">9.8</td><td><div class="bar"><span class="pos" style="width:31%"></span></div></td></tr>
+      <tr><td class="rank">11</td><td class="tag">生态集成性好</td><td>兼容NVR/HA/群晖/Blue Iris/ONVIF</td><td class="num">38</td><td class="num">9.3</td><td><div class="bar"><span class="pos" style="width:30%"></span></div></td></tr>
+      <tr><td class="rank">12</td><td class="tag">App功能丰富易用</td><td>直播、回放、推送、参数集中管理</td><td class="num">34</td><td class="num">8.3</td><td><div class="bar"><span class="pos" style="width:27%"></span></div></td></tr>
+      <tr><td class="rank">13</td><td class="tag">PTZ云台覆盖广</td><td>355°水平＋90°垂直，消除监控死角</td><td class="num">32</td><td class="num">7.8</td><td><div class="bar"><span class="pos" style="width:25%"></span></div></td></tr>
+      <tr><td class="rank">14</td><td class="tag">长期稳定无故障</td><td>连续运行数月无掉线、无死机</td><td class="num">28</td><td class="num">6.8</td><td><div class="bar"><span class="pos" style="width:22%"></span></div></td></tr>
+      <tr><td class="rank">15</td><td class="tag">变焦能力实用</td><td>6X混合变焦可辨车牌、人脸细节</td><td class="num">24</td><td class="num">5.9</td><td><div class="bar"><span class="pos" style="width:19%"></span></div></td></tr>
+      <tr><td class="rank">16</td><td class="tag">通知推送及时</td><td>数秒内收到告警，可据此判断异常</td><td class="num">22</td><td class="num">5.4</td><td><div class="bar"><span class="pos" style="width:17%"></span></div></td></tr>
+      <tr><td class="rank">17</td><td class="tag">广角视野大</td><td>2.8mm广角覆盖整个院子/车道</td><td class="num">18</td><td class="num">4.4</td><td><div class="bar"><span class="pos" style="width:14%"></span></div></td></tr>
+      <tr><td class="rank">18</td><td class="tag">双向音频清晰</td><td>可远程对话，喇叭音量足够</td><td class="num">16</td><td class="num">3.9</td><td><div class="bar"><span class="pos" style="width:12%"></span></div></td></tr>
+      <tr><td class="rank">19</td><td class="tag">可辨识车牌/人脸</td><td>中近距离识别能力获用户认可</td><td class="num">15</td><td class="num">3.7</td><td><div class="bar"><span class="pos" style="width:12%"></span></div></td></tr>
+      <tr><td class="rank">20</td><td class="tag">聚光灯/警笛有效</td><td>威慑效果好，夜间威慑力强</td><td class="num">14</td><td class="num">3.4</td><td><div class="bar"><span class="pos" style="width:11%"></span></div></td></tr>
+      <tr><td class="rank">21</td><td class="tag">愿意复购/推荐</td><td>已购多台或推荐给亲友、邻居</td><td class="num">14</td><td class="num">3.4</td><td><div class="bar"><span class="pos" style="width:11%"></span></div></td></tr>
+      <tr><td class="rank">22</td><td class="tag">回放检索方便</td><td>按人/车/动物事件筛选，定位快</td><td class="num">13</td><td class="num">3.2</td><td><div class="bar"><span class="pos" style="width:10%"></span></div></td></tr>
+      <tr><td class="rank">23</td><td class="tag">移动侦测灵敏</td><td>灵敏度可调，捕捉到位</td><td class="num">12</td><td class="num">2.9</td><td><div class="bar"><span class="pos" style="width:9%"></span></div></td></tr>
+      <tr><td class="rank">24</td><td class="tag">耐候防水耐用</td><td>经历严寒/暴雨仍正常工作</td><td class="num">12</td><td class="num">2.9</td><td><div class="bar"><span class="pos" style="width:9%"></span></div></td></tr>
+      <tr><td class="rank">25</td><td class="tag">外观隐蔽性好</td><td>黑/灰配色不突兀，融入环境</td><td class="num">10</td><td class="num">2.4</td><td><div class="bar"><span class="pos" style="width:8%"></span></div></td></tr>
+      <tr><td class="rank">26</td><td class="tag">SD卡本地录制</td><td>无需NVR即可独立录像</td><td class="num">9</td><td class="num">2.2</td><td><div class="bar"><span class="pos" style="width:7%"></span></div></td></tr>
+      <tr><td class="rank">27</td><td class="tag">客服支持好</td><td>响应及时，主动换新或补偿</td><td class="num">9</td><td class="num">2.2</td><td><div class="bar"><span class="pos" style="width:7%"></span></div></td></tr>
+      <tr><td class="rank">28</td><td class="tag">追踪画面平滑</td><td>机械追踪流畅，无明显卡顿</td><td class="num">8</td><td class="num">2.0</td><td><div class="bar"><span class="pos" style="width:6%"></span></div></td></tr>
+      <tr><td class="rank">29</td><td class="tag">远程访问流畅</td><td>异地查看直播响应快</td><td class="num">7</td><td class="num">1.7</td><td><div class="bar"><span class="pos" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">30</td><td class="tag">连续录像24/7</td><td>全天录像不漏事件</td><td class="num">7</td><td class="num">1.7</td><td><div class="bar"><span class="pos" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">31</td><td class="tag">安装支架灵活</td><td>支持壁挂/吊装，多角度可调</td><td class="num">6</td><td class="num">1.5</td><td><div class="bar"><span class="pos" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">32</td><td class="tag">一机替代多机</td><td>单机覆盖面积大，减少布点</td><td class="num">6</td><td class="num">1.5</td><td><div class="bar"><span class="pos" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">33</td><td class="tag">固件升级便捷</td><td>升级流程简单，问题可修复</td><td class="num">5</td><td class="num">1.2</td><td><div class="bar"><span class="pos" style="width:4%"></span></div></td></tr>
+      <tr><td class="rank">34</td><td class="tag">包装配件齐全</td><td>防水接头、螺丝、说明书齐备</td><td class="num">4</td><td class="num">1.0</td><td><div class="bar"><span class="pos" style="width:3%"></span></div></td></tr>
+      <tr><td class="rank">35</td><td class="tag">App学习成本低</td><td>老人/非技术用户也能上手</td><td class="num">4</td><td class="num">1.0</td><td><div class="bar"><span class="pos" style="width:3%"></span></div></td></tr>
+      <tr><td class="rank">36</td><td class="tag">隐私遮蔽可用</td><td>可遮挡邻域/公共区域</td><td class="num">3</td><td class="num">0.7</td><td><div class="bar"><span class="pos" style="width:2%"></span></div></td></tr>
+      <tr><td class="rank">37</td><td class="tag">图像无畸变</td><td>无明显鱼眼变形</td><td class="num">3</td><td class="num">0.7</td><td><div class="bar"><span class="pos" style="width:2%"></span></div></td></tr>
+      <tr><td class="rank">38</td><td class="tag">麦克风拾音远</td><td>较远距离声音仍可听清</td><td class="num">3</td><td class="num">0.7</td><td><div class="bar"><span class="pos" style="width:2%"></span></div></td></tr>
+      <tr><td class="rank">39</td><td class="tag">FTP/备份能力</td><td>可自行搭建备份，数据自主可控</td><td class="num">3</td><td class="num">0.7</td><td><div class="bar"><span class="pos" style="width:2%"></span></div></td></tr>
+      <tr><td class="rank">40</td><td class="tag">通电即识别NVR</td><td>NVR自动发现，无需扫码配置</td><td class="num">3</td><td class="num">0.7</td><td><div class="bar"><span class="pos" style="width:2%"></span></div></td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size:16px;margin:30px 0 10px;color:#b91c1c;">1.2 好评中夹带的负面态度观点（Top 40）</h3>
+  <p class="desc">好评用户同样表达了不满，这部分“高分低满意度”信号极具参考价值——用户认可产品，但对细节体验有明确怨言。</p>
+  <table>
+    <thead>
+      <tr><th class="rank">排名</th><th>评论点标签</th><th>简要说明</th><th class="num">提及次数</th><th class="num">占比(%)</th><th style="width:130px;">强度</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="rank">1</td><td class="tag">App/软件体验不佳</td><td>界面不直观、存在Bug、操作繁琐</td><td class="num">30</td><td class="num">7.3</td><td><div class="bar"><span class="neg" style="width:100%"></span></div></td></tr>
+      <tr><td class="rank">2</td><td class="tag">变焦画质不及预期</td><td>非真正光学变焦，长焦仅1080p偏糊</td><td class="num">26</td><td class="num">6.4</td><td><div class="bar"><span class="neg" style="width:87%"></span></div></td></tr>
+      <tr><td class="rank">3</td><td class="tag">追踪丢失/偏离目标</td><td>目标不居中、追踪抖动或中途放弃</td><td class="num">24</td><td class="num">5.9</td><td><div class="bar"><span class="neg" style="width:80%"></span></div></td></tr>
+      <tr><td class="rank">4</td><td class="tag">误报多</td><td>飞虫、雨雪、树影、光影均触发告警</td><td class="num">22</td><td class="num">5.4</td><td><div class="bar"><span class="neg" style="width:73%"></span></div></td></tr>
+      <tr><td class="rank">5</td><td class="tag">体积大/笨重显眼</td><td>机身庞大，安装位置受限、不够隐蔽</td><td class="num">18</td><td class="num">4.4</td><td><div class="bar"><span class="neg" style="width:60%"></span></div></td></tr>
+      <tr><td class="rank">6</td><td class="tag">夜视画质一般</td><td>暗光噪点、切换瞬间失明、反光过曝</td><td class="num">17</td><td class="num">4.2</td><td><div class="bar"><span class="neg" style="width:57%"></span></div></td></tr>
+      <tr><td class="rank">7</td><td class="tag">设置复杂/学习成本高</td><td>参数项繁多，需反复调试才可用</td><td class="num">16</td><td class="num">3.9</td><td><div class="bar"><span class="neg" style="width:53%"></span></div></td></tr>
+      <tr><td class="rank">8</td><td class="tag">与旧NVR不兼容</td><td>旧型号NVR无法识别，需换新设备</td><td class="num">14</td><td class="num">3.4</td><td><div class="bar"><span class="neg" style="width:47%"></span></div></td></tr>
+      <tr><td class="rank">9</td><td class="tag">不含电源适配器</td><td>POE版无12V电源，需另行采购</td><td class="num">13</td><td class="num">3.2</td><td><div class="bar"><span class="neg" style="width:43%"></span></div></td></tr>
+      <tr><td class="rank">10</td><td class="tag">直播延迟/卡顿</td><td>高画质流延迟明显，操作响应慢</td><td class="num">12</td><td class="num">2.9</td><td><div class="bar"><span class="neg" style="width:40%"></span></div></td></tr>
+      <tr><td class="rank">11</td><td class="tag">连接不稳定</td><td>偶发断连、需重启恢复</td><td class="num">11</td><td class="num">2.7</td><td><div class="bar"><span class="neg" style="width:37%"></span></div></td></tr>
+      <tr><td class="rank">12</td><td class="tag">第三方平台兼容差</td><td>Blue Iris/群晖/Frigate功能受限</td><td class="num">10</td><td class="num">2.4</td><td><div class="bar"><span class="neg" style="width:33%"></span></div></td></tr>
+      <tr><td class="rank">13</td><td class="tag">客服响应差</td><td>仅邮件沟通、反复问同样问题</td><td class="num">9</td><td class="num">2.2</td><td><div class="bar"><span class="neg" style="width:30%"></span></div></td></tr>
+      <tr><td class="rank">14</td><td class="tag">缺少巡航功能</td><td>无自动巡航/预置位轮巡</td><td class="num">8</td><td class="num">2.0</td><td><div class="bar"><span class="neg" style="width:27%"></span></div></td></tr>
+      <tr><td class="rank">15</td><td class="tag">双镜头不能独立控制</td><td>两镜头联动，无法各自设定视角</td><td class="num">8</td><td class="num">2.0</td><td><div class="bar"><span class="neg" style="width:27%"></span></div></td></tr>
+      <tr><td class="rank">16</td><td class="tag">隐私遮蔽随镜头移动</td><td>遮挡区域不随场景固定，失去意义</td><td class="num">7</td><td class="num">1.7</td><td><div class="bar"><span class="neg" style="width:23%"></span></div></td></tr>
+      <tr><td class="rank">17</td><td class="tag">价格偏高</td><td>同价位竞品可选，涨价后性价比下降</td><td class="num">6</td><td class="num">1.5</td><td><div class="bar"><span class="neg" style="width:20%"></span></div></td></tr>
+      <tr><td class="rank">18</td><td class="tag">缺详细教程/文档</td><td>追踪设置缺少易懂视频指引</td><td class="num">6</td><td class="num">1.5</td><td><div class="bar"><span class="neg" style="width:20%"></span></div></td></tr>
+      <tr><td class="rank">19</td><td class="tag">音频问题</td><td>无法静音、音量不可调、存在回声</td><td class="num">6</td><td class="num">1.5</td><td><div class="bar"><span class="neg" style="width:20%"></span></div></td></tr>
+      <tr><td class="rank">20</td><td class="tag">光线切换过曝/反光</td><td>靠近墙面反光，夜间细节丢失</td><td class="num">5</td><td class="num">1.2</td><td><div class="bar"><span class="neg" style="width:17%"></span></div></td></tr>
+      <tr><td class="rank">21</td><td class="tag">需额外PoE设备</td><td>需自备PoE交换机/注入器</td><td class="num">5</td><td class="num">1.2</td><td><div class="bar"><span class="neg" style="width:17%"></span></div></td></tr>
+      <tr><td class="rank">22</td><td class="tag">存储时长不足</td><td>256G卡仅存约4天录像</td><td class="num">5</td><td class="num">1.2</td><td><div class="bar"><span class="neg" style="width:17%"></span></div></td></tr>
+      <tr><td class="rank">23</td><td class="tag">云台噪音</td><td>室内/近距离可听到转动声</td><td class="num">4</td><td class="num">1.0</td><td><div class="bar"><span class="neg" style="width:13%"></span></div></td></tr>
+      <tr><td class="rank">24</td><td class="tag">通知不准确/漏报</td><td>该报不报、不该报乱报</td><td class="num">4</td><td class="num">1.0</td><td><div class="bar"><span class="neg" style="width:13%"></span></div></td></tr>
+      <tr><td class="rank">25</td><td class="tag">支架/线缆设计欠佳</td><td>接头过大、需开大孔、走线难看</td><td class="num">4</td><td class="num">1.0</td><td><div class="bar"><span class="neg" style="width:13%"></span></div></td></tr>
+      <tr><td class="rank">26</td><td class="tag">固件需手动升级</td><td>自动更新失效，需手动刷机</td><td class="num">4</td><td class="num">1.0</td><td><div class="bar"><span class="neg" style="width:13%"></span></div></td></tr>
+      <tr><td class="rank">27</td><td class="tag">无用户权限管理</td><td>无法为访客分配受限权限</td><td class="num">3</td><td class="num">0.7</td><td><div class="bar"><span class="neg" style="width:10%"></span></div></td></tr>
+      <tr><td class="rank">28</td><td class="tag">不支持云存储</td><td>POE版无法接入品牌云</td><td class="num">3</td><td class="num">0.7</td><td><div class="bar"><span class="neg" style="width:10%"></span></div></td></tr>
+      <tr><td class="rank">29</td><td class="tag">说明书指引不足</td><td>安装/配置说明不够清晰</td><td class="num">3</td><td class="num">0.7</td><td><div class="bar"><span class="neg" style="width:10%"></span></div></td></tr>
+      <tr><td class="rank">30</td><td class="tag">远程访问偶发失败</td><td>外网访问需多次尝试</td><td class="num">3</td><td class="num">0.7</td><td><div class="bar"><span class="neg" style="width:10%"></span></div></td></tr>
+      <tr><td class="rank">31</td><td class="tag">数码追踪有跳跃感</td><td>电子追踪抖动，观感不佳</td><td class="num">3</td><td class="num">0.7</td><td><div class="bar"><span class="neg" style="width:10%"></span></div></td></tr>
+      <tr><td class="rank">32</td><td class="tag">不支持HomeKit</td><td>无法接入Apple家庭中枢</td><td class="num">2</td><td class="num">0.5</td><td><div class="bar"><span class="neg" style="width:7%"></span></div></td></tr>
+      <tr><td class="rank">33</td><td class="tag">画面偏色</td><td>个别机器出现色偏/紫边</td><td class="num">2</td><td class="num">0.5</td><td><div class="bar"><span class="neg" style="width:7%"></span></div></td></tr>
+      <tr><td class="rank">34</td><td class="tag">对焦迟疑</td><td>变焦后需等待对焦完成</td><td class="num">2</td><td class="num">0.5</td><td><div class="bar"><span class="neg" style="width:7%"></span></div></td></tr>
+      <tr><td class="rank">35</td><td class="tag">安装需专业布线</td><td>PoE布线门槛劝退普通用户</td><td class="num">2</td><td class="num">0.5</td><td><div class="bar"><span class="neg" style="width:7%"></span></div></td></tr>
+      <tr><td class="rank">36</td><td class="tag">镜头易沾水渍</td><td>雨滴附着影响画面</td><td class="num">2</td><td class="num">0.5</td><td><div class="bar"><span class="neg" style="width:7%"></span></div></td></tr>
+      <tr><td class="rank">37</td><td class="tag">iOS端功能滞后</td><td>部分功能在iOS上不可用</td><td class="num">2</td><td class="num">0.5</td><td><div class="bar"><span class="neg" style="width:7%"></span></div></td></tr>
+      <tr><td class="rank">38</td><td class="tag">物流/发货问题</td><td>到货延迟、包装被拆封</td><td class="num">2</td><td class="num">0.5</td><td><div class="bar"><span class="neg" style="width:7%"></span></div></td></tr>
+      <tr><td class="rank">39</td><td class="tag">说明书仅英文</td><td>非英语市场用户阅读困难</td><td class="num">2</td><td class="num">0.5</td><td><div class="bar"><span class="neg" style="width:7%"></span></div></td></tr>
+      <tr><td class="rank">40</td><td class="tag">机身为塑料件</td><td>活动云台部分为塑料，质感打折</td><td class="num">2</td><td class="num">0.5</td><td><div class="bar"><span class="neg" style="width:7%"></span></div></td></tr>
+    </tbody>
+  </table>
+  <div class="note">观察：好评群体的抱怨集中在“<b>软件体验</b>”与“<b>变焦规格宣传落差</b>”两项，说明硬件已获得认可，但软件与规格沟通是拖累满分评价的关键短板。</div>
+</section>
+
+<!-- ===================== 维度2 ===================== -->
+<section>
+  <h2 class="bad">维度二 · 差评（1~3星，n=322）态度观点提取</h2>
+  <p class="desc">对 322 条差评逐条拆解：归纳用户明确表达的负面观点，同时提取差评中仍被肯定的正面观点（这类“贬中之褒”是产品真正的不可替代优势）。占比 = 提及次数 ÷ 322。</p>
+
+  <h3 style="font-size:16px;margin:22px 0 10px;color:#b91c1c;">2.1 差评中的负面态度观点（Top 40）</h3>
+  <table>
+    <thead>
+      <tr><th class="rank">排名</th><th>评论点标签</th><th>简要说明</th><th class="num">提及次数</th><th class="num">占比(%)</th><th style="width:130px;">强度</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="rank">1</td><td class="tag">设备故障/短期损坏</td><td>DOA、数周或数月即死机、无法开机</td><td class="num">62</td><td class="num">19.3</td><td><div class="bar"><span class="neg" style="width:100%"></span></div></td></tr>
+      <tr><td class="rank">2</td><td class="tag">客服差/无法联系</td><td>仅邮件、机器人回复、反复问同题、拖延</td><td class="num">48</td><td class="num">14.9</td><td><div class="bar"><span class="neg" style="width:77%"></span></div></td></tr>
+      <tr><td class="rank">3</td><td class="tag">与旧NVR/设备不兼容</td><td>老款NVR无法识别，需整机更换</td><td class="num">44</td><td class="num">13.7</td><td><div class="bar"><span class="neg" style="width:71%"></span></div></td></tr>
+      <tr><td class="rank">4</td><td class="tag">App/软件Bug</td><td>界面混乱、回放失败、设置不保存</td><td class="num">42</td><td class="num">13.0</td><td><div class="bar"><span class="neg" style="width:68%"></span></div></td></tr>
+      <tr><td class="rank">5</td><td class="tag">自动追踪失灵</td><td>不追踪、乱转、跟丢目标或反向转</td><td class="num">38</td><td class="num">11.8</td><td><div class="bar"><span class="neg" style="width:61%"></span></div></td></tr>
+      <tr><td class="rank">6</td><td class="tag">误报多/侦测不准</td><td>虫子、雨雪、雾、树叶均触发；真人反而漏报</td><td class="num">33</td><td class="num">10.2</td><td><div class="bar"><span class="neg" style="width:53%"></span></div></td></tr>
+      <tr><td class="rank">7</td><td class="tag">连接不稳定/频繁断连</td><td>随机掉线、需重启、画面丢失</td><td class="num">29</td><td class="num">9.0</td><td><div class="bar"><span class="neg" style="width:47%"></span></div></td></tr>
+      <tr><td class="rank">8</td><td class="tag">画质不达4K</td><td>宣称4K但实测模糊、偏色、像1080p</td><td class="num">28</td><td class="num">8.7</td><td><div class="bar"><span class="neg" style="width:45%"></span></div></td></tr>
+      <tr><td class="rank">9</td><td class="tag">变焦效果差</td><td>数码变焦模糊，长焦仅1080p</td><td class="num">27</td><td class="num">8.4</td><td><div class="bar"><span class="neg" style="width:44%"></span></div></td></tr>
+      <tr><td class="rank">10</td><td class="tag">夜视差</td><td>夜间噪点大、起雾、30英尺外无法识别</td><td class="num">26</td><td class="num">8.1</td><td><div class="bar"><span class="neg" style="width:42%"></span></div></td></tr>
+      <tr><td class="rank">11</td><td class="tag">设置复杂/难上手</td><td>参数繁多、需专业网络知识</td><td class="num">22</td><td class="num">6.8</td><td><div class="bar"><span class="neg" style="width:35%"></span></div></td></tr>
+      <tr><td class="rank">12</td><td class="tag">无电源适配器/配件缺失</td><td>开箱缺电源、缺说明书、缺连接件</td><td class="num">20</td><td class="num">6.2</td><td><div class="bar"><span class="neg" style="width:32%"></span></div></td></tr>
+      <tr><td class="rank">13</td><td class="tag">宣传误导</td><td>描述未说明POE限制、需另购设备</td><td class="num">18</td><td class="num">5.6</td><td><div class="bar"><span class="neg" style="width:29%"></span></div></td></tr>
+      <tr><td class="rank">14</td><td class="tag">第三方平台兼容差</td><td>Blue Iris/群晖/UniFi/Frigate功能残缺</td><td class="num">17</td><td class="num">5.3</td><td><div class="bar"><span class="neg" style="width:27%"></span></div></td></tr>
+      <tr><td class="rank">15</td><td class="tag">退换货/保修困难</td><td>流程冗长、运费自担、需先寄回旧机</td><td class="num">16</td><td class="num">5.0</td><td><div class="bar"><span class="neg" style="width:26%"></span></div></td></tr>
+      <tr><td class="rank">16</td><td class="tag">价格不值</td><td>同价位可选更成熟品牌</td><td class="num">15</td><td class="num">4.7</td><td><div class="bar"><span class="neg" style="width:24%"></span></div></td></tr>
+      <tr><td class="rank">17</td><td class="tag">延迟/画面滞后</td><td>直播延迟数秒至30秒，无法实时处置</td><td class="num">14</td><td class="num">4.3</td><td><div class="bar"><span class="neg" style="width:23%"></span></div></td></tr>
+      <tr><td class="rank">18</td><td class="tag">双镜头失效/画面重复</td><td>两路画面相同，变焦镜不工作</td><td class="num">13</td><td class="num">4.0</td><td><div class="bar"><span class="neg" style="width:21%"></span></div></td></tr>
+      <tr><td class="rank">19</td><td class="tag">通知漏报/不推送</td><td>有人经过却不报警</td><td class="num">12</td><td class="num">3.7</td><td><div class="bar"><span class="neg" style="width:19%"></span></div></td></tr>
+      <tr><td class="rank">20</td><td class="tag">防水差/进水损坏</td><td>雨后失效、接头腐蚀、镜头起雾</td><td class="num">12</td><td class="num">3.7</td><td><div class="bar"><span class="neg" style="width:19%"></span></div></td></tr>
+      <tr><td class="rank">21</td><td class="tag">体积大/笨重</td><td>过于显眼，安装受限</td><td class="num">11</td><td class="num">3.4</td><td><div class="bar"><span class="neg" style="width:18%"></span></div></td></tr>
+      <tr><td class="rank">22</td><td class="tag">固件版本混乱</td><td>需手动刷机，自动更新失效</td><td class="num">10</td><td class="num">3.1</td><td><div class="bar"><span class="neg" style="width:16%"></span></div></td></tr>
+      <tr><td class="rank">23</td><td class="tag">追踪抖动/不平滑</td><td>画面跳跃、机械噪音、观感粗糙</td><td class="num">9</td><td class="num">2.8</td><td><div class="bar"><span class="neg" style="width:15%"></span></div></td></tr>
+      <tr><td class="rank">24</td><td class="tag">无巡航模式</td><td>PTZ却不支持自动巡检</td><td class="num">9</td><td class="num">2.8</td><td><div class="bar"><span class="neg" style="width:15%"></span></div></td></tr>
+      <tr><td class="rank">25</td><td class="tag">遮蔽区随动失效</td><td>非侦测区不随云台固定，形同虚设</td><td class="num">8</td><td class="num">2.5</td><td><div class="bar"><span class="neg" style="width:13%"></span></div></td></tr>
+      <tr><td class="rank">26</td><td class="tag">云台齿轮/电机损坏</td><td>使用数月后无法转动、来回抖动</td><td class="num">8</td><td class="num">2.5</td><td><div class="bar"><span class="neg" style="width:13%"></span></div></td></tr>
+      <tr><td class="rank">27</td><td class="tag">支架/接头设计差</td><td>接头过大需开大孔、支架为塑料</td><td class="num">8</td><td class="num">2.5</td><td><div class="bar"><span class="neg" style="width:13%"></span></div></td></tr>
+      <tr><td class="rank">28</td><td class="tag">供电/POE不足</td><td>普通POE交换机功率不足无法启动</td><td class="num">8</td><td class="num">2.5</td><td><div class="bar"><span class="neg" style="width:13%"></span></div></td></tr>
+      <tr><td class="rank">29</td><td class="tag">音频问题</td><td>不能静音、音量过大、回声啸叫</td><td class="num">8</td><td class="num">2.5</td><td><div class="bar"><span class="neg" style="width:13%"></span></div></td></tr>
+      <tr><td class="rank">30</td><td class="tag">昼夜切换异常</td><td>IR模式反复切换、画面忽明忽暗</td><td class="num">7</td><td class="num">2.2</td><td><div class="bar"><span class="neg" style="width:11%"></span></div></td></tr>
+      <tr><td class="rank">31</td><td class="tag">无法远程/云端访问</td><td>不支持云存储、外网访问受限</td><td class="num">6</td><td class="num">1.9</td><td><div class="bar"><span class="neg" style="width:10%"></span></div></td></tr>
+      <tr><td class="rank">32</td><td class="tag">说明书不清/无本地语言</td><td>指引含糊、仅有英文</td><td class="num">5</td><td class="num">1.6</td><td><div class="bar"><span class="neg" style="width:8%"></span></div></td></tr>
+      <tr><td class="rank">33</td><td class="tag">推送延迟</td><td>告警到达滞后</td><td class="num">5</td><td class="num">1.6</td><td><div class="bar"><span class="neg" style="width:8%"></span></div></td></tr>
+      <tr><td class="rank">34</td><td class="tag">侦测区域设置失效</td><td>设置保存后自动丢失</td><td class="num">5</td><td class="num">1.6</td><td><div class="bar"><span class="neg" style="width:8%"></span></div></td></tr>
+      <tr><td class="rank">35</td><td class="tag">电机噪音大</td><td>转动声明显</td><td class="num">4</td><td class="num">1.2</td><td><div class="bar"><span class="neg" style="width:6%"></span></div></td></tr>
+      <tr><td class="rank">36</td><td class="tag">无用户权限管理</td><td>仅单一管理员账号，多端冲突</td><td class="num">4</td><td class="num">1.2</td><td><div class="bar"><span class="neg" style="width:6%"></span></div></td></tr>
+      <tr><td class="rank">37</td><td class="tag">云存储不可用</td><td>与页面描述不符</td><td class="num">4</td><td class="num">1.2</td><td><div class="bar"><span class="neg" style="width:6%"></span></div></td></tr>
+      <tr><td class="rank">38</td><td class="tag">镜头对焦失败</td><td>无法对焦、镜片内部异常</td><td class="num">4</td><td class="num">1.2</td><td><div class="bar"><span class="neg" style="width:6%"></span></div></td></tr>
+      <tr><td class="rank">39</td><td class="tag">广告/评论操控质疑</td><td>怀疑好评被购买或差评被删</td><td class="num">3</td><td class="num">0.9</td><td><div class="bar"><span class="neg" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">40</td><td class="tag">生态支持缺失</td><td>不支持HomeKit等主流智能家居</td><td class="num">3</td><td class="num">0.9</td><td><div class="bar"><span class="neg" style="width:5%"></span></div></td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size:16px;margin:30px 0 10px;color:#15803d;">2.2 差评中的正面态度观点（Top 40）</h3>
+  <p class="desc">即使给出 1~3 星，用户仍肯定了产品的部分能力——这些是产品真正的“不可替代资产”，也是挽回用户的抓手。</p>
+  <table>
+    <thead>
+      <tr><th class="rank">排名</th><th>评论点标签</th><th>简要说明</th><th class="num">提及次数</th><th class="num">占比(%)</th><th style="width:130px;">强度</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="rank">1</td><td class="tag">画质好/白天清晰</td><td>正常工作时成像锐利、细节到位</td><td class="num">38</td><td class="num">11.8</td><td><div class="bar"><span class="pos" style="width:100%"></span></div></td></tr>
+      <tr><td class="rank">2</td><td class="tag">安装设置简单</td><td>扫码即用、接线直观</td><td class="num">24</td><td class="num">7.5</td><td><div class="bar"><span class="pos" style="width:63%"></span></div></td></tr>
+      <tr><td class="rank">3</td><td class="tag">功能强大/追踪可用</td><td>正常状态下追踪、PTZ体验出色</td><td class="num">20</td><td class="num">6.2</td><td><div class="bar"><span class="pos" style="width:53%"></span></div></td></tr>
+      <tr><td class="rank">4</td><td class="tag">做工扎实</td><td>机身坚固、手感厚重</td><td class="num">14</td><td class="num">4.3</td><td><div class="bar"><span class="pos" style="width:37%"></span></div></td></tr>
+      <tr><td class="rank">5</td><td class="tag">售后处理到位</td><td>发帖后主动联系、换新或补偿</td><td class="num">12</td><td class="num">3.7</td><td><div class="bar"><span class="pos" style="width:32%"></span></div></td></tr>
+      <tr><td class="rank">6</td><td class="tag">夜视效果好</td><td>红外/彩色夜视清晰</td><td class="num">10</td><td class="num">3.1</td><td><div class="bar"><span class="pos" style="width:26%"></span></div></td></tr>
+      <tr><td class="rank">7</td><td class="tag">性价比可接受</td><td>价格合适时物有所值</td><td class="num">8</td><td class="num">2.5</td><td><div class="bar"><span class="pos" style="width:21%"></span></div></td></tr>
+      <tr><td class="rank">8</td><td class="tag">PoE布线方便</td><td>单线缆供电+数据，整洁</td><td class="num">7</td><td class="num">2.2</td><td><div class="bar"><span class="pos" style="width:18%"></span></div></td></tr>
+      <tr><td class="rank">9</td><td class="tag">双镜头/变焦有用</td><td>双画面、6X变焦具实用价值</td><td class="num">6</td><td class="num">1.9</td><td><div class="bar"><span class="pos" style="width:16%"></span></div></td></tr>
+      <tr><td class="rank">10</td><td class="tag">App功能齐全</td><td>配置项丰富、直播可用</td><td class="num">6</td><td class="num">1.9</td><td><div class="bar"><span class="pos" style="width:16%"></span></div></td></tr>
+      <tr><td class="rank">11</td><td class="tag">通知及时</td><td>推送速度快</td><td class="num">5</td><td class="num">1.6</td><td><div class="bar"><span class="pos" style="width:13%"></span></div></td></tr>
+      <tr><td class="rank">12</td><td class="tag">无订阅费</td><td>本地录像、无月费</td><td class="num">4</td><td class="num">1.2</td><td><div class="bar"><span class="pos" style="width:11%"></span></div></td></tr>
+      <tr><td class="rank">13</td><td class="tag">音频/对讲可用</td><td>双向通话功能正常</td><td class="num">4</td><td class="num">1.2</td><td><div class="bar"><span class="pos" style="width:11%"></span></div></td></tr>
+      <tr><td class="rank">14</td><td class="tag">聚光灯/警笛有效</td><td>亮度高、威慑力强</td><td class="num">4</td><td class="num">1.2</td><td><div class="bar"><span class="pos" style="width:11%"></span></div></td></tr>
+      <tr><td class="rank">15</td><td class="tag">可与第三方集成</td><td>RTSP/ONVIF可用</td><td class="num">3</td><td class="num">0.9</td><td><div class="bar"><span class="pos" style="width:8%"></span></div></td></tr>
+      <tr><td class="rank">16</td><td class="tag">包装配件良好</td><td>防护到位、配件齐</td><td class="num">3</td><td class="num">0.9</td><td><div class="bar"><span class="pos" style="width:8%"></span></div></td></tr>
+      <tr><td class="rank">17</td><td class="tag">运行稳定（个别）</td><td>部分用户长期无故障</td><td class="num">3</td><td class="num">0.9</td><td><div class="bar"><span class="pos" style="width:8%"></span></div></td></tr>
+      <tr><td class="rank">18</td><td class="tag">4K细节可辨</td><td>可识别面孔/车牌</td><td class="num">3</td><td class="num">0.9</td><td><div class="bar"><span class="pos" style="width:8%"></span></div></td></tr>
+      <tr><td class="rank">19</td><td class="tag">AI识别可用</td><td>人车分类基本准确</td><td class="num">3</td><td class="num">0.9</td><td><div class="bar"><span class="pos" style="width:8%"></span></div></td></tr>
+      <tr><td class="rank">20</td><td class="tag">外观专业</td><td>设计感好、不像廉价货</td><td class="num">2</td><td class="num">0.6</td><td><div class="bar"><span class="pos" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">21</td><td class="tag">多端同步可用</td><td>手机/PC同时管理</td><td class="num">2</td><td class="num">0.6</td><td><div class="bar"><span class="pos" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">22</td><td class="tag">固件可修复问题</td><td>升级后部分问题解决</td><td class="num">2</td><td class="num">0.6</td><td><div class="bar"><span class="pos" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">23</td><td class="tag">广角覆盖大</td><td>单机视野足够</td><td class="num">2</td><td class="num">0.6</td><td><div class="bar"><span class="pos" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">24</td><td class="tag">SD卡独立录像</td><td>无需NVR也能用</td><td class="num">2</td><td class="num">0.6</td><td><div class="bar"><span class="pos" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">25</td><td class="tag">支架安装友好</td><td>挂装方便</td><td class="num">2</td><td class="num">0.6</td><td><div class="bar"><span class="pos" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">26</td><td class="tag">追踪速度快</td><td>云台转动迅速</td><td class="num">2</td><td class="num">0.6</td><td><div class="bar"><span class="pos" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">27</td><td class="tag">彩色夜视</td><td>聚光灯下夜间可见颜色</td><td class="num">2</td><td class="num">0.6</td><td><div class="bar"><span class="pos" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">28</td><td class="tag">麦克风灵敏</td><td>拾音距离远</td><td class="num">2</td><td class="num">0.6</td><td><div class="bar"><span class="pos" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">29</td><td class="tag">可接入Home Assistant</td><td>自动化场景丰富</td><td class="num">2</td><td class="num">0.6</td><td><div class="bar"><span class="pos" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">30</td><td class="tag">支持FTP备份</td><td>数据自主可控</td><td class="num">2</td><td class="num">0.6</td><td><div class="bar"><span class="pos" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">31</td><td class="tag">回放筛选好用</td><td>按事件类型快速定位</td><td class="num">2</td><td class="num">0.6</td><td><div class="bar"><span class="pos" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">32</td><td class="tag">抗寒耐热</td><td>极端温度下仍工作</td><td class="num">2</td><td class="num">0.6</td><td><div class="bar"><span class="pos" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">33</td><td class="tag">客服态度礼貌</td><td>沟通耐心但效率低</td><td class="num">2</td><td class="num">0.6</td><td><div class="bar"><span class="pos" style="width:5%"></span></div></td></tr>
+      <tr><td class="rank">34</td><td class="tag">警报声够大</td><td>可作威慑</td><td class="num">1</td><td class="num">0.3</td><td><div class="bar"><span class="pos" style="width:3%"></span></div></td></tr>
+      <tr><td class="rank">35</td><td class="tag">双流可选</td><td>高低码流切换</td><td class="num">1</td><td class="num">0.3</td><td><div class="bar"><span class="pos" style="width:3%"></span></div></td></tr>
+      <tr><td class="rank">36</td><td class="tag">开机识别快</td><td>上电即被发现</td><td class="num">1</td><td class="num">0.3</td><td><div class="bar"><span class="pos" style="width:3%"></span></div></td></tr>
+      <tr><td class="rank">37</td><td class="tag">无鱼眼畸变</td><td>画面自然</td><td class="num">1</td><td class="num">0.3</td><td><div class="bar"><span class="pos" style="width:3%"></span></div></td></tr>
+      <tr><td class="rank">38</td><td class="tag">预设位好用</td><td>可保存常用视角</td><td class="num">1</td><td class="num">0.3</td><td><div class="bar"><span class="pos" style="width:3%"></span></div></td></tr>
+      <tr><td class="rank">39</td><td class="tag">OTA可修Bug</td><td>厂商持续更新</td><td class="num">1</td><td class="num">0.3</td><td><div class="bar"><span class="pos" style="width:3%"></span></div></td></tr>
+      <tr><td class="rank">40</td><td class="tag">安装不破坏墙体</td><td>支架设计省事</td><td class="num">1</td><td class="num">0.3</td><td><div class="bar"><span class="pos" style="width:3%"></span></div></td></tr>
+    </tbody>
+  </table>
+  <div class="note">观察：差评用户中有约 <b>11.8%</b> 主动称赞画质、<b>7.5%</b> 认可安装体验——说明“画面好、装得快”几乎无争议，失败点集中在<b>可靠性与服务</b>，而非产品概念。</div>
+</section>
+
+<!-- ===================== 综合结论 ===================== -->
+<section>
+  <h2>三 · 综合结论：核心优势与突出问题</h2>
+  <div class="summary-grid">
+    <div class="box good">
+      <h3>✔ 核心好评点（产品资产）</h3>
+      <ol>
+        <li><b>画质与4K细节</b>：好评提及率 31.3%，差评中仍有 11.8% 称赞，是最稳固的口碑基础。</li>
+        <li><b>双镜头“广角＋长焦”形态</b>：15.2% 好评明确认可同屏双画面，属差异化卖点。</li>
+        <li><b>自动追踪＋AI识别</b>：20.5% 好评认可追踪，9.8% 认可人/车/宠物识别。</li>
+        <li><b>PoE 单线缆方案</b>：11.7% 好评，稳定性与布线整洁度获工程型用户青睐。</li>
+        <li><b>零订阅、本地存储</b>：10.3% 好评，“不被月费绑架”是重要购买理由。</li>
+        <li><b>安装门槛低</b>：22.5% 好评，插线几分钟可用。</li>
+      </ol>
+    </div>
+    <div class="box bad">
+      <h3>✘ 突出问题（口碑杀手）</h3>
+      <ol>
+        <li><b>可靠性危机</b>：差评中 19.3% 提到设备故障（DOA/数月损坏/进水），叠加齿轮损坏、镜头异常，是最大失分项。</li>
+        <li><b>兼容性断层</b>：13.7% 差评因旧NVR不识别，另有 5.3% 因第三方平台（Blue Iris/群晖/UniFi）功能残缺。</li>
+        <li><b>软件与App体验</b>：13.0% 差评 + 好评中 7.3% 抱怨，Bug多、设置不保存、界面不直观。</li>
+        <li><b>客服与售后</b>：14.9% 差评直指客服低效，5.0% 反映退换修困难，形成“二次伤害”。</li>
+        <li><b>追踪稳定性</b>：11.8% 差评反映不追踪/乱转/跟丢，10.2% 反映误报，直接打击核心卖点信任。</li>
+        <li><b>规格沟通落差</b>：8.4% 差评认为变焦非光学、8.7% 认为画质不达4K，与宣传预期不符。</li>
+        <li><b>配件与说明缺失</b>：6.2% 反映缺电源/配件，5.6% 认为页面未说明POE限制。</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 改进建议 ===================== -->
+<section>
+  <h2>四 · 改进建议（按优先级）</h2>
+  <div class="action">
+    <div class="item">
+      <div class="idx">1</div>
+      <div class="body">
+        <h4>重构可靠性体系：把“不坏”放在第一位<span class="prio p1">P0</span></h4>
+        <p>针对差评 19.3% 的故障率，需做三件事：① 出厂前加严高低温循环、盐雾、雨淋老化测试；② 强化 RJ45 接口与尾线密封（增加防水胶套+O型圈，接口上移防积水）；③ 云台齿轮改用金属/增强尼龙，并在固件中限制频繁来回抖动。目标：将“1年内故障”投诉占比压到 5% 以下。</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="idx">2</div>
+      <div class="body">
+        <h4>建立并公示 NVR / 平台兼容性矩阵<span class="prio p1">P0</span></h4>
+        <p>在详情页首屏标注“支持硬件版本 H3MB18/N2MB02/N3MB01 及以上，需固件 ≥ x.x”，并提供一键检测工具与升级包直链。对 Blue Iris / 群晖 / Frigate / UniFi 逐项列出可用功能（PTZ、双流、AI事件、双向音频），避免“买回来才发现不支持”的一星差评。</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="idx">3</div>
+      <div class="body">
+        <h4>软件体验重做：向导化＋场景模板<span class="prio p1">P0</span></h4>
+        <p>首次配置改为 3 步向导（安装位置→侦测对象→灵敏度档位），内置“车道 / 前门 / 后院 / 店铺”四套预设；修复“非侦测区保存后丢失”“回放加载失败”等高频Bug；App 端增加一键“在家/离家”场景开关与告警暂停按钮。</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="idx">4</div>
+      <div class="body">
+        <h4>追踪算法专项优化<span class="prio p1">P0</span></h4>
+        <p>重点解决“目标不居中、跟丢后乱转、抖动”：引入目标重识别（ReID）与预测性跟拍，跟丢后回到预置位而非原地搜索；提供“追踪灵敏度/变焦激进度/跟拍平滑度”三档滑杆，让用户自行平衡误报与漏报。</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="idx">5</div>
+      <div class="body">
+        <h4>变焦规格诚实化 + 长焦传感器升级<span class="prio p2">P1</span></h4>
+        <p>详情页明确区分“广角 4K / 长焦 2K、6X 为光学＋数码混合”，并用对比图展示实际效果；下一代产品将长焦传感器提升至 4K，或提供“真光学变焦”高配版本，杜绝“宣传4K却像1080p”的落差。</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="idx">6</div>
+      <div class="body">
+        <h4>客服与售后体系重建<span class="prio p2">P1</span></h4>
+        <p>开设区域本地化支持（含电话/在线人工）、承诺首响 24h 内并统一工单上下文避免重复问答；对故障机实行“先寄新后返旧”或本地换新；为亚马逊差评用户设专项回访通道，把 14.9% 的服务抱怨转化为二次好评。</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="idx">7</div>
+      <div class="body">
+        <h4>包装与说明透明化<span class="prio p2">P1</span></h4>
+        <p>POE 版本在标题与主图标注“需 PoE 交换机/注入器（不含电源适配器）”；随附 PoE 注入器选配套餐；说明书增加多语言版本与二维码视频教程（尤其追踪设置、双流接入、防水接头安装）。</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="idx">8</div>
+      <div class="body">
+        <h4>补齐 PTZ 应有的功能短板<span class="prio p3">P2</span></h4>
+        <p>增加自动巡航/预置位轮巡；修复隐私遮蔽与侦测区随云台移动的Bug（改为基于场景坐标锚定）；开放多用户权限（管理员/查看者/仅PTZ），解决“多端同时访问冲突”问题。</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="idx">9</div>
+      <div class="body">
+        <h4>低光成像能力提升<span class="prio p3">P2</span></h4>
+        <p>夜视是差评第10位（8.1%），建议加大传感器靶面（1/1.8"）、引入 WDR/BLC 与更智能的 IR 功率调节；将“彩色夜视”作为卖点的同时，确保无路灯场景下也能识别人形轮廓。</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="idx">10</div>
+      <div class="body">
+        <h4>以“可靠性口碑”重塑营销叙事<span class="prio p3">P2</span></h4>
+        <p>当前 55.9% / 44.1% 的两极化结构说明：产品体验达标但信任不足。营销素材应从“功能堆砌”转向“3 年无故障实拍案例 + 老用户回访 + 真实夜间对比”，用可信证据对冲差评中的可靠性疑虑。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  统计口径说明：以 F 列评论文本为唯一分析对象，按星级分组；单条评论内同一语义观点仅计 1 次；占比 = 该观点提及次数 ÷ 该组评论总数（好评 409 / 差评 322）。语义相近表述已合并归类。
+</footer>
+
+</div>
+</body>
+</html>
